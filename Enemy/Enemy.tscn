@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=3 uid="uid://blasg4ic50mbl"]
 
-[ext_resource type="Texture2D" uid="uid://c3hj7oeg14r4y" path="res://Assets/craftpix-net-935193-free-chibi-necromancer-of-the-shadow-character-sprites/Necromancer_of_the_Shadow_1/PNG/Vector Parts/Sword.png" id="1_kvarv"]
-[ext_resource type="Texture2D" uid="uid://byw7g53r57qbj" path="res://Assets/craftpix-net-935193-free-chibi-necromancer-of-the-shadow-character-sprites/Necromancer_of_the_Shadow_1/PNG/Vector Parts/Left Hand.png" id="2_52jmu"]
-[ext_resource type="Texture2D" uid="uid://cqtaaf083i0h7" path="res://Assets/craftpix-net-935193-free-chibi-necromancer-of-the-shadow-character-sprites/Necromancer_of_the_Shadow_1/PNG/Vector Parts/Left Arm.png" id="3_yqk80"]
-[ext_resource type="Texture2D" uid="uid://cbrh7200cxbb7" path="res://Assets/craftpix-net-935193-free-chibi-necromancer-of-the-shadow-character-sprites/Necromancer_of_the_Shadow_1/PNG/Vector Parts/Left Leg.png" id="4_s5gka"]
-[ext_resource type="Texture2D" uid="uid://ue5f00o4pnyt" path="res://Assets/craftpix-net-935193-free-chibi-necromancer-of-the-shadow-character-sprites/Necromancer_of_the_Shadow_1/PNG/Vector Parts/Right Leg.png" id="5_o5xt3"]
-[ext_resource type="Texture2D" uid="uid://c5tq4wfso5bgd" path="res://Assets/craftpix-net-935193-free-chibi-necromancer-of-the-shadow-character-sprites/Necromancer_of_the_Shadow_1/PNG/Vector Parts/Body.png" id="6_mp8wm"]
-[ext_resource type="Texture2D" uid="uid://byyd6q8pbkuir" path="res://Assets/craftpix-net-935193-free-chibi-necromancer-of-the-shadow-character-sprites/Necromancer_of_the_Shadow_1/PNG/Vector Parts/Head.png" id="7_d1q26"]
-[ext_resource type="Texture2D" uid="uid://bwtah7qy7gl6x" path="res://Assets/craftpix-net-935193-free-chibi-necromancer-of-the-shadow-character-sprites/Necromancer_of_the_Shadow_1/PNG/Vector Parts/Face 01.png" id="8_fbm3w"]
-[ext_resource type="Texture2D" uid="uid://cnsfobsvn7p8h" path="res://Assets/craftpix-net-935193-free-chibi-necromancer-of-the-shadow-character-sprites/Necromancer_of_the_Shadow_1/PNG/Vector Parts/Right Hand.png" id="9_5v73r"]
-[ext_resource type="Texture2D" uid="uid://bg74ghnhmjn3h" path="res://Assets/craftpix-net-935193-free-chibi-necromancer-of-the-shadow-character-sprites/Necromancer_of_the_Shadow_1/PNG/Vector Parts/Right Arm.png" id="10_bjyvl"]
+[ext_resource type="Texture2D" uid="uid://c3hj7oeg14r4y" path="res://Assets/test models/1/PNG/Vector Parts/Sword.png" id="1_kvarv"]
+[ext_resource type="Texture2D" uid="uid://byw7g53r57qbj" path="res://Assets/test models/1/PNG/Vector Parts/Left Hand.png" id="2_52jmu"]
+[ext_resource type="Texture2D" uid="uid://cqtaaf083i0h7" path="res://Assets/test models/1/PNG/Vector Parts/Left Arm.png" id="3_yqk80"]
+[ext_resource type="Texture2D" uid="uid://cbrh7200cxbb7" path="res://Assets/test models/1/PNG/Vector Parts/Left Leg.png" id="4_s5gka"]
+[ext_resource type="Texture2D" uid="uid://ue5f00o4pnyt" path="res://Assets/test models/1/PNG/Vector Parts/Right Leg.png" id="5_o5xt3"]
+[ext_resource type="Texture2D" uid="uid://c5tq4wfso5bgd" path="res://Assets/test models/1/PNG/Vector Parts/Body.png" id="6_mp8wm"]
+[ext_resource type="Texture2D" uid="uid://byyd6q8pbkuir" path="res://Assets/test models/1/PNG/Vector Parts/Head.png" id="7_d1q26"]
+[ext_resource type="Texture2D" uid="uid://bwtah7qy7gl6x" path="res://Assets/test models/1/PNG/Vector Parts/Face 01.png" id="8_fbm3w"]
+[ext_resource type="Texture2D" uid="uid://cnsfobsvn7p8h" path="res://Assets/test models/1/PNG/Vector Parts/Right Hand.png" id="9_5v73r"]
+[ext_resource type="Texture2D" uid="uid://bg74ghnhmjn3h" path="res://Assets/test models/1/PNG/Vector Parts/Right Arm.png" id="10_bjyvl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dl3d"]
 size = Vector2(235, 347)
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-10.498198, 8.211654)]
+"values": [Vector2(-16.711643, 11.027169)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -50,7 +50,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-17.839272, -0.74302864)]
+"values": [Vector2(-16.725069, -4.3063164)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -67,9 +67,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_52jmu"]
 resource_name = "walk"
-length = 1.7
+length = 0.56667
 loop_mode = 1
-step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,7 +76,7 @@ tracks/0/path = NodePath("Skeleton2D/Body/LegR:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-17.26404, 10.849618), Vector2(-14.64587, 8.839214), Vector2(-5.575011, -1.4354358), Vector2(-2.982377, -3.2758062), Vector2(-13.963087, -3.4185605), Vector2(-13.963087, -3.418561), Vector2(-15.936128, 2.007637), Vector2(-16.149834, 7.2863317), Vector2(-17.289574, 11.019657)]
@@ -89,7 +88,7 @@ tracks/1/path = NodePath("Skeleton2D/Body/LegR:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [-3.1415925, -3.26046, -3.0345917, -3.0345917, -3.0345917, -3.0345917, -3.1415927, -3.1415927, -3.1415927]
@@ -101,7 +100,7 @@ tracks/2/path = NodePath("Skeleton2D/Body/LegL:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-16.750605, -4.136277), Vector2(-16.954899, -2.7759724), Vector2(-18.027441, 4.3656282), Vector2(-18.844616, 9.8068495), Vector2(-18.844616, 9.8068495), Vector2(-15.571905, 7.2938447), Vector2(-5.252447, 0.2724576), Vector2(-6.67039, -5.7089295), Vector2(-16.903824, -3.1160471)]
@@ -113,7 +112,7 @@ tracks/3/path = NodePath("Skeleton2D/Body/LegL:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [-3.1415925, -3.141879, -3.2130256, -3.2130256, -3.2130256, -3.2919266, -3.1415927, -2.967752, -3.1415927]
@@ -239,13 +238,13 @@ rest = Transform2D(0.25537914, -0.966841, 0.966841, 0.25537914, 129.03212, 0.655
 [node name="ArmL" type="Bone2D" parent="Skeleton2D/Body"]
 position = Vector2(40.304752, -10.038966)
 rotation = 0.08938028
-scale = Vector2(0.99999994, 0.99999994)
+scale = Vector2(0.9999997, 0.9999997)
 rest = Transform2D(1, 0, 0, 1, 40.304752, -10.038966)
 
 [node name="HandL" type="Bone2D" parent="Skeleton2D/Body/ArmL"]
 position = Vector2(-21.54985, -3.053593)
 rotation = -0.0609514
-scale = Vector2(0.99999994, 0.99999994)
+scale = Vector2(0.9999997, 0.9999997)
 rest = Transform2D(0.9997561, -0.022084368, 0.022084368, 0.9997561, -30.901896, -2.4461792)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -264,12 +263,12 @@ length = 9.0
 bone_angle = 0.0
 
 [node name="LegL" type="Bone2D" parent="Skeleton2D/Body"]
-position = Vector2(-17.839272, -0.74302864)
+position = Vector2(-16.725069, -4.3063164)
 rotation = -3.1415925
 rest = Transform2D(-1, -8.742278e-08, 8.742278e-08, -1, -16.520773, -5.6666203)
 
 [node name="LegR" type="Bone2D" parent="Skeleton2D/Body"]
-position = Vector2(-10.498198, 8.211654)
+position = Vector2(-16.711643, 11.027169)
 rotation = -3.1415925
 rest = Transform2D(-1, -8.742278e-08, 8.742278e-08, -1, -17.688751, 9.821875)
 
