@@ -1,0 +1,125 @@
+[gd_scene load_steps=27 format=3 uid="uid://cfy8mmkfe1m0i"]
+
+[ext_resource type="Script" uid="uid://b8ikh7x0cjsdm" path="res://Scenes/ball_physics_playground/quark_sphere.gd" id="1_bv3td"]
+[ext_resource type="Texture2D" uid="uid://bj08vc3p8pqdb" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_01.png" id="2_8l6fb"]
+[ext_resource type="Texture2D" uid="uid://c137d5igk5024" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_02.png" id="3_xoxpj"]
+[ext_resource type="Texture2D" uid="uid://bo8c1bbqpa2sb" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_03.png" id="4_xbuu7"]
+[ext_resource type="Texture2D" uid="uid://dlqjcfq4mev3y" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_04.png" id="5_ka3o8"]
+[ext_resource type="Texture2D" uid="uid://drdqg68wt6xg" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_06.png" id="6_1o7u2"]
+[ext_resource type="Texture2D" uid="uid://cbxlp2swed1k" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_07.png" id="7_dn7wx"]
+[ext_resource type="Texture2D" uid="uid://cep0nr3af8d6l" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_08.png" id="8_vlgnc"]
+[ext_resource type="Texture2D" uid="uid://3qdwne45jsf2" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_09.png" id="9_x1vqh"]
+[ext_resource type="Texture2D" uid="uid://ckgaarn7kf16i" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_10.png" id="10_keo0g"]
+[ext_resource type="Texture2D" uid="uid://gpolb0l1ilx1" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_11.png" id="11_72jdt"]
+[ext_resource type="Texture2D" uid="uid://cydo7mhvvto8r" path="res://Scenes/ball_physics_playground/Water Ball/PNG/Water Ball_Frame_12.png" id="12_bh1lw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bv3td"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyj5t"]
+atlas = ExtResource("2_8l6fb")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0trl"]
+atlas = ExtResource("3_xoxpj")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maedc"]
+atlas = ExtResource("4_xbuu7")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f307k"]
+atlas = ExtResource("5_ka3o8")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8dxe"]
+atlas = ExtResource("6_1o7u2")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhfph"]
+atlas = ExtResource("7_dn7wx")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da46m"]
+atlas = ExtResource("8_vlgnc")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a66ka"]
+atlas = ExtResource("9_x1vqh")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0qjy"]
+atlas = ExtResource("10_keo0g")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm2cg"]
+atlas = ExtResource("11_72jdt")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a52pf"]
+atlas = ExtResource("12_bh1lw")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2lbp6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyj5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0trl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maedc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f307k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8dxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhfph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da46m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a66ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0qjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm2cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a52pf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w73w2"]
+radius = 21.0
+
+[node name="GolfBall" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_bv3td")
+gravity_scale = 0.0
+continuous_cd = 2
+linear_damp_mode = 1
+linear_damp = 0.6
+angular_damp_mode = 1
+angular_damp = 1.0
+script = ExtResource("1_bv3td")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.098, 0.1)
+sprite_frames = SubResource("SpriteFrames_2lbp6")
+autoplay = "default"
+frame_progress = 0.3863763
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w73w2")
