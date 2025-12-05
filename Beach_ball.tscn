@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmlmbbvhfhbvi"]
+
+[ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/golf_ball.tscn" id="1_02p5e"]
+[ext_resource type="Script" uid="uid://bvyttcyfydjtq" path="res://Scenes/ball_physics_playground/beach_ball.gd" id="2_7ogjh"]
+
+[node name="GolfBall" instance=ExtResource("1_02p5e")]
+script = ExtResource("2_7ogjh")
+initial_impulse = 1200.0
+drift_strength = 1200.0
+drift_change_speed = 1.2
+drift_start_speed = 150.0
+use_mass_scaling = true
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"Fireball"
+autoplay = "Fireball"
+frame_progress = 0.0

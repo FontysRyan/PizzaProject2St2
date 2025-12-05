@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Base_Ball
 
 @export var initial_impulse: float = 1200.0        # how hard you throw it
 @export var drift_strength: float = 1200.0          # base strength of drift (tune this)
