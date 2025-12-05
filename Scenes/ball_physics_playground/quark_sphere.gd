@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Base_Ball
 
 @export var base_speed: float = 500.0
 @export var direction_change_speed: float = 1.5   # how fast direction wiggles
