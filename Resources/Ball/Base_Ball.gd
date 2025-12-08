@@ -14,7 +14,6 @@ func _ready() -> void:
 
 func hit_ball(direction: Vector2, power: float) -> void:
 	gravity_scale = 0 # optional
-	sleeping = false
 	set_sleeping(false)
 	print("eeeee")
 	power = clamp(power, 0.0, 1.0)
