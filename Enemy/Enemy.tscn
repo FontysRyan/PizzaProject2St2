@@ -125,6 +125,8 @@ _data = {
 }
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 31
 
 [node name="polygons" type="Node2D" parent="."]
 position = Vector2(0, -4)
@@ -237,14 +239,14 @@ rest = Transform2D(0.25537914, -0.966841, 0.966841, 0.25537914, 129.03212, 0.655
 
 [node name="ArmL" type="Bone2D" parent="Skeleton2D/Body"]
 position = Vector2(40.304752, -10.038966)
-rotation = 0.08938028
-scale = Vector2(0.9999997, 0.9999997)
+rotation = 0.08938027
+scale = Vector2(0.99999964, 0.99999964)
 rest = Transform2D(1, 0, 0, 1, 40.304752, -10.038966)
 
 [node name="HandL" type="Bone2D" parent="Skeleton2D/Body/ArmL"]
 position = Vector2(-21.54985, -3.053593)
 rotation = -0.0609514
-scale = Vector2(0.9999997, 0.9999997)
+scale = Vector2(0.99999964, 0.99999964)
 rest = Transform2D(0.9997561, -0.022084368, 0.022084368, 0.9997561, -30.901896, -2.4461792)
 auto_calculate_length_and_angle = false
 length = 16.0
