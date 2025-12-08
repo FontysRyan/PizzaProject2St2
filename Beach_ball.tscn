@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmlmbbvhfhbvi"]
+[gd_scene load_steps=3 format=4 uid="uid://bmlmbbvhfhbvi"]
 
 [ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/golf_ball.tscn" id="1_02p5e"]
 [ext_resource type="Script" uid="uid://bvyttcyfydjtq" path="res://Scenes/ball_physics_playground/beach_ball.gd" id="2_7ogjh"]
