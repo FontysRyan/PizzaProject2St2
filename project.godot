@@ -14,3 +14,8 @@ config/name="PizzaProject2St2 (DungeonGolfers)"
 run/main_scene="uid://bf0u6pdckcvfk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+Enemy="For all enemies"
+Player="For the player"
