@@ -14,10 +14,6 @@ func _ready() -> void:
 	if players.size() > 0:
 		var player : Node2D = players[0]
 		make_path(player.global_position)
-	
-	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not in_range:
