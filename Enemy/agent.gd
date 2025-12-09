@@ -14,8 +14,6 @@ func _ready() -> void:
 	if players.size() > 0:
 		var player : Node2D = players[0]
 		make_path(player.global_position)
-	else:
-		pass
 	
 	
 
