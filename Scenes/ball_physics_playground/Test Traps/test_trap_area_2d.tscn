@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi2crhdim8p7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i47ac"]
+size = Vector2(263.5, 251.5)
+
+[node name="Test Trap Area2D" type="Area2D"]
+collision_mask = 255
+linear_damp_space_override = 3
+linear_damp = 0.99
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_i47ac")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
