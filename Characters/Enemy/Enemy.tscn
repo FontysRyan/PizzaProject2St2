@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://blasg4ic50mbl"]
 
-[ext_resource type="Script" uid="uid://d3x6if7b7o6r2" path="res://Enemy/agent.gd" id="1_52jmu"]
+[ext_resource type="Script" uid="uid://d3x6if7b7o6r2" path="res://Characters/Enemy/agent.gd" id="1_52jmu"]
 [ext_resource type="Texture2D" uid="uid://c3hj7oeg14r4y" path="res://Assets/test models/1/PNG/Vector Parts/Sword.png" id="1_kvarv"]
 [ext_resource type="Texture2D" uid="uid://byw7g53r57qbj" path="res://Assets/test models/1/PNG/Vector Parts/Left Hand.png" id="2_52jmu"]
 [ext_resource type="Texture2D" uid="uid://cqtaaf083i0h7" path="res://Assets/test models/1/PNG/Vector Parts/Left Arm.png" id="3_yqk80"]
@@ -20,7 +20,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/Body/LegR:position")
+tracks/0/path = NodePath("pivot/Skeleton2D/Body/LegR:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,7 +32,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/Body/LegR:rotation")
+tracks/1/path = NodePath("pivot/Skeleton2D/Body/LegR:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -44,7 +44,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/Body/LegL:position")
+tracks/2/path = NodePath("pivot/Skeleton2D/Body/LegL:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -56,7 +56,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Skeleton2D/Body/LegL:rotation")
+tracks/3/path = NodePath("pivot/Skeleton2D/Body/LegL:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -73,7 +73,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton2D/Body/LegR:position")
+tracks/0/path = NodePath("pivot/Skeleton2D/Body/LegR:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -85,7 +85,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/Body/LegR:rotation")
+tracks/1/path = NodePath("pivot/Skeleton2D/Body/LegR:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -97,7 +97,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/Body/LegL:position")
+tracks/2/path = NodePath("pivot/Skeleton2D/Body/LegL:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -109,7 +109,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Skeleton2D/Body/LegL:rotation")
+tracks/3/path = NodePath("pivot/Skeleton2D/Body/LegL:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -130,10 +130,13 @@ collision_layer = 32
 collision_mask = 31
 script = ExtResource("1_52jmu")
 
-[node name="polygons" type="Node2D" parent="."]
+[node name="pivot" type="Node2D" parent="."]
+position = Vector2(-316, -378)
+
+[node name="polygons" type="Node2D" parent="pivot"]
 position = Vector2(0, -4)
 
-[node name="Sword" type="Polygon2D" parent="polygons"]
+[node name="Sword" type="Polygon2D" parent="pivot/polygons"]
 position = Vector2(293, 309)
 texture = ExtResource("1_kvarv")
 skeleton = NodePath("../../Skeleton2D")
@@ -142,7 +145,7 @@ uv = PackedVector2Array(39.266945, 95.26693, 358.28986, 96.244026, 357.31274, 29
 polygons = [PackedInt32Array(3, 0, 1, 2)]
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0), "Body/ArmL", PackedFloat32Array(0, 0, 0, 0), "Body/ArmL/HandL", PackedFloat32Array(1, 1, 1, 1), "Body/ArmR", PackedFloat32Array(0, 0, 0, 0), "Body/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0), "Body/LegL", PackedFloat32Array(0, 0, 0, 0), "Body/LegR", PackedFloat32Array(0, 0, 0, 0)]
 
-[node name="LeftHand" type="Polygon2D" parent="polygons"]
+[node name="LeftHand" type="Polygon2D" parent="pivot/polygons"]
 position = Vector2(319, 305)
 texture = ExtResource("2_52jmu")
 skeleton = NodePath("../../Skeleton2D")
@@ -152,7 +155,7 @@ polygons = [PackedInt32Array(10, 4, 3), PackedInt32Array(10, 3, 2), PackedInt32A
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL/HandL", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
-[node name="LeftArm" type="Polygon2D" parent="polygons"]
+[node name="LeftArm" type="Polygon2D" parent="pivot/polygons"]
 position = Vector2(323, 255)
 texture = ExtResource("3_yqk80")
 skeleton = NodePath("../../Skeleton2D")
@@ -162,7 +165,7 @@ polygons = [PackedInt32Array(6, 7, 8), PackedInt32Array(7, 0, 8), PackedInt32Arr
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
-[node name="LeftLeg" type="Polygon2D" parent="polygons"]
+[node name="LeftLeg" type="Polygon2D" parent="pivot/polygons"]
 position = Vector2(284, 358)
 texture = ExtResource("4_s5gka")
 skeleton = NodePath("../../Skeleton2D")
@@ -172,7 +175,7 @@ polygons = [PackedInt32Array(7, 9, 8), PackedInt32Array(9, 7, 6), PackedInt32Arr
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegL", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/LegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
-[node name="RightLeg" type="Polygon2D" parent="polygons"]
+[node name="RightLeg" type="Polygon2D" parent="pivot/polygons"]
 position = Vector2(195, 359)
 texture = ExtResource("5_o5xt3")
 skeleton = NodePath("../../Skeleton2D")
@@ -182,7 +185,7 @@ polygons = [PackedInt32Array(7, 8, 6), PackedInt32Array(7, 0, 8), PackedInt32Arr
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegR", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1)]
 internal_vertex_count = 1
 
-[node name="Body" type="Polygon2D" parent="polygons"]
+[node name="Body" type="Polygon2D" parent="pivot/polygons"]
 position = Vector2(128, 168)
 texture = ExtResource("6_mp8wm")
 skeleton = NodePath("../../Skeleton2D")
@@ -192,7 +195,7 @@ polygons = [PackedInt32Array(0, 14, 13), PackedInt32Array(14, 13, 12), PackedInt
 bones = ["Body", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
-[node name="Head" type="Polygon2D" parent="polygons"]
+[node name="Head" type="Polygon2D" parent="pivot/polygons"]
 position = Vector2(63, -132)
 texture = ExtResource("7_d1q26")
 skeleton = NodePath("../../Skeleton2D")
@@ -202,11 +205,12 @@ polygons = [PackedInt32Array(10, 19, 11), PackedInt32Array(12, 11, 19), PackedIn
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 internal_vertex_count = 3
 
-[node name="Face01" type="Sprite2D" parent="polygons/Head"]
+[node name="Face01" type="Sprite2D" parent="pivot/polygons/Head"]
 position = Vector2(295.99765, 317.365)
+scale = Vector2(1.0051877, 1.0104554)
 texture = ExtResource("8_fbm3w")
 
-[node name="RightHand" type="Polygon2D" parent="polygons"]
+[node name="RightHand" type="Polygon2D" parent="pivot/polygons"]
 position = Vector2(149, 313)
 texture = ExtResource("9_5v73r")
 skeleton = NodePath("../../Skeleton2D")
@@ -216,7 +220,7 @@ polygons = [PackedInt32Array(8, 10, 9), PackedInt32Array(9, 0, 10), PackedInt32A
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR/HandR", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Body/LegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/LegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
-[node name="RightArm" type="Polygon2D" parent="polygons"]
+[node name="RightArm" type="Polygon2D" parent="pivot/polygons"]
 position = Vector2(155, 266)
 texture = ExtResource("10_bjyvl")
 skeleton = NodePath("../../Skeleton2D")
@@ -226,39 +230,40 @@ polygons = [PackedInt32Array(5, 7, 4), PackedInt32Array(4, 3, 7), PackedInt32Arr
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmL/HandL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/ArmR", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1), "Body/ArmR/HandR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegL", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "Body/LegR", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
-[node name="Skeleton2D" type="Skeleton2D" parent="."]
+[node name="Skeleton2D" type="Skeleton2D" parent="pivot"]
+visible = false
 
-[node name="Body" type="Bone2D" parent="Skeleton2D"]
+[node name="Body" type="Bone2D" parent="pivot/Skeleton2D"]
 position = Vector2(316, 380.00003)
 rotation = -1.5266386
 scale = Vector2(1.7286202, -5.8753014)
 rest = Transform2D(0.07630703, -1.7269351, -5.8695745, -0.25935534, 316, 380.00003)
 
-[node name="Head" type="Bone2D" parent="Skeleton2D/Body"]
+[node name="Head" type="Bone2D" parent="pivot/Skeleton2D/Body"]
 position = Vector2(129.03212, 0.6552533)
 rotation = -1.3125565
 rest = Transform2D(0.25537914, -0.966841, 0.966841, 0.25537914, 129.03212, 0.6552533)
 
-[node name="ArmL" type="Bone2D" parent="Skeleton2D/Body"]
+[node name="ArmL" type="Bone2D" parent="pivot/Skeleton2D/Body"]
 position = Vector2(40.304752, -10.038966)
 rotation = 0.08938027
-scale = Vector2(0.9999996, 0.9999996)
+scale = Vector2(0.99999946, 0.99999946)
 rest = Transform2D(1, 0, 0, 1, 40.304752, -10.038966)
 
-[node name="HandL" type="Bone2D" parent="Skeleton2D/Body/ArmL"]
+[node name="HandL" type="Bone2D" parent="pivot/Skeleton2D/Body/ArmL"]
 position = Vector2(-21.54985, -3.053593)
 rotation = -0.0609514
-scale = Vector2(0.9999996, 0.9999996)
+scale = Vector2(0.99999946, 0.99999946)
 rest = Transform2D(0.9997561, -0.022084368, 0.022084368, 0.9997561, -30.901896, -2.4461792)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = -90.0
 
-[node name="ArmR" type="Bone2D" parent="Skeleton2D/Body"]
+[node name="ArmR" type="Bone2D" parent="pivot/Skeleton2D/Body"]
 position = Vector2(29.69228, 14.35636)
 rest = Transform2D(1, 0, 0, 1, 35.92185, 15.289198)
 
-[node name="HandR" type="Bone2D" parent="Skeleton2D/Body/ArmR"]
+[node name="HandR" type="Bone2D" parent="pivot/Skeleton2D/Body/ArmR"]
 position = Vector2(-30.987919, 1.9823251)
 rotation = -2.7962828
 rest = Transform2D(-0.9409706, -0.33848828, 0.33848828, -0.9409706, -35.790134, 3.1124847)
@@ -266,12 +271,12 @@ auto_calculate_length_and_angle = false
 length = 9.0
 bone_angle = 0.0
 
-[node name="LegL" type="Bone2D" parent="Skeleton2D/Body"]
+[node name="LegL" type="Bone2D" parent="pivot/Skeleton2D/Body"]
 position = Vector2(-16.725069, -4.3063164)
 rotation = -3.1415925
 rest = Transform2D(-1, -8.742278e-08, 8.742278e-08, -1, -16.520773, -5.6666203)
 
-[node name="LegR" type="Bone2D" parent="Skeleton2D/Body"]
+[node name="LegR" type="Bone2D" parent="pivot/Skeleton2D/Body"]
 position = Vector2(-16.711643, 11.027169)
 rotation = -3.1415925
 rest = Transform2D(-1, -8.742278e-08, 8.742278e-08, -1, -17.688751, 9.821875)
@@ -289,3 +294,5 @@ libraries = {
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_mask = 2
 debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0, 0.9411765, 1, 1)
