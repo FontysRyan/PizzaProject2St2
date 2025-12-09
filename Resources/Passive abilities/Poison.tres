@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Passive_Ability" load_steps=2 format=3 uid="uid://bfn8wlbb0asvl"]
+
+[ext_resource type="Script" uid="uid://bk3q4mgme55ba" path="res://Resources/Passive abilities/P-Ability.gd" id="1_c3swy"]
+
+[resource]
+script = ExtResource("1_c3swy")
+name = "Poison"
+metadata/_custom_type_script = "uid://bk3q4mgme55ba"

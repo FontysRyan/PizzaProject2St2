@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Active_Ability" load_steps=2 format=3 uid="uid://tlge8tkl3kng"]
+
+[ext_resource type="Script" uid="uid://bam4e6fidnrqk" path="res://Resources/Active abilities/A-Ability.gd" id="1_2kqjb"]
+
+[resource]
+script = ExtResource("1_2kqjb")
+name = "Teleport"
+metadata/_custom_type_script = "uid://bam4e6fidnrqk"
