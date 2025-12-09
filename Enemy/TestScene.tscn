@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf0u6pdckcvfk"]
+[gd_scene load_steps=2 format=3 uid="uid://chbav06xw5yt3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0r02p"]
 vertices = PackedVector2Array(1141, 641, 10.953125, 641, 8.0390625, 7.921875, 1141, -0.921875)
