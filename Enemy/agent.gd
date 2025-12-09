@@ -36,5 +36,5 @@ func make_path(pos: Vector2):
 
 func take_damage(amount: float):
 	health -= amount
-	if health < 0:
+	if health <= 0:
 		queue_free()
