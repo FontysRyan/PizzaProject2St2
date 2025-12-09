@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stick" load_steps=3 format=3 uid="uid://dp0luly8mf540"]
+
+[ext_resource type="Resource" uid="uid://xrcwcix6aiq5" path="res://Resources/Active abilities/Shockwave.tres" id="1_0veok"]
+[ext_resource type="Script" uid="uid://o72wgrt3bme8" path="res://Resources/Stick/Stick_Resource.gd" id="1_odlsu"]
+
+[resource]
+script = ExtResource("1_odlsu")
+name = "Ripple Iron"
+power = 7.0
+cooldown = 6.0
+knockback = 7.0
+ability_cooldown = 15.0
+ability = ExtResource("1_0veok")
+metadata/_custom_type_script = "uid://o72wgrt3bme8"
