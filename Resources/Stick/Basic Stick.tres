@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Stick" load_steps=2 format=3 uid="uid://j3djx1suxkqn"]
+
+[ext_resource type="Script" uid="uid://o72wgrt3bme8" path="res://Resources/Stick/Stick_Resource.gd" id="1_70nn6"]
+
+[resource]
+script = ExtResource("1_70nn6")
+name = "Basic"
+metadata/_custom_type_script = "uid://o72wgrt3bme8"

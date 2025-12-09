@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stick" load_steps=3 format=3 uid="uid://tlke1smkcuxk"]
+
+[ext_resource type="Resource" uid="uid://dwsr03f1b1ji8" path="res://Resources/Active abilities/Heal.tres" id="1_51jan"]
+[ext_resource type="Script" uid="uid://o72wgrt3bme8" path="res://Resources/Stick/Stick_Resource.gd" id="1_ok5an"]
+
+[resource]
+script = ExtResource("1_ok5an")
+name = "Regen Staff"
+power = 4.0
+charge = 20.0
+cooldown = 7.0
+ability_cooldown = 15.0
+ability = ExtResource("1_51jan")
+metadata/_custom_type_script = "uid://o72wgrt3bme8"
