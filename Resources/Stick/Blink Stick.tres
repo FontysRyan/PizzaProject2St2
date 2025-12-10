@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Stick" load_steps=3 format=3 uid="uid://borbe2mriy08n"]
+
+[ext_resource type="Script" uid="uid://o72wgrt3bme8" path="res://Resources/Stick/Stick_Resource.gd" id="1_ipnwf"]
+[ext_resource type="Resource" uid="uid://tlge8tkl3kng" path="res://Resources/Active abilities/Teleport.tres" id="1_ovinv"]
+
+[resource]
+script = ExtResource("1_ipnwf")
+name = "Blink Stick"
+power = 12.0
+knockback = 25.0
+ability_cooldown = 10.0
+ability = ExtResource("1_ovinv")
+metadata/_custom_type_script = "uid://o72wgrt3bme8"

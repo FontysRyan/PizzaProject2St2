@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stick" load_steps=3 format=3 uid="uid://b08dw12purukl"]
+
+[ext_resource type="Resource" uid="uid://dc8n0xsp5i4eo" path="res://Resources/Active abilities/Explode.tres" id="1_10nb8"]
+[ext_resource type="Script" uid="uid://o72wgrt3bme8" path="res://Resources/Stick/Stick_Resource.gd" id="1_nkph5"]
+
+[resource]
+script = ExtResource("1_nkph5")
+name = "Kaboom Club"
+power = 8.0
+charge = 15.0
+knockback = 14.0
+ability_cooldown = 20.0
+ability = ExtResource("1_10nb8")
+metadata/_custom_type_script = "uid://o72wgrt3bme8"
