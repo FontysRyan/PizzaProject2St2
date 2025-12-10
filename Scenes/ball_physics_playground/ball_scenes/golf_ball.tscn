@@ -183,11 +183,12 @@ animations = [{
 }]
 
 [node name="GolfBall" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 125
 physics_material_override = SubResource("PhysicsMaterial_bv3td")
 gravity_scale = 0.0
 can_sleep = false
 continuous_cd = 2
-linear_damp_mode = 1
 linear_damp = 0.6
 angular_damp_mode = 1
 angular_damp = 1.0
