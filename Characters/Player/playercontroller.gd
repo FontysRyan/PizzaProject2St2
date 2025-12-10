@@ -6,7 +6,7 @@ var isFlipped := false
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 const NORMAL_SCALE_X := 0.2  # Only use X scale
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction = Vector2.ZERO
 
 	if Input.is_action_pressed("right"):
