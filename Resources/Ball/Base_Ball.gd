@@ -13,8 +13,10 @@ const LAYER_ENEMIES = 5
 # Maximum impulse strength applied when the ball is hit.
 # Higher values = ball travels farther / faster.
 @export var total_push_power: float = 1000.0
+var original_radius: float
 
 func _ready() -> void:
+	original_radius = $CollisionShape2D.shape.radius
 	# Ball is on layer 2
 	collision_layer = 1 << LAYER_BALL
 
@@ -28,3 +30,16 @@ func hit_ball(direction: Vector2, power: float) -> void:
 	power = clamp(power, 0.0, 1.0)
 	var impulse = direction.normalized() * (power * total_push_power)
 	apply_central_impulse(impulse)
+
+func Set_size(radius: float, new_mass: float):
+	mass = new_mass
+	var desired_radius = radius
+
+	var shape = $CollisionShape2D.shape
+	if shape is CircleShape2D:
+		# Set the collision shape radius first
+		shape.radius = desired_radius
+
+	# Scale sprite to match collision
+	if $AnimatedSprite2D and original_radius > 0:
+		$AnimatedSprite2D.scale = Vector2.ONE * (desired_radius / original_radius)
