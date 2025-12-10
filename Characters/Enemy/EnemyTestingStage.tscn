@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bm1gydjdattk7" path="res://Characters/Player/Player.tscn" id="1_rahgh"]
 [ext_resource type="Texture2D" uid="uid://blc68qohynm5u" path="res://Assets/kenney_map-pack/Tilesheet/mapPack_tilesheet.png" id="2_bcwe3"]
-[ext_resource type="PackedScene" uid="uid://blasg4ic50mbl" path="res://Characters/Enemy/Enemy.tscn" id="3_0dfcm"]
+[ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="3_0dfcm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_prnx6"]
 texture = ExtResource("2_bcwe3")
@@ -2540,7 +2540,6 @@ tile_map_data = PackedByteArray("AAAFAAUAAQAGAAUAAAAGAAUAAQAGAAUAAAAHAAUAAQAGAAU
 tile_set = SubResource("TileSet_svs35")
 
 [node name="Enemy" parent="." instance=ExtResource("3_0dfcm")]
-position = Vector2(224.00003, 487)
 scale = Vector2(0.2, 0.2)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
