@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Passive_Ability" load_steps=2 format=3 uid="uid://ds0ftgbh44hba"]
+
+[ext_resource type="Script" uid="uid://bk3q4mgme55ba" path="res://Resources/Passive abilities/P-Ability.gd" id="1_ly7na"]
+
+[resource]
+script = ExtResource("1_ly7na")
+name = "Split"
+metadata/_custom_type_script = "uid://bk3q4mgme55ba"

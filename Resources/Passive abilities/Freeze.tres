@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Passive_Ability" load_steps=2 format=3 uid="uid://cg21vocix1mer"]
+
+[ext_resource type="Script" uid="uid://bk3q4mgme55ba" path="res://Resources/Passive abilities/P-Ability.gd" id="1_2sm1r"]
+
+[resource]
+script = ExtResource("1_2sm1r")
+name = "Freeze"
+metadata/_custom_type_script = "uid://bk3q4mgme55ba"
