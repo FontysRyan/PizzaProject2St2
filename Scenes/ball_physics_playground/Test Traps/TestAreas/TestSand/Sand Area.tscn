@@ -11,9 +11,9 @@ scale = Vector2(0.09570313, 0.115234375)
 texture = ExtResource("1_yu300")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 255
+collision_mask = 35
 linear_damp_space_override = 3
-linear_damp = 0.99
+linear_damp = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_wbci4")
