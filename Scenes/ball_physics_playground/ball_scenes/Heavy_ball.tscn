@@ -10,3 +10,7 @@ script = ExtResource("2_6yw12")
 
 [node name="CollisionShape2D" parent="." index="0"]
 debug_color = Color(0.41073036, 0.46529317, 1, 0.41960785)
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+modulate = Color(1, 1, 1, 0.24313726)
+scale = Vector2(0.098, 0.1)

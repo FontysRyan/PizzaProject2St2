@@ -35,11 +35,17 @@ func Set_size(radius: float, new_mass: float):
 	mass = new_mass
 	var desired_radius = radius
 
-	var shape = $CollisionShape2D.shape
+	var shape = $CollisionShape2D.shape.duplicate()
+	$CollisionShape2D.shape = shape
+
 	if shape is CircleShape2D:
-		# Set the collision shape radius first
 		shape.radius = desired_radius
 
-	# Scale sprite to match collision
-	if $AnimatedSprite2D and original_radius > 0:
-		$AnimatedSprite2D.scale = Vector2.ONE * (desired_radius / original_radius)
+	# Scale whole node (collision included)
+	if original_radius > 0:
+		var factor = desired_radius / original_radius
+		scale = Vector2.ONE * factor     # parent scaling (affects collision)
+
+		# Apply a separate scale for the sprite only
+		var sprite_factor = factor / 10.0
+		$AnimatedSprite2D.scale = Vector2.ONE * sprite_factor
