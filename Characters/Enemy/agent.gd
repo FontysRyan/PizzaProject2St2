@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var nav_agent : NavigationAgent2D = $"NavigationAgent2D"
 @export var speed : float = 200
 @export var health : float = 50
+@export var stop_distance : float = 120
 var repath_cooldown : float = 0.0
 var in_range : bool = false
 var player : Node2D
@@ -34,16 +35,13 @@ func _physics_process(delta: float) -> void:
 		nav_agent.target_position = player.global_position
 		repath_cooldown = 0.2
 	
-	#print("Reachable:", nav_agent.is_target_reachable())
-	#print("Distance:", nav_agent.distance_to_target())
-
 	if nav_agent.is_target_reachable():
 		var next_pos = nav_agent.get_next_path_position()
-
-		if global_position.distance_to(next_pos) < 2:
+	
+		if global_position.distance_to(next_pos) < stop_distance:
 			velocity = Vector2.ZERO
 			return
-
+	
 		var dir = (next_pos - global_position).normalized()
 		velocity = dir * speed
 		move_and_slide()
