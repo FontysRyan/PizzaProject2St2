@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://nb74h6yo7wp2"]
+
+[ext_resource type="PackedScene" uid="uid://bmlmbbvhfhbvi" path="res://Scenes/ball_physics_playground/ball_scenes/Beach_ball.tscn" id="1_rbpqi"]
+[ext_resource type="Script" uid="uid://j8cco0i8ox4m" path="res://Scenes/ball_physics_playground/ball_scenes/heavy_ball.gd" id="2_6yw12"]
+
+[node name="GolfBall" instance=ExtResource("1_rbpqi")]
+modulate = Color(0.07058824, 0.105882354, 0.92156863, 1)
+mass = 5.0
+script = ExtResource("2_6yw12")
+
+[node name="CollisionShape2D" parent="." index="0"]
+debug_color = Color(0.41073036, 0.46529317, 1, 0.41960785)
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(0.1, 0.1)
