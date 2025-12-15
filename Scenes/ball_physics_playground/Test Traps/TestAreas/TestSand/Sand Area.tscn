@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnnwxs6yonby6"]
+
+[ext_resource type="Texture2D" uid="uid://bxrdvva6cksc3" path="res://Scenes/ball_physics_playground/Test Traps/TestAreas/TestSand/task_01kc1p24hvfpg9zsqrrrjdpe31_1765288379_img_1.webp" id="1_yu300"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbci4"]
+size = Vector2(1536, 1024)
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(1.9999924, 0)
+scale = Vector2(0.09570313, 0.115234375)
+texture = ExtResource("1_yu300")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 35
+linear_damp_space_override = 3
+linear_damp = 0.9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_wbci4")
