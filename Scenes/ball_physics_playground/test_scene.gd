@@ -7,7 +7,7 @@ extends Node2D
 @export var shoot_power: float = 1 #1 = 100% power
 
 func _ready():
-	Engine.time_scale = clamp(0.1, 0.0, 10.0)
+	#Engine.time_scale = clamp(0.1, 0.0, 10.0)
 	spawn_and_shoot()
 	#await get_tree().create_timer(1.0).timeout
 	#spawn_and_shoot2()
