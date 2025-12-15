@@ -27,7 +27,7 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w73w2"]
-radius = 21.0
+radius = 203.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lbp6"]
 atlas = ExtResource("13_x1vqh")
@@ -196,6 +196,7 @@ script = ExtResource("1_bv3td")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w73w2")
+debug_color = Color(0, 0.011764706, 0.4392157, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2lbp6")

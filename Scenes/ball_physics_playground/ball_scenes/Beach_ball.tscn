@@ -11,7 +11,7 @@ drift_change_speed = 1.2
 drift_start_speed = 150.0
 use_mass_scaling = true
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="1"]
 animation = &"Fireball"
 autoplay = "Fireball"
 frame_progress = 0.0

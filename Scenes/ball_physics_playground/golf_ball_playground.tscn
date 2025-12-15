@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://bdrfjnnkv44jw"]
 
 [ext_resource type="Script" uid="uid://cewcwq1jiw1wu" path="res://Scenes/ball_physics_playground/test_scene.gd" id="1_etr25"]
-[ext_resource type="PackedScene" uid="uid://nb74h6yo7wp2" path="res://Scenes/ball_physics_playground/ball_scenes/Heavy_ball.tscn" id="2_55sa6"]
+[ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/ball_scenes/golf_ball.tscn" id="2_55sa6"]
 [ext_resource type="Texture2D" uid="uid://cptdc834m7360" path="res://Scenes/ball_physics_playground/test_assets/S1P5_game_Tilemap1_dungeon.png" id="3_gvtri"]
 [ext_resource type="PackedScene" uid="uid://bnnwxs6yonby6" path="res://Scenes/ball_physics_playground/Test Traps/TestAreas/TestSand/Sand Area.tscn" id="4_55sa6"]
 
@@ -77,7 +77,7 @@ object_scene = ExtResource("2_55sa6")
 shoot_angle_degrees = 200.0
 
 [node name="Sprite2D" parent="." instance=ExtResource("4_55sa6")]
-position = Vector2(2099, 236.00005)
+position = Vector2(1523, 611)
 scale = Vector2(0.3058446, 0.36032102)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
