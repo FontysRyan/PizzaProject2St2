@@ -1,7 +1,8 @@
 extends Node
 
 enum GamePhase {
-	PRE_GAME,
+	MAIN,
+	NEW_GAME,
 	LOAD_GAME,
 	POST_GAME,
 	DEBUG,
@@ -13,7 +14,7 @@ enum GamePhase {
 @export var Main_scene: String = ""
 @export var Death_scene: String = ""
 @export var Dungeon_scene: String = ""
-var current_phase: GamePhase = GamePhase.PRE_GAME
+var current_phase: GamePhase = GamePhase.MAIN
 
 
 
@@ -30,15 +31,16 @@ func set_phase(new_phase: GamePhase):
 	print("[GameState] Phase changed to: ", current_phase)
 	# Handle scene change here
 	match new_phase:
-		GamePhase.PRE_GAME:
+		GamePhase.MAIN:
+			set_game_speed(1)
+			get_tree().change_scene_to_file(Main_scene)
+			get_tree().paused = false
+		GamePhase.NEW_GAME:
 			set_game_speed(1)
 			clear_run_data()
-			get_tree().change_scene_to_file(Main_scene)
+			get_tree().change_scene_to_file(Dungeon_scene)
 			get_tree().paused = false
 		GamePhase.LOAD_GAME:
-			get_tree().change_scene_to_file(Main_scene)
-			get_tree().paused = false
-		GamePhase.TRAVEL:
 			get_tree().change_scene_to_file(Dungeon_scene)
 			get_tree().paused = false
 		
