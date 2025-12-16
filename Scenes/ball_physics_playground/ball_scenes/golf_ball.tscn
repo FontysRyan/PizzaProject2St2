@@ -1,6 +1,6 @@
 [gd_scene load_steps=47 format=3 uid="uid://cfy8mmkfe1m0i"]
 
-[ext_resource type="Script" uid="uid://bdjuuu6e3763w" path="res://Resources/Ball/Base_Ball.gd" id="1_bv3td"]
+[ext_resource type="Script" uid="uid://c1t004dj6a7mw" path="res://Scenes/ball_physics_playground/ball_physics_v2/Base_ball2.gd" id="1_4pjdu"]
 [ext_resource type="Texture2D" uid="uid://bj08vc3p8pqdb" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_01.png" id="10_keo0g"]
 [ext_resource type="Texture2D" uid="uid://c137d5igk5024" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_02.png" id="11_72jdt"]
 [ext_resource type="Texture2D" uid="uid://bo8c1bbqpa2sb" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_03.png" id="12_bh1lw"]
@@ -206,7 +206,7 @@ continuous_cd = 2
 linear_damp = 0.6
 angular_damp_mode = 1
 angular_damp = 1.0
-script = ExtResource("1_bv3td")
+script = ExtResource("1_4pjdu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w73w2")
