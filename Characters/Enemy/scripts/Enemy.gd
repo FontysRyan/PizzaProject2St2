@@ -4,12 +4,15 @@ class_name base_enemy
 @onready var nav_agent : NavigationAgent2D = $"NavigationAgent2D"
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @export var speed : float = 200 
-@export var health : float = 50
+@export var max_health : float = 50
 @export var stop_distance : float = 120 # the distance (in pixels) of how far from the player the enemy should stop
 @export var attack_speed : float = 2 # seconds per attack
 @export var damage : float = 30
 @export var poison_damage_multiplier : float = 0.015
+
 const NORMAL_SCALE_X := 0.2  # used for flipping. idk why we do it this way
+
+var health : float
 var repath_cooldown : float = 0.0
 var in_range : bool = false
 var player : Node2D
@@ -27,6 +30,8 @@ func _ready() -> void:
 	add_to_group("Enemy")
 	nav_agent.target_desired_distance = 10000.0
 	nav_agent.path_desired_distance = 5000.0
+	
+	health = max_health
 	
 	await NavigationServer2D.map_changed
 	

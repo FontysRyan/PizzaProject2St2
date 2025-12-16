@@ -16,6 +16,7 @@ func attack(target: CharacterBody2D):
 		fired_projectile.position = marker.position
 		fired_projectile.direction = (target.global_position - fired_projectile.position).normalized()
 		fired_projectile.set_script("res://Characters/Enemy/scripts/projectile.gd")
+		fired_projectile.damage = damage
 		
 		get_parent().add_child(fired_projectile)
 		
