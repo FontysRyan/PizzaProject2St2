@@ -2541,6 +2541,7 @@ tile_set = SubResource("TileSet_svs35")
 
 [node name="Enemy" parent="." instance=ExtResource("3_0dfcm")]
 scale = Vector2(0.2, 0.2)
+stats = null
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_15pty")

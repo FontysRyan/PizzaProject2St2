@@ -1,7 +1,7 @@
 extends base_enemy
 
 @export var projectile : PackedScene
-@export var attack_amount : float = 1
+@export var attack_amount : float = 1 # only if we ever want to use this, we dont plan on it for now
 @export var projectile_speed : float = 500
 @onready var marker : Marker2D = $Marker2D
 
