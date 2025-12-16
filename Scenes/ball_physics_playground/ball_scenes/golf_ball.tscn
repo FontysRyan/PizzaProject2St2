@@ -27,7 +27,7 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w73w2"]
-radius = 203.0
+radius = 21.023796
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lbp6"]
 atlas = ExtResource("13_x1vqh")
@@ -199,6 +199,7 @@ shape = SubResource("CircleShape2D_w73w2")
 debug_color = Color(0, 0.011764706, 0.4392157, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_2lbp6")
 autoplay = "default"
 frame_progress = 0.97000545

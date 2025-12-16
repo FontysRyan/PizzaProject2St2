@@ -20,7 +20,7 @@ func _ready() -> void:
 	# Ball is on layer 2
 	collision_layer = 1 << LAYER_BALL
 	
-	Set_size(10,10)
+	Set_size(100,10)
 	# Ball collides with Player, Walls, Obstacles, Traps, Enemies
 	collision_mask = (1 << LAYER_PLAYER) | (1 << LAYER_WALLS) | (1 << LAYER_OBSTACLES) | (1 << LAYER_TRAPS) | (1 << LAYER_ENEMIES)
 
