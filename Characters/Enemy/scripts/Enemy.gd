@@ -1,18 +1,22 @@
 extends CharacterBody2D
 class_name base_enemy
 
+# special values like constants, onready, and export values
 @onready var nav_agent : NavigationAgent2D = $"NavigationAgent2D"
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @export var speed : float = 200 
-@export var max_health : float = 50
-@export var stop_distance : float = 120 # the distance (in pixels) of how far from the player the enemy should stop
-@export var attack_speed : float = 2 # seconds per attack
-@export var damage : float = 30
 @export var poison_damage_multiplier : float = 0.015
-
+@export var stats : EnemyResource
 const NORMAL_SCALE_X := 0.2  # used for flipping. idk why we do it this way
 
+# stat specific values. get pulled from the EnemyResource
 var health : float
+var attack_speed : float
+var stop_distance : float
+var damage : float
+# var speed : float
+
+# values that you shouldnt worry about
 var repath_cooldown : float = 0.0
 var in_range : bool = false
 var player : Node2D
@@ -25,13 +29,10 @@ var is_frozen : bool = false
 var frozen_cooldown : float = 2
 var frozen_stacks : float = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("Enemy")
 	nav_agent.target_desired_distance = 10000.0
 	nav_agent.path_desired_distance = 5000.0
-	
-	health = max_health
 	
 	await NavigationServer2D.map_changed
 	
@@ -39,9 +40,48 @@ func _ready() -> void:
 	if players.size() > 0:
 		player = players[0]
 		nav_agent.target_position = player.position
+	stats.level = roll_value(Stats.current_floor)
+	set_stats()
+
+func roll_value(floor: int) -> int:
+	if floor >= 10:
+		return 5
+	
+	var weights := {}
+	
+	# Base weights
+	weights[1] = max(0, 10 - floor * 2)
+	weights[2] = max(0, floor - 1)
+	weights[3] = max(0, floor - 3)
+	weights[4] = max(0, floor - 6)
+	weights[5] = max(0, floor - 8)
+	
+	return weighted_random(weights)
+
+func weighted_random(weights: Dictionary) -> int:
+	var total := 0
+	for w in weights.values():
+		total += w
+	
+	var roll := randi_range(1, total)
+	var running := 0
+	
+	for key in weights.keys():
+		running += weights[key]
+		if roll <= running:
+			return key
+	
+	return weights.keys()[0] # fallback
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func set_stats() -> void:
+	stats.check_level()
+	health = stats.current_max_health
+	attack_speed = 1/stats.attack_speed
+	stop_distance = stats.attack_range * 20
+	damage = stats.current_damage
+	#speed = stats.movement_speed
+
 func _physics_process(delta: float) -> void:
 	if not player:
 		return
