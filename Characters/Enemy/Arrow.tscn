@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cigipnhskvoc3"]
+
+[ext_resource type="Texture2D" uid="uid://c3hj7oeg14r4y" path="res://Assets/test models/1/PNG/Vector Parts/Sword.png" id="1_qy574"]
+[ext_resource type="Script" uid="uid://c2d476h10j5n6" path="res://Characters/Enemy/scripts/projectile.gd" id="1_scf5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qy574"]
+size = Vector2(318, 59)
+
+[node name="Arrow" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 31
+script = ExtResource("1_scf5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_qy574")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qy574")
