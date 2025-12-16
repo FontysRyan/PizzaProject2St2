@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cykj0rcui1jrh"]
+
+[ext_resource type="Script" uid="uid://dpca04kgeipal" path="res://Characters/Player/chargebar.gd" id="1_rxo0a"]
+[ext_resource type="Texture2D" uid="uid://srob06j34g2q" path="res://Assets/Kenny UI expansion/PNG/Extra/Double/bar_shadow_round_large.png" id="2_rxo0a"]
+[ext_resource type="Texture2D" uid="uid://dodr7p5y7t6xn" path="res://Assets/Kenny UI expansion/PNG/Green/Double/bar_round_gloss_large.png" id="3_4q26n"]
+[ext_resource type="Texture2D" uid="uid://c65du15i0fy5x" path="res://Assets/Kenny UI expansion/PNG/Yellow/Double/bar_round_gloss_large.png" id="5_xwfv1"]
+
+[node name="ChargeBar" type="TextureProgressBar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -0.5
+offset_right = 0.5
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+script = ExtResource("1_rxo0a")
+green_texture = ExtResource("5_xwfv1")
+yellow_texture = ExtResource("5_xwfv1")
+red_texture = ExtResource("5_xwfv1")
+
+[node name="BarBackground" type="Sprite2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("2_rxo0a")
+
+[node name="BarFill" type="Sprite2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("3_4q26n")
