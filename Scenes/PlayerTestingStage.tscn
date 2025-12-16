@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://blmw4dnny4fww"]
+[gd_scene load_steps=7 format=4 uid="uid://blmw4dnny4fww"]
 
 [ext_resource type="PackedScene" uid="uid://bm1gydjdattk7" path="res://Characters/Player/Player.tscn" id="1_6gn4b"]
 [ext_resource type="Texture2D" uid="uid://blc68qohynm5u" path="res://Assets/kenney_map-pack/Tilesheet/mapPack_tilesheet.png" id="2_kvtyg"]
 [ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/golf_ball.tscn" id="3_kvtyg"]
+[ext_resource type="PackedScene" uid="uid://1nr73r6dr1fi" path="res://Characters/Player/TestObject.tscn" id="4_prnx6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_prnx6"]
 texture = ExtResource("2_kvtyg")
@@ -229,3 +230,9 @@ tile_set = SubResource("TileSet_svs35")
 
 [node name="GolfBall" parent="." instance=ExtResource("3_kvtyg")]
 position = Vector2(560, 215)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("4_prnx6")]
+position = Vector2(898, 206)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("4_prnx6")]
+position = Vector2(198, 189)
