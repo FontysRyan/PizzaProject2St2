@@ -39,7 +39,7 @@ func set_phase(new_phase: GamePhase):
 			get_tree().change_scene_to_file(Dungeon_scene)
 			get_tree().paused = false
 		
-		
+
 func clear_run_data():
 	inventory.clear()
 	Stats.clear_all()
