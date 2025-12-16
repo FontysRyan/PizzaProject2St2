@@ -17,6 +17,7 @@ var original_radius: float
 
 func _ready() -> void:
 	original_radius = $CollisionShape2D.shape.radius
+	#angular_velocity = 5.0  # initial spin
 	# Ball is on layer 2
 	collision_layer = 1 << LAYER_BALL
 	

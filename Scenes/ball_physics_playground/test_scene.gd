@@ -3,7 +3,7 @@ extends Node2D
 @export var object_scene: PackedScene
 #@export var object_scene2: PackedScene
 #@export var object_scene3: PackedScene
-@export var shoot_angle_degrees: float = 120.0
+@export var shoot_angle_degrees: float = 90.0
 @export var shoot_power: float = 1 #1 = 100% power
 
 func _ready():
