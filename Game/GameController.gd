@@ -33,16 +33,16 @@ func set_phase(new_phase: GamePhase):
 		GamePhase.PRE_GAME:
 			set_game_speed(1)
 			clear_run_data()
-			get_tree().change_scene_to_file(Dungeon_scene)
+			get_tree().change_scene_to_file(Main_scene)
 			get_tree().paused = false
 		GamePhase.LOAD_GAME:
+			get_tree().change_scene_to_file(Main_scene)
+			get_tree().paused = false
+		GamePhase.TRAVEL:
 			get_tree().change_scene_to_file(Dungeon_scene)
 			get_tree().paused = false
 		
 
-func clear_run_data():
-	inventory.clear()
-	Stats.clear_all()
 
 func set_game_speed(scale: float) -> void:
 	# Clamp to prevent negative or absurd values
@@ -54,10 +54,19 @@ func set_game_speed(scale: float) -> void:
 @export var stick_slot1 : Stick = null
 @export var stick_slot2 : Stick = null
 @export var stick_slot3 : Stick = null
+var stick_inventory : Array = [stick_slot1, stick_slot2, stick_slot3]
+var equipped_stick_index : int = 0
+
 @export var ball_slot1 : Ball = null
 @export var ball_slot2 : Ball = null
 @export var ball_slot3 : Ball = null
-var inventory : Array = [stick_slot1, stick_slot2, stick_slot3, ball_slot1, ball_slot2, ball_slot3]
+var ball_inventory : Array = [ball_slot1, ball_slot2, ball_slot3]
+var equipped_ball_index : int = 0
 
-var equipped_stick_index : int
-var equipped_ball_index : int
+
+
+
+func clear_run_data():
+	stick_inventory.clear()
+	ball_inventory.clear()
+	Stats.clear_all()
