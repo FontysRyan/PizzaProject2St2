@@ -59,5 +59,5 @@ func set_game_speed(scale: float) -> void:
 @export var ball_slot3 : Ball = null
 var inventory : Array = [stick_slot1, stick_slot2, stick_slot3, ball_slot1, ball_slot2, ball_slot3]
 
-@export var equipped_stick : Stick = null
-@export var equipped_ball : Ball = null
+var equipped_stick_index : int
+var equipped_ball_index : int
