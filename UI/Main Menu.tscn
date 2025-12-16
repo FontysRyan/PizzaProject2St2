@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://bsulweevuuynq"]
+[gd_scene load_steps=2 format=3 uid="uid://bsulweevuuynq"]
+
+[ext_resource type="Script" uid="uid://trqcuqae6tpr" path="res://UI/main_menu.gd" id="1_6iuai"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_6iuai")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -45,3 +48,5 @@ custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 text = "Quit
 "
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
