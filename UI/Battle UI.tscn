@@ -16,7 +16,35 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
+custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+max_value = 200.0
+show_percentage = false
 script = ExtResource("1_qe2yl")
+
+[node name="CurrentHpLabel" type="Label" parent="MarginContainer/ProgressBar"]
+layout_mode = 0
+offset_right = 197.0
+offset_bottom = 50.0
+text = "chp"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="slash" type="Label" parent="MarginContainer/ProgressBar"]
+layout_mode = 0
+offset_left = 195.0
+offset_right = 215.0
+offset_bottom = 50.0
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxHpLabel" type="Label" parent="MarginContainer/ProgressBar"]
+layout_mode = 0
+offset_left = 210.0
+offset_right = 400.0
+offset_bottom = 50.0
+text = "mhp"
+vertical_alignment = 1

@@ -11,8 +11,8 @@ var bosses_killed : int = 0
 var enemies_killed : int = 0
 var rooms_explored : int = 0
 
-var max_health : float
-var current_health : float
+var max_health : float = 100
+var current_health : float = 100
 
 func clear_all() -> void:
 	current_floor = 0
