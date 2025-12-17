@@ -77,7 +77,12 @@ func weighted_random(weights: Dictionary) -> int:
 func set_stats() -> void:
 	stats.check_level()
 	health = stats.current_max_health
-	attack_speed = 1/stats.attack_speed
+	
+	if stats.attack_speed == 0:
+		attack_speed = 0
+	else:
+		attack_speed = 1/stats.attack_speed
+	
 	stop_distance = stats.attack_range * 20
 	damage = stats.current_damage
 	#speed = stats.movement_speed

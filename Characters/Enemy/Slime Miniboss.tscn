@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cagucdp668bfk"]
+
+[ext_resource type="Texture2D" uid="uid://bdrrno1kjtgny" path="res://Characters/Enemy/slime.png" id="1_h20ra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecc28"]
+size = Vector2(963, 663)
+
+[node name="SlimeMiniboss" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h20ra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -20.5)
+shape = SubResource("RectangleShape2D_ecc28")

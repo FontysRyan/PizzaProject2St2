@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinibossResource" load_steps=2 format=3 uid="uid://cqb8cgmbl4lcw"]
+
+[ext_resource type="Script" uid="uid://bvxhjcjvfnoml" path="res://Resources/Enemy/Miniboss_Resource.gd" id="1_o0x7k"]
+
+[resource]
+script = ExtResource("1_o0x7k")
+ability_name = "Summon"
+passive_ability_name = "Absorb"
+max_health = 210.0
+damage = 20.0
+attack_range = 0.0
+attack_speed = 0.0
+resistance = 0.0
+metadata/_custom_type_script = "uid://bvxhjcjvfnoml"
