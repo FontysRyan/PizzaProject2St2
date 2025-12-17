@@ -10,6 +10,9 @@ class_name BaseBall
 var original_radius: float
 
 func _ready():
+	contact_monitor = true
+	max_contacts_reported = 1
+	connect("body_entered", Callable(self, "_on_body_entered"))
 	original_radius = $CollisionShape2D.shape.radius
 	if physics_mode:
 		physics_mode.on_added(self)
@@ -18,8 +21,10 @@ func _ready():
 		split_mode.on_added(self)
 	for mode in special_modes:
 		mode.on_added(self)
-
+func _on_body_entered(body):
+	on_hit(body)
 func on_hit(target):
+	print("ddd")
 	if physics_mode:
 		physics_mode.on_hit(self, target)
 	if split_mode:
@@ -30,7 +35,7 @@ func on_hit(target):
 func hit_ball(direction: Vector2, power: float) -> void:
 	gravity_scale = 0 # optional
 	set_sleeping(false)
-	print("eeeee")
+	#print("eeeee")
 	power = clamp(power, 0.0, 1.0)
 	var impulse = direction.normalized() * (power * total_push_power)
 	apply_central_impulse(impulse)
