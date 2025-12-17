@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://1i71mgrtuq0x" path="res://Characters/Enemy/scripts/rangedEnemy.gd" id="1_567dd"]
 [ext_resource type="PackedScene" uid="uid://cigipnhskvoc3" path="res://Characters/Enemy/Arrow.tscn" id="2_jfyom"]
 [ext_resource type="Resource" uid="uid://bnyo66e28wmst" path="res://Resources/Enemy/Range.tres" id="3_avddw"]
-[ext_resource type="Texture2D" uid="uid://byw7g53r57qbj" path="res://Assets/test models/1/PNG/Vector Parts/Left Hand.png" id="3_jfyom"]
-[ext_resource type="Texture2D" uid="uid://cqtaaf083i0h7" path="res://Assets/test models/1/PNG/Vector Parts/Left Arm.png" id="4_be1em"]
-[ext_resource type="Texture2D" uid="uid://cbrh7200cxbb7" path="res://Assets/test models/1/PNG/Vector Parts/Left Leg.png" id="5_76juy"]
-[ext_resource type="Texture2D" uid="uid://ue5f00o4pnyt" path="res://Assets/test models/1/PNG/Vector Parts/Right Leg.png" id="6_jetue"]
-[ext_resource type="Texture2D" uid="uid://c5tq4wfso5bgd" path="res://Assets/test models/1/PNG/Vector Parts/Body.png" id="7_4ew2r"]
-[ext_resource type="Texture2D" uid="uid://byyd6q8pbkuir" path="res://Assets/test models/1/PNG/Vector Parts/Head.png" id="8_s30im"]
-[ext_resource type="Texture2D" uid="uid://cnsfobsvn7p8h" path="res://Assets/test models/1/PNG/Vector Parts/Right Hand.png" id="9_beafk"]
-[ext_resource type="Texture2D" uid="uid://bg74ghnhmjn3h" path="res://Assets/test models/1/PNG/Vector Parts/Right Arm.png" id="10_6mjnd"]
-[ext_resource type="Texture2D" uid="uid://bwtah7qy7gl6x" path="res://Assets/test models/1/PNG/Vector Parts/Face 01.png" id="11_6nk8h"]
+[ext_resource type="Texture2D" uid="uid://cpk7k0doenld4" path="res://Assets/green guys/Goblin/PNG/Vector Parts/Left Hand.png" id="4_avddw"]
+[ext_resource type="Texture2D" uid="uid://c57fpicvld8et" path="res://Assets/green guys/Goblin/PNG/Vector Parts/Left Arm.png" id="5_jfyom"]
+[ext_resource type="Texture2D" uid="uid://blotekm03y01v" path="res://Assets/green guys/Goblin/PNG/Vector Parts/Left Leg.png" id="6_be1em"]
+[ext_resource type="Texture2D" uid="uid://cf5mjm3xywhge" path="res://Assets/green guys/Goblin/PNG/Vector Parts/Right Leg.png" id="7_76juy"]
+[ext_resource type="Texture2D" uid="uid://dtmey7e5o2cd1" path="res://Assets/green guys/Goblin/PNG/Vector Parts/Body.png" id="8_jetue"]
+[ext_resource type="Texture2D" uid="uid://bom3ftydly8gc" path="res://Assets/green guys/Goblin/PNG/Vector Parts/Head.png" id="9_4ew2r"]
+[ext_resource type="Texture2D" uid="uid://csg0n30031bol" path="res://Assets/green guys/Goblin/PNG/Vector Parts/Right Hand.png" id="10_s30im"]
+[ext_resource type="Texture2D" uid="uid://b6wsddmb33iva" path="res://Assets/green guys/Goblin/PNG/Vector Parts/Right Arm.png" id="11_beafk"]
+[ext_resource type="Texture2D" uid="uid://cq28ksu18c4id" path="res://Assets/green guys/Goblin/PNG/Vector Parts/Face 01.png" id="12_6mjnd"]
 [ext_resource type="Texture2D" uid="uid://c3hj7oeg14r4y" path="res://Assets/test models/1/PNG/Vector Parts/Sword.png" id="12_jusjl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy732"]
@@ -914,7 +914,7 @@ position = Vector2(-632, -408)
 
 [node name="LeftHand" type="Polygon2D" parent="PivotPoint/polygons"]
 position = Vector2(648, 420)
-texture = ExtResource("3_jfyom")
+texture = ExtResource("4_avddw")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(40.270935, 32.62229, 58.57495, 25.878712, 80.73242, 29.732187, 99.51811, 43.701035, 101.444855, 64.41346, 98.07306, 85.60757, 78.324005, 98.13136, 45.087784, 100.0581, 27.265457, 94.277885, 24.85704, 61.041668, 66.84411, 61.85235)
 uv = PackedVector2Array(40.270935, 32.62229, 58.57495, 25.878712, 80.73242, 29.732187, 99.51811, 43.701035, 101.444855, 64.41346, 98.07306, 85.60757, 78.324005, 98.13136, 45.087784, 100.0581, 27.265457, 94.277885, 24.85704, 61.041668, 66.84411, 61.85235)
@@ -924,7 +924,7 @@ internal_vertex_count = 1
 
 [node name="LeftArm" type="Polygon2D" parent="PivotPoint/polygons"]
 position = Vector2(621.681, 365.567)
-texture = ExtResource("4_be1em")
+texture = ExtResource("5_jfyom")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(50.564667, 21.740204, 72.06085, 23.694405, 107.724976, 87.20586, 87.20589, 104.79365, 59.35855, 110.65624, 27.602829, 107.724945, 26.625732, 43.724937, 35.419632, 27.11425, 51.053207, 42.74784)
 uv = PackedVector2Array(50.564667, 21.740204, 72.06085, 23.694405, 107.724976, 87.20586, 87.20589, 104.79365, 59.35855, 110.65624, 27.602829, 107.724945, 26.625732, 43.724937, 35.419632, 27.11425, 51.053207, 42.74784)
@@ -934,7 +934,7 @@ internal_vertex_count = 1
 
 [node name="LeftLeg" type="Polygon2D" parent="PivotPoint/polygons"]
 position = Vector2(606, 468)
-texture = ExtResource("5_76juy")
+texture = ExtResource("6_be1em")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(26.137177, 100.88525, 68.15245, 106.74784, 104.79367, 98.931046, 102.83948, 80.366165, 97.95398, 76.94632, 95.022675, 40.30509, 79.3891, 22.717304, 48.61046, 22.717304, 24.182983, 41.77074, 63.75551, 78.90051)
 uv = PackedVector2Array(26.137177, 100.88525, 68.15245, 106.74784, 104.79367, 98.931046, 102.83948, 80.366165, 97.95398, 76.94632, 95.022675, 40.30509, 79.3891, 22.717304, 48.61046, 22.717304, 24.182983, 41.77074, 63.75551, 78.90051)
@@ -944,7 +944,7 @@ internal_vertex_count = 1
 
 [node name="RightLeg" type="Polygon2D" parent="PivotPoint/polygons"]
 position = Vector2(529, 468)
-texture = ExtResource("6_jetue")
+texture = ExtResource("7_76juy")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(21.740234, 101.86235, 108.21353, 106.25929, 102.83948, 83.78601, 99.41963, 78.411964, 102.83948, 35.908146, 77.43489, 19.297459, 50.07611, 20.274555, 28.579926, 38.839443, 65.7097, 40.79364)
 uv = PackedVector2Array(21.740234, 101.86235, 108.21353, 106.25929, 102.83948, 83.78601, 99.41963, 78.411964, 102.83948, 35.908146, 77.43489, 19.297459, 50.07611, 20.274555, 28.579926, 38.839443, 65.7097, 40.79364)
@@ -954,7 +954,7 @@ internal_vertex_count = 1
 
 [node name="Body" type="Polygon2D" parent="PivotPoint/polygons"]
 position = Vector2(455, 278)
-texture = ExtResource("7_4ew2r")
+texture = ExtResource("8_jetue")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(71.45035, 92.21408, 50.68698, 248.54996, 108.09155, 259.5423, 161.832, 264.4278, 211.90836, 272.97742, 232.67172, 260.76367, 260.76328, 247.32858, 255.87778, 189.924, 269.3129, 163.05377, 255.87778, 126.41255, 241.22134, 115.42018, 221.67935, 77.557594, 187.48087, 65.34386, 117.86255, 62.901108, 166.7175, 156.9469)
 uv = PackedVector2Array(71.45035, 92.21408, 50.68698, 248.54996, 108.09155, 259.5423, 161.832, 264.4278, 211.90836, 272.97742, 232.67172, 260.76367, 260.76328, 247.32858, 255.87778, 189.924, 269.3129, 163.05377, 255.87778, 126.41255, 241.22134, 115.42018, 221.67935, 77.557594, 187.48087, 65.34386, 117.86255, 62.901108, 166.7175, 156.9469)
@@ -964,7 +964,7 @@ internal_vertex_count = 1
 
 [node name="Head" type="Polygon2D" parent="PivotPoint/polygons"]
 position = Vector2(356, -21)
-texture = ExtResource("8_s30im")
+texture = ExtResource("9_4ew2r")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(165.59656, 49.841156, 209.96161, 29.364971, 300.9669, 40.74063, 371.7536, 83.67914, 426.26123, 163.92645, 441.40222, 259.31476, 433.83173, 356.21716, 383.8664, 424.35168, 317.24722, 454.63397, 314.21902, 431.9225, 174.92178, 427.3802, 153.7244, 445.54938, 118.900055, 428.8943, 106.78726, 433.43658, 23.51175, 360.75977, 21.99765, 224.49074, 58.33319, 115.47174, 94.67157, 71.56283, 358.12485, 404.66132, 124.9534, 397.09076, 230.9404, 222.96925)
 uv = PackedVector2Array(165.59656, 49.841156, 209.96161, 29.364971, 300.9669, 40.74063, 371.7536, 83.67914, 426.26123, 163.92645, 441.40222, 259.31476, 433.83173, 356.21716, 383.8664, 424.35168, 317.24722, 454.63397, 314.21902, 431.9225, 174.92178, 427.3802, 153.7244, 445.54938, 118.900055, 428.8943, 106.78726, 433.43658, 23.51175, 360.75977, 21.99765, 224.49074, 58.33319, 115.47174, 94.67157, 71.56283, 358.12485, 404.66132, 124.9534, 397.09076, 230.9404, 222.96925)
@@ -974,7 +974,7 @@ internal_vertex_count = 3
 
 [node name="RightHand" type="Polygon2D" parent="PivotPoint/polygons"]
 position = Vector2(473, 421)
-texture = ExtResource("9_beafk")
+texture = ExtResource("10_s30im")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(56.182983, 19.053185, 70.83948, 21.49593, 105.03795, 44.946312, 106.5036, 71.327995, 100.15245, 96.244026, 78.167725, 109.923416, 36.641006, 97.22112, 20.51886, 69.86235, 23.450165, 40.060818, 42.015045, 20.518833, 64.48833, 63.999744)
 uv = PackedVector2Array(56.182983, 19.053185, 70.83948, 21.49593, 105.03795, 44.946312, 106.5036, 71.327995, 100.15245, 96.244026, 78.167725, 109.923416, 36.641006, 97.22112, 20.51886, 69.86235, 23.450165, 40.060818, 42.015045, 20.518833, 64.48833, 63.999744)
@@ -984,7 +984,7 @@ internal_vertex_count = 1
 
 [node name="RightArm" type="Polygon2D" parent="PivotPoint/polygons"]
 position = Vector2(481, 365)
-texture = ExtResource("10_6mjnd")
+texture = ExtResource("11_beafk")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(66.44252, 20.030281, 89.40436, 23.938679, 101.6181, 41.526466, 100.64101, 113.34326, 67.90817, 114.808914, 17.58757, 96.244026, 47.3891, 34.19822, 73.77077, 41.037914)
 uv = PackedVector2Array(66.44252, 20.030281, 89.40436, 23.938679, 101.6181, 41.526466, 100.64101, 113.34326, 67.90817, 114.808914, 17.58757, 96.244026, 47.3891, 34.19822, 73.77077, 41.037914)
@@ -1009,7 +1009,7 @@ position = Vector2(4.474806, -0.69750404)
 rotation = -0.15462898
 scale = Vector2(0.16258338, 1.0101497)
 skew = 0.15064538
-texture = ExtResource("11_6nk8h")
+texture = ExtResource("12_6mjnd")
 
 [node name="RightArm" type="Bone2D" parent="PivotPoint/Skeleton2D/Torso"]
 position = Vector2(-86, -37)
@@ -1055,12 +1055,11 @@ rest = Transform2D(0.06805367, -1.845877, -8.132226, -0.29981837, 0, 0)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_mask = 2
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0, 0.9411765, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, -121)
+position = Vector2(-41, -115)
 shape = SubResource("RectangleShape2D_jy732")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

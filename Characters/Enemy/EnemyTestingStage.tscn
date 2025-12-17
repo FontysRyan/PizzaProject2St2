@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bm1gydjdattk7" path="res://Characters/Player/Player.tscn" id="1_rahgh"]
 [ext_resource type="Texture2D" uid="uid://blc68qohynm5u" path="res://Assets/kenney_map-pack/Tilesheet/mapPack_tilesheet.png" id="2_bcwe3"]
 [ext_resource type="PackedScene" uid="uid://d2l6wdti0ii02" path="res://Characters/Enemy/RangedEnemy.tscn" id="3_15pty"]
-[ext_resource type="Resource" uid="uid://bnyo66e28wmst" path="res://Resources/Enemy/Range.tres" id="4_ufeed"]
+[ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="3_ufeed"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_prnx6"]
 texture = ExtResource("2_bcwe3")
@@ -2543,7 +2543,10 @@ tile_set = SubResource("TileSet_svs35")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_15pty")
 
-[node name="Enemy2" parent="." instance=ExtResource("3_15pty")]
-position = Vector2(-8.999999, 8.999999)
+[node name="Enemy" parent="." instance=ExtResource("3_ufeed")]
+position = Vector2(733.99994, 329.99997)
 scale = Vector2(0.2, 0.2)
-stats = ExtResource("4_ufeed")
+
+[node name="Enemy2" parent="." instance=ExtResource("3_15pty")]
+position = Vector2(177.99998, 421.99997)
+scale = Vector2(0.2, 0.2)

@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name base_enemy
 
 # special values like constants, onready, and export values
-@onready var nav_agent : NavigationAgent2D = $"NavigationAgent2D"
+@onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @export var speed : float = 200 
 @export var poison_damage_multiplier : float = 0.015
