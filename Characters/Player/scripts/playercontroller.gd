@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var speed := 200
 var isFlipped := false
 var was_mouse_down := false
 
@@ -12,8 +11,22 @@ const NORMAL_SCALE_X := 0.2
 @export var max_length := 2000.0
 @onready var charge_bar := $ChargeBar  # path to your TextureProgressBar
 
+
+@export var stats : Playerstats
+
+# stats learned from quinten
+var start_health: float
+var move_speed: float
+
 func _ready():
+	if stats == null:
+		push_error("Playerstats not assigned!")
+		return
+
+	start_health = stats.start_health
+	move_speed = stats.move_speed
 	charge_bar.charge_released.connect(_on_charge_released)
+
 
 
 func get_aim_direction() -> Vector2:
@@ -84,7 +97,7 @@ func _physics_process(_delta):
 
 	# --- Movement ---
 	direction = direction.normalized()
-	velocity = direction * speed
+	velocity = direction * move_speed
 	move_and_slide()
 
 	# Flip visuals
@@ -112,3 +125,12 @@ func _on_charge_released(force: float):
 func hit_ball(direction: Vector2, force: float):
 	# Placeholder function to demonstrate hitting the ball
 	print("Hitting ball in direction: ", direction, " with force: ", force)
+
+
+
+func take_damage(amount: float):
+	start_health = clamp(start_health - amount, 0, stats.max_health)
+
+	if start_health <= 0:
+		queue_free()
+		print("Player has been defeated!")
