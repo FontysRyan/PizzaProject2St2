@@ -1,10 +1,16 @@
 extends base_enemy
 
-# Called when the node enters the scene tree for the first time.
+@onready var timer : Timer = Timer.new() 
+
 func _ready() -> void:
-	pass # Replace with function body.
+	super._ready()
+	timer.one_shot = false
+	if not is_instance_of(stats, MinibossResource):
+		push_warning("Wrong resource inserted for miniboss")
+		return
+	timer.wait_time = stats.ability_cooldown
+	timer.autostart = true
+	timer.timeout.connect(use_ability)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func use_ability():
 	pass
