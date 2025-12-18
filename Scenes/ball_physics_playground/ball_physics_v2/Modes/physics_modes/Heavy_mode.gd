@@ -10,3 +10,5 @@ func on_added(ball):
 	# Use Set_size() from the ball
 	var new_mass = ball.mass * mass_multiplier
 	ball.Set_size(radius, new_mass)
+func on_hit(ball: BaseBall, target):
+	print("DEFAULT PHYSICS")
