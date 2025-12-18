@@ -74,7 +74,7 @@ sources/0 = SubResource("TileSetAtlasSource_55sa6")
 [node name="GolfBallPlayground" type="Node2D"]
 script = ExtResource("1_etr25")
 object_scene = ExtResource("2_55sa6")
-shoot_angle_degrees = 200.0
+shoot_angle_degrees = 265.0
 
 [node name="Sprite2D" parent="." instance=ExtResource("4_55sa6")]
 position = Vector2(1523, 611)

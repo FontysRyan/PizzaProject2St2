@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://c25x2820c8blr"]
+
+[ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/ball_scenes/golf_ball.tscn" id="1_oiy3g"]
+[ext_resource type="Script" uid="uid://bdjuuu6e3763w" path="res://Resources/Ball/Base_Ball.gd" id="2_m2i0m"]
+
+[node name="GolfBall" instance=ExtResource("1_oiy3g")]
+script = ExtResource("2_m2i0m")
