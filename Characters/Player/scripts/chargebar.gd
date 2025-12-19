@@ -96,3 +96,8 @@ func _reset() -> void:
 	direction = 1.0
 	hide()
 	modulate.a = 1.0
+
+func get_charge_percent() -> float:
+	if max_charge <= 0:
+		return 0.0
+	return charge_value / max_charge

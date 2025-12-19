@@ -229,6 +229,9 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 5, 1917, -6, 1930, 
 z_index = 3
 position = Vector2(438.99997, 176.99997)
 scale = Vector2(0.2, 0.2)
+AmountOfTrajectoryBounces = 10
+max_length = 500.0
+ball_spawn_offset = Vector2(24, 0)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -5
@@ -241,10 +244,6 @@ position = Vector2(898, 206)
 [node name="StaticBody2D2" parent="." instance=ExtResource("4_prnx6")]
 position = Vector2(198, 189)
 
-[node name="GolfBall" parent="." instance=ExtResource("3_kvtyg")]
-position = Vector2(1285, 539)
-scale = Vector2(0.1, 0.1)
-
 [node name="Enemy" parent="." instance=ExtResource("5_moqpq")]
 position = Vector2(813, 455)
 scale = Vector2(0.2, 0.2)
@@ -252,3 +251,6 @@ scale = Vector2(0.2, 0.2)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_moqpq")
+
+[node name="GolfBall" parent="." instance=ExtResource("3_kvtyg")]
+position = Vector2(709, 793)
