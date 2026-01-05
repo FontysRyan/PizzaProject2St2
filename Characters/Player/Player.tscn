@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bedu7lho21qu4" path="res://Characters/Player/scripts/playercontroller.gd" id="1_6fff4"]
 [ext_resource type="Resource" uid="uid://xd7clwsrw2l5" path="res://Characters/Player/resource/Playerstats.tres" id="2_2xv0b"]
 [ext_resource type="Texture2D" uid="uid://boe4glq0sweis" path="res://Assets/fallen angel models/Fallen_Angels_1/PNG/Vector Parts/Head.png" id="2_6h4vt"]
-[ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/ball_scenes/golf_ball.tscn" id="2_7jpmk"]
+[ext_resource type="PackedScene" uid="uid://c25x2820c8blr" path="res://Scenes/ball_physics_playground/ball_physics_v2/golf_ball_V2.tscn" id="2_7jpmk"]
 [ext_resource type="Texture2D" uid="uid://ctn8f1q44n482" path="res://Assets/fallen angel models/Fallen_Angels_3/PNG/Vector Parts/Body.png" id="3_wraqo"]
 [ext_resource type="Texture2D" uid="uid://b6nknrb2ay6sb" path="res://Assets/fallen angel models/Fallen_Angels_1/PNG/Vector Parts/Left Arm.png" id="4_0ij6m"]
 [ext_resource type="Texture2D" uid="uid://dfqbdclf43bu6" path="res://Assets/fallen angel models/Fallen_Angels_1/PNG/Vector Parts/Left Hand.png" id="5_2xv0b"]
@@ -3380,16 +3380,13 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 3
 collision_mask = 62
 script = ExtResource("1_6fff4")
-AmountOfTrajectoryBounces = null
-max_length = null
 golf_ball_asset = ExtResource("2_7jpmk")
-ball_spawn_offset = null
 stats = ExtResource("2_2xv0b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 z_index = 3
 position = Vector2(-26, -116)
 shape = SubResource("RectangleShape2D_0j2ni")
