@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7ctnufcnmbwm"]
+
+[ext_resource type="Texture2D" uid="uid://c4432go6du1n3" path="res://Floor Generator/Assets/TEMP/DoorSprites/Down_Arrow.png" id="1_n0s24"]
+[ext_resource type="Texture2D" uid="uid://dqf2gj2d5fx6y" path="res://Floor Generator/Assets/TEMP/DoorSprites/Left_Arrow.png" id="2_v5yjl"]
+[ext_resource type="Texture2D" uid="uid://dprf7vobl71y2" path="res://Floor Generator/Assets/TEMP/DoorSprites/Right_Arrow.png" id="3_j47cy"]
+[ext_resource type="Texture2D" uid="uid://bc3cxkvk27qgx" path="res://Floor Generator/Assets/TEMP/DoorSprites/Up_Arrow.png" id="4_7qj2q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfpoo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n0s24")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v5yjl")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_j47cy")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7qj2q")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="RoomDoor" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vfpoo")
+animation = &"Up"
+speed_scale = 0.0
