@@ -134,6 +134,7 @@ func _physics_process(_delta):
 		direction.y += 1
 	if Input.is_action_pressed("up"):
 		direction.y -= 1
+	
 
 	# --- Charging & Shooting ---
 	var mouse_down := Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
@@ -188,19 +189,24 @@ func can_spawn_ball() -> bool:
 	return stats.amount_of_golf_balls > 0
 
 
-func spawn_ball(force: float):
-	stats.amount_of_golf_balls -= 1
+func spawn_ball(force: float) -> void:
+	if golf_ball_asset == null:
+		push_error("golf_ball_asset is not assigned")
+		return
 
 	var ball := golf_ball_asset.instantiate()
+	if ball == null:
+		push_error("Failed to instantiate golf ball")
+		return
+
 	get_tree().current_scene.add_child(ball)
-
+	stats.amount_of_golf_balls -= 1
 	var direction := get_aim_direction()
-	ball.global_position = global_position + direction * ball_spawn_offset.length()
+	ball.global_position = global_position + direction * 60.0
 
-	if ball.has_method("setup"):
-		ball.setup(direction, force)
+	await get_tree().physics_frame
+	ball.hit_ball(direction, force)
 
-	print("Ball spawned | force:", force, "dir:", direction)
 
 
 func _on_charge_released(force: float):

@@ -7,13 +7,13 @@ class_name BaseBall
 @export var special_modes: Array[SpecialMode] = []
 @export var total_push_power: float = 1000.0
 @export var is_real: bool = true   # track original ball
-var original_radius: float
+@export var original_radius: float = 20.0
 
 func _ready():
 	contact_monitor = true
 	max_contacts_reported = 1
 	connect("body_entered", Callable(self, "_on_body_entered"))
-	original_radius = $CollisionShape2D.shape.radius
+	#original_radius = $CollisionShape2D.shape.radius
 	if physics_mode:
 		physics_mode.on_added(self)
 		print(physics_mode.mode_name)  # prints "HeavyMode"
@@ -22,7 +22,13 @@ func _ready():
 	for mode in special_modes:
 		mode.on_added(self)
 func _on_body_entered(body):
+
+	#if body is CharacterBody2D:
+		#apply_central_impulse(
+			#(global_position - body.global_position).normalized() * 200.0
+		#)
 	on_hit(body)
+
 func on_hit(target):
 	print("ddd")
 	if physics_mode:
@@ -35,7 +41,7 @@ func on_hit(target):
 func hit_ball(direction: Vector2, power: float) -> void:
 	gravity_scale = 0 # optional
 	set_sleeping(false)
-	#print("eeeee")
+	print("eeeee: " , power)
 	power = clamp(power, 0.0, 1.0)
 	var impulse = direction.normalized() * (power * total_push_power)
 	apply_central_impulse(impulse)
@@ -61,6 +67,7 @@ func Set_size(radius: float, new_mass: float):
 
 func spawn_split_child(velocity: Vector2, is_real_child := false) -> BaseBall:
 	var child := duplicate() as BaseBall
+	#child.Set_size(10,mass)
 	child.is_real = is_real_child
 	child.linear_velocity = velocity
 	child.global_position = global_position
