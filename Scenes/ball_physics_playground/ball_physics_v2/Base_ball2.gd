@@ -22,7 +22,13 @@ func _ready():
 	for mode in special_modes:
 		mode.on_added(self)
 func _on_body_entered(body):
+
+	#if body is CharacterBody2D:
+		#apply_central_impulse(
+			#(global_position - body.global_position).normalized() * 200.0
+		#)
 	on_hit(body)
+
 func on_hit(target):
 	print("ddd")
 	if physics_mode:
@@ -35,7 +41,7 @@ func on_hit(target):
 func hit_ball(direction: Vector2, power: float) -> void:
 	gravity_scale = 0 # optional
 	set_sleeping(false)
-	#print("eeeee")
+	print("eeeee: " , power)
 	power = clamp(power, 0.0, 1.0)
 	var impulse = direction.normalized() * (power * total_push_power)
 	apply_central_impulse(impulse)
