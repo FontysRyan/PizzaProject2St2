@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://debh6pukt5r8n"]
+
+[ext_resource type="Script" uid="uid://iuoautfac4kt" path="res://Map_Generator/Map_Generator.gd" id="1_1icv0"]
+
+[node name="Generator" type="Node2D"]
+script = ExtResource("1_1icv0")
+enable_testing = true
