@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="test" load_steps=2 format=3 uid="uid://lnabgjqi6s4k"]
+
+[ext_resource type="Script" path="res://Resources/new_script.gd" id="1_8pcf5"]
+
+[resource]
+script = ExtResource("1_8pcf5")
+a = -18.065
+metadata/_custom_type_script = "uid://qg8g0uc7jh3m"
