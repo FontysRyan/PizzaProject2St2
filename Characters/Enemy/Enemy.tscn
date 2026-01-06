@@ -1,7 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://c2oixgv23yhvi"]
 
 [ext_resource type="Script" uid="uid://bfchxjh0f7jb8" path="res://Characters/Enemy/scripts/meleeEnemy.gd" id="1_jy732"]
-[ext_resource type="Texture2D" uid="uid://c3hj7oeg14r4y" path="res://Assets/test models/1/PNG/Vector Parts/Sword.png" id="1_kvarv"]
 [ext_resource type="Resource" uid="uid://dj37or0hb3cg6" path="res://Resources/Enemy/Melee.tres" id="2_34t7e"]
 [ext_resource type="Texture2D" uid="uid://byw7g53r57qbj" path="res://Assets/test models/1/PNG/Vector Parts/Left Hand.png" id="2_52jmu"]
 [ext_resource type="Texture2D" uid="uid://cqtaaf083i0h7" path="res://Assets/test models/1/PNG/Vector Parts/Left Arm.png" id="3_yqk80"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bwtah7qy7gl6x" path="res://Assets/test models/1/PNG/Vector Parts/Face 01.png" id="8_fbm3w"]
 [ext_resource type="Texture2D" uid="uid://cnsfobsvn7p8h" path="res://Assets/test models/1/PNG/Vector Parts/Right Hand.png" id="9_5v73r"]
 [ext_resource type="Texture2D" uid="uid://bg74ghnhmjn3h" path="res://Assets/test models/1/PNG/Vector Parts/Right Arm.png" id="10_bjyvl"]
+[ext_resource type="Texture2D" uid="uid://c6v3n1fw35r6j" path="res://Assets/green guys/Orc/PNG/Vector Parts/Sword.png" id="12_34t7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy732"]
 size = Vector2(405, 568)
@@ -898,7 +898,7 @@ _data = {
 &"WALK": SubResource("Animation_0j2ni")
 }
 
-[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+[node name="Dante" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 32
 collision_mask = 31
 script = ExtResource("1_jy732")
@@ -1032,7 +1032,7 @@ rest = Transform2D(13.841174, 0, 0, 1, 21, 68)
 [node name="Sword" type="Sprite2D" parent="PivotPoint/Skeleton2D/Torso/LeftArm/LeftHand"]
 position = Vector2(11.487, 2)
 scale = Vector2(0.072248206, 1)
-texture = ExtResource("1_kvarv")
+texture = ExtResource("12_34t7e")
 
 [node name="RightLeg" type="Bone2D" parent="PivotPoint/Skeleton2D/Torso"]
 position = Vector2(-42, 73)
@@ -1053,12 +1053,11 @@ rest = Transform2D(0.06805367, -1.845877, -8.132226, -0.29981837, 0, 0)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_mask = 2
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0, 0.9411765, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, -121)
+position = Vector2(-41, -117)
 shape = SubResource("RectangleShape2D_jy732")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

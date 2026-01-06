@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cagucdp668bfk"]
+
+[ext_resource type="Script" uid="uid://c08lw2t3tr37i" path="res://Characters/Enemy/scripts/Slime.gd" id="1_71gdq"]
+[ext_resource type="Texture2D" uid="uid://bdrrno1kjtgny" path="res://Characters/Enemy/slime.png" id="1_h20ra"]
+[ext_resource type="Resource" uid="uid://cqb8cgmbl4lcw" path="res://Resources/Enemy/Slime.tres" id="2_mpm8y"]
+[ext_resource type="PackedScene" uid="uid://b7ucmgv4a7as2" path="res://Characters/Enemy/MiniSlime.tscn" id="2_velyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecc28"]
+size = Vector2(963, 663)
+
+[node name="SlimeMiniboss" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 31
+script = ExtResource("1_71gdq")
+mini_slime = ExtResource("2_velyp")
+speed = 100.0
+stats = ExtResource("2_mpm8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h20ra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -20.5)
+shape = SubResource("RectangleShape2D_ecc28")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_mask = 2
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0, 0.9411765, 1, 1)
