@@ -1,7 +1,7 @@
 extends Node2D
 class_name DoorObject
 
-var door: PackedScene = preload("res://Floor Generator/Rooms/Door.tscn")
+var door: PackedScene = preload("res://Floor Generator/Rooms/Doors/Door.tscn")
 
 var animation_translation: Dictionary[Vector2, String] = {
 	Vector2.UP:	"Up",
