@@ -7,6 +7,7 @@ class_name BaseBall
 @export var special_modes: Array[SpecialMode] = []
 @export var total_push_power: float = 1000.0
 @export var is_real: bool = true   # track original ball
+@export var Can_Damage: bool = true #track damaga capabilities
 @export var original_radius: float = 20.0
 
 func _ready():
@@ -30,13 +31,38 @@ func _on_body_entered(body):
 	on_hit(body)
 
 func on_hit(target):
-	print("ddd")
+	#print("ddd")
+	#print(target.get_groups())
+	if target.is_in_group("Player") and is_real:
+		if target.has_method("pickup_golf_ball"):
+			target.pickup_golf_ball()
+
+		is_real = false
+		Can_Damage = false
+		can_sleep = true
+		#freeze_mode = RigidBody2D.FREEZE_MODE_STATIC
+		physics_material_override.friction = 10000
+		#vanish_now()
+		return
 	if physics_mode:
 		physics_mode.on_hit(self, target)
 	if split_mode:
 		split_mode.on_hit(self, target)
 	for mode in special_modes:
 		mode.on_hit(self, target)
+		
+#func vanish_now():
+	#linear_velocity = Vector2(0,0)
+	#angular_velocity = 0
+	#linear_damp = 100
+	#angular_damp = 100
+	#
+	#collision_layer = 0
+	#collision_mask = 0
+	#visible = false
+	#sleeping = true
+	#queue_free()
+	##call_deferred("queue_free")
 
 func hit_ball(direction: Vector2, power: float) -> void:
 	gravity_scale = 0 # optional
