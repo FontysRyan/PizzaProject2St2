@@ -11,9 +11,9 @@ enum GamePhase {
 	TREASURE,
 	DEATH
 }
-@export var Main_scene: String = ""
+@export var Main_scene: String = "res://Scenes/Main menu.tscn"
 @export var Death_scene: String = ""
-@export var Dungeon_scene: String = ""
+@export var Dungeon_scene: String = "res://Scenes/ball_physics_playground/PlayerTestingStage.tscn"
 var current_phase: GamePhase = GamePhase.MAIN
 
 
