@@ -41,6 +41,7 @@ func on_hit(target):
 func hit_ball(direction: Vector2, power: float) -> void:
 	gravity_scale = 0 # optional
 	set_sleeping(false)
+	power /= 100.0
 	print("eeeee: " , power)
 	power = clamp(power, 0.0, 1.0)
 	var impulse = direction.normalized() * (power * total_push_power)
