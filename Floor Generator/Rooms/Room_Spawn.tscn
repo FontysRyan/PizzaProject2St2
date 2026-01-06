@@ -12,6 +12,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(24, 26, 1896, 26, 1896,
 [node name="SpawnRoom" type="Node2D"]
 
 [node name="Floor" type="Polygon2D" parent="."]
+z_index = -5
 color = Color(0.40069768, 0.4006978, 0.40069735, 1)
 polygon = PackedVector2Array(1920, 0, 1920, 1080, 0, 1080, 0, 0)
 
@@ -54,14 +55,16 @@ position = Vector2(0, -26)
 polygon = PackedVector2Array(0, 1080, 1920, 1080, 1920, 1106, 958.9822, 1106, 0, 1106)
 
 [node name="NavMesh2D" type="NavigationRegion2D" parent="."]
+z_index = -5
 navigation_polygon = SubResource("NavigationPolygon_g6fcb")
-
-[node name="Player" parent="." instance=ExtResource("1_nqsqo")]
-position = Vector2(490, 310.00003)
-scale = Vector2(0.2, 0.2)
 
 [node name="Dante" parent="." instance=ExtResource("2_sgwp3")]
 position = Vector2(1571, 574)
 scale = Vector2(0.2, 0.2)
 
 [node name="BattleUi" parent="." instance=ExtResource("3_sgwp3")]
+
+[node name="Player" parent="." instance=ExtResource("1_nqsqo")]
+z_index = 3
+position = Vector2(438.99997, 176.99997)
+scale = Vector2(0.2, 0.2)

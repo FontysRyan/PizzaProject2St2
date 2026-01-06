@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://s8jg07gnon5g" path="res://UI/Battle UI.tscn" id="1_8lo8q"]
 [ext_resource type="Texture2D" uid="uid://blc68qohynm5u" path="res://Assets/kenney_map-pack/Tilesheet/mapPack_tilesheet.png" id="2_kvtyg"]
 [ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/ball_scenes/golf_ball.tscn" id="3_kvtyg"]
-[ext_resource type="PackedScene" path="res://Characters/Player/TestObject.tscn" id="4_prnx6"]
+[ext_resource type="PackedScene" uid="uid://1nr73r6dr1fi" path="res://Characters/Player/TestObject.tscn" id="4_prnx6"]
 [ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="5_moqpq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_prnx6"]
