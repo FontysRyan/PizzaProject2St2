@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b34r35nai5s4p"]
+
+[ext_resource type="Script" uid="uid://dtk7hcna2vrxt" path="res://Floor Generator/Map.gd" id="1_gfjgm"]
+[ext_resource type="PackedScene" uid="uid://s8jg07gnon5g" path="res://UI/Battle UI.tscn" id="2_sfgjq"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_gfjgm")
+
+[node name="BattleUi" parent="." instance=ExtResource("2_sfgjq")]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4mvc2f42u0s7"]
+
+[ext_resource type="Script" uid="uid://bhexmpwnpr6nr" path="res://Floor Generator/Random_Walker_Agent/Random_Walker_Agent.gd" id="1_ecg17"]
+
+[node name="Agent" type="Node2D"]
+script = ExtResource("1_ecg17")
