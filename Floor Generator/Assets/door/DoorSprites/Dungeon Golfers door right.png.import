@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dprf7vobl71y2"
-path="res://.godot/imported/Right_Arrow.png-e7e5bce2dd5e2eb16245fb0f7495348b.ctex"
+uid="uid://d0niac1kwk2s5"
+path="res://.godot/imported/Dungeon Golfers door right.png-f688f128277783f6e7f91d75c0f3c92a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Floor Generator/Assets/TEMP/DoorSprites/Right_Arrow.png"
-dest_files=["res://.godot/imported/Right_Arrow.png-e7e5bce2dd5e2eb16245fb0f7495348b.ctex"]
+source_file="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door right.png"
+dest_files=["res://.godot/imported/Dungeon Golfers door right.png-f688f128277783f6e7f91d75c0f3c92a.ctex"]
 
 [params]
 

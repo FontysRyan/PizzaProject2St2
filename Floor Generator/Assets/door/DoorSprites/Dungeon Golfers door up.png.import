@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc3cxkvk27qgx"
-path="res://.godot/imported/Up_Arrow.png-d4bdc5b61a93911b3d6f7498652fa01d.ctex"
+uid="uid://d1jet3gbi7wkg"
+path="res://.godot/imported/Dungeon Golfers door up.png-008ecde3b086d162aade520e164909a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Floor Generator/Assets/TEMP/DoorSprites/Up_Arrow.png"
-dest_files=["res://.godot/imported/Up_Arrow.png-d4bdc5b61a93911b3d6f7498652fa01d.ctex"]
+source_file="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door up.png"
+dest_files=["res://.godot/imported/Dungeon Golfers door up.png-008ecde3b086d162aade520e164909a2.ctex"]
 
 [params]
 
