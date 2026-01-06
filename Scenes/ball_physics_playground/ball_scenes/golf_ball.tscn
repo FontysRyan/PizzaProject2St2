@@ -1,6 +1,6 @@
-[gd_scene load_steps=45 format=3 uid="uid://cfy8mmkfe1m0i"]
+[gd_scene load_steps=47 format=3 uid="uid://cfy8mmkfe1m0i"]
 
-[ext_resource type="Script" uid="uid://bdjuuu6e3763w" path="res://Resources/Ball/Base_Ball.gd" id="1_bv3td"]
+[ext_resource type="Script" uid="uid://bdjuuu6e3763w" path="res://Resources/Ball/Base_Ball.gd" id="1_4pjdu"]
 [ext_resource type="Texture2D" uid="uid://bj08vc3p8pqdb" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_01.png" id="10_keo0g"]
 [ext_resource type="Texture2D" uid="uid://c137d5igk5024" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_02.png" id="11_72jdt"]
 [ext_resource type="Texture2D" uid="uid://bo8c1bbqpa2sb" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_03.png" id="12_bh1lw"]
@@ -21,13 +21,15 @@
 [ext_resource type="Texture2D" uid="uid://gpolb0l1ilx1" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_11.png" id="20_a66ka"]
 [ext_resource type="Texture2D" uid="uid://b2ykby6hhh6me" path="res://Scenes/ball_physics_playground/test_assets/Fire Ball/Fire Ball_Frame_08.png" id="20_f307k"]
 [ext_resource type="Texture2D" uid="uid://cydo7mhvvto8r" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_12.png" id="21_p0qjy"]
+[ext_resource type="Texture2D" uid="uid://c48xp6pfvpdft" path="res://Scenes/ball_physics_playground/test_assets/Golf ball/Golf_ball.png" id="22_4pjdu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bv3td"]
-friction = 0.0
+friction = 0.5
+rough = true
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w73w2"]
-radius = 203.0
+radius = 21.023796
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lbp6"]
 atlas = ExtResource("13_x1vqh")
@@ -109,6 +111,10 @@ region = Rect2(0, 0, 640, 640)
 atlas = ExtResource("21_p0qjy")
 region = Rect2(0, 0, 640, 640)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_buqdt"]
+atlas = ExtResource("22_4pjdu")
+region = Rect2(0, 0, 640, 640)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_2lbp6"]
 animations = [{
 "frames": [{
@@ -180,9 +186,18 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buqdt")
+}],
+"loop": true,
+"name": &"golf_ball",
+"speed": 5.0
 }]
 
 [node name="GolfBall" type="RigidBody2D"]
+disable_mode = 2
 collision_layer = 2
 collision_mask = 125
 physics_material_override = SubResource("PhysicsMaterial_bv3td")
@@ -192,13 +207,14 @@ continuous_cd = 2
 linear_damp = 0.6
 angular_damp_mode = 1
 angular_damp = 1.0
-script = ExtResource("1_bv3td")
+script = ExtResource("1_4pjdu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_w73w2")
 debug_color = Color(0, 0.011764706, 0.4392157, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_2lbp6")
-autoplay = "default"
-frame_progress = 0.97000545
+animation = &"golf_ball"
+autoplay = "golf_ball"

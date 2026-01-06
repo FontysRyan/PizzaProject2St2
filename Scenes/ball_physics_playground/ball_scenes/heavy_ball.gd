@@ -3,7 +3,7 @@ extends Base_Ball
 
 func _ready() -> void:
 	super._ready()
-	Set_size(10,10)
+	Set_size(100,10)
 
 
 	# Optional: debug log
