@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PizzaProject2St2 (DungeonGolfers)"
-run/main_scene="uid://blmw4dnny4fww"
+run/main_scene="uid://bsulweevuuynq"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

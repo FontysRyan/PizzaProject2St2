@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7ctnufcnmbwm"]
 
-[ext_resource type="Texture2D" uid="uid://c4432go6du1n3" path="res://Floor Generator/Assets/TEMP/DoorSprites/Down_Arrow.png" id="1_n0s24"]
-[ext_resource type="Texture2D" uid="uid://dqf2gj2d5fx6y" path="res://Floor Generator/Assets/TEMP/DoorSprites/Left_Arrow.png" id="2_v5yjl"]
-[ext_resource type="Texture2D" uid="uid://dprf7vobl71y2" path="res://Floor Generator/Assets/TEMP/DoorSprites/Right_Arrow.png" id="3_j47cy"]
-[ext_resource type="Texture2D" uid="uid://bc3cxkvk27qgx" path="res://Floor Generator/Assets/TEMP/DoorSprites/Up_Arrow.png" id="4_7qj2q"]
+[ext_resource type="Texture2D" uid="uid://cdsyxly6e7bim" path="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door down.png" id="1_opjwl"]
+[ext_resource type="Texture2D" uid="uid://wv1i8jhiwemr" path="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door left.png" id="2_klbgy"]
+[ext_resource type="Texture2D" uid="uid://d0niac1kwk2s5" path="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door right.png" id="3_l2g8q"]
+[ext_resource type="Texture2D" uid="uid://d1jet3gbi7wkg" path="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door up.png" id="4_t5usm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vfpoo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_n0s24")
+"texture": ExtResource("1_opjwl")
 }],
 "loop": true,
 "name": &"Down",
@@ -17,7 +17,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_v5yjl")
+"texture": ExtResource("2_klbgy")
 }],
 "loop": true,
 "name": &"Left",
@@ -25,7 +25,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_j47cy")
+"texture": ExtResource("3_l2g8q")
 }],
 "loop": true,
 "name": &"Right",
@@ -33,7 +33,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_7qj2q")
+"texture": ExtResource("4_t5usm")
 }],
 "loop": true,
 "name": &"Up",
@@ -45,5 +45,6 @@ scale = Vector2(0.5, 0.5)
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vfpoo")
-animation = &"Up"
+animation = &"Down"
+frame_progress = 1.0
 speed_scale = 0.0

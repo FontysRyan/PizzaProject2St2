@@ -21,7 +21,7 @@ var repath_cooldown : float = 0.0
 var in_range : bool = false
 var player : Node2D
 var isFlipped : bool = false
-var attack_cooldown : float = 0
+var attack_cooldown : float = 1
 var poison_active : bool = false
 var poison_stacks : float = 0
 var poison_cooldown : float = 1
