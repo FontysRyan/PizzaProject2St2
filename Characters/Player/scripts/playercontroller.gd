@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # --- State ---
-var isFlipped := false
+var facing := 1 # 1 = right, -1 = left (for flipping) (Had issues with it, me being silly willy (Ryan))
 var was_mouse_down := false
 var can_shoot := true
 
@@ -12,6 +12,7 @@ var shot_state := ShotState.IDLE
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var trajectory: Line2D = $Trajectory
 @onready var charge_bar := $ChargeBar
+@onready var pivot: Node2D = $PivotPoint
 
 # --- Config ---
 @export var AmountOfTrajectoryBounces := 10
@@ -28,13 +29,13 @@ var start_health: float
 var move_speed: float
 
 
-
 func _ready():
 	if stats == null:
 		push_error("Playerstats not assigned!")
 		return
 
 	start_health = stats.start_health
+	Stats.max_health = start_health
 	move_speed = stats.move_speed
 
 	charge_bar.charge_released.connect(_on_charge_released)
@@ -53,13 +54,12 @@ func update_trajectory():
 		return
 
 	var dir: Vector2 = get_aim_direction()
-	var charge_percent: float = charge_bar.get_charge_percent()
+
+	var charge_percent: float = float(charge_bar.get_charge_percent())
 	var remaining_length: float = lerp(0.0, max_length, charge_percent)
 
-
-
 	var space := get_world_2d().direct_space_state
-	var current_pos := global_position
+	var current_pos: Vector2 = global_position
 
 	trajectory.clear_points()
 	trajectory.add_point(Vector2.ZERO)
@@ -67,20 +67,18 @@ func update_trajectory():
 	for i in range(AmountOfTrajectoryBounces):
 		var end_pos: Vector2 = current_pos + dir * remaining_length
 
-
 		var query := PhysicsRayQueryParameters2D.create(current_pos, end_pos)
 		query.exclude = [self]
 
-		var result := space.intersect_ray(query)
+		var result: Dictionary = space.intersect_ray(query)
 
-		if result:
-			var hit_pos: Vector2 = result.position
-			var normal: Vector2 = result.normal
+		if not result.is_empty():
+			var hit_pos: Vector2 = result["position"]
+			var normal: Vector2 = result["normal"]
 
 			trajectory.add_point(to_local(hit_pos))
 			remaining_length -= current_pos.distance_to(hit_pos)
 
-			# SAFETY CHECK BOUNCE
 			if normal.length_squared() < 0.0001:
 				break
 
@@ -125,16 +123,38 @@ func _process(_delta):
 func _physics_process(_delta):
 	var direction := Vector2.ZERO
 
-	# --- Movement Input ---
-	if Input.is_action_pressed("right"):
-		direction.x += 1
-	if Input.is_action_pressed("left"):
-		direction.x -= 1
-	if Input.is_action_pressed("down"):
-		direction.y += 1
-	if Input.is_action_pressed("up"):
-		direction.y -= 1
-	
+	# Disable movement while shooting
+	if shot_state == ShotState.IDLE:
+		if Input.is_action_pressed("right"):
+			direction.x += 1
+		if Input.is_action_pressed("left"):
+			direction.x -= 1
+		if Input.is_action_pressed("down"):
+			direction.y += 1
+		if Input.is_action_pressed("up"):
+			direction.y -= 1
+
+	velocity = direction.normalized() * move_speed
+	move_and_slide()
+
+	# --- Flip Character ---
+	if shot_state == ShotState.IDLE:
+		# Flip by movement
+		if direction.x < 0:
+			pivot.scale.x = -1
+			facing = -1
+		elif direction.x > 0:
+			pivot.scale.x = 1
+			facing = 1
+	else:
+		# Flip by aim while shooting
+		var aim_x := get_aim_direction().x
+		if aim_x < 0:
+			pivot.scale.x = -1
+			facing = -1
+		elif aim_x > 0:
+			pivot.scale.x = 1
+			facing = 1
 
 	# --- Charging & Shooting ---
 	var mouse_down := Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
@@ -159,27 +179,12 @@ func _physics_process(_delta):
 
 	was_mouse_down = mouse_down
 
-	# --- Apply Movement ---
-	velocity = direction.normalized() * move_speed
-	move_and_slide()
-
-	# --- Flip Character ---
-	if direction.x < 0 and not isFlipped:
-		scale.x = -NORMAL_SCALE_X
-		isFlipped = true
-	elif direction.x > 0 and isFlipped:
-		scale.x = NORMAL_SCALE_X
-		isFlipped = false
-
 	# --- Animation for Movement ---
-	if direction != Vector2.ZERO:
-		if shot_state == ShotState.IDLE:
-			if anim_player.current_animation != "WALK":
-				anim_player.play("WALK")
-	else:
-		if shot_state == ShotState.IDLE:
-			anim_player.play("RESET")
-
+	if direction != Vector2.ZERO and shot_state == ShotState.IDLE:
+		if anim_player.current_animation != "WALK":
+			anim_player.play("WALK")
+	elif shot_state == ShotState.IDLE:
+		anim_player.play("RESET")
 
 
 # ---------------------------------------------------
@@ -194,19 +199,16 @@ func spawn_ball(force: float) -> void:
 		push_error("golf_ball_asset is not assigned")
 		return
 
-	var ball := golf_ball_asset.instantiate()
-	if ball == null:
-		push_error("Failed to instantiate golf ball")
-		return
+	var dir: Vector2 = get_aim_direction()
 
+	var ball := golf_ball_asset.instantiate()
 	get_tree().current_scene.add_child(ball)
+
 	stats.amount_of_golf_balls -= 1
-	var direction := get_aim_direction()
-	ball.global_position = global_position + direction * 60.0
+	ball.global_position = global_position + dir * 60.0
 
 	await get_tree().physics_frame
-	ball.hit_ball(direction, force)
-
+	ball.hit_ball(dir, force)
 
 
 func _on_charge_released(force: float):
@@ -224,6 +226,7 @@ func _on_charge_released(force: float):
 # ---------------------------------------------------
 func take_damage(amount: float):
 	start_health = clamp(start_health - amount, 0, stats.max_health)
+	Stats.current_health = start_health
 	if start_health <= 0:
 		queue_free()
 

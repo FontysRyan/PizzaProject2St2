@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg7nvpx2k4076"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hpmo"]
+bg_color = Color(1, 1, 1, 0.5882353)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 20
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(100, 100)
+size_flags_vertical = 0
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(20, 80)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 40.0
+offset_bottom = 90.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8hpmo")
+
+[node name="Panel2" type="Panel" parent="."]
+custom_minimum_size = Vector2(20, 80)
+layout_mode = 0
+offset_left = 60.0
+offset_top = 10.0
+offset_right = 80.0
+offset_bottom = 90.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8hpmo")

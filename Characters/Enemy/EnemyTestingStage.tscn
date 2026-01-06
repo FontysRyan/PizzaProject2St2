@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://ckol0jbohxp5a"]
+[gd_scene load_steps=7 format=4 uid="uid://ckol0jbohxp5a"]
 
 [ext_resource type="PackedScene" uid="uid://bm1gydjdattk7" path="res://Characters/Player/Player.tscn" id="1_rahgh"]
 [ext_resource type="Texture2D" uid="uid://blc68qohynm5u" path="res://Assets/kenney_map-pack/Tilesheet/mapPack_tilesheet.png" id="2_bcwe3"]
-[ext_resource type="PackedScene" uid="uid://d2l6wdti0ii02" path="res://Characters/Enemy/RangedEnemy.tscn" id="3_15pty"]
-[ext_resource type="Resource" uid="uid://bnyo66e28wmst" path="res://Resources/Enemy/Range.tres" id="4_ufeed"]
+[ext_resource type="PackedScene" uid="uid://cagucdp668bfk" path="res://Characters/Enemy/Slime Miniboss.tscn" id="3_15pty"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_prnx6"]
 texture = ExtResource("2_bcwe3")
@@ -2543,7 +2542,5 @@ tile_set = SubResource("TileSet_svs35")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_15pty")
 
-[node name="Enemy2" parent="." instance=ExtResource("3_15pty")]
-position = Vector2(-8.999999, 8.999999)
-scale = Vector2(0.2, 0.2)
-stats = ExtResource("4_ufeed")
+[node name="SlimeMiniboss" parent="." instance=ExtResource("3_15pty")]
+scale = Vector2(0.75, 0.75)

@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://s8jg07gnon5g"]
+[gd_scene load_steps=5 format=3 uid="uid://s8jg07gnon5g"]
+
+[ext_resource type="Script" path="res://UI/battle_ui.gd" id="1_63iuo"]
+[ext_resource type="Script" uid="uid://bn8pkvjy0qrvu" path="res://UI/progress_bar.gd" id="1_qe2yl"]
+[ext_resource type="PackedScene" uid="uid://bg7nvpx2k4076" path="res://UI/pausebutton.tscn" id="2_q858a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_63iuo"]
+font_size = 100
 
 [node name="BattleUi" type="Control"]
 layout_mode = 3
@@ -7,3 +14,82 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_63iuo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+max_value = 200.0
+show_percentage = false
+script = ExtResource("1_qe2yl")
+
+[node name="CurrentHpLabel" type="Label" parent="HBoxContainer/ProgressBar"]
+layout_mode = 0
+offset_right = 197.0
+offset_bottom = 50.0
+text = "chp"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="slash" type="Label" parent="HBoxContainer/ProgressBar"]
+layout_mode = 0
+offset_left = 195.0
+offset_right = 215.0
+offset_bottom = 50.0
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxHpLabel" type="Label" parent="HBoxContainer/ProgressBar"]
+layout_mode = 0
+offset_left = 210.0
+offset_right = 400.0
+offset_bottom = 50.0
+text = "mhp"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 1080)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Floor 1"
+label_settings = SubResource("LabelSettings_63iuo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+z_index = 10
+custom_minimum_size = Vector2(320, 100)
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 1
+
+[node name="StickPanel" type="Panel" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="BallPanel" type="Panel" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="AbilityPanel" type="Panel" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Button" parent="HBoxContainer" instance=ExtResource("2_q858a")]
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -2,12 +2,12 @@ extends CharacterBody2D
 class_name base_enemy
 
 # special values like constants, onready, and export values
-@onready var nav_agent : NavigationAgent2D = $"NavigationAgent2D"
+@onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @export var speed : float = 200 
 @export var poison_damage_multiplier : float = 0.015
 @export var stats : EnemyResource
-const NORMAL_SCALE_X := 0.2  # used for flipping. idk why we do it this way
+var NORMAL_SCALE_X := 0.2  # used for flipping. idk why we do it this way
 
 # stat specific values. get pulled from the EnemyResource
 var health : float
@@ -21,7 +21,7 @@ var repath_cooldown : float = 0.0
 var in_range : bool = false
 var player : Node2D
 var isFlipped : bool = false
-var attack_cooldown : float = 0
+var attack_cooldown : float = 1
 var poison_active : bool = false
 var poison_stacks : float = 0
 var poison_cooldown : float = 1
@@ -30,6 +30,7 @@ var frozen_cooldown : float = 2
 var frozen_stacks : float = 0
 
 func _ready() -> void:
+	NORMAL_SCALE_X = scale.x
 	add_to_group("Enemy")
 	nav_agent.target_desired_distance = 10000.0
 	nav_agent.path_desired_distance = 5000.0
@@ -43,18 +44,18 @@ func _ready() -> void:
 	stats.level = roll_value(Stats.current_floor)
 	set_stats()
 
-func roll_value(floor: int) -> int:
-	if floor >= 10:
+func roll_value(floor_number: int) -> int:
+	if floor_number >= 10:
 		return 5
 	
 	var weights := {}
 	
 	# Base weights
-	weights[1] = max(0, 10 - floor * 2)
-	weights[2] = max(0, floor - 1)
-	weights[3] = max(0, floor - 3)
-	weights[4] = max(0, floor - 6)
-	weights[5] = max(0, floor - 8)
+	weights[1] = max(0, 10 - floor_number * 2)
+	weights[2] = max(0, floor_number - 1)
+	weights[3] = max(0, floor_number - 3)
+	weights[4] = max(0, floor_number - 6)
+	weights[5] = max(0, floor_number - 8)
 	
 	return weighted_random(weights)
 
@@ -77,7 +78,12 @@ func weighted_random(weights: Dictionary) -> int:
 func set_stats() -> void:
 	stats.check_level()
 	health = stats.current_max_health
-	attack_speed = 1/stats.attack_speed
+	
+	if stats.attack_speed == 0:
+		attack_speed = 0
+	else:
+		attack_speed = 1/stats.attack_speed
+	
 	stop_distance = stats.attack_range * 20
 	damage = stats.current_damage
 	#speed = stats.movement_speed
@@ -119,17 +125,19 @@ func _physics_process(delta: float) -> void:
 		
 		if global_position.distance_to(next_pos) < stop_distance:
 			velocity = Vector2.ZERO
-			if anim_player.current_animation != "RESET":
-				anim_player.play("RESET")
-			attack(player)
+			if anim_player:
+				if anim_player.current_animation != "RESET":
+					anim_player.play("RESET")
+				attack(player)
 			return
 		
 		velocity = dir * speed
 		move_and_slide()
 		
 		if dir != Vector2.ZERO:
-			if anim_player.current_animation != "WALK":
-				anim_player.play("WALK")
+			if anim_player:
+				if anim_player.current_animation != "WALK":
+					anim_player.play("WALK")
 
 func take_damage(amount: float):
 	health -= amount
@@ -151,5 +159,5 @@ func apply_effect(effect: float):
 				frozen_cooldown = 2
 		
 
-func attack(target: CharacterBody2D):
+func attack(_target: CharacterBody2D):
 	push_warning("no attack func override")
