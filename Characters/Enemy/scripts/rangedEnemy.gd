@@ -3,7 +3,6 @@ extends base_enemy
 @export var projectile : PackedScene
 @export var attack_amount : float = 1 # only if we ever want to use this, we dont plan on it for now
 @export var projectile_speed : float = 500
-@onready var marker : Marker2D = $Marker2D
 
 func attack(target: CharacterBody2D):
 	if attack_cooldown <= 0:
@@ -17,7 +16,7 @@ func attack(target: CharacterBody2D):
 			
 			fired_projectile.position = global_position + Vector2(0, 5)
 			fired_projectile.scale = Vector2(0.2, 0.2)
-			var direction = (player.global_position - fired_projectile.position).normalized()
+			var direction = (target.global_position - fired_projectile.position).normalized()
 			fired_projectile.damage = damage
 			
 			get_parent().add_child(fired_projectile)
