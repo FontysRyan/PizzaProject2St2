@@ -3388,7 +3388,6 @@ stats = ExtResource("2_2xv0b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 3
-position = Vector2(-26, -116)
 shape = SubResource("RectangleShape2D_0j2ni")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -3397,9 +3396,9 @@ libraries = {
 }
 
 [node name="PivotPoint" type="Node2D" parent="."]
-position = Vector2(-632, -408)
 
 [node name="Polygon2D" type="Polygon2D" parent="PivotPoint"]
+position = Vector2(-600, -290)
 
 [node name="Head" type="Polygon2D" parent="PivotPoint/Polygon2D"]
 z_index = 1
@@ -3488,6 +3487,7 @@ bones = ["Torso", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "To
 internal_vertex_count = 1
 
 [node name="Skeleton2D" type="Skeleton2D" parent="PivotPoint"]
+position = Vector2(-600, -290)
 
 [node name="Torso" type="Bone2D" parent="PivotPoint/Skeleton2D"]
 position = Vector2(632, 449)

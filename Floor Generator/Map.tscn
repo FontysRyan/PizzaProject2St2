@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b34r35nai5s4p"]
+[gd_scene load_steps=4 format=3 uid="uid://b34r35nai5s4p"]
 
 [ext_resource type="Script" uid="uid://dtk7hcna2vrxt" path="res://Floor Generator/Map.gd" id="1_gfjgm"]
 [ext_resource type="PackedScene" uid="uid://s8jg07gnon5g" path="res://UI/Battle UI.tscn" id="2_sfgjq"]
+[ext_resource type="PackedScene" uid="uid://bm1gydjdattk7" path="res://Characters/Player/Player.tscn" id="3_hry6r"]
 
 [node name="Map" type="Node2D"]
+z_index = -5
 script = ExtResource("1_gfjgm")
 
 [node name="BattleUi" parent="." instance=ExtResource("2_sfgjq")]
+
+[node name="Player" parent="." instance=ExtResource("3_hry6r")]
+z_index = 5
+position = Vector2(1049, 438)
+scale = Vector2(0.2, 0.2)
