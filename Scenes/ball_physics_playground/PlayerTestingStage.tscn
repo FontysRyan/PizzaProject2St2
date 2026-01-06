@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://blmw4dnny4fww"]
+[gd_scene load_steps=8 format=4 uid="uid://blmw4dnny4fww"]
 
 [ext_resource type="PackedScene" uid="uid://bm1gydjdattk7" path="res://Characters/Player/Player.tscn" id="1_6gn4b"]
 [ext_resource type="Texture2D" uid="uid://blc68qohynm5u" path="res://Assets/kenney_map-pack/Tilesheet/mapPack_tilesheet.png" id="2_kvtyg"]
 [ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/ball_scenes/golf_ball.tscn" id="3_kvtyg"]
 [ext_resource type="PackedScene" uid="uid://1nr73r6dr1fi" path="res://Characters/Player/TestObject.tscn" id="4_prnx6"]
-[ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="5_moqpq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_prnx6"]
 texture = ExtResource("2_kvtyg")
@@ -229,9 +228,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 5, 1917, -6, 1930, 
 z_index = 3
 position = Vector2(438.99997, 176.99997)
 scale = Vector2(0.2, 0.2)
-AmountOfTrajectoryBounces = 10
-max_length = 500.0
-ball_spawn_offset = Vector2(24, 0)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -5
@@ -243,10 +239,6 @@ position = Vector2(898, 206)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("4_prnx6")]
 position = Vector2(198, 189)
-
-[node name="Enemy" parent="." instance=ExtResource("5_moqpq")]
-position = Vector2(813, 455)
-scale = Vector2(0.2, 0.2)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false

@@ -10,6 +10,10 @@ class_name BaseBall
 @export var Can_Damage: bool = true #track damaga capabilities
 @export var original_radius: float = 20.0
 
+@export var pickup_delay: float = 0.5 
+var can_be_picked_up: bool = true
+
+
 func _ready():
 	contact_monitor = true
 	max_contacts_reported = 1
@@ -31,47 +35,49 @@ func _on_body_entered(body):
 	on_hit(body)
 
 func on_hit(target):
-	#print("ddd")
-	#print(target.get_groups())
-	if target.is_in_group("Player") and is_real:
+	if target.is_in_group("Player") and is_real and can_be_picked_up:
 		if target.has_method("pickup_golf_ball"):
 			target.pickup_golf_ball()
 
 		is_real = false
-		Can_Damage = false
-		can_sleep = true
-		#freeze_mode = RigidBody2D.FREEZE_MODE_STATIC
-		physics_material_override.friction = 10000
-		#vanish_now()
+		vanish_now()
 		return
+
+
 	if physics_mode:
 		physics_mode.on_hit(self, target)
+
 	if split_mode:
 		split_mode.on_hit(self, target)
+
 	for mode in special_modes:
 		mode.on_hit(self, target)
+
 		
-#func vanish_now():
-	#linear_velocity = Vector2(0,0)
-	#angular_velocity = 0
-	#linear_damp = 100
-	#angular_damp = 100
-	#
-	#collision_layer = 0
-	#collision_mask = 0
-	#visible = false
-	#sleeping = true
-	#queue_free()
-	##call_deferred("queue_free")
+func vanish_now():
+	print("VANISH")
+	collision_layer = 0
+	collision_mask = 0
+	visible = false
+	sleeping = true
+	call_deferred("queue_free")
+
 
 func hit_ball(direction: Vector2, power: float) -> void:
-	gravity_scale = 0 # optional
+	gravity_scale = 0
 	set_sleeping(false)
+
+	can_be_picked_up = false
+	get_tree().create_timer(pickup_delay).timeout.connect(
+		func(): can_be_picked_up = true
+	)
+
 	power /= 100.0
-	print("eeeee: " , power)
 	power = clamp(power, 0.0, 1.0)
+
 	var impulse = direction.normalized() * (power * total_push_power)
 	apply_central_impulse(impulse)
+
 
 func Set_size(radius: float, new_mass: float):
 	mass = new_mass
