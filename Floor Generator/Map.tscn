@@ -8,9 +8,10 @@
 z_index = -5
 script = ExtResource("1_gfjgm")
 
-[node name="BattleUi" parent="." instance=ExtResource("2_sfgjq")]
-
 [node name="Player" parent="." instance=ExtResource("3_hry6r")]
 z_index = 5
 position = Vector2(1049, 438)
 scale = Vector2(0.2, 0.2)
+
+[node name="BattleUi" parent="." instance=ExtResource("2_sfgjq")]
+z_index = 20
