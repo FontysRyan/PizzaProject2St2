@@ -32,7 +32,7 @@ var move_speed: float
 
 func _ready():
 	if stats == null:
-		push_error("Playerstats not assigned!")
+		push_error("Playerstats not assigned!!")
 		return
 
 	start_health = stats.start_health
