@@ -49,7 +49,6 @@ func on_hit(target):
 	if target.is_in_group("Enemy") and is_real:
 		if target.is_in_group("Enemy"):
 			var now = Time.get_ticks_msec() / 1000.0  # seconds as float
-
 			if now - last_enemy_hit_time >= 0.1:
 				last_enemy_hit_time = now
 				trigger_enemy_hit(target)
