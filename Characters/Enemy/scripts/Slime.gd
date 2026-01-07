@@ -2,7 +2,7 @@ extends base_enemy
 
 @onready var timer : Timer = Timer.new()
 @export var mini_slime : PackedScene
-var mini_slimes_to_spawn : float = 3
+var mini_slimes_to_spawn : int = 3
 
 func _ready() -> void:
 	super._ready()
@@ -18,16 +18,17 @@ func _ready() -> void:
 	timer.start()
 
 func use_ability():
-	var slime := mini_slime.instantiate()
-	slime.scale = Vector2(0.2, 0.2)
+	var radius := 5.0
+	
 	for i in range(mini_slimes_to_spawn):
+		var slime := mini_slime.instantiate()
+		slime.scale = Vector2(0.2, 0.2)
 		get_parent().add_child(slime)
-		#var pos : Vector2
-		#match i:
-			#1.0:
-				#pos = position + Vector2(0, 4.5)
-			#2.0:
-				#pos = position + Vector2(3.0, 3.0)
-			#3.0:
-				#pos + position + Vector2(3.0, -3.0)
-		#slime.position = pos
+		
+		var angle := TAU * i / mini_slimes_to_spawn
+		slime.position = position + Vector2(
+			cos(angle),
+			sin(angle)
+		) * radius
+		if slime.has_method("retarget"):
+			slime.retarget()
