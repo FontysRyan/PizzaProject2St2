@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbo0wiu55skh2"]
+
+[ext_resource type="Script" uid="uid://b1cnogn6eycg5" path="res://UI/panels/ball_panel.gd" id="1_kwpv6"]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kwpv6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.156, 0.156)

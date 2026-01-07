@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://s8jg07gnon5g"]
+[gd_scene load_steps=8 format=3 uid="uid://s8jg07gnon5g"]
 
 [ext_resource type="Script" uid="uid://yaocpo1x1yp5" path="res://UI/battle_ui.gd" id="1_63iuo"]
 [ext_resource type="Script" uid="uid://bn8pkvjy0qrvu" path="res://UI/progress_bar.gd" id="1_qe2yl"]
 [ext_resource type="PackedScene" uid="uid://bg7nvpx2k4076" path="res://UI/pausebutton.tscn" id="2_q858a"]
+[ext_resource type="PackedScene" uid="uid://dywh31psfpbc3" path="res://UI/panels/StickPanel.tscn" id="3_eeboc"]
+[ext_resource type="PackedScene" uid="uid://dbo0wiu55skh2" path="res://UI/panels/BallPanel.tscn" id="4_bcbqt"]
+[ext_resource type="PackedScene" uid="uid://dud757an0lbk7" path="res://UI/panels/AbilityPanel.tscn" id="5_iaxgc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_63iuo"]
 font_size = 100
@@ -69,27 +72,25 @@ label_settings = SubResource("LabelSettings_63iuo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HotBar" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 z_index = 10
 custom_minimum_size = Vector2(320, 100)
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
 
-[node name="StickPanel" type="Panel" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="StickPanel" parent="HBoxContainer/VBoxContainer/HotBar" instance=ExtResource("3_eeboc")]
 layout_mode = 2
-size_flags_horizontal = 2
 
-[node name="BallPanel" type="Panel" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="BallPanel" parent="HBoxContainer/VBoxContainer/HotBar" instance=ExtResource("4_bcbqt")]
 layout_mode = 2
-size_flags_horizontal = 6
 
-[node name="AbilityPanel" type="Panel" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+[node name="AbilityPanel" parent="HBoxContainer/VBoxContainer/HotBar" instance=ExtResource("5_iaxgc")]
 layout_mode = 2
-size_flags_horizontal = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 
 [node name="Button" parent="HBoxContainer" instance=ExtResource("2_q858a")]
 layout_mode = 2

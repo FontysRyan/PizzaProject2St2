@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Stick" load_steps=3 format=3 uid="uid://tlke1smkcuxk"]
+[gd_resource type="Resource" script_class="Stick" load_steps=8 format=3 uid="uid://tlke1smkcuxk"]
 
 [ext_resource type="Resource" uid="uid://dwsr03f1b1ji8" path="res://Resources/Active abilities/Heal.tres" id="1_51jan"]
 [ext_resource type="Script" uid="uid://o72wgrt3bme8" path="res://Resources/Stick/Stick_Resource.gd" id="1_ok5an"]
+[ext_resource type="Texture2D" uid="uid://btem5ign68q3u" path="res://Assets/Weapons (golfsticks)/PNG/Staves_7/1.png" id="3_7c6tc"]
+[ext_resource type="Texture2D" uid="uid://chgaifoj3peg6" path="res://Assets/Weapons (golfsticks)/PNG/Staves_7/2.png" id="4_qum2r"]
+[ext_resource type="Texture2D" uid="uid://cuvuyu4lgdr34" path="res://Assets/Weapons (golfsticks)/PNG/Staves_7/3.png" id="5_4t340"]
+[ext_resource type="Texture2D" uid="uid://cv4kftqisf2yl" path="res://Assets/Weapons (golfsticks)/PNG/Staves_7/4.png" id="6_y2mwv"]
+[ext_resource type="Texture2D" uid="uid://ovbbm20tu3m4" path="res://Assets/Weapons (golfsticks)/PNG/Staves_7/5.png" id="7_7ddvl"]
 
 [resource]
 script = ExtResource("1_ok5an")
+texture1 = ExtResource("3_7c6tc")
+texture2 = ExtResource("4_qum2r")
+texture3 = ExtResource("5_4t340")
+texture4 = ExtResource("6_y2mwv")
+texture5 = ExtResource("7_7ddvl")
 name = "Regen Staff"
 power = 4.0
 charge = 20.0
