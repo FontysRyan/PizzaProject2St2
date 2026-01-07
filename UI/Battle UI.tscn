@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://s8jg07gnon5g"]
 
-[ext_resource type="Script" path="res://UI/battle_ui.gd" id="1_63iuo"]
+[ext_resource type="Script" uid="uid://yaocpo1x1yp5" path="res://UI/battle_ui.gd" id="1_63iuo"]
 [ext_resource type="Script" uid="uid://bn8pkvjy0qrvu" path="res://UI/progress_bar.gd" id="1_qe2yl"]
 [ext_resource type="PackedScene" uid="uid://bg7nvpx2k4076" path="res://UI/pausebutton.tscn" id="2_q858a"]
 
@@ -66,6 +66,8 @@ layout_mode = 2
 size_flags_vertical = 2
 text = "Floor 1"
 label_settings = SubResource("LabelSettings_63iuo")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 z_index = 10
