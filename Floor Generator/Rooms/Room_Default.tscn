@@ -33,6 +33,8 @@ color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
 
 [node name="Colliders" type="StaticBody2D" parent="Wall_Container"]
+collision_layer = 4
+collision_mask = 35
 
 [node name="Collision_Left" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
 polygon = PackedVector2Array(0, 1106, 0, 0, 24, 0, 24, 1106)
