@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dywh31psfpbc3"]
+
+[ext_resource type="Script" uid="uid://dujx53ml355ek" path="res://UI/panels/stick_panel.gd" id="1_udice"]
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_udice")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 34.0
+offset_right = 400.0
+offset_bottom = 162.0
+scale = Vector2(0.25, 0.25)

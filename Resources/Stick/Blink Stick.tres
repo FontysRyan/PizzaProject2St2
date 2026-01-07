@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Stick" load_steps=3 format=3 uid="uid://borbe2mriy08n"]
+[gd_resource type="Resource" script_class="Stick" load_steps=8 format=3 uid="uid://borbe2mriy08n"]
 
 [ext_resource type="Script" uid="uid://o72wgrt3bme8" path="res://Resources/Stick/Stick_Resource.gd" id="1_ipnwf"]
 [ext_resource type="Resource" uid="uid://tlge8tkl3kng" path="res://Resources/Active abilities/Teleport.tres" id="1_ovinv"]
+[ext_resource type="Texture2D" uid="uid://coj02i031anh4" path="res://Assets/Weapons (golfsticks)/PNG/Staves_2/1.png" id="3_7h71d"]
+[ext_resource type="Texture2D" uid="uid://bc3fmwkbb8r6c" path="res://Assets/Weapons (golfsticks)/PNG/Staves_2/2.png" id="4_cn56w"]
+[ext_resource type="Texture2D" uid="uid://dfklxo8hc01ee" path="res://Assets/Weapons (golfsticks)/PNG/Staves_2/3.png" id="5_pmt3e"]
+[ext_resource type="Texture2D" uid="uid://c26fh8pqlfmg8" path="res://Assets/Weapons (golfsticks)/PNG/Staves_2/4.png" id="6_odst8"]
+[ext_resource type="Texture2D" uid="uid://dhny1n3xahcot" path="res://Assets/Weapons (golfsticks)/PNG/Staves_2/5.png" id="7_frjs8"]
 
 [resource]
 script = ExtResource("1_ipnwf")
+texture1 = ExtResource("3_7h71d")
+texture2 = ExtResource("4_cn56w")
+texture3 = ExtResource("5_pmt3e")
+texture4 = ExtResource("6_odst8")
+texture5 = ExtResource("7_frjs8")
 name = "Blink Stick"
 power = 12.0
 knockback = 25.0

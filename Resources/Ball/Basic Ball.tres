@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Ball" load_steps=2 format=3 uid="uid://f71awagtfctj"]
+[gd_resource type="Resource" script_class="Ball" load_steps=3 format=3 uid="uid://f71awagtfctj"]
 
 [ext_resource type="Script" uid="uid://3b7a0gouwves" path="res://Resources/Ball/Ball_Resource.gd" id="1_wnens"]
+[ext_resource type="Texture2D" uid="uid://c48xp6pfvpdft" path="res://Scenes/ball_physics_playground/test_assets/Golf ball/Golf_ball.png" id="2_ad0wd"]
 
 [resource]
 script = ExtResource("1_wnens")
+texture = ExtResource("2_ad0wd")
 name = "Basic"
 metadata/_custom_type_script = "uid://3b7a0gouwves"

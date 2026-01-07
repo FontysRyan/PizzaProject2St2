@@ -11,18 +11,33 @@ enum GamePhase {
 	TREASURE,
 	DEATH
 }
-@export var Main_scene: String = "res://Scenes/Main menu.tscn"
-@export var Death_scene: String = ""
-@export var Dungeon_scene: String = "res://Floor Generator/Rooms/Room_Spawn.tscn"
+var Main_scene: String = "res://Scenes/Main menu.tscn"
+var Death_scene: String = ""
+var Dungeon_scene: String = "res://Floor Generator/Map.tscn"
 var current_phase: GamePhase = GamePhase.MAIN
 
+#inventory
+var stick_slot1 : String
+var stick_slot2 : String
+var stick_slot3 : String
+var equipped_stick_index : int = 0
 
+var ball_slot1 : String
+var ball_slot2 : String
+var ball_slot3 : String
+var equipped_ball_index : int = 0
 
-
+func _ready() -> void:
+	stick_slot1 = "res://Resources/Stick/Debug Stick.tres"
+	stick_slot2 = "res://Resources/Stick/Debug Stick.tres"
+	stick_slot3 = "res://Resources/Stick/Debug Stick.tres"
+	ball_slot1 = "res://Resources/Ball/Debug Ball.tres"
+	ball_slot2 = "res://Resources/Ball/Debug Ball.tres"
+	ball_slot3 = "res://Resources/Ball/Debug Ball.tres"
+	
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("close_game"):
-		get_tree().quit()
 	pass
 
 
@@ -51,24 +66,47 @@ func set_game_speed(scale: float) -> void:
 	Engine.time_scale = clamp(scale, 0.0, 10.0)
 	print("Game speed set to:", Engine.time_scale)
 
+func _get_stick(index : int) -> Stick:
+	var stick
+	match index:
+		0:
+			stick = load(stick_slot1)
+			stick._ready()
+			return stick
+		1:
+			stick = load(stick_slot2)
+			stick._ready()
+			return stick
+		2:
+			stick = load(stick_slot3)
+			stick._ready()
+			return stick
+		_:
+			return null
 
-#inventory
-@export var stick_slot1 : Stick = null
-@export var stick_slot2 : Stick = null
-@export var stick_slot3 : Stick = null
-var stick_inventory : Array = [stick_slot1, stick_slot2, stick_slot3]
-var equipped_stick_index : int = 0
-
-@export var ball_slot1 : Ball = null
-@export var ball_slot2 : Ball = null
-@export var ball_slot3 : Ball = null
-var ball_inventory : Array = [ball_slot1, ball_slot2, ball_slot3]
-var equipped_ball_index : int = 0
+func _get_ball(index : int) -> Ball:
+	var ball
+	match index:
+		0:
+			ball = load(ball_slot1)
+			return ball
+		1:
+			ball = load(ball_slot2)
+			return ball
+		2:
+			ball = load(ball_slot3)
+			return ball
+		_:
+			return null
 
 
 
 
 func clear_run_data():
-	stick_inventory.clear()
-	ball_inventory.clear()
+	stick_slot1 = "res://Resources/Stick/Basic Stick.tres"
+	stick_slot2 = ""
+	stick_slot3 = ""
+	ball_slot1 = "res://Resources/Ball/Basic Ball.tres"
+	ball_slot2 = ""
+	ball_slot3 = ""
 	Stats.clear_all()
