@@ -1,0 +1,25 @@
+{
+  "room_pools": [
+	{
+	  "id": "spawn",
+	  "priority": 999,
+	  "conditions": {
+		"position_equals": [
+		  0,
+		  0
+		]
+	  },
+	  "rooms": [
+        "res://Floor Generator/Rooms/Presets/Room_Spawn.tscn"
+	  ]
+	},
+	{
+	  "id": "default",
+	  "priority": -1,
+	  "conditions": {},
+	  "rooms": [
+        "res://Floor Generator/Rooms/Presets/Room_Default.tscn"
+	  ]
+	}
+  ]
+}

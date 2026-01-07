@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Stick" load_steps=3 format=3 uid="uid://dp0luly8mf540"]
+[gd_resource type="Resource" script_class="Stick" load_steps=8 format=3 uid="uid://dp0luly8mf540"]
 
 [ext_resource type="Resource" uid="uid://xrcwcix6aiq5" path="res://Resources/Active abilities/Shockwave.tres" id="1_0veok"]
 [ext_resource type="Script" uid="uid://o72wgrt3bme8" path="res://Resources/Stick/Stick_Resource.gd" id="1_odlsu"]
+[ext_resource type="Texture2D" uid="uid://pvkrs5pn5whj" path="res://Assets/Weapons (golfsticks)/PNG/Staves_5/1.png" id="3_jirv6"]
+[ext_resource type="Texture2D" uid="uid://ddhslqnyb6xmr" path="res://Assets/Weapons (golfsticks)/PNG/Staves_5/2.png" id="4_pmtqk"]
+[ext_resource type="Texture2D" uid="uid://fek2xf8yyyh3" path="res://Assets/Weapons (golfsticks)/PNG/Staves_5/3.png" id="5_6jnlm"]
+[ext_resource type="Texture2D" uid="uid://drdbyjn78bw6l" path="res://Assets/Weapons (golfsticks)/PNG/Staves_5/4.png" id="6_j6t11"]
+[ext_resource type="Texture2D" uid="uid://dnpvr70uls46l" path="res://Assets/Weapons (golfsticks)/PNG/Staves_5/5.png" id="7_rbv7d"]
 
 [resource]
 script = ExtResource("1_odlsu")
+texture1 = ExtResource("3_jirv6")
+texture2 = ExtResource("4_pmtqk")
+texture3 = ExtResource("5_6jnlm")
+texture4 = ExtResource("6_j6t11")
+texture5 = ExtResource("7_rbv7d")
 name = "Ripple Iron"
 power = 7.0
 cooldown = 6.0

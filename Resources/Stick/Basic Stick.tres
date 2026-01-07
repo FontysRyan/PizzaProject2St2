@@ -1,8 +1,18 @@
-[gd_resource type="Resource" script_class="Stick" load_steps=2 format=3 uid="uid://j3djx1suxkqn"]
+[gd_resource type="Resource" script_class="Stick" load_steps=7 format=3 uid="uid://j3djx1suxkqn"]
 
 [ext_resource type="Script" uid="uid://o72wgrt3bme8" path="res://Resources/Stick/Stick_Resource.gd" id="1_70nn6"]
+[ext_resource type="Texture2D" uid="uid://cyx1kastgqfft" path="res://Assets/Weapons (golfsticks)/PNG/Staves_1/1.png" id="2_v4eg2"]
+[ext_resource type="Texture2D" uid="uid://dw6qhm77r81u3" path="res://Assets/Weapons (golfsticks)/PNG/Staves_1/2.png" id="3_kbyvo"]
+[ext_resource type="Texture2D" uid="uid://c6fuslkvxjure" path="res://Assets/Weapons (golfsticks)/PNG/Staves_1/3.png" id="4_wqkt1"]
+[ext_resource type="Texture2D" uid="uid://bqsbwr2vqmq48" path="res://Assets/Weapons (golfsticks)/PNG/Staves_1/4.png" id="5_3daer"]
+[ext_resource type="Texture2D" uid="uid://dlawejwikpooo" path="res://Assets/Weapons (golfsticks)/PNG/Staves_1/5.png" id="6_ok88e"]
 
 [resource]
 script = ExtResource("1_70nn6")
+texture1 = ExtResource("2_v4eg2")
+texture2 = ExtResource("3_kbyvo")
+texture3 = ExtResource("4_wqkt1")
+texture4 = ExtResource("5_3daer")
+texture5 = ExtResource("6_ok88e")
 name = "Basic"
 metadata/_custom_type_script = "uid://o72wgrt3bme8"

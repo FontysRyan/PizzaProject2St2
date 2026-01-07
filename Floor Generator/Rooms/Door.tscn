@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7ctnufcnmbwm"]
+[gd_scene load_steps=6 format=3 uid="uid://b7s80he1y61n1"]
 
 [ext_resource type="Texture2D" uid="uid://cdsyxly6e7bim" path="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door down.png" id="1_opjwl"]
 [ext_resource type="Texture2D" uid="uid://wv1i8jhiwemr" path="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door left.png" id="2_klbgy"]

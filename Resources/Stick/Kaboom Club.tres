@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Stick" load_steps=3 format=3 uid="uid://b08dw12purukl"]
+[gd_resource type="Resource" script_class="Stick" load_steps=8 format=3 uid="uid://b08dw12purukl"]
 
 [ext_resource type="Resource" uid="uid://dc8n0xsp5i4eo" path="res://Resources/Active abilities/Explode.tres" id="1_10nb8"]
 [ext_resource type="Script" uid="uid://o72wgrt3bme8" path="res://Resources/Stick/Stick_Resource.gd" id="1_nkph5"]
+[ext_resource type="Texture2D" uid="uid://d1tvvh72xk247" path="res://Assets/Weapons (golfsticks)/PNG/Staves_3/1.png" id="3_4fmmr"]
+[ext_resource type="Texture2D" uid="uid://bxdwml6eafdry" path="res://Assets/Weapons (golfsticks)/PNG/Staves_3/2.png" id="4_d0yj4"]
+[ext_resource type="Texture2D" uid="uid://b8hcgn1rh7tjv" path="res://Assets/Weapons (golfsticks)/PNG/Staves_3/3.png" id="5_fs3q4"]
+[ext_resource type="Texture2D" uid="uid://rk3k4ksp5258" path="res://Assets/Weapons (golfsticks)/PNG/Staves_3/4.png" id="6_1efk6"]
+[ext_resource type="Texture2D" uid="uid://bqbfydpjgnh0j" path="res://Assets/Weapons (golfsticks)/PNG/Staves_3/5.png" id="7_iwavk"]
 
 [resource]
 script = ExtResource("1_nkph5")
+texture1 = ExtResource("3_4fmmr")
+texture2 = ExtResource("4_d0yj4")
+texture3 = ExtResource("5_fs3q4")
+texture4 = ExtResource("6_1efk6")
+texture5 = ExtResource("7_iwavk")
 name = "Kaboom Club"
 power = 8.0
 charge = 15.0

@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Ball" load_steps=3 format=3 uid="uid://bcgj0180cpn0k"]
+[gd_resource type="Resource" script_class="Ball" load_steps=4 format=3 uid="uid://bcgj0180cpn0k"]
 
 [ext_resource type="Script" uid="uid://3b7a0gouwves" path="res://Resources/Ball/Ball_Resource.gd" id="1_6ea1f"]
 [ext_resource type="Resource" uid="uid://bfn8wlbb0asvl" path="res://Resources/Passive abilities/Poison.tres" id="1_u0r65"]
+[ext_resource type="Texture2D" uid="uid://c48xp6pfvpdft" path="res://Scenes/ball_physics_playground/test_assets/Golf ball/Golf_ball.png" id="3_4crjd"]
 
 [resource]
 script = ExtResource("1_6ea1f")
+texture = ExtResource("3_4crjd")
 name = "ToxicOrb"
 damage = 12.0
 weight = 4.0
