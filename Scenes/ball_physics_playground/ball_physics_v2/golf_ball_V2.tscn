@@ -14,12 +14,15 @@ metadata/_custom_type_script = "uid://d33cw4ow4a6pr"
 script = ExtResource("4_gqhsa")
 metadata/_custom_type_script = "uid://bsimgfnyiq71n"
 
-[node name="GolfBall" instance=ExtResource("1_oiy3g")]
+[node name="GolfBall" groups=["Golf_Balls"] instance=ExtResource("1_oiy3g")]
 script = ExtResource("2_gqhsa")
 physics_mode = SubResource("Resource_mr13q")
 split_mode = SubResource("Resource_pdn3r")
 special_modes = Array[ExtResource("5_fmkav")]([])
+total_push_power = 2500.0
 is_real = true
 Can_Damage = true
 original_radius = 20.0
 pickup_delay = 2.0
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

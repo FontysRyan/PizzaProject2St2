@@ -12,7 +12,7 @@ class_name BaseBall
 
 @export var pickup_delay: float = 2
 var can_be_picked_up: bool = true
-
+@onready var enable_mask_timer := get_tree().create_timer(2.0)
 
 func _ready():
 	contact_monitor = true
@@ -26,6 +26,8 @@ func _ready():
 		split_mode.on_added(self)
 	for mode in special_modes:
 		mode.on_added(self)
+	await enable_mask_timer.timeout
+	set_collision_mask_value(1, true)
 func _on_body_entered(body):
 
 	#if body is CharacterBody2D:
@@ -37,7 +39,7 @@ func _on_body_entered(body):
 var last_enemy_hit_time: float = 0.0
 
 func on_hit(target):
-	if target.is_in_group("Player") and is_real and can_be_picked_up:
+	if target.is_in_group("Player") and is_real:
 		if target.has_method("pickup_golf_ball"):
 			print("YOU GOT ME")
 			target.pickup_golf_ball()
@@ -119,7 +121,3 @@ func spawn_split_child(velocity: Vector2, is_real_child := false) -> BaseBall:
 	child.global_position = global_position
 	get_parent().add_child(child)
 	return child
-
-
-func _on_body_exited(body: Node) -> void:
-	pass # Replace with function body.
