@@ -119,3 +119,7 @@ func spawn_split_child(velocity: Vector2, is_real_child := false) -> BaseBall:
 	child.global_position = global_position
 	get_parent().add_child(child)
 	return child
+
+
+func _on_body_exited(body: Node) -> void:
+	pass # Replace with function body.
