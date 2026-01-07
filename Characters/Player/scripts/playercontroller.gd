@@ -23,6 +23,7 @@ var shot_state := ShotState.IDLE
 
 const NORMAL_SCALE_X := 0.2
 var is_charging_anim_playing := false   
+const LAYER_BALLS := 1 << 1 # Layer 2 = Ball, ignore this layer when casting trajectory
 
 # --- Stats ---
 var start_health: float
@@ -69,6 +70,8 @@ func update_trajectory():
 
 		var query := PhysicsRayQueryParameters2D.create(current_pos, end_pos)
 		query.exclude = [self]
+		query.collision_mask = ~LAYER_BALLS # Ignore balls
+
 
 		var result: Dictionary = space.intersect_ray(query)
 

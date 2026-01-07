@@ -13,7 +13,7 @@ enum GamePhase {
 }
 @export var Main_scene: String = "res://Scenes/Main menu.tscn"
 @export var Death_scene: String = ""
-@export var Dungeon_scene: String = "res://Floor Generator/Rooms/Room_Spawn.tscn"
+@export var Dungeon_scene: String = "res://Floor Generator/Map.tscn"
 var current_phase: GamePhase = GamePhase.MAIN
 
 
