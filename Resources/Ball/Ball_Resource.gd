@@ -1,7 +1,7 @@
 class_name Ball
 extends Resource
 
-@export var texture : Texture2D
+@export var sprite_frames: SpriteFrames
 #editable stats
 @export var name: String
 var level: int = 1
