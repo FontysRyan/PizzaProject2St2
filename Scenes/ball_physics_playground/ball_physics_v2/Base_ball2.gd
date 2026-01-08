@@ -17,6 +17,7 @@ var can_be_picked_up: bool = true
 
 func _ready():
 	add_to_group("Golf_Balls")
+	$AnimatedSprite2D.sprite_frames = ball_stats.sprite_frames
 	contact_monitor = true
 	max_contacts_reported = 1
 	connect("body_entered", Callable(self, "_on_body_entered"))
