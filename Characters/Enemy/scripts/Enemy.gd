@@ -14,6 +14,7 @@ var health : float
 var attack_speed : float
 var stop_distance : float
 var damage : float
+var resistance : float
 # var speed : float
 
 # values that you shouldnt worry about
@@ -28,6 +29,7 @@ var poison_cooldown : float = 1
 var is_frozen : bool = false
 var frozen_cooldown : float = 2
 var frozen_stacks : float = 0
+
 
 func _ready() -> void:
 	NORMAL_SCALE_X = scale.x
@@ -74,7 +76,6 @@ func weighted_random(weights: Dictionary) -> int:
 	
 	return weights.keys()[0] # fallback
 
-
 func set_stats() -> void:
 	stats.check_level()
 	health = stats.current_max_health
@@ -86,7 +87,9 @@ func set_stats() -> void:
 	
 	stop_distance = stats.attack_range * 20
 	damage = stats.current_damage
+	resistance = stats.resistance
 	#speed = stats.movement_speed
+
 
 func _physics_process(delta: float) -> void:
 	if not player:
@@ -139,7 +142,8 @@ func _physics_process(delta: float) -> void:
 				if anim_player.current_animation != "WALK":
 					anim_player.play("WALK")
 
-func take_damage(amount: float):
+
+func take_damage(amount: float, _damage_source: Base_Ball = null):
 	health -= amount
 	if health <= 0:
 		queue_free()
@@ -157,7 +161,27 @@ func apply_effect(effect: float):
 			frozen_stacks += 1
 			if frozen_stacks <= 5:
 				frozen_cooldown = 2
-		
 
 func attack(_target: CharacterBody2D):
 	push_warning("no attack func override")
+
+func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_source):
+	var dir := global_position - location_of_origin
+	if dir == Vector2.ZERO:
+		return
+	
+	dir = dir.normalized()
+	
+	var resistance_factor : float = 1.0 - clamp(resistance, 0, 100) / 100.0
+	if resistance_factor <= 0.0:
+		return
+	
+	var kb_velocity := dir * force * resistance_factor
+	velocity += kb_velocity
+
+
+
+enum knockback_source {
+	BALL,
+	STICK,
+}

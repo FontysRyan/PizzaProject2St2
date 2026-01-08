@@ -898,11 +898,11 @@ _data = {
 &"WALK": SubResource("Animation_0j2ni")
 }
 
-[node name="Dante" type="CharacterBody2D" groups=["Enemy"]]
+[node name="MeleeEnemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 32
-collision_mask = 31
+collision_mask = 63
 script = ExtResource("1_jy732")
-speed = 175.0
+speed = 150.0
 stats = ExtResource("2_34t7e")
 
 [node name="PivotPoint" type="Node2D" parent="."]
@@ -1052,7 +1052,6 @@ scale = Vector2(1.8471311, -8.137755)
 rest = Transform2D(0.06805367, -1.845877, -8.132226, -0.29981837, 0, 0)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_mask = 2
 debug_use_custom = true
 debug_path_custom_color = Color(0, 0.9411765, 1, 1)
 
