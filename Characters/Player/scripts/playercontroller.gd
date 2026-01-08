@@ -29,9 +29,6 @@ const LAYER_BALLS := 1 << 1 # Layer 2 = Ball, ignore this layer when casting tra
 var start_health: float
 var move_speed: float
 
-func _on_has_ball_changed(value: bool) -> void:
-	GameController.has_ball = value
-	print("Player has_ball changed to:", value)
 
 func _ready():
 	if stats == null:
@@ -40,7 +37,7 @@ func _ready():
 	start_health = stats.start_health
 	Stats.max_health = start_health
 	move_speed = stats.move_speed
-	stats.has_ball_changed.connect(_on_has_ball_changed)
+	#stats.amount_of_golf_balls
 	charge_bar.charge_released.connect(_on_charge_released)
 
 
@@ -244,7 +241,5 @@ func pickup_golf_ball(amount: int = 1):
 	print("Before:", stats.amount_of_golf_balls)
 
 	stats.amount_of_golf_balls += amount
-	stats.update_has_ball()
-
-	print("After:", stats.amount_of_golf_balls)
-
+	stats.has_ball = true
+	GameController.has_ball = true
