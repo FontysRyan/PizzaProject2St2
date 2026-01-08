@@ -2,6 +2,7 @@
 extends RigidBody2D
 class_name BaseBall
 
+@export var ball_stats: Ball
 @export var physics_mode: PhysicsMode
 @export var split_mode: SplitMode
 @export var special_modes: Array[SpecialMode] = []
@@ -58,7 +59,7 @@ func on_hit(target):
 func trigger_enemy_hit(target):
 	print("Hit accepted (0.1s passed)")
 	if target.has_method("take_damage"):
-			target.take_damage(10)
+			target.take_damage(ball_stats.damage)
 
 	if physics_mode:
 		physics_mode.on_hit(self, target)
