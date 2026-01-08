@@ -7,10 +7,17 @@ func _ready() -> void:
 	$HBoxContainer/VBoxContainer/HotBar/StickPanel/TextureRect.texture = stick
 	var ball = GameController._get_ball(GameController.equipped_ball_index).texture
 	$HBoxContainer/VBoxContainer/HotBar/BallPanel/TextureRect.texture = ball
+	$HBoxContainer/VBoxContainer/HotBar/StickPanel.self_modulate = Color(0.500, 0.500, 0.500, 1.0)
+	$HBoxContainer/VBoxContainer/HotBar/BallPanel.self_modulate = Color(0.500, 0.500, 0.500, 1.0)
+	$HBoxContainer/VBoxContainer/HotBar/AbilityPanel.self_modulate = Color(0.500, 0.500, 0.500, 1.0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !GameController.has_ball:
+		$HBoxContainer/VBoxContainer/HotBar/BallPanel.modulate = Color(0.500, 0.500, 0.500, 1.0)
+	elif GameController.has_ball:
+		$HBoxContainer/VBoxContainer/HotBar/BallPanel.self_modulate = Color(0.500, 0.500, 0.500, 1.0)
 	pass
 
 
