@@ -207,7 +207,8 @@ func spawn_ball(force: float) -> void:
 	get_tree().current_scene.add_child(ball)
 
 	stats.amount_of_golf_balls -= 1
-
+	stats.has_ball = stats.amount_of_golf_balls > 0
+	GameController.has_ball = stats.has_ball
 	ball.global_position = global_position + dir * 60.0
 
 	await get_tree().physics_frame
