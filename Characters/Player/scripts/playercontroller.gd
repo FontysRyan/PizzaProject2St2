@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 # --- State ---
@@ -239,7 +240,11 @@ func take_damage(amount: float):
 
 
 func pickup_golf_ball(amount: int = 1):
+	print("Player pickup_golf_ball CALLED")
+	print("Before:", stats.amount_of_golf_balls)
+
 	stats.amount_of_golf_balls += amount
 	stats.update_has_ball()
 
-	print("Picked up balls:", stats.amount_of_golf_balls)
+	print("After:", stats.amount_of_golf_balls)
+
