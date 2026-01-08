@@ -30,6 +30,7 @@ window/size/viewport_height=1080
 
 Enemy="For all enemies"
 Player="For the player"
+Golf_Balls=""
 
 [input]
 

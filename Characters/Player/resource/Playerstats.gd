@@ -21,3 +21,10 @@ class_name Playerstats
 # --- Ammo ---
 @export var amount_of_golf_balls: int = 1
 
+
+func update_has_ball() -> void:
+	has_ball = amount_of_golf_balls > 0
+    if has_ball:
+        print("Player has golf balls.")
+    else:
+        print("Player is out of golf balls.")

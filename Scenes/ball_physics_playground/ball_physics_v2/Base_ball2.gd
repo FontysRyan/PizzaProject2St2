@@ -10,9 +10,9 @@ class_name BaseBall
 @export var Can_Damage: bool = true #track damaga capabilities
 @export var original_radius: float = 20.0
 
-@export var pickup_delay: float = 2
+@export var pickup_delay: float = 1
 var can_be_picked_up: bool = true
-
+@onready var enable_mask_timer := get_tree().create_timer(2.0)
 
 func _ready():
 	contact_monitor = true
@@ -26,6 +26,8 @@ func _ready():
 		split_mode.on_added(self)
 	for mode in special_modes:
 		mode.on_added(self)
+	await enable_mask_timer.timeout
+	set_collision_mask_value(1, true)
 func _on_body_entered(body):
 
 	#if body is CharacterBody2D:
@@ -37,7 +39,7 @@ func _on_body_entered(body):
 var last_enemy_hit_time: float = 0.0
 
 func on_hit(target):
-	if target.is_in_group("Player") and is_real and can_be_picked_up:
+	if target.is_in_group("Player") and is_real:
 		if target.has_method("pickup_golf_ball"):
 			print("YOU GOT ME")
 			target.pickup_golf_ball()
@@ -49,7 +51,6 @@ func on_hit(target):
 	if target.is_in_group("Enemy") and is_real:
 		if target.is_in_group("Enemy"):
 			var now = Time.get_ticks_msec() / 1000.0  # seconds as float
-
 			if now - last_enemy_hit_time >= 0.1:
 				last_enemy_hit_time = now
 				trigger_enemy_hit(target)

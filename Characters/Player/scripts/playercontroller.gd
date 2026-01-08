@@ -35,6 +35,7 @@ func _ready():
 		push_error("Playerstats not assigned!!")
 		return
 
+	stats.update_has_ball() # If the resource is reused or edited in the inspector
 	start_health = stats.start_health
 	Stats.max_health = start_health
 	move_speed = stats.move_speed
@@ -208,10 +209,13 @@ func spawn_ball(force: float) -> void:
 	get_tree().current_scene.add_child(ball)
 
 	stats.amount_of_golf_balls -= 1
+	stats.update_has_ball()
+
 	ball.global_position = global_position + dir * 60.0
 
 	await get_tree().physics_frame
 	ball.hit_ball(dir, force)
+
 
 
 func _on_charge_released(force: float):
@@ -236,4 +240,6 @@ func take_damage(amount: float):
 
 func pickup_golf_ball(amount: int = 1):
 	stats.amount_of_golf_balls += amount
+	stats.update_has_ball()
+
 	print("Picked up balls:", stats.amount_of_golf_balls)

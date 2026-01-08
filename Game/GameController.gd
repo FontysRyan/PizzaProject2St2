@@ -26,6 +26,7 @@ var ball_slot1 : String
 var ball_slot2 : String
 var ball_slot3 : String
 var equipped_ball_index : int = 0
+var has_ball : bool
 
 func _ready() -> void:
 	stick_slot1 = "res://Resources/Stick/Debug Stick.tres"
