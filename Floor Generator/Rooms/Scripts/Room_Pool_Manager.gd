@@ -2,6 +2,7 @@ extends Resource
 class_name RoomPoolManager
 
 var room_pools: Dictionary[String, RoomPool]
+var ordered_pools: Array[RoomPool] = []
 
 func _init(pools_json_location: String) -> void:
 	var json: JSON = JSON.new()
@@ -9,16 +10,45 @@ func _init(pools_json_location: String) -> void:
 	var pools: Dictionary = json.parse_string(pools_json)
 
 	for pool in pools.room_pools:
-		var new_pool: RoomPool = RoomPool.new(pool.id, pool.conditions, pool.priority, pool.rooms)
-		room_pools.get_or_add(new_pool.id, new_pool)
-		
-		room_pools.sort()
+		var new_pool := RoomPool.new(pool.id, pool.conditions, pool.priority, pool.rooms)
+		room_pools[new_pool.id] = new_pool
+		ordered_pools.append(new_pool)
 
-func generate_room_from_data(room_data: Room_Data) -> String:
-	# This is all fucked, it needs to be redone from the ground up
-	# So I am just hardcoding this shit I guess
-	# Will fix later
+	ordered_pools.sort_custom(
+		func(a: RoomPool, b: RoomPool) -> bool:
+			return a.priority > b.priority)
+
+func build_context(data: Room_Data) -> Dictionary:
+	return {
+		"grid_position": data.grid_position,
+		"doors": data.doors,
+		"door_count": data.doors.size()
+	}
+
+func check_condition(key: String, value, ctx: Dictionary) -> bool:
+	match key:
+		"position_equals":
+			return ctx.grid_position == Vector2(value[0], value[1])
+
+		"door_count_gte":
+			return ctx.door_count >= int(value)
+
+		_:
+			push_warning("Unknown condition: %s" % key)
+			return false
+
+func pool_matches(pool: RoomPool, ctx: Dictionary) -> bool:
+	for key in pool.conditions.keys():
+		if not check_condition(key, pool.conditions[key], ctx):
+			return false
+	return true
 	
-	if room_data.grid_position == Vector2.ZERO:
-		return room_pools["spawn"].get_random_room()
-	return room_pools["default"].get_random_room()
+func generate_room_from_data(room_data: Room_Data) -> String:
+	var ctx := build_context(room_data)
+
+	for pool in ordered_pools:
+		if pool_matches(pool, ctx):
+			return pool.get_random_room()
+
+	push_error("No valid room pool found")
+	return ""
