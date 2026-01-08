@@ -24,21 +24,22 @@ var shot_state := ShotState.IDLE
 const NORMAL_SCALE_X := 0.2
 var is_charging_anim_playing := false   
 const LAYER_BALLS := 1 << 1 # Layer 2 = Ball, ignore this layer when casting trajectory
-
 # --- Stats ---
 var start_health: float
 var move_speed: float
 
+func _on_has_ball_changed(value: bool) -> void:
+	GameController.has_ball = value
+	print("Player has_ball changed to:", value)
 
 func _ready():
 	if stats == null:
-		push_error("Playerstats not assigned!")
+		push_error("Playerstats not assigned!!")
 		return
-
 	start_health = stats.start_health
 	Stats.max_health = start_health
 	move_speed = stats.move_speed
-
+	stats.has_ball_changed.connect(_on_has_ball_changed)
 	charge_bar.charge_released.connect(_on_charge_released)
 
 
@@ -208,10 +209,13 @@ func spawn_ball(force: float) -> void:
 	get_tree().current_scene.add_child(ball)
 
 	stats.amount_of_golf_balls -= 1
+	stats.update_has_ball()
+
 	ball.global_position = global_position + dir * 60.0
 
 	await get_tree().physics_frame
 	ball.hit_ball(dir, force)
+
 
 
 func _on_charge_released(force: float):
@@ -236,4 +240,6 @@ func take_damage(amount: float):
 
 func pickup_golf_ball(amount: int = 1):
 	stats.amount_of_golf_balls += amount
+	stats.update_has_ball()
+
 	print("Picked up balls:", stats.amount_of_golf_balls)

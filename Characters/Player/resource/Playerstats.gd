@@ -16,8 +16,18 @@ class_name Playerstats
 @export var knockback_strength: float = 300
 
 # --- Ammo ---
-@export var amount_of_golf_balls: int = 3
-@export var amount_of_fire_golf_balls: int = 0
-@export var amount_of_poison_golf_balls: int = 0
-@export var amount_of_ice_golf_balls: int = 0
-@export var amount_of_split_golf_balls: int = 0
+@export var amount_of_golf_balls: int = 1
+
+# -- Signals ---
+@export var has_ball: bool = true
+signal has_ball_changed(value: bool)
+
+
+
+func update_has_ball() -> void:
+	var new_value := amount_of_golf_balls > 0
+	if has_ball == new_value:
+		return
+
+	has_ball = new_value
+	has_ball_changed.emit(has_ball)

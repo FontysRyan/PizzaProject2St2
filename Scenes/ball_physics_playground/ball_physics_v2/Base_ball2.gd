@@ -2,6 +2,7 @@
 extends RigidBody2D
 class_name BaseBall
 
+@export var ball_stats: Ball
 @export var physics_mode: PhysicsMode
 @export var split_mode: SplitMode
 @export var special_modes: Array[SpecialMode] = []
@@ -15,6 +16,8 @@ var can_be_picked_up: bool = true
 @onready var enable_mask_timer := get_tree().create_timer(2.0)
 
 func _ready():
+	add_to_group("Golf_Balls")
+	$AnimatedSprite2D.sprite_frames = ball_stats.sprite_frames
 	contact_monitor = true
 	max_contacts_reported = 1
 	connect("body_entered", Callable(self, "_on_body_entered"))
@@ -40,12 +43,10 @@ var last_enemy_hit_time: float = 0.0
 
 func on_hit(target):
 	if target.is_in_group("Player") and is_real:
-		if target.has_method("pickup_golf_ball"):
-			print("YOU GOT ME")
-			target.pickup_golf_ball()
-			is_real = false
-			#call_deferred("queue_free")
-			vanish_now()
+		GameController.has_ball = true
+		is_real = false
+		#call_deferred("queue_free")
+		vanish_now()
 		return
 		
 	if target.is_in_group("Enemy") and is_real:
@@ -57,7 +58,7 @@ func on_hit(target):
 func trigger_enemy_hit(target):
 	print("Hit accepted (0.1s passed)")
 	if target.has_method("take_damage"):
-			target.take_damage(10)
+			target.take_damage(ball_stats.damage)
 
 	if physics_mode:
 		physics_mode.on_hit(self, target)
