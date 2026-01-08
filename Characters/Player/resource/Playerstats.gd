@@ -16,8 +16,7 @@ class_name Playerstats
 @export var knockback_strength: float = 300
 
 # --- Ammo ---
-@export var amount_of_golf_balls: int = 3
-@export var amount_of_fire_golf_balls: int = 0
-@export var amount_of_poison_golf_balls: int = 0
-@export var amount_of_ice_golf_balls: int = 0
-@export var amount_of_split_golf_balls: int = 0
+@export var amount_of_golf_balls: int = 1
+
+# -- Signals ---
+@export var has_ball: bool = true
