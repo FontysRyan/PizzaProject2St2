@@ -44,7 +44,10 @@ var last_enemy_hit_time: float = 0.0
 func on_hit(target):
 	if target.is_in_group("Player") and is_real:
 		GameController.has_ball = true
-		is_real = false
+		if target.has_method("pickup_golf_ball"):
+			print("YOU GOT ME")
+			target.pickup_golf_ball()
+			is_real = false
 		#call_deferred("queue_free")
 		vanish_now()
 		return
