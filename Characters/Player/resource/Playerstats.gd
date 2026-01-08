@@ -20,14 +20,3 @@ class_name Playerstats
 
 # -- Signals ---
 @export var has_ball: bool = true
-signal has_ball_changed(value: bool)
-
-
-
-func update_has_ball() -> void:
-	var new_value := amount_of_golf_balls > 0
-	if has_ball == new_value:
-		return
-
-	has_ball = new_value
-	has_ball_changed.emit(has_ball)
