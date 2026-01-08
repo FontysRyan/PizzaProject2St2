@@ -15,16 +15,19 @@ class_name Playerstats
 @export var charge_time: float = 1.5
 @export var knockback_strength: float = 300
 
-# --- ui communication ---
-@export var has_ball:bool = true
-
 # --- Ammo ---
 @export var amount_of_golf_balls: int = 1
 
+# -- Signals ---
+@export var has_ball: bool = true
+signal has_ball_changed(value: bool)
+
+
 
 func update_has_ball() -> void:
-	has_ball = amount_of_golf_balls > 0
-    if has_ball:
-        print("Player has golf balls.")
-    else:
-        print("Player is out of golf balls.")
+	var new_value := amount_of_golf_balls > 0
+	if has_ball == new_value:
+		return
+
+	has_ball = new_value
+	has_ball_changed.emit(has_ball)
