@@ -10,7 +10,7 @@ class_name BaseBall
 @export var Can_Damage: bool = true #track damaga capabilities
 @export var original_radius: float = 20.0
 
-@export var pickup_delay: float = 2
+@export var pickup_delay: float = 1
 var can_be_picked_up: bool = true
 @onready var enable_mask_timer := get_tree().create_timer(2.0)
 
