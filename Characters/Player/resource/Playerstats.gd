@@ -15,9 +15,9 @@ class_name Playerstats
 @export var charge_time: float = 1.5
 @export var knockback_strength: float = 300
 
+# --- ui communication ---
+@export var has_ball:bool = true
+
 # --- Ammo ---
-@export var amount_of_golf_balls: int = 3
-@export var amount_of_fire_golf_balls: int = 0
-@export var amount_of_poison_golf_balls: int = 0
-@export var amount_of_ice_golf_balls: int = 0
-@export var amount_of_split_golf_balls: int = 0
+@export var amount_of_golf_balls: int = 1
+
