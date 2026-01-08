@@ -5,8 +5,8 @@ extends Control
 func _ready() -> void:
 	var stick = GameController._get_stick(GameController.equipped_stick_index).texture
 	$HBoxContainer/VBoxContainer/HotBar/StickPanel/TextureRect.texture = stick
-	var ball = GameController._get_ball(GameController.equipped_ball_index).texture
-	$HBoxContainer/VBoxContainer/HotBar/BallPanel/TextureRect.texture = ball
+	var ball = GameController._get_ball(GameController.equipped_ball_index).sprite_frames
+	$HBoxContainer/VBoxContainer/HotBar/BallPanel/AnimatedSprite2D.sprite_frames = ball
 	$HBoxContainer/VBoxContainer/HotBar/StickPanel.self_modulate = Color(0.500, 0.500, 0.500, 1.0)
 	$HBoxContainer/VBoxContainer/HotBar/BallPanel.self_modulate = Color(0.500, 0.500, 0.500, 1.0)
 	$HBoxContainer/VBoxContainer/HotBar/AbilityPanel.self_modulate = Color(0.500, 0.500, 0.500, 1.0)
