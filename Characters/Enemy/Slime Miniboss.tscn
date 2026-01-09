@@ -13,6 +13,7 @@ collision_layer = 32
 collision_mask = 63
 script = ExtResource("1_71gdq")
 mini_slime = ExtResource("2_velyp")
+mini_slimes_to_spawn = 10
 speed = 100.0
 stats = ExtResource("2_mpm8y")
 

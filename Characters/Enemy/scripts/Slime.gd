@@ -45,24 +45,21 @@ func take_damage(amount: float, _damage_source: Base_Ball = null):
 	_damage_source.velocity = 0
 
 func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_source):
-	print("force: ", force)
-	print("origin: ", location_of_origin)
-	print("type: ", _type)
-	#if _type == knockback_source.BALL:
-		#pass
-	#elif _type == knockback_source.STICK:
-		#super.take_knockback(force, location_of_origin, _type)
-		#if stored_balls.size() > 0:
-			#for i in range(stored_balls.size()):
-				#var angle := TAU * i / stored_balls.size()
-				#var ball = stored_balls[i]
-				#ball.global_position = global_position + Vector2(
-					#cos(angle),
-					#sin(angle)
-				#) * spawn_radius
-				#ball.velocity = angle * 500
-			#stored_balls.clear()
-			#super.take_damage(damage_absorbed)
+	if _type == knockback_source.BALL:
+		pass
+	elif _type == knockback_source.STICK:
+		super.take_knockback(force, location_of_origin, _type)
+		if stored_balls.size() > 0:
+			for i in range(stored_balls.size()):
+				var angle := TAU * i / stored_balls.size()
+				var ball = stored_balls[i]
+				ball.global_position = global_position + Vector2(
+					cos(angle),
+					sin(angle)
+				) * spawn_radius
+				ball.velocity = angle * 500
+			stored_balls.clear()
+			super.take_damage(damage_absorbed)
 
 func attack(target: CharacterBody2D):
 	if is_attacking:

@@ -136,8 +136,7 @@ func _physics_process(delta: float) -> void:
 			if anim_player:
 				if anim_player.current_animation != "RESET":
 					anim_player.play("RESET")
-				else:
-					attack(player)
+				attack(player)
 			return
 		
 		velocity = dir * speed
