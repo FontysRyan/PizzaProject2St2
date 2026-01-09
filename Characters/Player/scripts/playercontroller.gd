@@ -25,10 +25,16 @@ var shot_state := ShotState.IDLE
 const NORMAL_SCALE_X := 0.2
 var is_charging_anim_playing := false   
 const LAYER_BALLS := 1 << 1 # Layer 2 = Ball, ignore this layer when casting trajectory
+
 # --- Stats ---
 var start_health: float
 var move_speed: float
 
+# --- Shove ---
+var shove_force: float
+var shove_cooldown: float
+var can_shove: bool = true
+@export var shove_area: Area2D
 
 func _ready():
 	if stats == null:
@@ -37,6 +43,9 @@ func _ready():
 	start_health = stats.start_health
 	Stats.max_health = start_health
 	move_speed = stats.move_speed
+
+	stats.shove_force = shove_force
+	stats.shove_cooldown = shove_cooldown
 	#stats.amount_of_golf_balls
 	charge_bar.charge_released.connect(_on_charge_released)
 
@@ -123,6 +132,9 @@ func _process(_delta):
 
 
 func _physics_process(_delta):
+	if Input.is_action_just_pressed("shove"):
+		try_shove()
+
 	var direction := Vector2.ZERO
 
 	# Disable movement while shooting
@@ -243,3 +255,24 @@ func pickup_golf_ball(amount: int = 1):
 	stats.amount_of_golf_balls += amount
 	stats.has_ball = true
 	GameController.has_ball = true
+
+# ---------------------------------------------------
+# SHOVE LOGIC
+# ---------------------------------------------------
+func try_shove() -> void:
+	if not can_shove:
+		print("Cannot shove yet!")
+		return
+	print("Shoving!")
+	can_shove = false
+	anim_player.play("SHOVE")
+
+	for body in shove_area.get_overlapping_bodies():
+		if body.has_method("take_knockback"):
+			body.take_knockback(shove_force, global_position)
+
+	start_shove_cooldown()
+
+func start_shove_cooldown() -> void:
+	await get_tree().create_timer(shove_cooldown).timeout
+	can_shove = true
