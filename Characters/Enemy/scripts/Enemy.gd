@@ -4,7 +4,7 @@ class_name base_enemy
 # special values like constants, onready, and export values
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
-@export var speed : float = 200 
+@export var speed : float = 150 
 @export var poison_damage_multiplier : float = 0.015
 @export var stats : EnemyResource
 var NORMAL_SCALE_X := 0.2  # used for flipping. idk why we do it this way
@@ -126,12 +126,14 @@ func _physics_process(delta: float) -> void:
 			scale.x = -NORMAL_SCALE_X ## Bruh, but works.
 			isFlipped = false
 		
-		if global_position.distance_to(next_pos) < stop_distance:
+		if global_position.distance_to(player.global_position) < stop_distance:
 			velocity = Vector2.ZERO
+			dir = Vector2.ZERO
 			if anim_player:
 				if anim_player.current_animation != "RESET":
 					anim_player.play("RESET")
-				attack(player)
+				else:
+					attack(player)
 			return
 		
 		velocity = dir * speed
