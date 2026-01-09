@@ -172,18 +172,21 @@ func attack(_target: CharacterBody2D):
 	push_warning("no attack func override")
 
 func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_source):
-	var dir := global_position - location_of_origin
-	if dir == Vector2.ZERO:
-		return
-	
-	dir = dir.normalized()
-	
-	var resistance_factor : float = 1.0 - clamp(resistance, 0, 100) / 100.0
-	if resistance_factor <= 0.0:
-		return
-	
-	var kb_velocity := dir * force * resistance_factor
-	velocity += kb_velocity
+	print("force: ", force)
+	print("origin: ", location_of_origin)
+	print("type: ", _type)
+	#var dir := global_position - location_of_origin
+	#if dir == Vector2.ZERO:
+		#return
+	#
+	#dir = dir.normalized()
+	#
+	#var resistance_factor : float = 1.0 - clamp(resistance, 0, 100) / 100.0
+	#if resistance_factor <= 0.0:
+		#return
+	#
+	#var kb_velocity := dir * force * resistance_factor
+	#velocity += kb_velocity
 
 func retarget():
 	var players = get_tree().get_nodes_in_group("Player")
