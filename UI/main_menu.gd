@@ -17,3 +17,9 @@ func _on_quit_button_pressed() -> void:
 
 func _on_new_button_pressed() -> void:
 	GameController.set_phase(GameController.GamePhase.NEW_GAME)
+
+
+func _on_credits_button_pressed() -> void:
+	var ball = BallGacha.get_ball()
+	var path = ball.get_path()
+	print(path)
