@@ -13,5 +13,5 @@ func _init(_parent_node: Node2D, _grid_position: Vector2 = Vector2.ZERO) -> void
 	grid_position = _grid_position
 
 func add_door(door_position: Vector2i):
-	if not doors.has(door_position) and door_position != Vector2i.ZERO: 
+	if not doors.has(door_position) and door_position != Vector2i.ZERO && door_position.length_squared() <= 1: 
 		doors.append(door_position)

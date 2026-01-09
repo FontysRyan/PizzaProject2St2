@@ -14,6 +14,8 @@ func _init(_data: Room_Data, _room_scene_path: String = default_room_path, scree
 	_data.parent_node.add_child(room_instance)
 	
 	for door:Vector2i in _data.doors:
-		var door_position: Vector2i = room_instance.get_meta("DoorPositions")[door]
-		var new_door: DoorObject = DoorObject.new(door, door_position, _data.grid_position, spacer)
-		room_instance.add_child(new_door)
+		var door_positions: Dictionary = room_instance.get_meta("DoorPositions")
+		if door_positions.has(door):
+			var door_position: Vector2i = door_positions[door]
+			var new_door: DoorObject = DoorObject.new(door, door_position, _data.grid_position, spacer)
+			room_instance.add_child(new_door)
