@@ -30,6 +30,7 @@ var is_frozen : bool = false
 var frozen_cooldown : float = 2
 var frozen_stacks : float = 0
 var is_attacking : bool = false
+var kb_velocity : Vector2
 
 
 func _ready() -> void:
@@ -140,6 +141,12 @@ func _physics_process(delta: float) -> void:
 			return
 		
 		velocity = dir * speed
+		if kb_velocity != Vector2.ZERO:
+			velocity = kb_velocity
+			kb_velocity *= 0.9
+			if kb_velocity < Vector2(1.6, 1.6):
+				kb_velocity = Vector2.ZERO
+				velocity = dir * speed
 		move_and_slide()
 		
 		if dir != Vector2.ZERO:
@@ -181,8 +188,7 @@ func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_
 	if resistance_factor <= 0.0:
 		return
 	
-	var kb_velocity := dir * force * resistance_factor
-	velocity += kb_velocity
+	kb_velocity = dir * force * resistance_factor
 
 func retarget():
 	var players = get_tree().get_nodes_in_group("Player")
