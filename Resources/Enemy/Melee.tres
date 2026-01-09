@@ -5,4 +5,6 @@
 [resource]
 script = ExtResource("1_vbi6x")
 name = "Melee"
+attack_range = 6.0
+resistance = 10.0
 metadata/_custom_type_script = "uid://crwxe3thpt1qn"

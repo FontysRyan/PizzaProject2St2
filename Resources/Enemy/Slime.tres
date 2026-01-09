@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_o0x7k")
-ability_cooldown = 1.0
+ability_cooldown = 10.0
 ability_name = "Summon"
 passive_ability_name = "Absorb"
 name = "Slime"

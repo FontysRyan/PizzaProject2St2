@@ -46,7 +46,7 @@ func take_damage(amount: float, _damage_source: Base_Ball = null):
 
 func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_source):
 	if _type == knockback_source.BALL:
-		pass
+		return
 	elif _type == knockback_source.STICK:
 		super.take_knockback(force, location_of_origin, _type)
 		if stored_balls.size() > 0:
