@@ -13,8 +13,8 @@ static func place_rooms(paths : Dictionary[WalkerAgent, Array], parent_node : No
 		for position in path:
 			if position == Vector2.ZERO: continue
 			
-			var door_exit: Vector2 = position - prev_position
-			var door_entrance: Vector2 = -door_exit
+			var door_exit: Vector2i = position - prev_position
+			var door_entrance: Vector2i = -door_exit
 			
 			var prev_room: Room_Data = room_list.get_or_add(prev_position, Room_Data.new(parent_node, prev_position))
 			var current_room: Room_Data = room_list.get_or_add(position, Room_Data.new(parent_node, position))
