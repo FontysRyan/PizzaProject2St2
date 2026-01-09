@@ -3,14 +3,19 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var stick = GameController._get_stick(GameController.equipped_stick_index).texture
-	$HBoxContainer/VBoxContainer/HotBar/StickPanel/TextureRect.texture = stick
+	var stick = GameController._get_stick(GameController.equipped_stick_index)
+	var path1 = stick.get_path()
+	var text1 = path1.right(-path1.rfind("/") - 1).left(-5)
+	var new_path1 = str("res://Resources/Stick/" + text1 + ".tres")
+	var res1 = load(new_path1)
+	var texture : Texture2D = res1.texture
+	$HBoxContainer/VBoxContainer/HotBar/StickPanel/TextureRect.texture = texture
 	var ball = GameController._get_ball(GameController.equipped_ball_index)
-	var path = ball.get_path()
-	var text = path.right(-path.rfind("/") - 1).left(-5)
-	var new_path = str("res://Resources/Ball/" + text + ".tres")
-	var res = load(new_path)
-	var sprites : SpriteFrames = res.sprite_frames
+	var path2 = ball.get_path()
+	var text2 = path2.right(-path2.rfind("/") - 1).left(-5)
+	var new_path2 = str("res://Resources/Ball/" + text2 + ".tres")
+	var res2 = load(new_path2)
+	var sprites : SpriteFrames = res2.sprite_frames
 	$HBoxContainer/VBoxContainer/HotBar/BallPanel/AnimatedSprite2D.sprite_frames = sprites
 
 
@@ -33,10 +38,12 @@ func _on_continue_button_pressed() -> void:
 func _on_exit_button_pressed() -> void:
 	GameController.set_phase(GameController.GamePhase.MAIN)
 
-
-
-
 func _on_pause_button_pressed() -> void:
 	GameController.set_game_speed(0)
 	$PauseMenu.visible = true
 	$PauseMenu/CanvasLayer.visible = true
+
+func _unhandled_input(event):
+	if event.is_action_pressed("Inventory"):
+		$Inventory.visible = !$Inventory.visible
+		$Inventory/CanvasLayer.visible = !$Inventory/CanvasLayer.visible

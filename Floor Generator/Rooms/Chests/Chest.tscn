@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca3y4gs1ty28r"]
+
+[ext_resource type="Script" uid="uid://ctn206yr6jy37" path="res://Floor Generator/Rooms/Chests/chest.gd" id="1_coxko"]
+[ext_resource type="Texture2D" uid="uid://bmhhyg5m60vqi" path="res://Floor Generator/Assets/chest/task_01keh2cgqceabvnrpm3a9dja5t_1767952048_img_3.png" id="2_r2wft"]
+[ext_resource type="Texture2D" uid="uid://dnp8kuseaso4h" path="res://Floor Generator/Assets/chest/task_01keh2cgqceabvnrpm3a9dja5t_1767952048_img_2.png" id="3_2mv4s"]
+[ext_resource type="Texture2D" uid="uid://bh8bbb32ls52w" path="res://Floor Generator/Assets/chest/task_01keh2cgqceabvnrpm3a9dja5t_1767952048_img_1.png" id="4_gcy37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsrx6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4x7y5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r2wft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2mv4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gcy37")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_coxko")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_hsrx6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4x7y5")

@@ -26,7 +26,7 @@ func load_sticks(folder_path: String) -> Array:
 			break
 		if dir.current_is_dir():
 			continue
-		if file_name.ends_with(".tres"):
+		if file_name.ends_with(".tscn"):
 			var full_path := folder_path + file_name
 			var scene := load(full_path)
 			if scene is Stick:
@@ -36,7 +36,7 @@ func load_sticks(folder_path: String) -> Array:
 	dir.list_dir_end()
 	return sticks
 
-func get_stick() -> Stick:
+func get_item() -> PackedScene:
 	var stick_index = random_stick()
 	var stick = lootpool[stick_index]
 	print("Selected stick: ", stick)

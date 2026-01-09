@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dswkb01ea2qxu"
-path="res://.godot/imported/task_01keh2cgqceabvnrpm3a9dja5t_1767952048_img_1.webp-17a721fe4b847b353c8ac5e70204fdcc.ctex"
+uid="uid://bmhhyg5m60vqi"
+path="res://.godot/imported/task_01keh2cgqceabvnrpm3a9dja5t_1767952048_img_3.png-046368789140875ab0787c531eecb25b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Looting/assets/task_01keh2cgqceabvnrpm3a9dja5t_1767952048_img_1.webp"
-dest_files=["res://.godot/imported/task_01keh2cgqceabvnrpm3a9dja5t_1767952048_img_1.webp-17a721fe4b847b353c8ac5e70204fdcc.ctex"]
+source_file="res://Floor Generator/Assets/chest/task_01keh2cgqceabvnrpm3a9dja5t_1767952048_img_3.png"
+dest_files=["res://.godot/imported/task_01keh2cgqceabvnrpm3a9dja5t_1767952048_img_3.png-046368789140875ab0787c531eecb25b.ctex"]
 
 [params]
 
