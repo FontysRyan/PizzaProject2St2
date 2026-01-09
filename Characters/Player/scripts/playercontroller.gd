@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 # --- State ---
@@ -24,7 +25,6 @@ var shot_state := ShotState.IDLE
 const NORMAL_SCALE_X := 0.2
 var is_charging_anim_playing := false   
 const LAYER_BALLS := 1 << 1 # Layer 2 = Ball, ignore this layer when casting trajectory
-
 # --- Stats ---
 var start_health: float
 var move_speed: float
@@ -32,13 +32,12 @@ var move_speed: float
 
 func _ready():
 	if stats == null:
-		push_error("Playerstats not assigned!")
+		push_error("Playerstats not assigned!!")
 		return
-
 	start_health = stats.start_health
 	Stats.max_health = start_health
 	move_speed = stats.move_speed
-
+	#stats.amount_of_golf_balls
 	charge_bar.charge_released.connect(_on_charge_released)
 
 
@@ -208,10 +207,13 @@ func spawn_ball(force: float) -> void:
 	get_tree().current_scene.add_child(ball)
 
 	stats.amount_of_golf_balls -= 1
+	stats.has_ball = stats.amount_of_golf_balls > 0
+	GameController.has_ball = stats.has_ball
 	ball.global_position = global_position + dir * 60.0
 
 	await get_tree().physics_frame
 	ball.hit_ball(dir, force)
+
 
 
 func _on_charge_released(force: float):
@@ -235,5 +237,9 @@ func take_damage(amount: float):
 
 
 func pickup_golf_ball(amount: int = 1):
+	print("Player pickup_golf_ball CALLED")
+	print("Before:", stats.amount_of_golf_balls)
+
 	stats.amount_of_golf_balls += amount
-	print("Picked up balls:", stats.amount_of_golf_balls)
+	stats.has_ball = true
+	GameController.has_ball = true
