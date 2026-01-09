@@ -3445,7 +3445,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jpmk"]
-size = Vector2(571.69775, 347.35754)
+size = Vector2(571.69775, 669.00024)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shove_area") groups=["Player"]]
 collision_mask = 60
@@ -3608,7 +3608,7 @@ collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PivotPoint/Skeleton2D/Torso/LeftArm/LeftHand/Weapon/ShoveArea"]
-position = Vector2(236.20029, 279.67865)
+position = Vector2(236.20029, 440.49994)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_7jpmk")
 
