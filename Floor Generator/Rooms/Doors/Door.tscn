@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7ctnufcnmbwm"]
+[gd_scene load_steps=8 format=3 uid="uid://c7ctnufcnmbwm"]
 
+[ext_resource type="Script" uid="uid://otxgpryfk6rw" path="res://Floor Generator/Rooms/Scripts/Door_Interaction.gd" id="1_dnjav"]
 [ext_resource type="Texture2D" uid="uid://cdsyxly6e7bim" path="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door down.png" id="1_opjwl"]
 [ext_resource type="Texture2D" uid="uid://wv1i8jhiwemr" path="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door left.png" id="2_klbgy"]
 [ext_resource type="Texture2D" uid="uid://d0niac1kwk2s5" path="res://Floor Generator/Assets/door/DoorSprites/Dungeon Golfers door right.png" id="3_l2g8q"]
@@ -40,11 +41,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xsiuw"]
+radius = 228.2192
+
 [node name="RoomDoor" type="Node2D"]
 scale = Vector2(0.5, 0.5)
+script = ExtResource("1_dnjav")
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vfpoo")
 animation = &"Down"
 frame_progress = 1.0
 speed_scale = 0.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xsiuw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
