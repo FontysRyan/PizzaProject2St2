@@ -7,7 +7,7 @@
 size = Vector2(318, 59)
 
 [node name="Arrow" type="CharacterBody2D"]
-collision_layer = 32
+collision_layer = 64
 collision_mask = 31
 script = ExtResource("1_scf5p")
 
