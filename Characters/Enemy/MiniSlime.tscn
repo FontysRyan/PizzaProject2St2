@@ -7,9 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecc28"]
 size = Vector2(963, 663)
 
-[node name="SlimeMiniboss" type="CharacterBody2D"]
+[node name="MiniSlime" type="CharacterBody2D"]
 collision_layer = 32
-collision_mask = 31
+collision_mask = 63
 script = ExtResource("1_qauov")
 speed = 100.0
 stats = ExtResource("2_mnmf7")
@@ -22,7 +22,6 @@ position = Vector2(1.5, -20.5)
 shape = SubResource("RectangleShape2D_ecc28")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_mask = 2
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0, 0.9411765, 1, 1)
