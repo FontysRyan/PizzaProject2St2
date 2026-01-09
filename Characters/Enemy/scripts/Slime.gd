@@ -60,3 +60,13 @@ func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_
 				ball.velocity = angle * 500
 			stored_balls.clear()
 			super.take_damage(damage_absorbed)
+
+func attack(target: CharacterBody2D):
+	if is_attacking:
+		return
+	is_attacking = true
+	if target.has_method("take_damage"):
+		target.take_damage(damage)
+	else:
+		print("target cannot take damage :(")
+	is_attacking = false

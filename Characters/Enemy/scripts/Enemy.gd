@@ -29,6 +29,7 @@ var poison_cooldown : float = 1
 var is_frozen : bool = false
 var frozen_cooldown : float = 2
 var frozen_stacks : float = 0
+var is_attacking : bool = false
 
 
 func _ready() -> void:
@@ -95,8 +96,6 @@ func _physics_process(delta: float) -> void:
 	if not player:
 		return
 	
-	attack_cooldown -= delta
-	
 	frozen_cooldown -= delta
 	if frozen_cooldown == 0:
 		is_frozen = false
@@ -109,11 +108,16 @@ func _physics_process(delta: float) -> void:
 	
 	repath_cooldown -= delta
 	if repath_cooldown <= 0:
-		nav_agent.target_position = player.global_position
+		retarget()
 		repath_cooldown = 0.2
 	
 	if is_frozen:
 		return
+	
+	if is_attacking:
+		return
+	
+	attack_cooldown -= delta
 	
 	if nav_agent.is_target_reachable():
 		var next_pos = nav_agent.get_next_path_position()
@@ -180,6 +184,12 @@ func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_
 	
 	var kb_velocity := dir * force * resistance_factor
 	velocity += kb_velocity
+
+func retarget():
+	var players = get_tree().get_nodes_in_group("Player")
+	if players.size() > 0:
+		player = players[0]
+		nav_agent.target_position = player.position
 
 
 
