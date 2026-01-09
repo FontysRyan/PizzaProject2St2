@@ -13,7 +13,11 @@ class_name Playerstats
 @export var damage: float = 25
 @export var shoot_cooldown: float = 0.5
 @export var charge_time: float = 1.5
-@export var knockback_strength: float = 300
+@export var knockback_strength: float = 300 # Impact knockback if nessary by objects? (STILL TODO)
+
+# -- ShoveStrength --
+@export var shove_force: float = 500
+@export var shove_cooldown: float = 3
 
 # --- Ammo ---
 @export var amount_of_golf_balls: int = 1
