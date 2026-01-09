@@ -17,24 +17,20 @@ var Dungeon_scene: String = "res://Floor Generator/Map.tscn"
 var current_phase: GamePhase = GamePhase.MAIN
 
 #inventory
-var stick_slot1 : String
-var stick_slot2 : String
-var stick_slot3 : String
+var stick_slot1 : String = "res://Resources/Stick/Basic Stick.tres"
+var stick_slot2 : String = ""
+var stick_slot3 : String = ""
 var equipped_stick_index : int = 0
 
-var ball_slot1 : String
-var ball_slot2 : String
-var ball_slot3 : String
+var ball_slot1 : String = "res://Looting/Ball loot/Basic Ball.tscn"
+var ball_slot2 : String = ""
+var ball_slot3 : String = ""
 var equipped_ball_index : int = 0
 var has_ball : bool = true
 
 func _ready() -> void:
-	stick_slot1 = "res://Resources/Stick/Debug Stick.tres"
-	stick_slot2 = "res://Resources/Stick/Debug Stick.tres"
-	stick_slot3 = "res://Resources/Stick/Debug Stick.tres"
-	ball_slot1 = "res://Resources/Ball/Debug Ball.tres"
-	ball_slot2 = "res://Resources/Ball/Debug Ball.tres"
-	ball_slot3 = "res://Resources/Ball/Debug Ball.tres"
+	stick_slot1 = "res://Resources/Stick/Basic Stick.tres"
+	ball_slot1 = "res://Looting/Ball loot/Basic Ball.tscn"
 	
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -85,7 +81,7 @@ func _get_stick(index : int) -> Stick:
 		_:
 			return null
 
-func _get_ball(index : int) -> Ball:
+func _get_ball(index : int) -> PackedScene:
 	var ball
 	match index:
 		0:
@@ -107,7 +103,7 @@ func clear_run_data():
 	stick_slot1 = "res://Resources/Stick/Basic Stick.tres"
 	stick_slot2 = ""
 	stick_slot3 = ""
-	ball_slot1 = "res://Resources/Ball/Basic Ball.tres"
+	ball_slot1 = "res://Looting/Ball loot/Basic Ball.tscn"
 	ball_slot2 = ""
 	ball_slot3 = ""
 	Stats.clear_all()

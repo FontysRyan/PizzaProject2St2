@@ -1,5 +1,10 @@
 extends Panel
-var sprites : SpriteFrames = GameController._get_ball(GameController.equipped_ball_index).sprite_frames
+var ball = GameController._get_ball(GameController.equipped_ball_index)
+var path = ball.get_path()
+var text = path.right(-path.rfind("/") - 1).left(-5)
+var new_path = str("res://Resources/Ball/" + text + ".tres")
+var res = load(new_path)
+var sprites : SpriteFrames = res.sprite_frames
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
