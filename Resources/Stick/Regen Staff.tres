@@ -15,6 +15,7 @@ texture2 = ExtResource("4_qum2r")
 texture3 = ExtResource("5_4t340")
 texture4 = ExtResource("6_y2mwv")
 texture5 = ExtResource("7_7ddvl")
+texture = ExtResource("3_7c6tc")
 name = "Regen Staff"
 power = 4.0
 charge = 20.0

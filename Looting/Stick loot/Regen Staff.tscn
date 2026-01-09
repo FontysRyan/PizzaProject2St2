@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxfph02bacldo"]
+
+[ext_resource type="Script" uid="uid://bb6du6re8hejr" path="res://Base_stick.gd" id="1_infof"]
+[ext_resource type="Resource" uid="uid://tlke1smkcuxk" path="res://Resources/Stick/Regen Staff.tres" id="2_q2ide"]
+
+[node name="Regen Staff" type="Node2D"]
+script = ExtResource("1_infof")
+stick_stats = ExtResource("2_q2ide")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

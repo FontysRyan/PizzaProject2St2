@@ -15,6 +15,7 @@ texture2 = ExtResource("4_cn56w")
 texture3 = ExtResource("5_pmt3e")
 texture4 = ExtResource("6_odst8")
 texture5 = ExtResource("7_frjs8")
+texture = ExtResource("3_7h71d")
 name = "Blink Stick"
 power = 12.0
 knockback = 25.0

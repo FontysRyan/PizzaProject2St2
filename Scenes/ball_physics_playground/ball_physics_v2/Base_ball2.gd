@@ -31,6 +31,7 @@ func _ready():
 		mode.on_added(self)
 	await enable_mask_timer.timeout
 	set_collision_mask_value(1, true)
+
 func _on_body_entered(body):
 
 	#if body is CharacterBody2D:
