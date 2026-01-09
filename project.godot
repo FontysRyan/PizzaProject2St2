@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 
 GameController="*res://Game/GameController.gd"
 Stats="*res://Game/Stats.gd"
+BallGacha="*res://Looting/scripts/Ball gacha.gd"
+StickGacha="*res://Looting/scripts/Stick gacha.gd"
 
 [display]
 
@@ -30,6 +32,7 @@ window/size/viewport_height=1080
 
 Enemy="For all enemies"
 Player="For the player"
+"Slime Boss"=""
 Camera=""
 Golf_Balls=""
 

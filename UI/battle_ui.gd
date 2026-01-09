@@ -5,8 +5,13 @@ extends Control
 func _ready() -> void:
 	var stick = GameController._get_stick(GameController.equipped_stick_index).texture
 	$HBoxContainer/VBoxContainer/HotBar/StickPanel/TextureRect.texture = stick
-	var ball = GameController._get_ball(GameController.equipped_ball_index).sprite_frames
-	$HBoxContainer/VBoxContainer/HotBar/BallPanel/AnimatedSprite2D.sprite_frames = ball
+	var ball = GameController._get_ball(GameController.equipped_ball_index)
+	var path = ball.get_path()
+	var text = path.right(-path.rfind("/") - 1).left(-5)
+	var new_path = str("res://Resources/Ball/" + text + ".tres")
+	var res = load(new_path)
+	var sprites : SpriteFrames = res.sprite_frames
+	$HBoxContainer/VBoxContainer/HotBar/BallPanel/AnimatedSprite2D.sprite_frames = sprites
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
