@@ -61,6 +61,8 @@ func trigger_enemy_hit(target):
 	print("Hit accepted (0.1s passed)")
 	if target.has_method("take_damage"):
 			target.take_damage(ball_stats.damage)
+	if target.has_method("take_knockback"):
+			target.take_knockback(200.0, self.global_position, base_enemy.knockback_source.BALL)
 
 	if physics_mode:
 		physics_mode.on_hit(self, target)
