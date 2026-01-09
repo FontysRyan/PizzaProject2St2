@@ -32,8 +32,8 @@ window/size/viewport_height=1080
 
 Enemy="For all enemies"
 Player="For the player"
-Camera=""
 Golf_Balls=""
+Camera=""
 
 [input]
 
