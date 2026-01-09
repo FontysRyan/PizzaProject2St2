@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://kbhlx1sxkgnd" path="res://Assets/fallen angel models/Fallen_Angels_3/PNG/Vector Parts/Right Leg.png" id="9_74fb0"]
 [ext_resource type="Texture2D" uid="uid://cnnhpo5merk6f" path="res://Assets/fallen angel models/Fallen_Angels_2/PNG/Vector Parts/Face 01.png" id="10_870kv"]
 [ext_resource type="Texture2D" uid="uid://dgtcji56tcpm3" path="res://Assets/Weapons (golfsticks)/PNG/Staves_6/1.png" id="11_u61tb"]
-[ext_resource type="PackedScene" path="res://Characters/Player/aim indicator.tscn" id="12_6h4vt"]
-[ext_resource type="PackedScene" path="res://Characters/Player/TrajectoryLine.tscn" id="13_wraqo"]
-[ext_resource type="PackedScene" path="res://Characters/chargebar.tscn" id="14_0ij6m"]
+[ext_resource type="PackedScene" uid="uid://brfr8vyc5xrjj" path="res://Characters/Player/aim indicator.tscn" id="12_6h4vt"]
+[ext_resource type="PackedScene" uid="uid://o1tj2m71s2fd" path="res://Characters/Player/TrajectoryLine.tscn" id="13_wraqo"]
+[ext_resource type="PackedScene" uid="uid://cykj0rcui1jrh" path="res://Characters/chargebar.tscn" id="14_0ij6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j2ni"]
 size = Vector2(395, 561.5)

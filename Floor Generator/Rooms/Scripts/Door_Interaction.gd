@@ -8,12 +8,12 @@ signal player_door_interact(door_object: DoorObject)
 # MAKE EMIT SIGNALS
 # Also update to use player class when added
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body is Player:
 		player = body
 		player_close = true
 		
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
+	if body is Player:
 		player_close = false
 		
 func _unhandled_input(event):
