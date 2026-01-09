@@ -34,20 +34,43 @@ var move_speed: float
 var shove_force: float
 var shove_cooldown: float
 var can_shove: bool = true
+var is_shoving: bool = false
+
 @export var shove_area: Area2D
 
 func _ready():
+	
 	if stats == null:
 		push_error("Playerstats not assigned!!")
 		return
 	start_health = stats.start_health
-	Stats.max_health = start_health
+	start_health = stats.start_health
+
 	move_speed = stats.move_speed
 
-	stats.shove_force = shove_force
-	stats.shove_cooldown = shove_cooldown
+	shove_force = stats.shove_force
+	shove_cooldown = stats.shove_cooldown
 	#stats.amount_of_golf_balls
 	charge_bar.charge_released.connect(_on_charge_released)
+
+# ---------------------------------------------------
+# HELPERS FUNCTION FOR ANIMATION STATES
+# ---------------------------------------------------
+func update_movement_animation():
+	if shot_state != ShotState.IDLE:
+		return
+
+	if anim_player.current_animation == "SHOVE":
+		return
+
+	if velocity != Vector2.ZERO:
+		if anim_player.current_animation != "WALK":
+			anim_player.play("WALK")
+	else:
+		anim_player.play("RESET")
+
+
+
 
 
 # ---------------------------------------------------
@@ -194,11 +217,9 @@ func _physics_process(_delta):
 	was_mouse_down = mouse_down
 
 	# --- Animation for Movement ---
-	if direction != Vector2.ZERO and shot_state == ShotState.IDLE:
-		if anim_player.current_animation != "WALK":
-			anim_player.play("WALK")
-	elif shot_state == ShotState.IDLE:
-		anim_player.play("RESET")
+	update_movement_animation()
+
+
 
 
 # ---------------------------------------------------
@@ -242,7 +263,8 @@ func _on_charge_released(force: float):
 # DAMAGE & PICKUPS
 # ---------------------------------------------------
 func take_damage(amount: float):
-	start_health = clamp(start_health - amount, 0, stats.max_health)
+	print("Player take_damage",amount)
+	var current_health: float
 	Stats.current_health = start_health
 	if start_health <= 0:
 		queue_free()
@@ -257,22 +279,43 @@ func pickup_golf_ball(amount: int = 1):
 	GameController.has_ball = true
 
 # ---------------------------------------------------
-# SHOVE LOGIC
+# SHOVE LOGIC (FIXED)
 # ---------------------------------------------------
-func try_shove() -> void:
-	if not can_shove:
-		print("Cannot shove yet!")
+func try_shove():
+	if not can_shove or is_shoving:
 		return
-	print("Shoving!")
+
 	can_shove = false
+	is_shoving = true
+
 	anim_player.play("SHOVE")
 
+	var shove_anim := anim_player.get_animation("SHOVE")
+	var shove_duration := shove_anim.length
+
+	# Apply knockback immediately
 	for body in shove_area.get_overlapping_bodies():
 		if body.has_method("take_knockback"):
-			body.take_knockback(shove_force, global_position)
+			body.take_knockback(
+				shove_force,
+				shove_area.global_position,
+				body.knockback_source.STICK
+			)
 
+
+
+	# Shove animation finished — allow walk anim again
+	is_shoving = false
+	update_movement_animation()
+
+	# Start cooldown AFTER animation
 	start_shove_cooldown()
 
-func start_shove_cooldown() -> void:
-	await get_tree().create_timer(shove_cooldown).timeout
+
+
+
+
+func start_shove_cooldown():
+	await get_tree().create_timer(stats.shove_cooldown).timeout
 	can_shove = true
+	is_shoving = false
