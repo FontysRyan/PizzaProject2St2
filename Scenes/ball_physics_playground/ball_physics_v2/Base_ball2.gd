@@ -16,6 +16,7 @@ var can_be_picked_up: bool = true
 @onready var enable_mask_timer := get_tree().create_timer(2.0)
 
 func _ready():
+
 	add_to_group("Golf_Balls")
 	$AnimatedSprite2D.sprite_frames = ball_stats.sprite_frames
 	contact_monitor = true
@@ -43,21 +44,38 @@ func _on_body_entered(body):
 var last_enemy_hit_time: float = 0.0
 
 func on_hit(target):
+	# Physics modes always apply
+	if physics_mode:
+		physics_mode.on_hit(self, target)
+
+	# Special modes always apply
+	for mode in special_modes:
+		mode.on_hit(self, target)
+
+	# Player pickup (real balls only)
 	if target.is_in_group("Player") and is_real:
 		if target.has_method("pickup_golf_ball"):
-			#print("YOU GOT ME")
 			target.pickup_golf_ball()
 			is_real = false
-		#call_deferred("queue_free")
 		vanish_now()
 		return
-		
-	if target.is_in_group("Enemy") and is_real:
-		if target.is_in_group("Enemy"):
-			var now = Time.get_ticks_msec() / 1000.0  # seconds as float
-			if now - last_enemy_hit_time >= 0.1:
-				last_enemy_hit_time = now
-				trigger_enemy_hit(target)
+
+	# Real ball hits anything except player → split
+	if is_real and not target.is_in_group("Player") and split_mode:
+		split_mode.on_hit(self, target)
+
+	# Enemy hit → damage (real or fake)
+	if target.is_in_group("Enemy"):
+		var now = Time.get_ticks_msec() / 1000.0
+		if now - last_enemy_hit_time >= 0.1:
+			last_enemy_hit_time = now
+			trigger_enemy_hit(target)
+
+	# Fake balls vanish on any collision
+	if not is_real:
+		vanish_now()
+		return
+
 func trigger_enemy_hit(target):
 	print("Hit accepted (0.1s passed)")
 	if target.has_method("take_damage"):
@@ -65,14 +83,7 @@ func trigger_enemy_hit(target):
 	if target.has_method("take_knockback"):
 			target.take_knockback(200.0, self.global_position, base_enemy.knockback_source.BALL)
 
-	if physics_mode:
-		physics_mode.on_hit(self, target)
 
-	if split_mode:
-		split_mode.on_hit(self, target)
-
-	for mode in special_modes:
-		mode.on_hit(self, target)
 
 		
 func vanish_now():
@@ -125,5 +136,12 @@ func spawn_split_child(velocity: Vector2, is_real_child := false) -> BaseBall:
 	child.is_real = is_real_child
 	child.linear_velocity = velocity
 	child.global_position = global_position
+	
+	var sprite = child.get_node("AnimatedSprite2D")
+	if sprite:
+		if not child.is_real:
+			sprite.modulate = Color(0.37, 0.37, 0.37, 1.0)  # darker white
+		else:
+			sprite.modulate = Color(1, 1, 1)        # normal white
 	get_parent().add_child(child)
 	return child

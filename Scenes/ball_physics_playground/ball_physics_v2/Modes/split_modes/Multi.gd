@@ -9,7 +9,10 @@ func _init():
 func on_hit(ball: BaseBall, target) -> void:
 	if not ball.is_real:
 		return
-	# Split into 2, keeping 1 as real
-	spawn_children(ball, split_count, true)
+
+	# Split into children (all fake)
+	spawn_children(ball, split_count)
+
+	# Optionally remove parent if needed
 	if not leave_parent_alive:
 		ball.queue_free()

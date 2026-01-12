@@ -934,7 +934,7 @@ script = ExtResource("1_jy732")
 stats = ExtResource("2_34t7e")
 
 [node name="PivotPoint" type="Node2D" parent="."]
-position = Vector2(-632, -408)
+position = Vector2(-592, -294)
 
 [node name="polygons" type="Node2D" parent="PivotPoint"]
 
@@ -1085,7 +1085,6 @@ debug_use_custom = true
 debug_path_custom_color = Color(0, 0.9411765, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-41, -117)
 shape = SubResource("RectangleShape2D_jy732")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
