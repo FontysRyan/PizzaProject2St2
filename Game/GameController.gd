@@ -101,6 +101,6 @@ func clear_run_data():
 	stick_slot2 = "res://Looting/Stick loot/Blink Stick.tscn"
 	stick_slot3 = "res://Looting/Stick loot/Kaboom Club.tscn"
 	ball_slot1 = "res://Looting/Ball loot/Basic Ball.tscn"
-	ball_slot2 = ""
+	ball_slot2 = "res://Looting/Ball loot/MultiCore.tscn"
 	ball_slot3 = ""
 	Stats.clear_all()
