@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw5jb6ym1lyiu"]
+
+[ext_resource type="Script" uid="uid://72ysx3pdhkgm" path="res://Game/Damage_number.gd" id="1_nelfo"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nelfo")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 365.2174
+offset_bottom = 210.0
