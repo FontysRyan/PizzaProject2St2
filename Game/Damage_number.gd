@@ -16,7 +16,6 @@ func setup(amount: int, damage_type: String) -> void:
 		_:
 			label.modulate = Color.WHITE
 
-func _ready() -> void:
 	animate()
 
 func animate() -> void:
