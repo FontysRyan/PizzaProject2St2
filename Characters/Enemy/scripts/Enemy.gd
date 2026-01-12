@@ -23,12 +23,6 @@ var in_range : bool = false
 var player : Node2D
 var isFlipped : bool = false
 var attack_cooldown : float = 1
-var poison_active : bool = false
-var poison_stacks : float = 0
-var poison_cooldown : float = 1
-var is_frozen : bool = false
-var frozen_cooldown : float = 2
-var frozen_stacks : float = 0
 var is_attacking : bool = false
 var kb_velocity : Vector2
 
@@ -97,23 +91,10 @@ func _physics_process(delta: float) -> void:
 	if not player:
 		return
 	
-	frozen_cooldown -= delta
-	if frozen_cooldown == 0:
-		is_frozen = false
-	
-	if poison_active:
-		poison_cooldown -= delta
-		if poison_cooldown <= 0:
-			poison_cooldown = 1
-			take_damage(health * poison_damage_multiplier * poison_stacks)
-	
 	repath_cooldown -= delta
 	if repath_cooldown <= 0:
 		retarget()
 		repath_cooldown = 0.2
-	
-	if is_frozen:
-		return
 	
 	if is_attacking:
 		return
@@ -159,20 +140,6 @@ func take_damage(amount: float, _damage_source: Base_Ball = null):
 	health -= amount
 	if health <= 0:
 		queue_free()
-
-func apply_effect(effect: float):
-	match effect:
-		1:
-			poison_active = true
-			if not poison_stacks >= 10:
-				poison_stacks += 1
-			else:
-				poison_stacks = 10
-		2:
-			is_frozen = true
-			frozen_stacks += 1
-			if frozen_stacks <= 5:
-				frozen_cooldown = 2
 
 func attack(_target: CharacterBody2D):
 	push_warning("no attack func override")

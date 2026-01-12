@@ -67,6 +67,7 @@ func attack(target: CharacterBody2D):
 	is_attacking = true
 	if target.has_method("take_damage"):
 		target.take_damage(damage)
+		DamageNumberManager.show_damage(damage, target.global_position)
 	else:
 		print("target cannot take damage :(")
 	is_attacking = false
