@@ -2929,6 +2929,70 @@ tracks/55/keys = {
 "values": [2]
 }
 
+[sub_resource type="Animation" id="Animation_k8aph"]
+resource_name = "SHOVE"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PivotPoint/Skeleton2D/Torso/LeftArm:rest")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Transform2D(1, 0, 0, 1, 61, -32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PivotPoint/Skeleton2D/Torso/LeftArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.2819138]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PivotPoint/Skeleton2D/Torso/LeftArm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(90, -27.999998), Vector2(154, -30.999996), Vector2(90, -27.999998)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PivotPoint/Skeleton2D/Torso/RightArm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(39.000004, -11.999996), Vector2(128.99998, -3.9999955), Vector2(39.000004, -11.999996)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PivotPoint/Skeleton2D/Torso/RightArm:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.7091112]
+}
+
 [sub_resource type="Animation" id="Animation_6fff4"]
 resource_name = "STANDARD"
 
@@ -3369,70 +3433,6 @@ tracks/35/keys = {
 "values": [Vector2(632, 449)]
 }
 
-[sub_resource type="Animation" id="Animation_k8aph"]
-resource_name = "SHOVE"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PivotPoint/Skeleton2D/Torso/LeftArm:rest")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Transform2D(1, 0, 0, 1, 61, -32)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PivotPoint/Skeleton2D/Torso/LeftArm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.2819138]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PivotPoint/Skeleton2D/Torso/LeftArm:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.23333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(90, -27.999998), Vector2(154, -30.999996), Vector2(90, -27.999998)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PivotPoint/Skeleton2D/Torso/RightArm:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.23333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(39.000004, -11.999996), Vector2(128.99998, -3.9999955), Vector2(39.000004, -11.999996)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PivotPoint/Skeleton2D/Torso/RightArm:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.7091112]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5wa8t"]
 _data = {
 &"CHARGING_HOLDING": SubResource("Animation_7jpmk"),
@@ -3633,6 +3633,7 @@ rest = Transform2D(0.068053655, -1.8458768, -8.132225, -0.29981834, 0, 0)
 visible = false
 
 [node name="Trajectory" parent="." instance=ExtResource("13_wraqo")]
+position = Vector2(0, 200)
 points = PackedVector2Array(-99, -464)
 
 [node name="ChargeBar" parent="." instance=ExtResource("14_0ij6m")]
