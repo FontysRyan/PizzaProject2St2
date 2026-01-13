@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var label: Label = $Label
 
-func setup(amount: int, damage_type: String) -> void:
+func setup(amount: float, damage_type: String) -> void:
 	label.text = str(amount)
 
 	match damage_type:
