@@ -15,6 +15,7 @@ texture2 = ExtResource("4_d0yj4")
 texture3 = ExtResource("5_fs3q4")
 texture4 = ExtResource("6_1efk6")
 texture5 = ExtResource("7_iwavk")
+texture = ExtResource("3_4fmmr")
 name = "Kaboom Club"
 power = 8.0
 charge = 15.0

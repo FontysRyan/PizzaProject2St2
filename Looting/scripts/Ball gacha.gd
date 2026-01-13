@@ -36,10 +36,10 @@ func load_balls(folder_path: String) -> Array:
 	dir.list_dir_end()
 	return balls
 
-func get_ball() -> PackedScene:
+func get_item() -> PackedScene:
 	var ball_index = random_ball()
 	var ball = lootpool[ball_index]
-	print("Selected unit: ", ball)
+	print("Selected ball: ", ball)
 	return ball
 
 

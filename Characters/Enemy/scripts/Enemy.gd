@@ -23,13 +23,8 @@ var in_range : bool = false
 var player : Node2D
 var isFlipped : bool = false
 var attack_cooldown : float = 1
-var poison_active : bool = false
-var poison_stacks : float = 0
-var poison_cooldown : float = 1
-var is_frozen : bool = false
-var frozen_cooldown : float = 2
-var frozen_stacks : float = 0
 var is_attacking : bool = false
+var kb_velocity : Vector2
 
 
 func _ready() -> void:
@@ -96,57 +91,49 @@ func _physics_process(delta: float) -> void:
 	if not player:
 		return
 	
-	frozen_cooldown -= delta
-	if frozen_cooldown == 0:
-		is_frozen = false
-	
-	if poison_active:
-		poison_cooldown -= delta
-		if poison_cooldown <= 0:
-			poison_cooldown = 1
-			take_damage(health * poison_damage_multiplier * poison_stacks)
-	
 	repath_cooldown -= delta
 	if repath_cooldown <= 0:
 		retarget()
 		repath_cooldown = 0.2
 	
-	if is_frozen:
-		return
-	
-	if is_attacking:
-		return
-	
-	attack_cooldown -= delta
+	var dir := Vector2.ZERO
 	
 	if nav_agent.is_target_reachable():
 		var next_pos = nav_agent.get_next_path_position()
-		var dir = (next_pos - global_position).normalized()
+		dir = (next_pos - global_position).normalized()
 		
 		if dir.x < 0 and not isFlipped:
 			scale.x = -NORMAL_SCALE_X
 			isFlipped = true
 		elif dir.x > 0 and isFlipped:
-			scale.x = -NORMAL_SCALE_X ## Bruh, but works.
+			scale.x = -NORMAL_SCALE_X
 			isFlipped = false
 		
-		if global_position.distance_to(player.global_position) < stop_distance:
-			velocity = Vector2.ZERO
-			dir = Vector2.ZERO
-			if anim_player:
-				if anim_player.current_animation != "RESET":
-					anim_player.play("RESET")
-				else:
-					attack(player)
-			return
-		
+	if not is_attacking:
+		attack_cooldown -= delta
+	
+	if not is_attacking and global_position.distance_to(player.global_position) < stop_distance:
+		attack(player)
+	
+	if kb_velocity.length_squared() > 1.6:
+		velocity = kb_velocity
+		kb_velocity *= 0.9
+	elif is_attacking:
+		velocity = Vector2.ZERO
+	else:
 		velocity = dir * speed
-		move_and_slide()
-		
-		if dir != Vector2.ZERO:
-			if anim_player:
-				if anim_player.current_animation != "WALK":
-					anim_player.play("WALK")
+	
+	move_and_slide()
+	
+	if is_attacking:
+		return
+	
+	if velocity.length_squared() > 1.0:
+		if anim_player.current_animation != "attack" and anim_player.current_animation != "WALK":
+			anim_player.play("WALK")
+	else:
+		if anim_player.current_animation != "RESET":
+			anim_player.play("RESET")
 
 
 func take_damage(amount: float, _damage_source: Base_Ball = null):
@@ -154,21 +141,8 @@ func take_damage(amount: float, _damage_source: Base_Ball = null):
 	if health <= 0:
 		queue_free()
 
-func apply_effect(effect: float):
-	match effect:
-		1:
-			poison_active = true
-			if not poison_stacks >= 10:
-				poison_stacks += 1
-			else:
-				poison_stacks = 10
-		2:
-			is_frozen = true
-			frozen_stacks += 1
-			if frozen_stacks <= 5:
-				frozen_cooldown = 2
-
-func attack(_target: CharacterBody2D):
+func attack(target: CharacterBody2D):
+	DamageNumberManager.show_damage("how does this work".to_int(), target.position, "crit")
 	push_warning("no attack func override")
 
 func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_source):
@@ -182,8 +156,7 @@ func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_
 	if resistance_factor <= 0.0:
 		return
 	
-	var kb_velocity := dir * force * resistance_factor
-	velocity += kb_velocity
+	kb_velocity = dir * force * resistance_factor
 
 func retarget():
 	var players = get_tree().get_nodes_in_group("Player")

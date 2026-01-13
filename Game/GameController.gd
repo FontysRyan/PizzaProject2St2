@@ -17,7 +17,7 @@ var Dungeon_scene: String = "res://Floor Generator/Map.tscn"
 var current_phase: GamePhase = GamePhase.MAIN
 
 #inventory
-var stick_slot1 : String = "res://Resources/Stick/Basic Stick.tres"
+var stick_slot1 : String = "res://Looting/Stick loot/Basic Stick.tscn"
 var stick_slot2 : String = ""
 var stick_slot3 : String = ""
 var equipped_stick_index : int = 0
@@ -29,7 +29,7 @@ var equipped_ball_index : int = 0
 var has_ball : bool = true
 
 func _ready() -> void:
-	stick_slot1 = "res://Resources/Stick/Basic Stick.tres"
+	stick_slot1 = "res://Looting/Stick loot/Basic Stick.tscn"
 	ball_slot1 = "res://Looting/Ball loot/Basic Ball.tscn"
 	
 	pass
@@ -63,20 +63,17 @@ func set_game_speed(scale: float) -> void:
 	Engine.time_scale = clamp(scale, 0.0, 10.0)
 	print("Game speed set to:", Engine.time_scale)
 
-func _get_stick(index : int) -> Stick:
+func _get_stick(index : int) -> PackedScene:
 	var stick
 	match index:
 		0:
 			stick = load(stick_slot1)
-			stick._ready()
 			return stick
 		1:
 			stick = load(stick_slot2)
-			stick._ready()
 			return stick
 		2:
 			stick = load(stick_slot3)
-			stick._ready()
 			return stick
 		_:
 			return null
@@ -100,10 +97,10 @@ func _get_ball(index : int) -> PackedScene:
 
 
 func clear_run_data():
-	stick_slot1 = "res://Resources/Stick/Basic Stick.tres"
-	stick_slot2 = ""
-	stick_slot3 = ""
+	stick_slot1 = "res://Looting/Stick loot/Basic Stick.tscn"
+	stick_slot2 = "res://Looting/Stick loot/Blink Stick.tscn"
+	stick_slot3 = "res://Looting/Stick loot/Kaboom Club.tscn"
 	ball_slot1 = "res://Looting/Ball loot/Basic Ball.tscn"
-	ball_slot2 = ""
+	ball_slot2 = "res://Looting/Ball loot/MultiCore.tscn"
 	ball_slot3 = ""
 	Stats.clear_all()

@@ -8,6 +8,39 @@ var sprites : SpriteFrames = res.sprite_frames
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	match self.name:
+		"BallPanel":
+			pass
+		"ball_slot1":
+			ball = GameController.ball_slot1
+			if ball == "":
+				sprites = null
+				return
+			path = ball
+			text = path.right(-path.rfind("/") - 1).left(-5)
+			new_path = str("res://Resources/Ball/" + text + ".tres")
+			res = load(new_path)
+			sprites = res.sprite_frames
+		"ball_slot2":
+			ball = GameController.ball_slot2
+			if ball == "":
+				sprites = null
+				return
+			path = ball
+			text = path.right(-path.rfind("/") - 1).left(-5)
+			new_path = str("res://Resources/Ball/" + text + ".tres")
+			res = load(new_path)
+			sprites = res.sprite_frames
+		"ball_slot3":
+			ball = GameController.ball_slot3
+			if ball == "":
+				sprites = null
+				return
+			path = ball
+			text = path.right(-path.rfind("/") - 1).left(-5)
+			new_path = str("res://Resources/Ball/" + text + ".tres")
+			res = load(new_path)
+			sprites = res.sprite_frames
 	$AnimatedSprite2D.sprite_frames = sprites
 
 

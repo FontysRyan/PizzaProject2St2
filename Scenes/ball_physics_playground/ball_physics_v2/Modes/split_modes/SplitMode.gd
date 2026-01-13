@@ -14,8 +14,9 @@ func on_hit(ball: BaseBall, target) -> void:
 	pass
 
 # Utility to spawn children; derived modes can call this
-func spawn_children(ball: BaseBall, count: int, keep_real := true) -> void:
+func spawn_children(ball: BaseBall, count: int) -> void:
 	var base_velocity = ball.linear_velocity
 	for i in count:
 		var velocity = base_velocity.rotated(randf_range(-angle_spread, angle_spread))
-		ball.spawn_split_child(velocity, keep_real and i == 0)
+		# All children are fake
+		ball.spawn_split_child(velocity, false)
