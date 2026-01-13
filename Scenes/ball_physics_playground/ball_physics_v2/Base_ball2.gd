@@ -10,6 +10,7 @@ class_name BaseBall
 @export var is_real: bool = true   # track original ball
 @export var Can_Damage: bool = true #track damaga capabilities
 @export var original_radius: float = 20.0
+var base_knockback: float = 1
 
 @export var pickup_delay: float = 1
 var can_be_picked_up: bool = true
@@ -82,7 +83,7 @@ func trigger_enemy_hit(target):
 			target.take_damage(ball_stats.damage)
 			DamageNumberManager.show_damage(ball_stats.damage, target.global_position + Vector2(0, -90))
 	if target.has_method("take_knockback"):
-			target.take_knockback(200.0, self.global_position, base_enemy.knockback_source.BALL)
+			target.take_knockback(200.0 * base_knockback, self.global_position, base_enemy.knockback_source.BALL)
 
 
 
