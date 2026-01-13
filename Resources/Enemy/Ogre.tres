@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MinibossResource" load_steps=2 format=3 uid="uid://b3fxwipq2qni0"]
+
+[ext_resource type="Script" uid="uid://bvxhjcjvfnoml" path="res://Resources/Enemy/Miniboss_Resource.gd" id="1_5ssd8"]
+
+[resource]
+script = ExtResource("1_5ssd8")
+ability_cooldown = 30.0
+ability_name = "Stun Slam"
+passive_ability_name = "Bleed"
+name = "Ogre"
+max_health = 360.0
+damage = 70.0
+attack_range = 12.0
+attack_speed = 0.2
+resistance = 100.0
+metadata/_custom_type_script = "uid://bvxhjcjvfnoml"

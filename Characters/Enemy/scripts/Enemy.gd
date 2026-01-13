@@ -84,7 +84,7 @@ func set_stats() -> void:
 	stop_distance = stats.attack_range * 20
 	damage = stats.current_damage
 	resistance = stats.resistance
-	#speed = stats.movement_speed
+	speed = stats.movement_speed
 
 
 func _physics_process(delta: float) -> void:

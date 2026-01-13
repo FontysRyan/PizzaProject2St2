@@ -10,5 +10,5 @@ func _physics_process(delta: float) -> void:
 		stat_increase_cooldown = stat_increment_cooldown
 		damage *= stat_increments
 		attack_speed *= (1-stat_increments)
-		speed *= stat_increments
+		#speed *= stat_increments # idk if this is balanced so i comment it out for now
 	super._physics_process(delta)
