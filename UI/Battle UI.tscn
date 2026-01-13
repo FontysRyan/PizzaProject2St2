@@ -213,6 +213,61 @@ layout_mode = 2
 [node name="ball_slot3" parent="Inventory/CanvasLayer/Panel/VBoxContainer/VBoxContainer/BallInventory" instance=ExtResource("4_bcbqt")]
 layout_mode = 2
 
+[node name="ConfirmLoot" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 510.0
+offset_top = 190.0
+offset_right = 1410.0
+offset_bottom = 890.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ConfirmLoot"]
+visible = false
+
+[node name="Panel" type="Panel" parent="ConfirmLoot/CanvasLayer"]
+offset_left = 510.0
+offset_top = 190.0
+offset_right = 1410.0
+offset_bottom = 890.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmLoot/CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "You've received:"
+label_settings = SubResource("LabelSettings_eeboc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 1
+
+[node name="LootSlot" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer" instance=ExtResource("3_eeboc")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="SwitchSlots" type="HBoxContainer" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="switch_slot1" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("4_bcbqt")]
+layout_mode = 2
+
+[node name="switch_slot2" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("4_bcbqt")]
+layout_mode = 2
+
+[node name="switch_slot3" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("4_bcbqt")]
+layout_mode = 2
+
 [connection signal="pressed" from="HBoxContainer/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/Panel/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

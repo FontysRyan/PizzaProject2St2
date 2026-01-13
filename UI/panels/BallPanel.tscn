@@ -8,6 +8,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_kwpv6")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(50, 50)
-scale = Vector2(0.156, 0.156)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0

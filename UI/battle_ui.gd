@@ -47,3 +47,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("Inventory"):
 		$Inventory.visible = !$Inventory.visible
 		$Inventory/CanvasLayer.visible = !$Inventory/CanvasLayer.visible
+		if Engine.time_scale == clamp(0.0, 0.0, 10.0):
+			GameController.set_game_speed(1)
+		elif Engine.time_scale == clamp(1.0, 0.0, 10.0):
+			GameController.set_game_speed(0)
