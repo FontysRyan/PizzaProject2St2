@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var float_distance := 5.0
-@export var duration: float = 1.0
+@export var float_distance := 10.0
+@export var duration: float = 5.0
 
 @onready var label: Label = $Label
 
