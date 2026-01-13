@@ -1,4 +1,5 @@
 extends base_enemy
+class_name melee_enemy
 
 func attack(target: CharacterBody2D):
 	if attack_cooldown > 0 or is_attacking:
