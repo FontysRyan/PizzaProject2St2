@@ -35,6 +35,7 @@ Enemy="For all enemies"
 Player="For the player"
 Golf_Balls=""
 Camera=""
+Mini_Slime=""
 
 [input]
 

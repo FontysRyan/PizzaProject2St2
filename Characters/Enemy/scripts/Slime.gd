@@ -4,6 +4,7 @@ extends base_enemy
 @export var mini_slime : PackedScene
 @export var mini_slimes_to_spawn : int = 3
 @export var spawn_radius : float = 500.0
+@export var max_mini_slimes : int = 12
 
 var stored_balls : Array[Base_Ball] = []
 var damage_absorbed : float
@@ -19,8 +20,14 @@ func _ready() -> void:
 	timer.start()
 
 func use_ability():
-	for i in range(mini_slimes_to_spawn):
+	var current := get_tree().get_nodes_in_group("mini_slimes").size()
+	var allowed := max_mini_slimes - current
+	if allowed <= 0:
+		return
+	
+	for i in range(min(mini_slimes_to_spawn, allowed)):
 		var slime := mini_slime.instantiate()
+		slime.add_to_group("Mini_Slime")
 		slime.scale = Vector2(0.2, 0.2)
 		get_parent().add_child(slime)
 		

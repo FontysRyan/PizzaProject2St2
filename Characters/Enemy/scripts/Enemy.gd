@@ -96,44 +96,44 @@ func _physics_process(delta: float) -> void:
 		retarget()
 		repath_cooldown = 0.2
 	
-	if is_attacking:
-		return
-	
-	attack_cooldown -= delta
+	var dir := Vector2.ZERO
 	
 	if nav_agent.is_target_reachable():
 		var next_pos = nav_agent.get_next_path_position()
-		var dir = (next_pos - global_position).normalized()
+		dir = (next_pos - global_position).normalized()
 		
 		if dir.x < 0 and not isFlipped:
 			scale.x = -NORMAL_SCALE_X
 			isFlipped = true
 		elif dir.x > 0 and isFlipped:
-			scale.x = -NORMAL_SCALE_X ## Bruh, but works.
+			scale.x = -NORMAL_SCALE_X
 			isFlipped = false
 		
-		if global_position.distance_to(player.global_position) < stop_distance:
-			velocity = Vector2.ZERO
-			dir = Vector2.ZERO
-			if anim_player:
-				if anim_player.current_animation != "RESET":
-					anim_player.play("RESET")
-				attack(player)
-			return
-		
+	if not is_attacking:
+		attack_cooldown -= delta
+	
+	if not is_attacking and global_position.distance_to(player.global_position) < stop_distance:
+		attack(player)
+	
+	if kb_velocity.length_squared() > 1.6:
+		velocity = kb_velocity
+		kb_velocity *= 0.9
+	elif is_attacking:
+		velocity = Vector2.ZERO
+	else:
 		velocity = dir * speed
-		if kb_velocity != Vector2.ZERO:
-			velocity = kb_velocity
-			kb_velocity *= 0.9
-			if kb_velocity < Vector2(1.6, 1.6):
-				kb_velocity = Vector2.ZERO
-				velocity = dir * speed
-		move_and_slide()
-		
-		if dir != Vector2.ZERO:
-			if anim_player:
-				if anim_player.current_animation != "WALK":
-					anim_player.play("WALK")
+	
+	move_and_slide()
+	
+	if is_attacking:
+		return
+	
+	if velocity.length_squared() > 1.0:
+		if anim_player.current_animation != "attack" and anim_player.current_animation != "WALK":
+			anim_player.play("WALK")
+	else:
+		if anim_player.current_animation != "RESET":
+			anim_player.play("RESET")
 
 
 func take_damage(amount: float, _damage_source: Base_Ball = null):
@@ -141,7 +141,8 @@ func take_damage(amount: float, _damage_source: Base_Ball = null):
 	if health <= 0:
 		queue_free()
 
-func attack(_target: CharacterBody2D):
+func attack(target: CharacterBody2D):
+	DamageNumberManager.show_damage("how does this work".to_int(), target.position, "crit")
 	push_warning("no attack func override")
 
 func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_source):
