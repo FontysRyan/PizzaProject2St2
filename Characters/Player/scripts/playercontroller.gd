@@ -43,8 +43,7 @@ func _ready():
 	if stats == null:
 		push_error("Playerstats not assigned!!")
 		return
-	start_health = stats.start_health
-	start_health = stats.start_health
+
 
 	move_speed = stats.move_speed
 
@@ -262,12 +261,15 @@ func _on_charge_released(force: float):
 # ---------------------------------------------------
 # DAMAGE & PICKUPS
 # ---------------------------------------------------
-func take_damage(amount: float):
-	print("Player take_damage",amount)
-	var current_health: float
-	Stats.current_health = start_health
-	if start_health <= 0:
+func take_damage(amount: float) -> void:
+	stats.current_health -= amount
+	stats.current_health = clamp(stats.current_health, 0, stats.max_health)
+
+	print("Damage:", amount, "Health:", stats.current_health)
+
+	if stats.current_health <= 0:
 		queue_free()
+
 
 
 func pickup_golf_ball(amount: int = 1):
@@ -289,6 +291,7 @@ func try_shove():
 	is_shoving = true
 
 	anim_player.play("SHOVE")
+	await anim_player.animation_finished
 
 	var shove_anim := anim_player.get_animation("SHOVE")
 	var shove_duration := shove_anim.length
