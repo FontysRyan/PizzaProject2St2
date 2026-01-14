@@ -4,6 +4,7 @@ class_name Playerstats
 # --- Health ---
 @export var max_health: float = 100
 @export var start_health: float = 100
+var current_health: float = start_health
 @export var invincibility_time: float = 0.3
 
 # --- Movement ---

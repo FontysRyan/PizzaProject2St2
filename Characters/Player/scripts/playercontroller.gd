@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 # --- State ---
-var facing := 1 # 1 = right, -1 = left (for flipping) (Had issues with it, me being silly willy (Ryan))
+var facing := 1 # 1 = right, -1 = left (for flipping) (Had issues with it, me being silly willy)
 var was_mouse_down := false
 var can_shoot := true
 
@@ -38,24 +38,33 @@ var is_shoving: bool = false
 
 @export var shove_area: Area2D
 
+# ---------------------------------------------------
+
 func _ready():
-	
 	if stats == null:
 		push_error("Playerstats not assigned!!")
 		return
-	start_health = stats.start_health
-	start_health = stats.start_health
 
 	move_speed = stats.move_speed
-
 	shove_force = stats.shove_force
 	shove_cooldown = stats.shove_cooldown
-	#stats.amount_of_golf_balls
+
 	charge_bar.charge_released.connect(_on_charge_released)
 
 # ---------------------------------------------------
-# HELPERS FUNCTION FOR ANIMATION STATES
+# HELPERS
 # ---------------------------------------------------
+
+func get_aim_direction() -> Vector2:
+	return (get_global_mouse_position() - global_position).normalized()
+
+func get_trajectory_start_global() -> Vector2:
+	return trajectory.global_position
+
+# ---------------------------------------------------
+# FUNCTION FOR ANIMATION STATES (HELPERS)
+# ---------------------------------------------------
+
 func update_movement_animation():
 	if shot_state != ShotState.IDLE:
 		return
@@ -69,16 +78,9 @@ func update_movement_animation():
 	else:
 		anim_player.play("RESET")
 
-
-
-
-
 # ---------------------------------------------------
-# AIM & TRAJECTORY
+# TRAJECTORY
 # ---------------------------------------------------
-func get_aim_direction() -> Vector2:
-	return (get_global_mouse_position() - global_position).normalized()
-
 
 func update_trajectory():
 	if not can_spawn_ball() or shot_state == ShotState.IDLE:
@@ -86,7 +88,6 @@ func update_trajectory():
 		return
 
 	var dir: Vector2 = get_aim_direction()
-
 	var charge_percent: float = float(charge_bar.get_charge_percent())
 	var remaining_length: float = lerp(0.0, max_length, charge_percent)
 
@@ -101,8 +102,7 @@ func update_trajectory():
 
 		var query := PhysicsRayQueryParameters2D.create(current_pos, end_pos)
 		query.exclude = [self]
-		query.collision_mask = ~LAYER_BALLS # Ignore balls
-
+		query.collision_mask = ~LAYER_BALLS
 
 		var result: Dictionary = space.intersect_ray(query)
 
@@ -122,10 +122,10 @@ func update_trajectory():
 			trajectory.add_point(to_local(end_pos))
 			break
 
-
 # ---------------------------------------------------
 # SHOOT FEEDBACK
 # ---------------------------------------------------
+
 func play_shot_trajectory_feedback():
 	trajectory.default_color = Color.RED
 
@@ -133,26 +133,23 @@ func play_shot_trajectory_feedback():
 	tween.tween_property(trajectory, "modulate:a", 0.0, 0.25)
 	tween.finished.connect(reset_trajectory)
 
-
 func reset_trajectory():
 	trajectory.clear_points()
 	trajectory.modulate.a = 1.0
 	trajectory.default_color = Color.WHITE
 	shot_state = ShotState.IDLE
 
-
 func start_shoot_cooldown():
 	can_shoot = false
 	await get_tree().create_timer(stats.shoot_cooldown).timeout
 	can_shoot = true
 
-
 # ---------------------------------------------------
 # PROCESS
 # ---------------------------------------------------
+
 func _process(_delta):
 	update_trajectory()
-
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("shove"):
@@ -160,7 +157,6 @@ func _physics_process(_delta):
 
 	var direction := Vector2.ZERO
 
-	# Disable movement while shooting
 	if shot_state == ShotState.IDLE:
 		if Input.is_action_pressed("right"):
 			direction.x += 1
@@ -174,9 +170,8 @@ func _physics_process(_delta):
 	velocity = direction.normalized() * move_speed
 	move_and_slide()
 
-	# --- Flip Character ---
+	# Flip
 	if shot_state == ShotState.IDLE:
-		# Flip by movement
 		if direction.x < 0:
 			pivot.scale.x = -1
 			facing = -1
@@ -184,7 +179,6 @@ func _physics_process(_delta):
 			pivot.scale.x = 1
 			facing = 1
 	else:
-		# Flip by aim while shooting
 		var aim_x := get_aim_direction().x
 		if aim_x < 0:
 			pivot.scale.x = -1
@@ -193,7 +187,7 @@ func _physics_process(_delta):
 			pivot.scale.x = 1
 			facing = 1
 
-	# --- Charging & Shooting ---
+	# Shooting input
 	var mouse_down := Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 
 	if mouse_down and not was_mouse_down:
@@ -216,18 +210,14 @@ func _physics_process(_delta):
 
 	was_mouse_down = mouse_down
 
-	# --- Animation for Movement ---
 	update_movement_animation()
-
-
-
 
 # ---------------------------------------------------
 # BALL LOGIC
 # ---------------------------------------------------
+
 func can_spawn_ball() -> bool:
 	return stats.amount_of_golf_balls > 0
-
 
 func spawn_ball(force: float) -> void:
 	if golf_ball_asset == null:
@@ -242,12 +232,11 @@ func spawn_ball(force: float) -> void:
 	stats.amount_of_golf_balls -= 1
 	stats.has_ball = stats.amount_of_golf_balls > 0
 	GameController.has_ball = stats.has_ball
-	ball.global_position = global_position + dir * 60.0
+
+	ball.global_position = get_trajectory_start_global()
 
 	await get_tree().physics_frame
 	ball.hit_ball(dir, force)
-
-
 
 func _on_charge_released(force: float):
 	if not can_spawn_ball():
@@ -258,29 +247,26 @@ func _on_charge_released(force: float):
 	play_shot_trajectory_feedback()
 	start_shoot_cooldown()
 
+# ---------------------------------------------------
+# DAMAGE / PICKUPS
+# ---------------------------------------------------
 
-# ---------------------------------------------------
-# DAMAGE & PICKUPS
-# ---------------------------------------------------
-func take_damage(amount: float):
-	print("Player take_damage",amount)
-	var current_health: float
-	Stats.current_health = start_health
-	if start_health <= 0:
+func take_damage(amount: float) -> void:
+	stats.current_health -= amount
+	stats.current_health = clamp(stats.current_health, 0, stats.max_health)
+
+	if stats.current_health <= 0:
 		queue_free()
 
-
 func pickup_golf_ball(amount: int = 1):
-	print("Player pickup_golf_ball CALLED")
-	print("Before:", stats.amount_of_golf_balls)
-
 	stats.amount_of_golf_balls += amount
 	stats.has_ball = true
 	GameController.has_ball = true
 
 # ---------------------------------------------------
-# SHOVE LOGIC (FIXED)
+# SHOVE
 # ---------------------------------------------------
+
 func try_shove():
 	if not can_shove or is_shoving:
 		return
@@ -289,11 +275,8 @@ func try_shove():
 	is_shoving = true
 
 	anim_player.play("SHOVE")
+	await anim_player.animation_finished
 
-	var shove_anim := anim_player.get_animation("SHOVE")
-	var shove_duration := shove_anim.length
-
-	# Apply knockback immediately
 	for body in shove_area.get_overlapping_bodies():
 		if body.has_method("take_knockback"):
 			body.take_knockback(
@@ -302,18 +285,9 @@ func try_shove():
 				body.knockback_source.STICK
 			)
 
-
-
-	# Shove animation finished — allow walk anim again
 	is_shoving = false
 	update_movement_animation()
-
-	# Start cooldown AFTER animation
 	start_shove_cooldown()
-
-
-
-
 
 func start_shove_cooldown():
 	await get_tree().create_timer(stats.shove_cooldown).timeout
