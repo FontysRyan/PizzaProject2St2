@@ -13,4 +13,5 @@ damage = 20.0
 attack_range = 20.0
 attack_speed = 0.0
 resistance = 0.0
+movement_speed = 100.0
 metadata/_custom_type_script = "uid://bvxhjcjvfnoml"

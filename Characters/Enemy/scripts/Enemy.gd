@@ -4,8 +4,6 @@ class_name base_enemy
 # special values like constants, onready, and export values
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
-@export var speed : float = 150 
-@export var poison_damage_multiplier : float = 0.015
 @export var stats : EnemyResource
 var NORMAL_SCALE_X := 0.2  # used for flipping. idk why we do it this way
 
@@ -15,7 +13,7 @@ var attack_speed : float
 var stop_distance : float
 var damage : float
 var resistance : float
-# var speed : float
+var speed : float
 
 # values that you shouldnt worry about
 var repath_cooldown : float = 0.0

@@ -9,7 +9,7 @@ var current_damage : float = 30
 @export var attack_range : float = 5
 @export var attack_speed : float = 1
 @export var resistance : float = 50
-# @export var movement_speed : float = 200
+@export var movement_speed : float = 200
 
 var level : int = 1
 
