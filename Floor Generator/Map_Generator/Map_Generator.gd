@@ -23,7 +23,14 @@ func generate_floor() -> void:
 	
 	var new_rooms: Dictionary[Vector2, Room_Data] = generate_rooms(generate_walker_map())
 	
+	var room_counts: Dictionary[String, int] = {}
+	
 	for room in new_rooms:
 		var room_data: Room_Data = new_rooms[room]
-		var room_location_string: String = room_pool_manager.generate_room_from_data(room_data)
+		var room_instance_data: Array[String] = room_pool_manager.generate_room_from_data(room_data, room_counts)
+		var room_location_string: String = room_instance_data[0]
+		room_counts.get_or_add(room_instance_data[1], 0)
+		room_counts[room_instance_data[1]] += 1
 		RoomObject.new(room_data, room_location_string, get_viewport_rect().size)
+
+	print(room_counts)

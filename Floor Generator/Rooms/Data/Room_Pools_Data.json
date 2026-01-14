@@ -2,7 +2,7 @@
   "room_pools": [
 	{
 	  "id": "spawn",
-	  "priority": 999,
+	  "priority": 9999,
 	  "conditions": {
 		"position_equals": [
 		  0,
@@ -12,6 +12,52 @@
 	  "rooms": [
         "res://Floor Generator/Rooms/Presets/Room_Spawn.tscn"
 	  ]
+	},
+	{
+	  "id": "exit",
+	  "priority": 600,
+	  "conditions": {
+		"min_instances": 1,
+		"max_instances": 1,
+		"guaranteed_roll_chance": 1
+	  },
+	  "rooms": [
+        "res://Floor Generator/Rooms/Presets/Room_Loot.tscn"
+	  ]	
+	},
+	{
+	  "id": "boss",
+	  "priority": 500,
+	  "conditions": {
+		"min_instances": 1,
+		"max_instances": 1,
+		"guaranteed_roll_chance": 1
+	  },
+	  "rooms": [
+        "res://Floor Generator/Rooms/Presets/Room_Loot.tscn"
+	  ]	
+	},
+	{
+	  "id": "combat",
+	  "priority": 100,
+	  "conditions": {
+		"door_count_gte": 2,
+		"roll_chance": 25
+	  },
+	  "rooms": [
+        "res://Floor Generator/Rooms/Presets/Room_Combat.tscn"
+	  ]	
+	},
+	{
+	  "id": "loot",
+	  "priority": 95,
+	  "conditions": {
+		"door_count_lte": 1,
+		"roll_chance": 50
+	  },
+	  "rooms": [
+        "res://Floor Generator/Rooms/Presets/Room_Loot.tscn"
+	  ]	
 	},
 	{
 	  "id": "default",
