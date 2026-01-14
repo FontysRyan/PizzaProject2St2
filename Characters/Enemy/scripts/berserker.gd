@@ -13,3 +13,5 @@ func _physics_process(delta: float) -> void:
 		attack_speed /= stat_increments
 		attack_speed = max(attack_speed, 0.1)
 		#speed *= stat_increments # idk if this is balanced
+		print("damage is now: ", damage)
+		print("atsp is now: ", attack_speed)

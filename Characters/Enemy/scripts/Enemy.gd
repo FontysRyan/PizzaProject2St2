@@ -80,7 +80,7 @@ func set_stats() -> void:
 		attack_speed = 1/stats.attack_speed
 	
 	stop_distance = stats.attack_range * 20
-	damage = stats.current_damage
+	damage = stats.damage
 	resistance = stats.resistance
 	speed = stats.movement_speed
 

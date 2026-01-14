@@ -3,9 +3,8 @@ extends Resource
 
 @export var name : String
 @export var max_health : float = 50
-var current_max_health : float = 50
+var current_max_health : float = max_health
 @export var damage : float = 30
-var current_damage : float = 30
 @export var attack_range : float = 5
 @export var attack_speed : float = 1
 @export var resistance : float = 50
@@ -19,15 +18,15 @@ func check_level() -> void:
 			pass
 		2: 
 			current_max_health = max_health * 1.4
-			current_damage = damage * 1.3
+			damage *= 1.3
 		3:
 			current_max_health = max_health * 2
-			current_damage = damage * 1.9
+			damage *= 1.9
 		4:
 			current_max_health = max_health * 2.8
-			current_damage = damage * 3
+			damage *= 3
 		5:
 			current_max_health = max_health * 3.5
-			current_damage = damage * 4.4
+			damage *= 4.4
 		_:
 			pass
