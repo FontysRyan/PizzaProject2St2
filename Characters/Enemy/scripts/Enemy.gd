@@ -30,12 +30,14 @@ func _ready() -> void:
 	nav_agent.target_desired_distance = 10000.0
 	nav_agent.path_desired_distance = 5000.0
 	
-	await NavigationServer2D.map_changed
+	#await NavigationServer2D.map_changed
 	
 	var players = get_tree().get_nodes_in_group("Player")
 	if players.size() > 0:
 		player = players[0]
+		print(player.name)
 		nav_agent.target_position = player.position
+		
 	stats.level = roll_value(Stats.current_floor)
 	set_stats()
 	NORMAL_SCALE_X = scale.x
@@ -87,6 +89,7 @@ func set_stats() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not player:
+		#print("No player!")
 		return
 	
 	repath_cooldown -= delta

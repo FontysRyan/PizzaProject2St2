@@ -20,12 +20,12 @@ func attack(target: CharacterBody2D):
 		
 		var fired_projectile = projectile.instantiate()
 		
-		fired_projectile.position = global_position + Vector2(0, 5)
-		fired_projectile.scale = Vector2(0.2, 0.2)
-		var direction = (target.global_position - fired_projectile.position).normalized()
-		fired_projectile.damage = damage
-		
 		get_parent().add_child(fired_projectile)
+		
+		fired_projectile.global_position = global_position + Vector2(0, 2)
+		fired_projectile.scale = Vector2(0.2, 0.2)
+		var direction = (target.global_position - fired_projectile.global_position).normalized()
+		fired_projectile.damage = damage
 		
 		fired_projectile.velocity = direction * projectile_speed
 		fired_projectile.rotation = direction.angle()

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SpecialMode" load_steps=3 format=3 uid="uid://cju448tf6oxmw"]
+
+[ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="1_bpb4k"]
+[ext_resource type="Resource" uid="uid://cmtpilyknhny1" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SPM_Slow.tres" id="2_yo5nx"]
+
+[resource]
+script = ExtResource("1_bpb4k")
+id = "freeze"
+name = "freeze"
+description = "Freezes the target, applying slow."
+tags = Array[String](["cold", "freeze"])
+duration = 10.0
+stun_duration = 5.0
+slow_multiplier = 0.5
+secondary_effect = ExtResource("2_yo5nx")
+secondary_chance = 1.0
