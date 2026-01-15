@@ -22,6 +22,8 @@ func _on_tick():
 
 # Add a new effect to a target
 func add_effect(effect: SpecialMode, target, caster = null):
+	if not effect:
+		return
 	# Check target is valid
 	if not is_instance_valid(target):
 		print("Cannot add effect", effect.name, "– target is invalid.")
