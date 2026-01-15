@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpecialMode" load_steps=2 format=3 uid="uid://c63p3ttn6uoyv"]
+
+[ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="1_jgnah"]
+
+[resource]
+script = ExtResource("1_jgnah")
+id = "toxic"
+name = "Toxic"
+description = "Deals damage over time."
+tags = Array[String](["poison"])
+duration = 10.0
+tick_interval = 1.0
+max_stacks = 0
+percent_max_hp_damage = 1.5

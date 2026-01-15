@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SpecialMode" load_steps=3 format=3 uid="uid://vbevx0tv6fv2"]
+
+[ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="1_1jby1"]
+[ext_resource type="Resource" uid="uid://bnwdxjj8agx7r" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SPM_Bleeding.tres" id="2_3a0lv"]
+
+[resource]
+script = ExtResource("1_1jby1")
+id = "vampire"
+name = "Vampirism"
+description = "Steals life and spreads bleeding."
+tags = Array[String](["vampire", "lifesteal"])
+max_stacks = 5
+flat_damage = 5.0
+flat_heal = 5.0
+secondary_effect = ExtResource("2_3a0lv")
+secondary_chance = 0.25
+required_target_tags = Array[String](["bleeding"])
+conditional_multiplier = 2.0

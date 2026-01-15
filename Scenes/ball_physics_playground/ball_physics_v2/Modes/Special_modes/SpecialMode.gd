@@ -1,89 +1,61 @@
-# SpecialMode.gd
 extends Resource
 class_name SpecialMode
 
 ## ----------------------
-## Identity / Description
+## Identity
 ## ----------------------
-@export var effect_name: String
+@export var id: String
+@export var name: String
 @export var description: String
+@export var tags: Array[String] = []
+
+## ----------------------
+## Application
+## ----------------------
+@export_range(0.0, 1.0, 0.01)
+var apply_chance: float = 1.0   # 1.0 = always applied
+
+@export var duration: float = 0.0        # 0 = instant or permanent
+@export var tick_interval: float = 0.0   # 0 = apply once
 
 ## ----------------------
 ## Targeting
 ## ----------------------
-enum TargetType {
-	SELF,       # Applies to caster.
-	ENEMY,      # Applies to enemies
-	ALLY,       # Applies to allies
-	ALL         # Any target
-}
-@export var target_type: TargetType = TargetType.ENEMY
-@export var secondary_target_type: TargetType = TargetType.SELF
-# secondary_target_type can be used for caster-side effects (e.g., lifesteal, heals)
+enum TargetType { SELF, ALLY, ENEMY }
+@export var primary_target: TargetType = TargetType.ENEMY
+@export var secondary_target: TargetType = TargetType.SELF
 
 ## ----------------------
-## Lifetime
+## Stacking
 ## ----------------------
-@export var is_permanent: bool = false
-@export var duration: float = 0.0
-
-## ----------------------
-## Stacking / Replacement
-## ----------------------
-@export var is_stackable: bool = false
-@export var max_stacks: int = 1
-@export var stack_behavior: StackBehavior = StackBehavior.ADD
-
-@export var can_replace_others: bool = false
-@export var can_be_replaced: bool = true
-@export var priority: int = 0
-@export var replace_tags: Array[String] = []
-
-enum StackBehavior {
-	ADD,        # Increase stacks
-	REFRESH,    # Refresh duration
-	REPLACE,    # Remove old instance, apply new
-	IGNORE      # Do nothing if effect already exists
-}
-
-## ----------------------
-## Tick-based behavior
-## ----------------------
-@export var uses_ticks: bool = false
-@export var tick_interval: float = 1.0
+@export var max_stacks: int = 1           # hard cap
+@export var base_stack_power: float = 1.0 # power at 1 stack
 
 ## ----------------------
 ## Damage / Healing
 ## ----------------------
-@export var deals_damage: bool = false
-@export var damage_per_tick: float = 0.0
-@export var damage_percent_current_hp: float = 0.0
-@export var damage_percent_max_hp: float = 0.0
+@export var flat_damage: float = 0.0
+@export var percent_max_hp_damage: float = 0.0
 
-@export var heals: bool = false
-@export var heal_per_tick: float = 0.0
-@export var heal_percent_max_hp: float = 0.0
+@export var flat_heal: float = 0.0
+@export var percent_max_hp_heal: float = 0.0
 
 ## ----------------------
 ## Control Effects
 ## ----------------------
-@export var can_stun: bool = false
-@export var stun_duration: float = 0.0
-
-@export var can_slow: bool = false
-@export var slow_percent: float = 0.0
+@export var stun_duration: float = 0.0    # seconds
+@export var slow_multiplier: float = 1.0  # 1.0 = no slow
 
 ## ----------------------
-## Stat Modifiers
+## Secondary Effect
 ## ----------------------
-@export var modifies_speed: bool = false
-@export var speed_multiplier: float = 1.0
+@export var secondary_effect: SpecialMode
 
-@export var modifies_attack: bool = false
-@export var attack_multiplier: float = 1.0
+@export_range(0.0, 1.0, 0.01)
+var secondary_chance: float = 0.0
 
 ## ----------------------
-## Flags
+## Conditional Modifiers
 ## ----------------------
-@export var is_buff: bool = false
-@export var is_debuff: bool = false
+@export var required_target_tags: Array[String] = []
+@export var conditional_multiplier: float = 1.0
