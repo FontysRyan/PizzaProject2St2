@@ -48,7 +48,8 @@ func _ready():
 	move_speed = stats.move_speed
 	shove_force = stats.shove_force
 	shove_cooldown = stats.shove_cooldown
-
+	Stats.max_health = stats.max_health
+	Stats.current_health = stats.current_health
 	charge_bar.charge_released.connect(_on_charge_released)
 
 # ---------------------------------------------------
@@ -254,7 +255,7 @@ func _on_charge_released(force: float):
 func take_damage(amount: float) -> void:
 	stats.current_health -= amount
 	stats.current_health = clamp(stats.current_health, 0, stats.max_health)
-
+	Stats.current_health = stats.current_health
 	if stats.current_health <= 0:
 		queue_free()
 
