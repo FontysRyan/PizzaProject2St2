@@ -5,7 +5,7 @@ class_name base_enemy
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @export var stats : EnemyResource
-var NORMAL_SCALE_X := 0.2  # used for flipping. idk why we do it this way
+var NORMAL_SCALE_X : float  # used for flipping. idk why we do it this way but it works
 
 # stat specific values. get pulled from the EnemyResource
 var health : float
@@ -72,7 +72,7 @@ func weighted_random(weights: Dictionary) -> int:
 
 func set_stats() -> void:
 	stats.check_level()
-	health = stats.current_max_health
+	health = stats.max_health
 	
 	if stats.attack_speed == 0:
 		attack_speed = 0

@@ -10,16 +10,16 @@ func check_level() -> void:
 		1:
 			pass
 		2: 
-			current_max_health = max_health * 1.5
-			current_damage = damage * 1.4
+			max_health *= 1.5
+			damage *= 1.4
 		3:
-			current_max_health = max_health * 2.1
-			current_damage = damage * 1.8
+			max_health *= 2.1
+			damage *=  1.8
 		4:
-			current_max_health = max_health * 3
-			current_damage = damage * 2.4
+			max_health *= 3
+			damage *= 2.4
 		5:
-			current_max_health = max_health * 3.7
-			current_damage = damage * 3
+			max_health *= 3.7
+			damage *= 3
 		_:
 			pass
