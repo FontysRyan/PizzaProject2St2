@@ -23,6 +23,7 @@ Stats="*res://Game/Stats.gd"
 BallGacha="*res://Looting/scripts/Ball gacha.gd"
 StickGacha="*res://Looting/scripts/Stick gacha.gd"
 DamageNumberManager="*res://Game/global_damage_number_manager.gd"
+Communication="*res://Game/Communication.gd"
 
 [display]
 
