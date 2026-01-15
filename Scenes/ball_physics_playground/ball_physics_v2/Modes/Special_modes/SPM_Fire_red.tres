@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpecialMode" load_steps=2 format=3 uid="uid://b10pkf3drq7bl"]
+
+[ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="1_0v5g7"]
+
+[resource]
+script = ExtResource("1_0v5g7")
+id = "fire_red"
+name = "Burn"
+description = "Burns the target with fire."
+tags = Array[String](["fire", "burn"])
+duration = 8.0
+tick_interval = 0.8
+max_stacks = 5
+flat_damage = 10.0
