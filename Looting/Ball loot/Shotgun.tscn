@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3en7tdntsqpc"]
+
+[ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/ball_scenes/golf_ball.tscn" id="1_4stls"]
+[ext_resource type="Script" uid="uid://c1t004dj6a7mw" path="res://Scenes/ball_physics_playground/ball_physics_v2/Base_ball2.gd" id="2_d8bks"]
+[ext_resource type="Resource" uid="uid://cohex5ldk14sa" path="res://Resources/Ball/Shotgun.tres" id="3_4stls"]
+[ext_resource type="Script" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/physics_modes/Default_mode.gd" id="4_rpome"]
+[ext_resource type="Script" uid="uid://pdj6ay08j6qe" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/split_modes/Shotgun.gd" id="5_s1f0i"]
+[ext_resource type="Script" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/SpecialMode.gd" id="6_gdujr"]
+[ext_resource type="SpriteFrames" uid="uid://drc5oso7n080v" path="res://Resources/Ball/animations/shotgun_ani.tres" id="7_4stls"]
+
+[sub_resource type="Resource" id="Resource_mr13q"]
+script = ExtResource("4_rpome")
+metadata/_custom_type_script = "uid://d33cw4ow4a6pr"
+
+[sub_resource type="Resource" id="Resource_vfgpk"]
+script = ExtResource("5_s1f0i")
+split_count = 5
+angle_spread = 0.3
+metadata/_custom_type_script = "uid://pdj6ay08j6qe"
+
+[node name="Shotgun" groups=["Golf_Balls"] instance=ExtResource("1_4stls")]
+script = ExtResource("2_d8bks")
+stats = ExtResource("3_4stls")
+physics_mode = SubResource("Resource_mr13q")
+split_mode = SubResource("Resource_vfgpk")
+special_modes = Array[ExtResource("6_gdujr")]([])
+total_push_power = 2500.0
+is_real = true
+Can_Damage = true
+original_radius = 20.0
+knockback_power = 0.0
+pickup_delay = 1.0
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("7_4stls")
+animation = &"default"
+autoplay = "default"
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

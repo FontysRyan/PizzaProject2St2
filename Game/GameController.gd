@@ -176,9 +176,9 @@ func _get_ball_texture(index : int) -> Texture2D:
 
 func clear_run_data():
 	stick_slot1 = "res://Looting/Stick loot/Basic Stick.tscn"
-	stick_slot2 = "res://Looting/Stick loot/Blink Stick.tscn"
-	stick_slot3 = "res://Looting/Stick loot/Kaboom Club.tscn"
+	stick_slot2 = ""
+	stick_slot3 = ""
 	ball_slot1 = "res://Looting/Ball loot/Basic Ball.tscn"
-	ball_slot2 = "res://Looting/Ball loot/MultiCore.tscn"
+	ball_slot2 = "res://Looting/Ball loot/Shotgun.tscn"
 	ball_slot3 = ""
 	Stats.clear_all()

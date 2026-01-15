@@ -53,6 +53,7 @@ func _ready():
 	charge_bar.charge_released.connect(_on_charge_released)
 	
 	connect("body_entered", Callable(self, "_on_body_entered"))
+	golf_ball_asset = GameController._get_ball(GameController.equipped_ball_index)
 
 # ---------------------------------------------------
 # HELPERS
@@ -159,6 +160,7 @@ func _process(_delta):
 		var chest = collider.get_parent()
 		if chest.has_method("touch_chest"):
 			chest.touch_chest()
+	golf_ball_asset = GameController._get_ball(GameController.equipped_ball_index)
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("shove"):
@@ -231,6 +233,9 @@ func can_spawn_ball() -> bool:
 func spawn_ball(force: float) -> void:
 	if golf_ball_asset == null:
 		push_error("golf_ball_asset is not assigned")
+		return
+	if Engine.time_scale == 0:
+		push_error("game paused")
 		return
 
 	var dir: Vector2 = get_aim_direction()

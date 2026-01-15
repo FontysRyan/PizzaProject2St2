@@ -15,5 +15,5 @@ texture3 = ExtResource("4_wqkt1")
 texture4 = ExtResource("5_3daer")
 texture5 = ExtResource("6_ok88e")
 texture = ExtResource("2_v4eg2")
-name = "Basic"
+item_name = "Basic Stick"
 metadata/_custom_type_script = "uid://o72wgrt3bme8"

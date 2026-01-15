@@ -4,7 +4,7 @@ extends Resource
 @export var sprite_frames: SpriteFrames
 var texture : Texture2D = null
 #editable stats
-@export var name: String
+@export var item_name: String
 var level: int = 1
 @export var bounciness: float = 1
 var current_bounciness: float = 1

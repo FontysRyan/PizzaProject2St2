@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_h22jy")
 sprite_frames = SubResource("SpriteFrames_7s6yu")
-name = "PiercePoint"
+item_name = "PiercePoint"
 bounciness = 1.2
 weight = 7.0
 size = 0.8

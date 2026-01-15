@@ -12,3 +12,9 @@ offset_bottom = 640.0
 scale = Vector2(0.16, 0.16)
 expand_mode = 2
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 77.0
+offset_right = 100.0
+offset_bottom = 100.0
