@@ -28,3 +28,4 @@ func on_death():
 	chest.set_type(Chest.ChestType.STICK)
 	chest.position = self.position
 	room.add_child(chest)
+	self.queue_free()
