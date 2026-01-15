@@ -46,7 +46,7 @@ func _ready():
 
 
 	move_speed = stats.move_speed
-
+	Stats.max_health = stats.max_health
 	shove_force = stats.shove_force
 	shove_cooldown = stats.shove_cooldown
 	#stats.amount_of_golf_balls
@@ -264,7 +264,7 @@ func _on_charge_released(force: float):
 func take_damage(amount: float) -> void:
 	stats.current_health -= amount
 	stats.current_health = clamp(stats.current_health, 0, stats.max_health)
-
+	Stats.current_health = stats.current_health
 	print("Damage:", amount, "Health:", stats.current_health)
 
 	if stats.current_health <= 0:

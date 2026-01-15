@@ -10,5 +10,6 @@ script = ExtResource("1_kwpv6")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = 640.0
+offset_bottom = 640.0
+scale = Vector2(0.16, 0.16)
