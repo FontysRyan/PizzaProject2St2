@@ -14,7 +14,7 @@ func check_level() -> void:
 			damage *= 1.4
 		3:
 			max_health *= 2.1
-			damage *=  1.8
+			damage *= 1.8
 		4:
 			max_health *= 3
 			damage *= 2.4
