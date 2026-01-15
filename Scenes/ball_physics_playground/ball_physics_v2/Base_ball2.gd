@@ -65,7 +65,7 @@ func on_hit(target):
 		split_mode.on_hit(self, target)
 
 	# Enemy hit → damage (real or fake)
-	if target.is_in_group("Enemy"):
+	if target.is_in_group("Enemy") || target.is_in_group("Boss"):
 		var now = Time.get_ticks_msec() / 1000.0
 		if now - last_enemy_hit_time >= 0.1:
 			last_enemy_hit_time = now

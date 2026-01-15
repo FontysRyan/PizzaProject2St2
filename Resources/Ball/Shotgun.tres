@@ -7,5 +7,5 @@
 script = ExtResource("1_3pawj")
 sprite_frames = ExtResource("2_7admy")
 item_name = "Shotgun"
-damage = 6.0
+damage = 1000.0
 metadata/_custom_type_script = "uid://3b7a0gouwves"

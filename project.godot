@@ -38,6 +38,7 @@ Golf_Balls=""
 Camera=""
 Mini_Slime=""
 Slime_Boss=""
+Boss="for all bosses"
 
 [input]
 

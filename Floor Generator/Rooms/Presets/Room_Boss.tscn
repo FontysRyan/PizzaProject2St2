@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bte0i20clrjw5"]
+[gd_scene load_steps=4 format=3 uid="uid://bte0i20clrjw5"]
 
 [ext_resource type="Texture2D" uid="uid://bdrrno1kjtgny" path="res://Characters/Enemy/slime.png" id="1_3vvy7"]
+[ext_resource type="PackedScene" uid="uid://cagucdp668bfk" path="res://Characters/Enemy/Slime Miniboss.tscn" id="2_y1imu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
 vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
@@ -60,3 +61,6 @@ navigation_polygon = SubResource("NavigationPolygon_g6fcb")
 [node name="Slime" type="Sprite2D" parent="."]
 position = Vector2(982, 614)
 texture = ExtResource("1_3vvy7")
+
+[node name="SlimeMiniboss" parent="." instance=ExtResource("2_y1imu")]
+position = Vector2(949, 583)
