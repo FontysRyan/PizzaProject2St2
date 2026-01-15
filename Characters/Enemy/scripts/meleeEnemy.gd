@@ -1,4 +1,9 @@
 extends base_enemy
+class_name melee_enemy
+
+func _ready():
+	scale = Vector2(0.2, 0.2)
+	super._ready()
 
 func attack(target: CharacterBody2D):
 	if attack_cooldown > 0 or is_attacking:

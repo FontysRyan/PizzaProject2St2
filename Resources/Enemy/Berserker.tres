@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=2 format=3 uid="uid://daojdxg6t6q3v"]
+
+[ext_resource type="Script" uid="uid://crwxe3thpt1qn" path="res://Resources/Enemy/Enemy_Resource.gd" id="1_s0nqd"]
+
+[resource]
+script = ExtResource("1_s0nqd")
+name = "Berserker"
+max_health = 75.0
+damage = 20.0
+attack_range = 9.0
+attack_speed = 0.9
+resistance = 60.0
+movement_speed = 125.0
+metadata/_custom_type_script = "uid://crwxe3thpt1qn"
