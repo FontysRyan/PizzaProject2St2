@@ -10,5 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func spawn_chest() -> void:
+func spawn_chest(location : Vector2, type : Chest.ChestType) -> void:
 	pass
