@@ -12,24 +12,25 @@ var cleared : bool = false
 var active : bool = false
 
 # replace this with actual logic for when the player enters the room. need to wait with this
-#func activate(player: Node2D) -> void:
-	#if cleared or active:
-		#return
-	#
-	#active = true
-	#emit_signal("lock_doors")
-	#_spawn_enemies(player)
+func activate(player: Node2D) -> void:
+	if cleared or active:
+		return
+	
+	active = true
+	lock_doors.emit()
+	_spawn_enemies(player)
 
 func _spawn_enemies(player : Node2D) -> void:
 	var nav_map : NavigationRegion2D = get_node("NavMesh2D")
-	if not nav_map:
+	if nav_map == null:
 		print("could not find nav map")
 		return
 	
 	for i in enemy_count:
 		var enemy = enemy_scenes.pick_random().instantiate()
+		print(enemy.name)
 		
-		var pos : Vector2 = _get_valid_nav_position(nav_map, player)
+		var pos : Vector2 = _get_valid_nav_position(nav_map.get_navigation_map(), player)
 		enemy.global_position = pos
 		
 		add_child(enemy)
@@ -37,8 +38,8 @@ func _spawn_enemies(player : Node2D) -> void:
 		enemy.connect("tree_exited", _on_enemy_removed)
 
 func _get_valid_nav_position(nav_map : RID, player : Node2D) -> Vector2:
-	for _1 in 20:
-		var candidate : Vector2 = global_position + Vector2(
+	for i in range(20):
+		var candidate : Vector2 =  get_viewport_rect().size/2 + Vector2(
 			randf_range(-200, 200),
 			randf_range(-200, 200)
 		)
@@ -47,6 +48,7 @@ func _get_valid_nav_position(nav_map : RID, player : Node2D) -> Vector2:
 			nav_map,
 			candidate
 		)
+		
 		
 		if nav_point.distance_to(candidate) > 32:
 			continue
@@ -62,4 +64,9 @@ func _on_enemy_removed() -> void:
 	if enemies_alive <= 0:
 		cleared = true
 		active = false
-		emit_signal("unlock_doors")
+		unlock_doors.emit()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player:
+		call_deferred("activate" ,body)
