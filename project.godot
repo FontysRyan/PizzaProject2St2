@@ -23,6 +23,7 @@ Stats="*res://Game/Stats.gd"
 BallGacha="*res://Looting/scripts/Ball gacha.gd"
 StickGacha="*res://Looting/scripts/Stick gacha.gd"
 DamageNumberManager="*res://Game/global_damage_number_manager.gd"
+Communication="*res://Game/Communication.gd"
 CombatEffectStackerManager="*res://Game/global_combat_effect_stacker_manager.gd"
 
 [display]
@@ -37,6 +38,7 @@ Player="For the player"
 Golf_Balls=""
 Camera=""
 Mini_Slime=""
+Slime_Boss=""
 
 [input]
 

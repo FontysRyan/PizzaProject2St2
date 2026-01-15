@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6muc6ey0dodm"]
-
-[ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="2_sgwp3"]
+[gd_scene load_steps=2 format=3 uid="uid://b6muc6ey0dodm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
 vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
@@ -63,7 +61,3 @@ polygon = PackedVector2Array(0, 1080, 1920, 1080, 1920, 1106, 958.9822, 1106, 0,
 [node name="NavMesh2D" type="NavigationRegion2D" parent="."]
 z_index = -5
 navigation_polygon = SubResource("NavigationPolygon_g6fcb")
-
-[node name="Dante" parent="." instance=ExtResource("2_sgwp3")]
-position = Vector2(1571, 574)
-scale = Vector2(0.2, 0.2)

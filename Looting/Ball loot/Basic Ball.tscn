@@ -31,5 +31,7 @@ pickup_delay = 0.5
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("7_mr13q")
+animation = &"default"
+autoplay = "default"
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
