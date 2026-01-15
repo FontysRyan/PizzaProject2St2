@@ -32,7 +32,7 @@ func _init(_orientation: Vector2, _position: Vector2, _grid_position: Vector2, _
 		print("Orientation: ", _orientation, " is not valid")
 		
 func _ready() -> void:
-	get_child(0).player_door_interact.connect(move_player_to_room)		
+	get_child(0).player_door_interact.connect(move_player_to_room)
 		
 func move_player_to_room(_door: DoorObject, player):
 	# This is bad practice
