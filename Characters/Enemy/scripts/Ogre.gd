@@ -2,6 +2,10 @@ extends boss
 
 @export var ability_range : float = 100
 
+func _ready():
+	scale = Vector2(0.5, 0.5)
+	super._ready()
+
 func attack(target: CharacterBody2D):
 	if attack_cooldown > 0 or is_attacking:
 		return

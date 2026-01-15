@@ -4,6 +4,10 @@ extends base_enemy
 @export var attack_amount : float = 1 # only if we ever want to use this, we dont plan on it for now
 @export var projectile_speed : float = 500
 
+func _ready():
+	scale = Vector2(0.2, 0.2)
+	super._ready()
+
 func attack(target: CharacterBody2D):
 	if attack_cooldown > 0 or is_attacking:
 		return

@@ -26,7 +26,6 @@ var kb_velocity : Vector2
 
 
 func _ready() -> void:
-	NORMAL_SCALE_X = scale.x
 	add_to_group("Enemy")
 	nav_agent.target_desired_distance = 10000.0
 	nav_agent.path_desired_distance = 5000.0
@@ -39,6 +38,7 @@ func _ready() -> void:
 		nav_agent.target_position = player.position
 	stats.level = roll_value(Stats.current_floor)
 	set_stats()
+	NORMAL_SCALE_X = scale.x
 
 func roll_value(floor_number: int) -> int:
 	if floor_number >= 10:
