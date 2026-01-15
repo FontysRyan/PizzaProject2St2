@@ -22,6 +22,14 @@ func _on_tick():
 
 # Add a new effect to a target
 func add_effect(effect: SpecialMode, target, caster = null):
+	# Check target is valid
+	if not is_instance_valid(target):
+		print("Cannot add effect", effect.name, "– target is invalid.")
+		return
+	if "health" in target and target.health <= 0:
+		print("Cannot add effect", effect.name, "– target is dead.")
+		return
+
 	# Check for existing instance
 	var existing = null
 	for e in active_effects:
@@ -30,14 +38,11 @@ func add_effect(effect: SpecialMode, target, caster = null):
 			break
 	
 	if existing:
-		# Stack logic
 		if effect.max_stacks == 0 or existing.stacks < effect.max_stacks:
 			existing.stacks += 1
 			print(target.name, "stack of", effect.name, "increased to", existing.stacks)
-		# Refresh duration
 		existing.remaining_duration = effect.duration
 	else:
-		# Create new instance
 		var instance = {
 			"effect": effect,
 			"target": target,
@@ -49,42 +54,52 @@ func add_effect(effect: SpecialMode, target, caster = null):
 		active_effects.append(instance)
 		print(target.name, "gained effect", effect.name)
 
+
 # Called internally by timer
 func process(delta):
 	for instance in active_effects.duplicate():
+		if not is_instance_valid(instance.target):
+			remove_effect(instance)
+			continue
+
 		var e = instance.effect
 		instance.elapsed += delta
 
-		# Tick application
 		if e.tick_interval > 0 and instance.elapsed >= e.tick_interval:
 			apply_tick(instance)
 			instance.elapsed = 0.0
 
-		# Duration handling (skip for permanent)
 		if e.duration > 0:
 			instance.remaining_duration -= delta
 			if instance.remaining_duration <= 0:
 				remove_effect(instance)
 
+
 # Apply effect to the target (prints only)
 func apply_tick(instance):
 	var e = instance.effect
 	var t = instance.target
+	if not is_instance_valid(t):
+		remove_effect(instance)
+		return
+	
 	var stacks = instance.stacks
 	var power = stacks * e.base_stack_power
 
 	# Damage
 	if e.flat_damage > 0 or e.percent_max_hp_damage > 0:
 		var damage = e.flat_damage * power + t.health * e.percent_max_hp_damage * power
-		DamageNumberManager.show_damage(e.percent_max_hp_damage, t.global_position + Vector2(0, -90))
-		#t.takedamage(damage)
+		DamageNumberManager.show_damage(damage, t.global_position + Vector2(0, -90))
+		t.take_damage(damage)
 		print(t.name, "has taken", damage, "damage from", e.name)
 
 	# Healing
 	if e.flat_heal > 0 or e.percent_max_hp_heal > 0:
 		var heal_target = t
-		if e.secondary_target == SpecialMode.TargetType.SELF and instance.caster:
+		if e.secondary_target == SpecialMode.TargetType.SELF and is_instance_valid(instance.caster):
 			heal_target = instance.caster
+		if not is_instance_valid(heal_target):
+			return
 		var heal_amount = e.flat_heal * power + heal_target.max_hp * e.percent_max_hp_heal * power
 		print(heal_target.name, "has been healed for", heal_amount, "by", e.name)
 
@@ -99,7 +114,10 @@ func apply_tick(instance):
 		add_effect(e.secondary_effect, t, instance.caster)
 		print(t.name, "has triggered secondary effect", e.secondary_effect.name)
 
+
 # Remove effect instance
 func remove_effect(instance):
-	print(instance.target.name, "effect", instance.effect.name, "has ended")
+	var t = instance.target
+	if is_instance_valid(t):
+		print(t.name, "effect", instance.effect.name, "has ended")
 	active_effects.erase(instance)

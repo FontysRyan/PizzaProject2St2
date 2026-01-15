@@ -8,5 +8,6 @@ id = "bleeding"
 name = "bleeding"
 description = "Causes the target to bleed."
 tags = Array[String](["bleeding"])
+tick_interval = 1.0
 max_stacks = 0
 flat_damage = 6.0

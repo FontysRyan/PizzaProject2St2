@@ -11,4 +11,4 @@ tags = Array[String](["poison"])
 duration = 10.0
 tick_interval = 1.0
 max_stacks = 0
-percent_max_hp_damage = 1.5
+percent_max_hp_damage = 0.03
