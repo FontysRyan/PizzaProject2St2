@@ -1,6 +1,7 @@
 extends boss
 
 @export var ability_range : float = 100
+@export var special_modes : Array[SpecialMode]
 
 func _ready():
 	scale = Vector2(0.5, 0.5)
@@ -19,6 +20,7 @@ func attack(target: CharacterBody2D):
 	if target.has_method("take_damage"):
 		target.take_damage(damage)
 		DamageNumberManager.show_damage(damage, target.global_position)
+		#CombatEffectStackerManager.add_effect(special_modes[0], target, self)
 	else:
 		print("target cannot take damage :(")
 	is_attacking = false

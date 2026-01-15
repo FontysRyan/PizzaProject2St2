@@ -22,4 +22,4 @@ func take_damage(amount: float, _damage_source: Base_Ball = null):
 		on_death()
 
 func on_death():
-	Communication.spawn_chest(position, Chest.ChestType.STICK)
+	Communication.spawn_chest(global_position, Chest.ChestType.STICK)
