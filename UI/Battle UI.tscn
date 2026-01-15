@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://s8jg07gnon5g"]
+[gd_scene load_steps=10 format=3 uid="uid://s8jg07gnon5g"]
 
 [ext_resource type="Script" uid="uid://yaocpo1x1yp5" path="res://UI/battle_ui.gd" id="1_63iuo"]
 [ext_resource type="Script" uid="uid://bn8pkvjy0qrvu" path="res://UI/progress_bar.gd" id="1_qe2yl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dywh31psfpbc3" path="res://UI/panels/StickPanel.tscn" id="3_eeboc"]
 [ext_resource type="PackedScene" uid="uid://dbo0wiu55skh2" path="res://UI/panels/BallPanel.tscn" id="4_bcbqt"]
 [ext_resource type="PackedScene" uid="uid://dud757an0lbk7" path="res://UI/panels/AbilityPanel.tscn" id="5_iaxgc"]
+[ext_resource type="PackedScene" uid="uid://d4c5a3i35xm83" path="res://UI/loot_slot_button.tscn" id="7_bcbqt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_63iuo"]
 font_size = 100
@@ -251,23 +252,26 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 alignment = 1
 
-[node name="LootSlot" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer" instance=ExtResource("3_eeboc")]
+[node name="LootSlotButton" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer" instance=ExtResource("7_bcbqt")]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
 size_flags_vertical = 6
 
 [node name="SwitchSlots" type="HBoxContainer" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="switch_slot1" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("4_bcbqt")]
+[node name="switch_slot1" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("7_bcbqt")]
 layout_mode = 2
 
-[node name="switch_slot2" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("4_bcbqt")]
+[node name="switch_slot2" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("7_bcbqt")]
 layout_mode = 2
 
-[node name="switch_slot3" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("4_bcbqt")]
+[node name="switch_slot3" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("7_bcbqt")]
 layout_mode = 2
 
 [connection signal="pressed" from="HBoxContainer/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/Panel/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots/switch_slot1" to="." method="_on_switch_slot_1_pressed"]
+[connection signal="pressed" from="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots/switch_slot2" to="." method="_on_switch_slot_2_pressed"]
+[connection signal="pressed" from="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots/switch_slot3" to="." method="_on_switch_slot_3_pressed"]

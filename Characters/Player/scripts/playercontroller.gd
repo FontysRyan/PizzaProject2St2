@@ -51,6 +51,8 @@ func _ready():
 	Stats.max_health = stats.max_health
 	Stats.current_health = stats.current_health
 	charge_bar.charge_released.connect(_on_charge_released)
+	
+	connect("body_entered", Callable(self, "_on_body_entered"))
 
 # ---------------------------------------------------
 # HELPERS
@@ -151,6 +153,12 @@ func start_shoot_cooldown():
 
 func _process(_delta):
 	update_trajectory()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		var chest = collider.get_parent()
+		if chest.has_method("touch_chest"):
+			chest.touch_chest()
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("shove"):
@@ -294,3 +302,10 @@ func start_shove_cooldown():
 	await get_tree().create_timer(stats.shove_cooldown).timeout
 	can_shove = true
 	is_shoving = false
+
+
+
+func trigger_touch_chest(target):
+	print("text")
+	if target.has_method("touch_chest"):
+			target.touch_chest()

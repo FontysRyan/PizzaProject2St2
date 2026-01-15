@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://3b7a0gouwves" path="res://Resources/Ball/Ball_Resource.gd" id="1_ly3dr"]
 [ext_resource type="Resource" uid="uid://ds0ftgbh44hba" path="res://Resources/Passive abilities/Split.tres" id="1_s6m3k"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_s6m3k"]
+[ext_resource type="SpriteFrames" uid="uid://dcpupi4248qmi" path="res://Resources/Ball/animations/ball_default_ani.tres" id="3_6iq7a"]
 
 [resource]
 script = ExtResource("1_ly3dr")
-sprite_frames = SubResource("SpriteFrames_s6m3k")
+sprite_frames = ExtResource("3_6iq7a")
 name = "MultiCore"
 bounciness = 1.5
 damage = 17.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/ball_scenes/golf_ball.tscn" id="1_nm6l0"]
 [ext_resource type="Script" uid="uid://c1t004dj6a7mw" path="res://Scenes/ball_physics_playground/ball_physics_v2/Base_ball2.gd" id="2_s51uc"]
-[ext_resource type="Resource" uid="uid://f71awagtfctj" path="res://Resources/Ball/Basic Ball.tres" id="3_liakt"]
+[ext_resource type="Resource" uid="uid://dbj6al2n5srqo" path="res://Resources/Ball/MultiCore.tres" id="3_7cxrt"]
 [ext_resource type="Script" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/physics_modes/Default_mode.gd" id="4_cuavu"]
 [ext_resource type="Script" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/split_modes/no_split.gd" id="5_66a60"]
 [ext_resource type="Script" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/SpecialMode.gd" id="6_8dlxi"]
@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://bsimgfnyiq71n"
 
 [node name="GolfBall" groups=["Golf_Balls"] instance=ExtResource("1_nm6l0")]
 script = ExtResource("2_s51uc")
-ball_stats = ExtResource("3_liakt")
+stats = ExtResource("3_7cxrt")
 physics_mode = SubResource("Resource_mr13q")
 split_mode = SubResource("Resource_pdn3r")
 special_modes = Array[ExtResource("6_8dlxi")]([])
@@ -30,5 +30,7 @@ pickup_delay = 1.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("7_kn1t4")
+animation = &"default"
+autoplay = "default"
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

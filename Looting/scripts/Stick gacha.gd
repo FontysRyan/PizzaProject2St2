@@ -29,23 +29,22 @@ func load_sticks(folder_path: String) -> Array:
 		if file_name.ends_with(".tscn"):
 			var full_path := folder_path + file_name
 			var scene := load(full_path)
-			if scene is Stick:
+			if scene is PackedScene:
 				sticks.append(scene)
 			else:
-				push_warning("Failed to load scene: " + full_path)
+				print("Failed to load scene: " + full_path)
 	dir.list_dir_end()
 	return sticks
 
 func get_item() -> PackedScene:
 	var stick_index = random_stick()
 	var stick = lootpool[stick_index]
-	print("Selected stick: ", stick)
 	return stick
 
 
 func random_stick() -> int:
 	var size = lootpool.size()
-	var max = size * 100 - 1
+	var max = size * 100
 	var tempRandom = rng.randi_range(0, max)
 	while tempRandom > size-1:
 		tempRandom -= size

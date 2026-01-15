@@ -2,7 +2,7 @@
 extends RigidBody2D
 class_name BaseBall
 
-@export var ball_stats: Ball
+@export var stats: Ball
 @export var physics_mode: PhysicsMode
 @export var split_mode: SplitMode
 @export var special_modes: Array[SpecialMode] = []
@@ -18,7 +18,7 @@ var can_be_picked_up: bool = true
 func _ready():
 
 	add_to_group("Golf_Balls")
-	$AnimatedSprite2D.sprite_frames = ball_stats.sprite_frames
+	$AnimatedSprite2D.sprite_frames = stats.sprite_frames
 	contact_monitor = true
 	max_contacts_reported = 1
 	connect("body_entered", Callable(self, "_on_body_entered"))
@@ -79,8 +79,8 @@ func on_hit(target):
 func trigger_enemy_hit(target):
 	print("Hit accepted (0.1s passed)")
 	if target.has_method("take_damage"):
-			target.take_damage(ball_stats.damage)
-			DamageNumberManager.show_damage(ball_stats.damage, target.global_position)
+			target.take_damage(stats.damage)
+			DamageNumberManager.show_damage(stats.damage, target.global_position)
 	if target.has_method("take_knockback"):
 			target.take_knockback(200.0, self.global_position, base_enemy.knockback_source.BALL)
 

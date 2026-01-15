@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://pdj6ay08j6qe"
 
 [node name="GolfBall" groups=["Golf_Balls"] instance=ExtResource("1_oiy3g")]
 script = ExtResource("2_gqhsa")
-ball_stats = ExtResource("3_pdn3r")
+stats = ExtResource("3_pdn3r")
 physics_mode = SubResource("Resource_mr13q")
 split_mode = SubResource("Resource_vfgpk")
 special_modes = Array[ExtResource("5_fmkav")]([])

@@ -5,7 +5,7 @@
 
 [node name="Kaboom Club" type="Node2D"]
 script = ExtResource("1_t0ykd")
-stick_stats = ExtResource("2_8shgq")
+stats = ExtResource("2_8shgq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0

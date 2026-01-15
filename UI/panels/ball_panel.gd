@@ -46,7 +46,6 @@ func _ready() -> void:
 			texture = sprites.get_frame_texture("default", 0)
 	$TextureRect.texture = texture
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
