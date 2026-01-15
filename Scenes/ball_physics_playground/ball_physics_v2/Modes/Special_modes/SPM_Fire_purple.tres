@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpecialMode" load_steps=2 format=3 uid="uid://bjffjcs760hsn"]
+
+[ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="1_ux6as"]
+
+[resource]
+script = ExtResource("1_ux6as")
+id = "fire_purple"
+name = "Void Flame"
+description = "Burns based on max HP."
+tags = Array[String](["fire", "void"])
+duration = 4.0
+tick_interval = 0.85
+max_stacks = 3
+percent_max_hp_damage = 0.05

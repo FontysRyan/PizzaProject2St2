@@ -4,7 +4,7 @@ extends Node
 const DAMAGE_NUMBER_SCENE := preload("res://Scenes/Damage_number_label.tscn")
 
 func show_damage(
-	amount: int,
+	amount: float,
 	world_position: Vector2,
 	damage_type: String = "normal"
 ) -> void:

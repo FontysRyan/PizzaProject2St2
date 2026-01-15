@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpecialMode" load_steps=2 format=3 uid="uid://c48bprxqji0qv"]
+
+[ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="1_t0lns"]
+
+[resource]
+script = ExtResource("1_t0lns")
+id = "stun"
+name = "stun"
+description = "Prevents all actions."
+tags = Array[String](["stun", "control"])
+duration = 1.5
+stun_duration = 1.5
