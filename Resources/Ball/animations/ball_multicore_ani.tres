@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://ly6j455bj62u"]
 
-[ext_resource type="Texture2D" uid="uid://b40cged53cycb" path="res://Scenes/ball_physics_playground/test_assets/Golf ball/MultiCore.png" id="1_cd4vq"]
+[ext_resource type="Texture2D" uid="uid://c48xp6pfvpdft" path="res://Scenes/ball_physics_playground/test_assets/Golf ball/Golf_ball.png" id="1_cd4vq"]
 
 [resource]
 animations = [{
