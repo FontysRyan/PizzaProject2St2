@@ -999,9 +999,9 @@ _data = {
 &"attack": SubResource("Animation_avddw")
 }
 
-[node name="Ryan" type="CharacterBody2D" groups=["Enemy"]]
+[node name="RangedEnemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 32
-collision_mask = 63
+collision_mask = 31
 script = ExtResource("1_567dd")
 projectile = ExtResource("2_jfyom")
 stats = ExtResource("3_avddw")

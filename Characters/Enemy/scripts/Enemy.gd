@@ -4,10 +4,8 @@ class_name base_enemy
 # special values like constants, onready, and export values
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
-@export var speed : float = 150 
-@export var poison_damage_multiplier : float = 0.015
 @export var stats : EnemyResource
-var NORMAL_SCALE_X := 0.2  # used for flipping. idk why we do it this way
+var NORMAL_SCALE_X : float  # used for flipping. idk why we do it this way but it works
 
 # stat specific values. get pulled from the EnemyResource
 var health : float
@@ -15,7 +13,7 @@ var attack_speed : float
 var stop_distance : float
 var damage : float
 var resistance : float
-# var speed : float
+var speed : float
 
 # values that you shouldnt worry about
 var repath_cooldown : float = 0.0
@@ -28,19 +26,21 @@ var kb_velocity : Vector2
 
 
 func _ready() -> void:
-	NORMAL_SCALE_X = scale.x
 	add_to_group("Enemy")
 	nav_agent.target_desired_distance = 10000.0
 	nav_agent.path_desired_distance = 5000.0
 	
-	await NavigationServer2D.map_changed
+	#await NavigationServer2D.map_changed
 	
 	var players = get_tree().get_nodes_in_group("Player")
 	if players.size() > 0:
 		player = players[0]
+		print(player.name)
 		nav_agent.target_position = player.position
+		
 	stats.level = roll_value(Stats.current_floor)
 	set_stats()
+	NORMAL_SCALE_X = scale.x
 
 func roll_value(floor_number: int) -> int:
 	if floor_number >= 10:
@@ -74,7 +74,7 @@ func weighted_random(weights: Dictionary) -> int:
 
 func set_stats() -> void:
 	stats.check_level()
-	health = stats.current_max_health
+	health = stats.max_health
 	
 	if stats.attack_speed == 0:
 		attack_speed = 0
@@ -82,13 +82,14 @@ func set_stats() -> void:
 		attack_speed = 1/stats.attack_speed
 	
 	stop_distance = stats.attack_range * 20
-	damage = stats.current_damage
+	damage = stats.damage
 	resistance = stats.resistance
-	#speed = stats.movement_speed
+	speed = stats.movement_speed
 
 
 func _physics_process(delta: float) -> void:
 	if not player:
+		#print("No player!")
 		return
 	
 	repath_cooldown -= delta

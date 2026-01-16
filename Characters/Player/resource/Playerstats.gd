@@ -18,7 +18,7 @@ var current_health: float = start_health
 
 # -- ShoveStrength --
 @export var shove_force: float = 500
-@export var shove_cooldown: float = 3
+@export var shove_cooldown: float = 1
 
 # --- Ammo ---
 @export var amount_of_golf_balls: int = 1
