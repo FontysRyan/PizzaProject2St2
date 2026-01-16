@@ -4,6 +4,7 @@ class_name boss
 @onready var timer : Timer = Timer.new()
 
 func _ready() -> void:
+	add_to_group("Boss")
 	super._ready()
 	timer.one_shot = false
 	add_child(timer)
@@ -22,4 +23,9 @@ func take_damage(amount: float, _damage_source: Base_Ball = null):
 		on_death()
 
 func on_death():
-	Communication.spawn_chest(global_position, Chest.ChestType.STICK)
+	var room = get_parent()
+	var chest = Chest.new()
+	chest.set_type(Chest.ChestType.STICK)
+	chest.position = self.position
+	room.add_child(chest)
+	self.queue_free()

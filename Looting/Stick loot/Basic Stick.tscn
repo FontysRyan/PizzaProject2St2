@@ -5,7 +5,7 @@
 
 [node name="Basic Stick" type="Node2D"]
 script = ExtResource("1_0ex2t")
-stick_stats = ExtResource("2_urdof")
+stats = ExtResource("2_urdof")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0

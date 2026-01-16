@@ -9,7 +9,7 @@ var stored_balls : Array[Base_Ball] = []
 var damage_absorbed : float
 
 func _ready() -> void:
-	scale = Vector2(0.8, 0.8)
+	scale = Vector2(0.5, 0.5)
 	super._ready()
 	add_to_group("Slime Boss")
 

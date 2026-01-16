@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Ball" load_steps=3 format=3 uid="uid://cohex5ldk14sa"]
+
+[ext_resource type="Script" uid="uid://3b7a0gouwves" path="res://Resources/Ball/Ball_Resource.gd" id="1_3pawj"]
+[ext_resource type="SpriteFrames" uid="uid://drc5oso7n080v" path="res://Resources/Ball/animations/shotgun_ani.tres" id="2_7admy"]
+
+[resource]
+script = ExtResource("1_3pawj")
+sprite_frames = ExtResource("2_7admy")
+item_name = "Shotgun"
+damage = 1000.0
+metadata/_custom_type_script = "uid://3b7a0gouwves"

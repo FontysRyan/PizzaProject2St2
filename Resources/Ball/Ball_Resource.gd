@@ -2,8 +2,9 @@ class_name Ball
 extends Resource
 
 @export var sprite_frames: SpriteFrames
+var texture : Texture2D = null
 #editable stats
-@export var name: String
+@export var item_name: String
 var level: int = 1
 @export var bounciness: float = 1
 var current_bounciness: float = 1
@@ -13,6 +14,9 @@ var current_damage: float = 20
 @export var size: float = 1
 @export var ability: Passive_Ability = null
 
+func _ready() -> void:
+	if sprite_frames != null:
+		texture = sprite_frames.get_frame_texture("default", 0)
 
 func check_level() -> void:
 	match level:

@@ -8,7 +8,7 @@ extends Resource
 @export var texture5 : Texture2D
 @export var texture : Texture2D
 #editable stats
-@export var name: String
+@export var item_name: String
 var level: int = 1
 @export var power: float = 5
 var current_power: float = 5

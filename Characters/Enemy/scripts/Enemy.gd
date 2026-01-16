@@ -128,13 +128,13 @@ func _physics_process(delta: float) -> void:
 	
 	if is_attacking:
 		return
-	
-	if velocity.length_squared() > 1.0:
-		if anim_player.current_animation != "attack" and anim_player.current_animation != "WALK":
-			anim_player.play("WALK")
-	else:
-		if anim_player.current_animation != "RESET":
-			anim_player.play("RESET")
+	if anim_player != null:
+		if velocity.length_squared() > 1.0:
+			if anim_player.current_animation != "attack" and anim_player.current_animation != "WALK":
+				anim_player.play("WALK")
+		else:
+			if anim_player.current_animation != "RESET":
+				anim_player.play("RESET")
 
 
 func take_damage(amount: float, _damage_source: Base_Ball = null):
