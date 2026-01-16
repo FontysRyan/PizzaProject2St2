@@ -72,7 +72,8 @@ func on_hit(target):
 		if now - last_enemy_hit_time >= 0.1:
 			last_enemy_hit_time = now
 			trigger_enemy_hit(target)
-			CombatEffectStackerManager.add_effect(special_modes[0], target, target)
+			if special_modes.count(SpecialMode) > 0:
+				CombatEffectStackerManager.add_effect(special_modes[0], target, target)
 
 	# Fake balls vanish on any collision
 	if not is_real:
