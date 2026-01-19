@@ -46,17 +46,16 @@ collision_layer = 4
 collision_mask = 35
 
 [node name="Collision_Left" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
-polygon = PackedVector2Array(0, 1080, 0, 0, 24, 0, 24, 1080)
+polygon = PackedVector2Array(-75, 1180, -75, -75, 25, -75, 25, 1180)
 
 [node name="Collision_Right" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
-polygon = PackedVector2Array(1920, 0, 1896, 0, 1896, 1080, 1920, 1080)
+polygon = PackedVector2Array(1995, -75, 1896, -75, 1896, 1180, 1995, 1180)
 
 [node name="Collision_Top" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
-polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 26, 0, 26)
+polygon = PackedVector2Array(-75, -75, 1995, -75, 1995, 26, -75, 25)
 
 [node name="Collision_Bottom" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
-position = Vector2(0, -26)
-polygon = PackedVector2Array(0, 1080, 1920, 1080, 1920, 1106, 958.9822, 1106, 0, 1106)
+polygon = PackedVector2Array(-75, 1080, 1995, 1080, 1995, 1180, -75, 1180)
 
 [node name="NavMesh2D" type="NavigationRegion2D" parent="."]
 z_index = -5
