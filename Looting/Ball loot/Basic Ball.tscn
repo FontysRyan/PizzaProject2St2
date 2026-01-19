@@ -1,33 +1,34 @@
-[gd_scene load_steps=11 format=3 uid="uid://c25x2820c8blr"]
+[gd_scene load_steps=11 format=3 uid="uid://b6amsuswt311e"]
 
 [ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/ball_scenes/golf_ball.tscn" id="1_oiy3g"]
 [ext_resource type="Script" uid="uid://c1t004dj6a7mw" path="res://Scenes/ball_physics_playground/ball_physics_v2/Base_ball2.gd" id="2_gqhsa"]
 [ext_resource type="Resource" uid="uid://f71awagtfctj" path="res://Resources/Ball/Basic Ball.tres" id="3_pdn3r"]
-[ext_resource type="Script" uid="uid://d33cw4ow4a6pr" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/physics_modes/Default_mode.gd" id="4_efyh2"]
+[ext_resource type="Script" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/physics_modes/Default_mode.gd" id="4_vfgpk"]
+[ext_resource type="Script" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/split_modes/no_split.gd" id="5_efyh2"]
 [ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="5_fmkav"]
-[ext_resource type="Script" uid="uid://bsimgfnyiq71n" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/split_modes/no_split.gd" id="5_vfgpk"]
 [ext_resource type="SpriteFrames" uid="uid://dcpupi4248qmi" path="res://Resources/Ball/animations/ball_default_ani.tres" id="7_mr13q"]
-[ext_resource type="Resource" uid="uid://bnwdxjj8agx7r" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SPM_Bleeding.tres" id="7_vfgpk"]
+[ext_resource type="Resource" uid="uid://c63p3ttn6uoyv" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SPM_Poison.tres" id="7_vfgpk"]
 
-[sub_resource type="Resource" id="Resource_efyh2"]
-script = ExtResource("4_efyh2")
+[sub_resource type="Resource" id="Resource_mr13q"]
+script = ExtResource("4_vfgpk")
 metadata/_custom_type_script = "uid://d33cw4ow4a6pr"
 
-[sub_resource type="Resource" id="Resource_wh6m6"]
-script = ExtResource("5_vfgpk")
+[sub_resource type="Resource" id="Resource_efyh2"]
+script = ExtResource("5_efyh2")
 metadata/_custom_type_script = "uid://bsimgfnyiq71n"
 
-[node name="GolfBall2" groups=["Golf_Balls"] instance=ExtResource("1_oiy3g")]
+[node name="Basic Ball" groups=["Golf_Balls"] instance=ExtResource("1_oiy3g")]
 script = ExtResource("2_gqhsa")
-ball_stats = ExtResource("3_pdn3r")
-physics_mode = SubResource("Resource_efyh2")
-split_mode = SubResource("Resource_wh6m6")
+stats = ExtResource("3_pdn3r")
+physics_mode = SubResource("Resource_mr13q")
+split_mode = SubResource("Resource_efyh2")
 special_modes = Array[ExtResource("5_fmkav")]([ExtResource("7_vfgpk")])
 total_push_power = 2500.0
 is_real = true
 Can_Damage = true
 original_radius = 20.0
-pickup_delay = 0.5
+knockback_power = 200.0
+pickup_delay = 1.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("7_mr13q")

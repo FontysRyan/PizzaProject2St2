@@ -5,7 +5,7 @@
 
 [node name="Ripple Iron" type="Node2D"]
 script = ExtResource("1_u1sr1")
-stick_stats = ExtResource("2_cpf11")
+stats = ExtResource("2_cpf11")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0

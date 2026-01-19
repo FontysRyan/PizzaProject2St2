@@ -93,14 +93,92 @@ func _get_ball(index : int) -> PackedScene:
 		_:
 			return null
 
+func _get_stick_texture(index : int) -> Texture2D:
+	var stick
+	var texture
+	match index:
+		0:
+			stick = load(stick_slot1)
+			if stick == null:
+				texture = null
+				return
+			var path = stick.get_path()
+			var text = path.right(-path.rfind("/") - 1).left(-5)
+			var new_path = str("res://Resources/Stick/" + text + ".tres")
+			var res = load(new_path)
+			texture = res.texture
+			return texture
+		1:
+			stick = load(stick_slot2)
+			if stick == null:
+				texture = null
+				return
+			var path = stick.get_path()
+			var text = path.right(-path.rfind("/") - 1).left(-5)
+			var new_path = str("res://Resources/Stick/" + text + ".tres")
+			var res = load(new_path)
+			texture = res.texture
+			return texture
+		2:
+			stick = load(stick_slot3)
+			if stick == null:
+				texture = null
+				return
+			var path = stick.get_path()
+			var text = path.right(-path.rfind("/") - 1).left(-5)
+			var new_path = str("res://Resources/Stick/" + text + ".tres")
+			var res = load(new_path)
+			texture = res.texture
+			return texture
+		_:
+			return null
 
+func _get_ball_texture(index : int) -> Texture2D:
+	var ball
+	var texture
+	match index:
+		0:
+			ball = load(ball_slot1)
+			if ball == null:
+				return null
+			var path = ball.get_path()
+			var text = path.right(-path.rfind("/") - 1).left(-5)
+			var new_path = str("res://Resources/Ball/" + text + ".tres")
+			var res = load(new_path)
+			var sprites = res.sprite_frames
+			texture = sprites.get_frame_texture("default", 0)
+			return texture
+		1:
+			ball = load(ball_slot2)
+			if ball == null:
+				return null
+			var path = ball.get_path()
+			var text = path.right(-path.rfind("/") - 1).left(-5)
+			var new_path = str("res://Resources/Ball/" + text + ".tres")
+			var res = load(new_path)
+			var sprites = res.sprite_frames
+			texture = sprites.get_frame_texture("default", 0)
+			return texture
+		2:
+			ball = load(ball_slot3)
+			if ball == null:
+				return null
+			var path = ball.get_path()
+			var text = path.right(-path.rfind("/") - 1).left(-5)
+			var new_path = str("res://Resources/Ball/" + text + ".tres")
+			var res = load(new_path)
+			var sprites = res.sprite_frames
+			texture = sprites.get_frame_texture("default", 0)
+			return texture
+		_:
+			return null
 
 
 func clear_run_data():
 	stick_slot1 = "res://Looting/Stick loot/Basic Stick.tscn"
-	stick_slot2 = "res://Looting/Stick loot/Blink Stick.tscn"
-	stick_slot3 = "res://Looting/Stick loot/Kaboom Club.tscn"
+	stick_slot2 = ""
+	stick_slot3 = ""
 	ball_slot1 = "res://Looting/Ball loot/Basic Ball.tscn"
-	ball_slot2 = "res://Looting/Ball loot/MultiCore.tscn"
+	ball_slot2 = "res://Looting/Ball loot/Shotgun.tscn"
 	ball_slot3 = ""
 	Stats.clear_all()

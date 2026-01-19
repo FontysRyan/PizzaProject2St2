@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Ball" load_steps=4 format=3 uid="uid://qf0w7vmi1m5x"]
+[gd_resource type="Resource" script_class="Ball" load_steps=3 format=3 uid="uid://qf0w7vmi1m5x"]
 
 [ext_resource type="Script" uid="uid://3b7a0gouwves" path="res://Resources/Ball/Ball_Resource.gd" id="1_kiv6s"]
 [ext_resource type="Resource" uid="uid://cg21vocix1mer" path="res://Resources/Passive abilities/Freeze.tres" id="1_qq8no"]
-[ext_resource type="Texture2D" uid="uid://c48xp6pfvpdft" path="res://Scenes/ball_physics_playground/test_assets/Golf ball/Golf_ball.png" id="3_dcygp"]
 
 [resource]
 script = ExtResource("1_kiv6s")
-texture = ExtResource("3_dcygp")
-name = "IceBreaker"
+item_name = "IceBreaker"
 damage = 15.0
 weight = 7.0
 size = 1.2
