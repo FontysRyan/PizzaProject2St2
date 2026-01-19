@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_6ea1f")
 sprite_frames = SubResource("SpriteFrames_u0r65")
-name = "ToxicOrb"
+item_name = "ToxicOrb"
 damage = 12.0
 weight = 4.0
 ability = ExtResource("1_u0r65")

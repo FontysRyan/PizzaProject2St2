@@ -48,8 +48,12 @@ func _ready():
 	move_speed = stats.move_speed
 	shove_force = stats.shove_force
 	shove_cooldown = stats.shove_cooldown
-
+	Stats.max_health = stats.max_health
+	Stats.current_health = stats.current_health
 	charge_bar.charge_released.connect(_on_charge_released)
+	
+	connect("body_entered", Callable(self, "_on_body_entered"))
+	golf_ball_asset = GameController._get_ball(GameController.equipped_ball_index)
 
 # ---------------------------------------------------
 # HELPERS
@@ -150,6 +154,13 @@ func start_shoot_cooldown():
 
 func _process(_delta):
 	update_trajectory()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		var chest = collider.get_parent()
+		if chest.has_method("touch_chest"):
+			chest.touch_chest()
+	golf_ball_asset = GameController._get_ball(GameController.equipped_ball_index)
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("shove"):
@@ -223,6 +234,9 @@ func spawn_ball(force: float) -> void:
 	if golf_ball_asset == null:
 		push_error("golf_ball_asset is not assigned")
 		return
+	if Engine.time_scale == 0:
+		push_error("game paused")
+		return
 
 	var dir: Vector2 = get_aim_direction()
 
@@ -254,7 +268,7 @@ func _on_charge_released(force: float):
 func take_damage(amount: float) -> void:
 	stats.current_health -= amount
 	stats.current_health = clamp(stats.current_health, 0, stats.max_health)
-
+	Stats.current_health = stats.current_health
 	if stats.current_health <= 0:
 		queue_free()
 
@@ -293,3 +307,10 @@ func start_shove_cooldown():
 	await get_tree().create_timer(stats.shove_cooldown).timeout
 	can_shove = true
 	is_shoving = false
+
+
+
+func trigger_touch_chest(target):
+	print("text")
+	if target.has_method("touch_chest"):
+			target.touch_chest()

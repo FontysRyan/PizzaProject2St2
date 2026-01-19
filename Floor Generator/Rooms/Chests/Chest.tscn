@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bh8bbb32ls52w" path="res://Floor Generator/Assets/chest/task_01keh2cgqceabvnrpm3a9dja5t_1767952048_img_1.png" id="4_gcy37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsrx6"]
+size = Vector2(440, 440)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4x7y5"]
 animations = [{
@@ -25,9 +26,12 @@ animations = [{
 }]
 
 [node name="Chest" type="Node2D"]
+scale = Vector2(0.455, 0.455)
 script = ExtResource("1_coxko")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_hsrx6")

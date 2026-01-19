@@ -1,13 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1wxeckua643m"]
+[gd_scene load_steps=7 format=3 uid="uid://d1wxeckua643m"]
 
-[ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="1_52snu"]
+[ext_resource type="Script" uid="uid://05lmeteqfdow" path="res://Characters/Enemy/scripts/CombatManager.gd" id="1_52snu"]
+[ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="2_i7sxt"]
+[ext_resource type="PackedScene" uid="uid://d2l6wdti0ii02" path="res://Characters/Enemy/RangedEnemy.tscn" id="3_7a7bj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
 vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(24, 26, 1896, 26, 1896, 1080, 24, 1080)])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52snu"]
+size = Vector2(1872, 1054)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i7sxt"]
+font_size = 60
+
 [node name="DefaultRoom" type="Node2D"]
+script = ExtResource("1_52snu")
+enemy_scenes = Array[PackedScene]([ExtResource("2_i7sxt"), ExtResource("3_7a7bj")])
 metadata/DoorPositions = {
 Vector2i(-1, 0): Vector2i(0, 540),
 Vector2i(0, -1): Vector2i(960, 0),
@@ -57,22 +67,18 @@ polygon = PackedVector2Array(0, 1080, 1920, 1080, 1920, 1106, 0, 1106)
 [node name="NavMesh2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_g6fcb")
 
-[node name="MeleeEnemy" parent="." instance=ExtResource("1_52snu")]
-position = Vector2(307, 537)
-scale = Vector2(0.2, 0.2)
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="MeleeEnemy2" parent="." instance=ExtResource("1_52snu")]
-position = Vector2(748, 627)
-scale = Vector2(0.2, 0.2)
+[node name="PlayerDetector" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(960, 553)
+shape = SubResource("RectangleShape2D_52snu")
 
-[node name="MeleeEnemy3" parent="." instance=ExtResource("1_52snu")]
-position = Vector2(1186, 603)
-scale = Vector2(0.2, 0.2)
+[node name="Label" type="Label" parent="."]
+offset_left = 756.0
+offset_top = 619.0
+offset_right = 1214.0
+offset_bottom = 702.0
+text = "COMBAT ROOM"
+label_settings = SubResource("LabelSettings_i7sxt")
 
-[node name="MeleeEnemy4" parent="." instance=ExtResource("1_52snu")]
-position = Vector2(689, 268.00003)
-scale = Vector2(0.2, 0.2)
-
-[node name="MeleeEnemy5" parent="." instance=ExtResource("1_52snu")]
-position = Vector2(1322, 447)
-scale = Vector2(0.2, 0.2)
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

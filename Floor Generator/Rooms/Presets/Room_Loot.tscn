@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://4u8itrg8vpdy"]
 
-[ext_resource type="Texture2D" uid="uid://bnraft7toiyow" path="res://icon.svg" id="1_kdvc1"]
+[ext_resource type="PackedScene" uid="uid://ca3y4gs1ty28r" path="res://Floor Generator/Rooms/Chests/Chest.tscn" id="1_kdvc1"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
 vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
@@ -57,7 +57,5 @@ polygon = PackedVector2Array(0, 1080, 1920, 1080, 1920, 1106, 0, 1106)
 [node name="NavMesh2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_g6fcb")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(973, 563.00006)
-scale = Vector2(1.9765625, 1.9765625)
-texture = ExtResource("1_kdvc1")
+[node name="Chest" parent="." instance=ExtResource("1_kdvc1")]
+position = Vector2(983, 537)

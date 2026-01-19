@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://drc5oso7n080v"]
+
+[ext_resource type="Texture2D" uid="uid://bpch1bntnxlox" path="res://Scenes/ball_physics_playground/test_assets/Golf ball/Shotgun.png" id="1_hx7yt"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hx7yt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://s8jg07gnon5g"]
+[gd_scene load_steps=10 format=3 uid="uid://s8jg07gnon5g"]
 
 [ext_resource type="Script" uid="uid://yaocpo1x1yp5" path="res://UI/battle_ui.gd" id="1_63iuo"]
 [ext_resource type="Script" uid="uid://bn8pkvjy0qrvu" path="res://UI/progress_bar.gd" id="1_qe2yl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dywh31psfpbc3" path="res://UI/panels/StickPanel.tscn" id="3_eeboc"]
 [ext_resource type="PackedScene" uid="uid://dbo0wiu55skh2" path="res://UI/panels/BallPanel.tscn" id="4_bcbqt"]
 [ext_resource type="PackedScene" uid="uid://dud757an0lbk7" path="res://UI/panels/AbilityPanel.tscn" id="5_iaxgc"]
+[ext_resource type="PackedScene" uid="uid://d4c5a3i35xm83" path="res://UI/loot_slot_button.tscn" id="7_bcbqt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_63iuo"]
 font_size = 100
@@ -22,12 +23,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_63iuo")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MainUi" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="MainUi"]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -36,7 +37,7 @@ max_value = 200.0
 show_percentage = false
 script = ExtResource("1_qe2yl")
 
-[node name="CurrentHpLabel" type="Label" parent="HBoxContainer/ProgressBar"]
+[node name="CurrentHpLabel" type="Label" parent="MainUi/ProgressBar"]
 layout_mode = 0
 offset_right = 197.0
 offset_bottom = 50.0
@@ -44,7 +45,7 @@ text = "chp"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="slash" type="Label" parent="HBoxContainer/ProgressBar"]
+[node name="slash" type="Label" parent="MainUi/ProgressBar"]
 layout_mode = 0
 offset_left = 195.0
 offset_right = 215.0
@@ -53,7 +54,7 @@ text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MaxHpLabel" type="Label" parent="HBoxContainer/ProgressBar"]
+[node name="MaxHpLabel" type="Label" parent="MainUi/ProgressBar"]
 layout_mode = 0
 offset_left = 210.0
 offset_right = 400.0
@@ -61,13 +62,13 @@ offset_bottom = 50.0
 text = "mhp"
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Center" type="VBoxContainer" parent="MainUi"]
 custom_minimum_size = Vector2(0, 1080)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MainUi/Center"]
 layout_mode = 2
 size_flags_vertical = 2
 text = "Floor 1"
@@ -75,27 +76,27 @@ label_settings = SubResource("LabelSettings_63iuo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HotBar" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HotBar" type="HBoxContainer" parent="MainUi/Center"]
 z_index = 10
 custom_minimum_size = Vector2(320, 100)
 layout_mode = 2
 size_flags_vertical = 10
 alignment = 1
 
-[node name="StickPanel" parent="HBoxContainer/VBoxContainer/HotBar" instance=ExtResource("3_eeboc")]
+[node name="StickPanel" parent="MainUi/Center/HotBar" instance=ExtResource("3_eeboc")]
 layout_mode = 2
 
-[node name="BallPanel" parent="HBoxContainer/VBoxContainer/HotBar" instance=ExtResource("4_bcbqt")]
+[node name="BallPanel" parent="MainUi/Center/HotBar" instance=ExtResource("4_bcbqt")]
 layout_mode = 2
 
-[node name="AbilityPanel" parent="HBoxContainer/VBoxContainer/HotBar" instance=ExtResource("5_iaxgc")]
+[node name="AbilityPanel" parent="MainUi/Center/HotBar" instance=ExtResource("5_iaxgc")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainUi"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="PauseButton" parent="HBoxContainer" instance=ExtResource("2_q858a")]
+[node name="PauseButton" parent="MainUi" instance=ExtResource("2_q858a")]
 layout_mode = 2
 
 [node name="PauseMenu" type="VBoxContainer" parent="."]
@@ -213,6 +214,64 @@ layout_mode = 2
 [node name="ball_slot3" parent="Inventory/CanvasLayer/Panel/VBoxContainer/VBoxContainer/BallInventory" instance=ExtResource("4_bcbqt")]
 layout_mode = 2
 
-[connection signal="pressed" from="HBoxContainer/PauseButton" to="." method="_on_pause_button_pressed"]
+[node name="ConfirmLoot" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 510.0
+offset_top = 190.0
+offset_right = 1410.0
+offset_bottom = 890.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ConfirmLoot"]
+visible = false
+
+[node name="Panel" type="Panel" parent="ConfirmLoot/CanvasLayer"]
+offset_left = 510.0
+offset_top = 190.0
+offset_right = 1410.0
+offset_bottom = 890.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmLoot/CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "You've received:"
+label_settings = SubResource("LabelSettings_eeboc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+alignment = 1
+
+[node name="LootSlotButton" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer" instance=ExtResource("7_bcbqt")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="SwitchSlots" type="HBoxContainer" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="switch_slot1" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("7_bcbqt")]
+layout_mode = 2
+
+[node name="switch_slot2" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("7_bcbqt")]
+layout_mode = 2
+
+[node name="switch_slot3" parent="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots" instance=ExtResource("7_bcbqt")]
+layout_mode = 2
+
+[connection signal="pressed" from="MainUi/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/Panel/VBoxContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="PauseMenu/CanvasLayer/Panel/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots/switch_slot1" to="." method="_on_switch_slot_1_pressed"]
+[connection signal="pressed" from="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots/switch_slot2" to="." method="_on_switch_slot_2_pressed"]
+[connection signal="pressed" from="ConfirmLoot/CanvasLayer/Panel/VBoxContainer/VBoxContainer/SwitchSlots/switch_slot3" to="." method="_on_switch_slot_3_pressed"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpecialMode" load_steps=2 format=3 uid="uid://cmtpilyknhny1"]
+
+[ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="1_c827h"]
+
+[resource]
+script = ExtResource("1_c827h")
+id = "slow"
+name = "slow"
+description = "Reduces movement speed."
+tags = Array[String](["slow"])
+duration = 4.0
+slow_multiplier = 0.7

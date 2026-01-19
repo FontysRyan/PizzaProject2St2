@@ -33,13 +33,19 @@ func _init(_orientation: Vector2, _position: Vector2, _grid_position: Vector2, _
 		
 func _ready() -> void:
 	get_child(0).player_door_interact.connect(move_player_to_room)
+	if get_parent() is CombatManager:
+		get_parent().lock_doors.connect(lock_door)
+		get_parent().unlock_doors.connect(unlock_door)
+
+func lock_door():
+	is_open = false
+	
+func unlock_door():
+	is_open = true
 		
 func move_player_to_room(_door: DoorObject, player):
-	# This is bad practice
-	# But I frankly don't care
-	# Now to make the player spawn next to the door instead
-	# Fuck it bad practice 2: electric boogaloo
-	var player_buffer: Vector2 = Vector2(50, 50)
-	player.position = self.global_position + ((room_spacing + player_buffer) * orientation)
-	get_tree().get_nodes_in_group("Camera")[0].position = (get_viewport_rect().size + room_spacing) * (room_grid_position + orientation) + get_viewport_rect().size/2
-	
+	if is_open:
+		var player_buffer: Vector2 = Vector2(50, 50)
+		player.position = self.global_position + ((room_spacing + player_buffer) * orientation)
+		get_tree().get_nodes_in_group("Camera")[0].position = (get_viewport_rect().size + room_spacing) * (room_grid_position + orientation) + get_viewport_rect().size/2
+		

@@ -5,7 +5,7 @@
 
 [node name="Blink Stick" type="Node2D"]
 script = ExtResource("1_0s58q")
-stick_stats = ExtResource("2_fovnv")
+stats = ExtResource("2_fovnv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0

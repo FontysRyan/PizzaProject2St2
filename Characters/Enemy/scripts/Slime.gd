@@ -1,6 +1,5 @@
-extends base_enemy
+extends boss
 
-@onready var timer : Timer = Timer.new()
 @export var mini_slime : PackedScene
 @export var mini_slimes_to_spawn : int = 3
 @export var spawn_radius : float = 500.0
@@ -10,14 +9,9 @@ var stored_balls : Array[Base_Ball] = []
 var damage_absorbed : float
 
 func _ready() -> void:
+	scale = Vector2(0.5, 0.5)
 	super._ready()
 	add_to_group("Slime Boss")
-	timer.one_shot = false
-	add_child(timer)
-	timer.wait_time = stats.ability_cooldown
-	timer.autostart = true
-	timer.timeout.connect(use_ability)
-	timer.start()
 
 func use_ability():
 	var current := get_tree().get_nodes_in_group("mini_slimes").size()

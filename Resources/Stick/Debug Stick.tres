@@ -15,4 +15,5 @@ texture3 = ExtResource("4_q2ir6")
 texture4 = ExtResource("5_2eaj4")
 texture5 = ExtResource("6_hyalu")
 texture = ExtResource("2_gsuhe")
+item_name = "Debug Stick"
 metadata/_custom_type_script = "uid://o72wgrt3bme8"

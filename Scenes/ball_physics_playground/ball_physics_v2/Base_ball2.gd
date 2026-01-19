@@ -2,7 +2,7 @@
 extends RigidBody2D
 class_name BaseBall
 
-@export var ball_stats: Ball
+@export var stats: Ball
 @export var physics_mode: PhysicsMode
 @export var split_mode: SplitMode
 @export var special_modes: Array[SpecialMode] = []
@@ -10,15 +10,17 @@ class_name BaseBall
 @export var is_real: bool = true   # track original ball
 @export var Can_Damage: bool = true #track damaga capabilities
 @export var original_radius: float = 20.0
+@export var knockback_power: float = 200.0
+var base_knockback: float = 1
 
-@export var pickup_delay: float = 1
+@export var pickup_delay: float = 0.5
 var can_be_picked_up: bool = true
 @onready var enable_mask_timer := get_tree().create_timer(2.0)
 
 func _ready():
 
 	add_to_group("Golf_Balls")
-	$AnimatedSprite2D.sprite_frames = ball_stats.sprite_frames
+	$AnimatedSprite2D.sprite_frames = stats.sprite_frames
 	contact_monitor = true
 	max_contacts_reported = 1
 	connect("body_entered", Callable(self, "_on_body_entered"))
@@ -28,8 +30,8 @@ func _ready():
 		print(physics_mode.mode_name)  # prints "HeavyMode"
 	if split_mode:
 		split_mode.on_added(self)
-	for mode in special_modes:
-		mode.on_added(self)
+	#for mode in special_modes:
+		#mode.on_added(self)
 	await enable_mask_timer.timeout
 	set_collision_mask_value(1, true)
 
@@ -48,9 +50,9 @@ func on_hit(target):
 	if physics_mode:
 		physics_mode.on_hit(self, target)
 
-	# Special modes always apply
-	for mode in special_modes:
-		mode.on_hit(self, target)
+	## Special modes always apply
+	#for mode in special_modes:
+		#mode.on_hit(self, target)
 
 	# Player pickup (real balls only)
 	if target.is_in_group("Player") and is_real:
@@ -65,11 +67,13 @@ func on_hit(target):
 		split_mode.on_hit(self, target)
 
 	# Enemy hit → damage (real or fake)
-	if target.is_in_group("Enemy"):
+	if target.is_in_group("Enemy") || target.is_in_group("Boss"):
 		var now = Time.get_ticks_msec() / 1000.0
 		if now - last_enemy_hit_time >= 0.1:
 			last_enemy_hit_time = now
 			trigger_enemy_hit(target)
+			if special_modes.count(SpecialMode) > 0:
+				CombatEffectStackerManager.add_effect(special_modes[0], target, target)
 
 	# Fake balls vanish on any collision
 	if not is_real:
@@ -79,10 +83,10 @@ func on_hit(target):
 func trigger_enemy_hit(target):
 	print("Hit accepted (0.1s passed)")
 	if target.has_method("take_damage"):
-			target.take_damage(ball_stats.damage)
-			DamageNumberManager.show_damage(ball_stats.damage, target.global_position)
+			target.take_damage(stats.damage)
+			DamageNumberManager.show_damage(stats.damage, target.global_position)
 	if target.has_method("take_knockback"):
-			target.take_knockback(200.0, self.global_position, base_enemy.knockback_source.BALL)
+			target.take_knockback(knockback_power, self.global_position, base_enemy.knockback_source.BALL)
 
 
 
