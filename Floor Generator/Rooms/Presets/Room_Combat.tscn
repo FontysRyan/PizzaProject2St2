@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1wxeckua643m"]
+[gd_scene load_steps=6 format=3 uid="uid://d1wxeckua643m"]
 
-[ext_resource type="Script" uid="uid://05lmeteqfdow" path="res://Characters/Enemy/scripts/CombatManager.gd" id="1_52snu"]
+[ext_resource type="Script" path="res://Characters/Enemy/scripts/CombatManager.gd" id="1_52snu"]
 [ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="2_i7sxt"]
 [ext_resource type="PackedScene" uid="uid://d2l6wdti0ii02" path="res://Characters/Enemy/RangedEnemy.tscn" id="3_7a7bj"]
 
@@ -11,9 +11,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(24, 26, 1896, 26, 1896,
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52snu"]
 size = Vector2(1872, 1054)
-
-[sub_resource type="LabelSettings" id="LabelSettings_i7sxt"]
-font_size = 60
 
 [node name="DefaultRoom" type="Node2D"]
 script = ExtResource("1_52snu")
@@ -53,16 +50,16 @@ collision_layer = 4
 collision_mask = 35
 
 [node name="Collision_Left" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
-polygon = PackedVector2Array(0, 1106, 0, 0, 24, 0, 24, 1106)
+polygon = PackedVector2Array(-75, 1180, -75, -75, 25, -75, 25, 1180)
 
 [node name="Collision_Right" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
-polygon = PackedVector2Array(1920, 0, 1896, 0, 1896, 1106, 1920, 1106)
+polygon = PackedVector2Array(1995, -75, 1896, -75, 1896, 1180, 1995, 1180)
 
 [node name="Collision_Top" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
-polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 26, 0, 26)
+polygon = PackedVector2Array(-75, -75, 1995, -75, 1995, 26, -75, 25)
 
 [node name="Collision_Bottom" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
-polygon = PackedVector2Array(0, 1080, 1920, 1080, 1920, 1106, 0, 1106)
+polygon = PackedVector2Array(-75, 1080, 1995, 1080, 1995, 1180, -75, 1180)
 
 [node name="NavMesh2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_g6fcb")
@@ -72,13 +69,5 @@ navigation_polygon = SubResource("NavigationPolygon_g6fcb")
 [node name="PlayerDetector" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(960, 553)
 shape = SubResource("RectangleShape2D_52snu")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 756.0
-offset_top = 619.0
-offset_right = 1214.0
-offset_bottom = 702.0
-text = "COMBAT ROOM"
-label_settings = SubResource("LabelSettings_i7sxt")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

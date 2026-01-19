@@ -25,4 +25,4 @@ shape = SubResource("RectangleShape2D_ecc28")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 debug_use_custom = true
-debug_path_custom_color = Color(0, 0.9411765, 1, 1)
+debug_path_custom_color = Color(1, 1, 1, 0)
