@@ -36,6 +36,7 @@ func use_ability():
 	if global_position.distance_to(player.global_position) <= ability_range:
 		player.take_damage(damage)
 		DamageNumberManager.show_damage(damage, player.global_position, "crit")
+		effectManager.add_effect(special_modes[0], player, self)
 		print("apply bleed effect!!!!!!!!!!!!!!!!!!!!!")
 	attack_cooldown = attack_speed
 	is_attacking = false
