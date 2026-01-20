@@ -101,6 +101,8 @@ func _physics_process(delta: float) -> void:
 	
 	if nav_agent.is_target_reachable():
 		var next_pos = nav_agent.get_next_path_position()
+		if next_pos.distance_to(position) < stop_distance:
+			return
 		dir = (next_pos - global_position).normalized()
 		
 		if dir.x < 0 and not isFlipped:
@@ -113,7 +115,7 @@ func _physics_process(delta: float) -> void:
 	if not is_attacking:
 		attack_cooldown -= delta
 	
-	if not is_attacking and global_position.distance_to(player.global_position) < stop_distance:
+	if not is_attacking and global_position.distance_to(player.global_position) <= stop_distance:
 		attack(player)
 	
 	if kb_velocity.length_squared() > 1.6:
