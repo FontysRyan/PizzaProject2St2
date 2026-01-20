@@ -1,0 +1,168 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8me65m6sjfqu"]
+
+[ext_resource type="Script" uid="uid://05lmeteqfdow" path="res://Characters/Enemy/scripts/CombatManager.gd" id="1_6keeb"]
+[ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="2_yl4fa"]
+[ext_resource type="PackedScene" uid="uid://d2l6wdti0ii02" path="res://Characters/Enemy/RangedEnemy.tscn" id="3_ncoac"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
+vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(24, 26, 1896, 26, 1896, 1080, 24, 1080)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6keeb"]
+size = Vector2(150, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52snu"]
+size = Vector2(1872, 1054)
+
+[node name="CombatRoom" type="Node2D"]
+script = ExtResource("1_6keeb")
+enemy_scenes = Array[PackedScene]([ExtResource("2_yl4fa"), ExtResource("3_ncoac")])
+metadata/DoorPositions = {
+Vector2i(-1, 0): Vector2i(0, 540),
+Vector2i(0, -1): Vector2i(960, 0),
+Vector2i(0, 1): Vector2i(960, 1080),
+Vector2i(1, 0): Vector2i(1920, 540)
+}
+
+[node name="Floor" type="Polygon2D" parent="."]
+color = Color(0.40069768, 0.4006978, 0.40069735, 1)
+polygon = PackedVector2Array(1920, 0, 1920, 1080, 0, 1080, 0, 0)
+
+[node name="Wall_Container" type="Node2D" parent="."]
+
+[node name="Wall_Top" type="Polygon2D" parent="Wall_Container"]
+color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+polygon = PackedVector2Array(-0.0015044947, 0.03675685, 1920, 0, 1920, 26, 0, 26)
+
+[node name="Wall_Bottom" type="Polygon2D" parent="Wall_Container"]
+color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+polygon = PackedVector2Array(-0.0016174316, 1080.0367, 1919.9999, 1080, 1919.9999, 1106, -0.00011444092, 1106)
+
+[node name="Wall_Left" type="Polygon2D" parent="Wall_Container"]
+color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
+
+[node name="Wall_Right" type="Polygon2D" parent="Wall_Container"]
+position = Vector2(1896, 0)
+color = Color(0.80049086, 0.80049074, 0.80049074, 1)
+polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
+
+[node name="Colliders" type="StaticBody2D" parent="Wall_Container"]
+collision_layer = 4
+collision_mask = 35
+
+[node name="Collision_Left" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
+polygon = PackedVector2Array(-75, 1180, -75, -75, 25, -75, 25, 1180)
+
+[node name="Collision_Right" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
+polygon = PackedVector2Array(1995, -75, 1896, -75, 1896, 1180, 1995, 1180)
+
+[node name="Collision_Top" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
+polygon = PackedVector2Array(-75, -75, 1995, -75, 1995, 26, -75, 25)
+
+[node name="Collision_Bottom" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
+polygon = PackedVector2Array(-75, 1080, 1995, 1080, 1995, 1180, -75, 1180)
+
+[node name="NavMesh2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_g6fcb")
+
+[node name="Obstacle" type="StaticBody2D" parent="NavMesh2D"]
+position = Vector2(300, 300)
+scale = Vector2(1.25, 1.25)
+collision_layer = 4
+collision_mask = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavMesh2D/Obstacle"]
+shape = SubResource("RectangleShape2D_6keeb")
+
+[node name="Polygon2D" type="Polygon2D" parent="NavMesh2D/Obstacle"]
+polygon = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+
+[node name="Obstacle2" type="StaticBody2D" parent="NavMesh2D"]
+position = Vector2(1620, 300)
+scale = Vector2(1.25, 1.25)
+collision_layer = 4
+collision_mask = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavMesh2D/Obstacle2"]
+shape = SubResource("RectangleShape2D_6keeb")
+
+[node name="Polygon2D" type="Polygon2D" parent="NavMesh2D/Obstacle2"]
+polygon = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+
+[node name="Obstacle3" type="StaticBody2D" parent="NavMesh2D"]
+position = Vector2(1620, 780)
+scale = Vector2(1.25, 1.25)
+collision_layer = 4
+collision_mask = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavMesh2D/Obstacle3"]
+shape = SubResource("RectangleShape2D_6keeb")
+
+[node name="Polygon2D" type="Polygon2D" parent="NavMesh2D/Obstacle3"]
+polygon = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+
+[node name="Obstacle4" type="StaticBody2D" parent="NavMesh2D"]
+position = Vector2(300, 780)
+scale = Vector2(1.25, 1.25)
+collision_layer = 4
+collision_mask = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavMesh2D/Obstacle4"]
+shape = SubResource("RectangleShape2D_6keeb")
+
+[node name="Polygon2D" type="Polygon2D" parent="NavMesh2D/Obstacle4"]
+polygon = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+
+[node name="Obstacle5" type="StaticBody2D" parent="NavMesh2D"]
+position = Vector2(960, 540)
+scale = Vector2(1.25, 1.25)
+collision_layer = 4
+collision_mask = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavMesh2D/Obstacle5"]
+shape = SubResource("RectangleShape2D_6keeb")
+
+[node name="Polygon2D" type="Polygon2D" parent="NavMesh2D/Obstacle5"]
+polygon = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+
+[node name="NavigationObstacle2D6" type="NavigationObstacle2D" parent="NavMesh2D"]
+position = Vector2(300, 300)
+vertices = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
+
+[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="NavMesh2D"]
+position = Vector2(300, 780)
+scale = Vector2(1.25, 1.25)
+vertices = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D3" type="NavigationObstacle2D" parent="NavMesh2D"]
+position = Vector2(960, 540)
+scale = Vector2(1.25, 1.25)
+vertices = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D4" type="NavigationObstacle2D" parent="NavMesh2D"]
+position = Vector2(1620, 300)
+scale = Vector2(1.25, 1.25)
+vertices = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="NavigationObstacle2D5" type="NavigationObstacle2D" parent="NavMesh2D"]
+position = Vector2(1620, 780)
+scale = Vector2(1.25, 1.25)
+vertices = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="PlayerDetector" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(960, 553)
+shape = SubResource("RectangleShape2D_52snu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

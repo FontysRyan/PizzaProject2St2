@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1wxeckua643m"]
 
-[ext_resource type="Script" path="res://Characters/Enemy/scripts/CombatManager.gd" id="1_52snu"]
-[ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="2_i7sxt"]
-[ext_resource type="PackedScene" uid="uid://d2l6wdti0ii02" path="res://Characters/Enemy/RangedEnemy.tscn" id="3_7a7bj"]
+[ext_resource type="Script" uid="uid://05lmeteqfdow" path="res://Characters/Enemy/scripts/CombatManager.gd" id="1_ow0s4"]
+[ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="2_eqjvi"]
+[ext_resource type="PackedScene" uid="uid://d2l6wdti0ii02" path="res://Characters/Enemy/RangedEnemy.tscn" id="3_iwfr8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
 vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
@@ -13,8 +13,8 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(24, 26, 1896, 26, 1896,
 size = Vector2(1872, 1054)
 
 [node name="CombatRoom" type="Node2D"]
-script = ExtResource("1_52snu")
-enemy_scenes = Array[PackedScene]([ExtResource("2_i7sxt"), ExtResource("3_7a7bj")])
+script = ExtResource("1_ow0s4")
+enemy_scenes = Array[PackedScene]([ExtResource("2_eqjvi"), ExtResource("3_iwfr8")])
 metadata/DoorPositions = {
 Vector2i(-1, 0): Vector2i(0, 540),
 Vector2i(0, -1): Vector2i(960, 0),
