@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://baja54ggpyi0i"]
+
+[ext_resource type="PackedScene" uid="uid://c1nxx7wclolbf" path="res://Movies/enemy_character_cutscene.tscn" id="2_t53if"]
+[ext_resource type="PackedScene" uid="uid://cvubu6cgpnwlq" path="res://Movies/player_character_cutscene.tscn" id="3_q2omu"]
+[ext_resource type="PackedScene" uid="uid://cp7t6of0cxh0s" path="res://Movies/ball_cutscene.tscn" id="3_t53if"]
+
+[sub_resource type="Animation" id="Animation_t53if"]
+resource_name = "Intro"
+length = 2.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2omu"]
+_data = {
+&"Intro": SubResource("Animation_t53if")
+}
+
+[node name="IntroCutscene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Enemy" parent="." instance=ExtResource("2_t53if")]
+position = Vector2(800, 60)
+scale = Vector2(-0.5, 0.5)
+
+[node name="Player2" parent="." instance=ExtResource("3_q2omu")]
+position = Vector2(-200, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="Node2D" parent="." instance=ExtResource("3_t53if")]
+position = Vector2(233, 68)
+scale = Vector2(0.5, 0.5044382)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q2omu")
+}
+
+[node name="researchnotes" type="Label" parent="."]
+offset_left = -856.0
+offset_top = -275.0
+offset_right = -382.0
+offset_bottom = -252.0
+text = "https://claude.ai/chat/517abbc9-3419-4e11-afef-81f053c6bf36"

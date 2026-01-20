@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp7t6of0cxh0s"]
+
+[ext_resource type="Texture2D" uid="uid://c48xp6pfvpdft" path="res://Scenes/ball_physics_playground/test_assets/Golf ball/Golf_ball.png" id="1_mutfo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GolfBall" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_mutfo")
