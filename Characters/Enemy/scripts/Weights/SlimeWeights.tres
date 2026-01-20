@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyWeights" load_steps=3 format=3 uid="uid://bllt62hoyptsw"]
+
+[ext_resource type="Script" uid="uid://26tjxrqvqyal" path="res://Characters/Enemy/scripts/EnemyWeights.gd" id="1_e4s8m"]
+[ext_resource type="PackedScene" uid="uid://cagucdp668bfk" path="res://Characters/Enemy/Slime Miniboss.tscn" id="1_rrv52"]
+
+[resource]
+script = ExtResource("1_e4s8m")
+scene = ExtResource("1_rrv52")
+weight = 1.2
+metadata/_custom_type_script = "uid://26tjxrqvqyal"

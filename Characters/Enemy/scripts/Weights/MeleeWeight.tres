@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyWeights" load_steps=3 format=3 uid="uid://trxybfh5upvu"]
+
+[ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="1_1so2a"]
+[ext_resource type="Script" uid="uid://26tjxrqvqyal" path="res://Characters/Enemy/scripts/EnemyWeights.gd" id="1_fugok"]
+
+[resource]
+script = ExtResource("1_fugok")
+scene = ExtResource("1_1so2a")
+weight = 3.0
+metadata/_custom_type_script = "uid://26tjxrqvqyal"

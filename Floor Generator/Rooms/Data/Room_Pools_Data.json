@@ -31,6 +31,7 @@
 	  "conditions": {
 		"min_instances": 1,
 		"max_instances": 1,
+		"roll_chance": 100,
 		"guaranteed_roll_chance": true
 	  },
 	  "rooms": [
