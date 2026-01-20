@@ -63,8 +63,12 @@ func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_
 			super.take_damage(damage_absorbed)
 
 func attack(target: CharacterBody2D):
-	if is_attacking:
+	if not target:
 		return
+	if attack_cooldown > 0 or is_attacking:
+		return
+	is_attacking = true
+	attack_cooldown = attack_speed
 	is_attacking = true
 	if target.has_method("take_damage"):
 		target.take_damage(damage)

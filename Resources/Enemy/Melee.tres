@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_vbi6x")
 name = "Melee"
-attack_range = 7.5
+attack_range = 9.5
 movement_speed = 100.0
 metadata/_custom_type_script = "uid://crwxe3thpt1qn"
