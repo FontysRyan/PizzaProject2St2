@@ -8,6 +8,8 @@ func _ready():
 	super._ready()
 
 func attack(target: CharacterBody2D):
+	if not target:
+		return
 	if attack_cooldown > 0 or is_attacking:
 		return
 	is_attacking = true

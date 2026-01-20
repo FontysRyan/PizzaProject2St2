@@ -63,6 +63,8 @@ func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_
 			super.take_damage(damage_absorbed)
 
 func attack(target: CharacterBody2D):
+	if not target:
+		return
 	if is_attacking:
 		return
 	is_attacking = true

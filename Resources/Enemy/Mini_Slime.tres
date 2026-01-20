@@ -6,6 +6,6 @@
 script = ExtResource("1_3rjcg")
 max_health = 20.0
 damage = 10.0
-attack_speed = 0.0
+attack_speed = 10.0
 resistance = 100.0
 metadata/_custom_type_script = "uid://crwxe3thpt1qn"
