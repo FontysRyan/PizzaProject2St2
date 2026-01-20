@@ -12,7 +12,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(24, 26, 1896, 26, 1896,
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52snu"]
 size = Vector2(1872, 1054)
 
-[node name="DefaultRoom" type="Node2D"]
+[node name="CombatRoom" type="Node2D"]
 script = ExtResource("1_52snu")
 enemy_scenes = Array[PackedScene]([ExtResource("2_i7sxt"), ExtResource("3_7a7bj")])
 metadata/DoorPositions = {
