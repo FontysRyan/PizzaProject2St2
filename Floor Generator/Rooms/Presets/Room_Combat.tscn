@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1wxeckua643m"]
 
-[ext_resource type="Script" path="res://Characters/Enemy/scripts/CombatManager.gd" id="1_52snu"]
+[ext_resource type="Script" uid="uid://05lmeteqfdow" path="res://Characters/Enemy/scripts/CombatManager.gd" id="1_52snu"]
 [ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="2_i7sxt"]
 [ext_resource type="PackedScene" uid="uid://d2l6wdti0ii02" path="res://Characters/Enemy/RangedEnemy.tscn" id="3_7a7bj"]
 

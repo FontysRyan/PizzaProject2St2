@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://d2l6wdti0ii02"]
 
-[ext_resource type="Script" uid="uid://1i71mgrtuq0x" path="res://Characters/Enemy/scripts/rangedEnemy.gd" id="1_567dd"]
+[ext_resource type="Script" uid="uid://1i71mgrtuq0x" path="res://Characters/Enemy/scripts/enemy/rangedEnemy.gd" id="1_567dd"]
 [ext_resource type="PackedScene" uid="uid://cigipnhskvoc3" path="res://Characters/Enemy/Arrow.tscn" id="2_jfyom"]
 [ext_resource type="Resource" uid="uid://bnyo66e28wmst" path="res://Resources/Enemy/Range.tres" id="3_avddw"]
 [ext_resource type="Texture2D" uid="uid://cpk7k0doenld4" path="res://Assets/green guys/Goblin/PNG/Vector Parts/Left Hand.png" id="4_avddw"]

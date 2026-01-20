@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://2p5htep48a8x"]
 
-[ext_resource type="Script" uid="uid://dlcnky5ygpp2h" path="res://Characters/Enemy/scripts/Ogre.gd" id="1_il0oa"]
+[ext_resource type="Script" uid="uid://dlcnky5ygpp2h" path="res://Characters/Enemy/scripts/enemy/Ogre.gd" id="1_il0oa"]
 [ext_resource type="Resource" uid="uid://b3fxwipq2qni0" path="res://Resources/Enemy/Ogre.tres" id="2_1o7pu"]
 [ext_resource type="Texture2D" uid="uid://dbvyqgbdogtxf" path="res://Assets/green guys/Orc/PNG/Vector Parts/Left Hand.png" id="3_il0oa"]
 [ext_resource type="Texture2D" uid="uid://d1thgpye7l1yd" path="res://Assets/green guys/Orc/PNG/Vector Parts/Left Arm.png" id="4_1o7pu"]
