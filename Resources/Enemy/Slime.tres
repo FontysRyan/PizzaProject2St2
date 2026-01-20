@@ -4,14 +4,13 @@
 
 [resource]
 script = ExtResource("1_o0x7k")
-ability_cooldown = 10.0
 ability_name = "Summon"
 passive_ability_name = "Absorb"
 name = "Slime"
 max_health = 210.0
-damage = 1.0
+damage = 2.0
 attack_range = 20.0
 attack_speed = 10.0
 resistance = 0.0
-movement_speed = 100.0
+movement_speed = 80.0
 metadata/_custom_type_script = "uid://bvxhjcjvfnoml"

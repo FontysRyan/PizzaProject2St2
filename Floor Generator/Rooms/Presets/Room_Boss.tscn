@@ -1,18 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bte0i20clrjw5"]
+[gd_scene load_steps=7 format=3 uid="uid://bte0i20clrjw5"]
 
 [ext_resource type="Script" uid="uid://bcr2vtlkd6rq8" path="res://Characters/Enemy/scripts/BossManager.gd" id="1_3vvy7"]
 [ext_resource type="Script" uid="uid://26tjxrqvqyal" path="res://Characters/Enemy/scripts/EnemyWeights.gd" id="2_l40i7"]
-[ext_resource type="Resource" uid="uid://bllt62hoyptsw" path="res://Characters/Enemy/scripts/Weights/SlimeWeights.tres" id="3_fijmn"]
 [ext_resource type="Resource" uid="uid://cv7l7vdtoc4ns" path="res://Characters/Enemy/scripts/Weights/OgreWeights.tres" id="4_y10tc"]
+[ext_resource type="Texture2D" uid="uid://bdrrno1kjtgny" path="res://Characters/Enemy/slime.png" id="5_fijmn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
 vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(24, 26, 1896, 26, 1896, 1080, 24, 1080)])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l40i7"]
+size = Vector2(1872, 1054)
+
 [node name="DefaultRoom" type="Node2D"]
 script = ExtResource("1_3vvy7")
-enemy_scenes = Array[ExtResource("2_l40i7")]([ExtResource("3_fijmn"), ExtResource("4_y10tc")])
+enemy_scenes = Array[ExtResource("2_l40i7")]([ExtResource("4_y10tc")])
 enemy_count = 1
 metadata/DoorPositions = {
 Vector2i(-1, 0): Vector2i(0, 540),
@@ -65,3 +68,16 @@ navigation_polygon = SubResource("NavigationPolygon_g6fcb")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(949, 583)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(4, 0)
+
+[node name="PlayerDetector" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(960, 553)
+shape = SubResource("RectangleShape2D_l40i7")
+
+[node name="Slime" type="Sprite2D" parent="."]
+position = Vector2(926, 611)
+texture = ExtResource("5_fijmn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

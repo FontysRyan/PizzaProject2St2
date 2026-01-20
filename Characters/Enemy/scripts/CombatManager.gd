@@ -14,7 +14,7 @@ var active : bool = false
 func activate(player: Node2D) -> void:
 	if cleared or active:
 		return
-	
+	print("spawning enemies")
 	active = true
 	lock_doors.emit()
 	_spawn_enemies(player)
@@ -26,7 +26,7 @@ func _spawn_enemies(player : Node2D) -> void:
 		return
 	
 	for i in enemy_count:
-		var enemy = pick_weighted_enemy()
+		var enemy = pick_weighted_enemy().instantiate()
 		print(enemy.name)
 		
 		var pos : Vector2 = _get_valid_nav_position(nav_map.get_navigation_map(), player)

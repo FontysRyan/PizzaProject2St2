@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://2p5htep48a8x"]
+[gd_scene load_steps=21 format=3 uid="uid://2p5htep48a8x"]
 
 [ext_resource type="Script" uid="uid://dlcnky5ygpp2h" path="res://Characters/Enemy/scripts/enemy/Ogre.gd" id="1_il0oa"]
 [ext_resource type="Resource" uid="uid://b3fxwipq2qni0" path="res://Resources/Enemy/Ogre.tres" id="2_1o7pu"]
+[ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="2_tcphy"]
 [ext_resource type="Texture2D" uid="uid://dbvyqgbdogtxf" path="res://Assets/green guys/Orc/PNG/Vector Parts/Left Hand.png" id="3_il0oa"]
+[ext_resource type="Resource" uid="uid://bnwdxjj8agx7r" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SPM_Bleeding.tres" id="3_kl43e"]
 [ext_resource type="Texture2D" uid="uid://d1thgpye7l1yd" path="res://Assets/green guys/Orc/PNG/Vector Parts/Left Arm.png" id="4_1o7pu"]
 [ext_resource type="Texture2D" uid="uid://dp2hpvfpctr1j" path="res://Assets/green guys/Orc/PNG/Vector Parts/Left Leg.png" id="5_tcphy"]
 [ext_resource type="Texture2D" uid="uid://dkbvf82k2ssva" path="res://Assets/green guys/Orc/PNG/Vector Parts/Right Leg.png" id="6_kl43e"]
@@ -931,6 +933,7 @@ _data = {
 collision_layer = 32
 collision_mask = 31
 script = ExtResource("1_il0oa")
+special_modes = Array[ExtResource("2_tcphy")]([ExtResource("3_kl43e")])
 stats = ExtResource("2_1o7pu")
 
 [node name="PivotPoint" type="Node2D" parent="."]
