@@ -1,15 +1,13 @@
-[gd_resource type="Resource" script_class="Ball" load_steps=4 format=3 uid="uid://c2jilbae4aykv"]
+[gd_resource type="Resource" script_class="Ball" load_steps=3 format=3 uid="uid://c2jilbae4aykv"]
 
 [ext_resource type="Script" uid="uid://3b7a0gouwves" path="res://Resources/Ball/Ball_Resource.gd" id="1_eqb8n"]
-[ext_resource type="Resource" uid="uid://bfn8wlbb0asvl" path="res://Resources/Passive abilities/Poison.tres" id="1_ny3fu"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ny3fu"]
+[ext_resource type="SpriteFrames" uid="uid://dmlp11hajj0ik" path="res://Resources/Ball/animations/Debug_ball_ani.tres" id="2_ny3fu"]
 
 [resource]
 script = ExtResource("1_eqb8n")
-sprite_frames = SubResource("SpriteFrames_ny3fu")
+sprite_frames = ExtResource("2_ny3fu")
+item_name = "Debug"
 bounciness = 0.665
-damage = 19.955
+damage = 999.0
 weight = 4.785
 size = 7.97
-ability = ExtResource("1_ny3fu")

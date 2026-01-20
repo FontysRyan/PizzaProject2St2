@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwmeqwbmbva0a"]
+
+[ext_resource type="PackedScene" uid="uid://b6amsuswt311e" path="res://Looting/Ball loot/Basic Ball.tscn" id="1_jy153"]
+[ext_resource type="Script" uid="uid://pdj6ay08j6qe" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/split_modes/Shotgun.gd" id="2_vf3dt"]
+[ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="2_xythd"]
+[ext_resource type="SpriteFrames" uid="uid://dmlp11hajj0ik" path="res://Resources/Ball/animations/Debug_ball_ani.tres" id="3_6hxkt"]
+
+[sub_resource type="Resource" id="Resource_j54o0"]
+script = ExtResource("2_vf3dt")
+metadata/_custom_type_script = "uid://pdj6ay08j6qe"
+
+[node name="Debug  Ball" instance=ExtResource("1_jy153")]
+split_mode = SubResource("Resource_j54o0")
+special_modes = Array[ExtResource("2_xythd")]([])
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("3_6hxkt")

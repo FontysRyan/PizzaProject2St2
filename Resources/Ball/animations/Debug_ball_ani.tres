@@ -1,0 +1,58 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://dmlp11hajj0ik"]
+
+[ext_resource type="Texture2D" uid="uid://bj08vc3p8pqdb" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_01.png" id="1_cxldv"]
+[ext_resource type="Texture2D" uid="uid://c137d5igk5024" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_02.png" id="2_dw208"]
+[ext_resource type="Texture2D" uid="uid://bo8c1bbqpa2sb" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_03.png" id="3_d23vu"]
+[ext_resource type="Texture2D" uid="uid://dlqjcfq4mev3y" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_04.png" id="4_51j3d"]
+[ext_resource type="Texture2D" uid="uid://cndhbydtf42ax" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_05.png" id="5_x4brf"]
+[ext_resource type="Texture2D" uid="uid://drdqg68wt6xg" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_06.png" id="6_6upk5"]
+[ext_resource type="Texture2D" uid="uid://cbxlp2swed1k" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_07.png" id="7_04xcp"]
+[ext_resource type="Texture2D" uid="uid://cep0nr3af8d6l" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_08.png" id="8_wfyrn"]
+[ext_resource type="Texture2D" uid="uid://3qdwne45jsf2" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_09.png" id="9_1iiux"]
+[ext_resource type="Texture2D" uid="uid://ckgaarn7kf16i" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_10.png" id="10_2pgtd"]
+[ext_resource type="Texture2D" uid="uid://gpolb0l1ilx1" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_11.png" id="11_tlrae"]
+[ext_resource type="Texture2D" uid="uid://cydo7mhvvto8r" path="res://Scenes/ball_physics_playground/test_assets/Water Ball/Water Ball_Frame_12.png" id="12_54hvv"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cxldv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dw208")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d23vu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_51j3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x4brf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6upk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_04xcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wfyrn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1iiux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2pgtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tlrae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_54hvv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
