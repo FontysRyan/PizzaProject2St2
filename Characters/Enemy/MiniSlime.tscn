@@ -21,6 +21,9 @@ position = Vector2(1.5, -20.5)
 shape = SubResource("RectangleShape2D_ecc28")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+avoidance_layers = 5
+avoidance_mask = 7
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 1, 1, 0)

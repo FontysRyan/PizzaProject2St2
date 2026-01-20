@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bte0i20clrjw5"]
+[gd_scene load_steps=6 format=3 uid="uid://bte0i20clrjw5"]
 
 [ext_resource type="Script" uid="uid://bcr2vtlkd6rq8" path="res://Characters/Enemy/scripts/BossManager.gd" id="1_3vvy7"]
 [ext_resource type="Script" uid="uid://26tjxrqvqyal" path="res://Characters/Enemy/scripts/EnemyWeights.gd" id="2_l40i7"]
 [ext_resource type="Resource" uid="uid://cv7l7vdtoc4ns" path="res://Characters/Enemy/scripts/Weights/OgreWeights.tres" id="4_y10tc"]
-[ext_resource type="Texture2D" uid="uid://bdrrno1kjtgny" path="res://Characters/Enemy/slime.png" id="5_fijmn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
 vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
@@ -75,9 +74,5 @@ position = Vector2(4, 0)
 [node name="PlayerDetector" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(960, 553)
 shape = SubResource("RectangleShape2D_l40i7")
-
-[node name="Slime" type="Sprite2D" parent="."]
-position = Vector2(926, 611)
-texture = ExtResource("5_fijmn")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

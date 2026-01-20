@@ -1153,6 +1153,8 @@ scale = Vector2(1.8471311, -8.137755)
 rest = Transform2D(0.06805367, -1.845877, -8.132226, -0.29981837, 0, 0)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+avoidance_mask = 3
 debug_use_custom = true
 debug_path_custom_color = Color(0, 0.9411765, 1, 1)
 
