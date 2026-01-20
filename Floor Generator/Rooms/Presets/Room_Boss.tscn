@@ -1,14 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://bte0i20clrjw5"]
+[gd_scene load_steps=6 format=3 uid="uid://bte0i20clrjw5"]
 
-[ext_resource type="Texture2D" uid="uid://bdrrno1kjtgny" path="res://Characters/Enemy/slime.png" id="1_3vvy7"]
-[ext_resource type="PackedScene" uid="uid://cagucdp668bfk" path="res://Characters/Enemy/Slime Miniboss.tscn" id="2_y1imu"]
+[ext_resource type="Script" uid="uid://bcr2vtlkd6rq8" path="res://Characters/Enemy/scripts/BossManager.gd" id="1_3vvy7"]
+[ext_resource type="Script" uid="uid://26tjxrqvqyal" path="res://Characters/Enemy/scripts/EnemyWeights.gd" id="2_l40i7"]
+[ext_resource type="Resource" uid="uid://cv7l7vdtoc4ns" path="res://Characters/Enemy/scripts/Weights/OgreWeights.tres" id="4_y10tc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
 vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(24, 26, 1896, 26, 1896, 1080, 24, 1080)])
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l40i7"]
+size = Vector2(1872, 1054)
+
 [node name="DefaultRoom" type="Node2D"]
+script = ExtResource("1_3vvy7")
+enemy_scenes = Array[ExtResource("2_l40i7")]([ExtResource("4_y10tc")])
+enemy_count = 1
 metadata/DoorPositions = {
 Vector2i(-1, 0): Vector2i(0, 540),
 Vector2i(0, -1): Vector2i(960, 0),
@@ -58,9 +65,14 @@ polygon = PackedVector2Array(-75, 1080, 1995, 1080, 1995, 1180, -75, 1180)
 [node name="NavMesh2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_g6fcb")
 
-[node name="Slime" type="Sprite2D" parent="."]
-position = Vector2(982, 614)
-texture = ExtResource("1_3vvy7")
-
-[node name="SlimeMiniboss" parent="." instance=ExtResource("2_y1imu")]
+[node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(949, 583)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(4, 0)
+
+[node name="PlayerDetector" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(960, 553)
+shape = SubResource("RectangleShape2D_l40i7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

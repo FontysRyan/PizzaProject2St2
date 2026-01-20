@@ -4,18 +4,17 @@ class_name CombatManager
 signal lock_doors
 signal unlock_doors
 
-@export var enemy_scenes : Array[PackedScene]
+@export var enemy_scenes : Array[EnemyWeights]
 @export var enemy_count : int = 5
 
 var enemies_alive : int = 0
 var cleared : bool = false
 var active : bool = false
 
-# replace this with actual logic for when the player enters the room. need to wait with this
 func activate(player: Node2D) -> void:
 	if cleared or active:
 		return
-	
+	print("spawning enemies")
 	active = true
 	lock_doors.emit()
 	_spawn_enemies(player)
@@ -27,7 +26,7 @@ func _spawn_enemies(player : Node2D) -> void:
 		return
 	
 	for i in enemy_count:
-		var enemy = enemy_scenes.pick_random().instantiate()
+		var enemy = pick_weighted_enemy().instantiate()
 		print(enemy.name)
 		
 		var pos : Vector2 = _get_valid_nav_position(nav_map.get_navigation_map(), player)
@@ -36,6 +35,19 @@ func _spawn_enemies(player : Node2D) -> void:
 		add_child(enemy)
 		enemies_alive += 1
 		enemy.connect("tree_exited", _on_enemy_removed)
+
+func pick_weighted_enemy() -> PackedScene:
+	var total_weight := 0.0
+	for entry in enemy_scenes:
+		total_weight += entry.weight
+
+	var r := randf() * total_weight
+	for entry in enemy_scenes:
+		r -= entry.weight
+		if r <= 0.0:
+			return entry.scene
+
+	return enemy_scenes[-1].scene
 
 func _get_valid_nav_position(nav_map : RID, player : Node2D) -> Vector2:
 	for i in range(20):

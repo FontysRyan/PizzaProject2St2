@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c2oixgv23yhvi"]
 
-[ext_resource type="Script" uid="uid://bfchxjh0f7jb8" path="res://Characters/Enemy/scripts/meleeEnemy.gd" id="1_jy732"]
+[ext_resource type="Script" uid="uid://bfchxjh0f7jb8" path="res://Characters/Enemy/scripts/enemy/meleeEnemy.gd" id="1_jy732"]
 [ext_resource type="Resource" uid="uid://dj37or0hb3cg6" path="res://Resources/Enemy/Melee.tres" id="2_34t7e"]
 [ext_resource type="Texture2D" uid="uid://byw7g53r57qbj" path="res://Assets/test models/1/PNG/Vector Parts/Left Hand.png" id="2_52jmu"]
 [ext_resource type="Texture2D" uid="uid://cqtaaf083i0h7" path="res://Assets/test models/1/PNG/Vector Parts/Left Arm.png" id="3_yqk80"]
@@ -1045,7 +1045,6 @@ scale = Vector2(13.841174, 1)
 rest = Transform2D(13.841174, 0, 0, 1, 21, 68)
 
 [node name="Sword" type="Sprite2D" parent="PivotPoint/Skeleton2D/Torso/LeftArm/LeftHand"]
-z_index = -1
 position = Vector2(11.487, 2)
 scale = Vector2(0.072248206, 1)
 texture = ExtResource("12_34t7e")
@@ -1081,6 +1080,8 @@ skew = 0.15064538
 texture = ExtResource("8_fbm3w")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+avoidance_mask = 3
 debug_use_custom = true
 debug_path_custom_color = Color(0, 0.9411765, 1, 1)
 
