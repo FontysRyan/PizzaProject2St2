@@ -8,6 +8,6 @@ script = ExtResource("1_eqb8n")
 sprite_frames = ExtResource("2_ny3fu")
 item_name = "Debug"
 bounciness = 0.665
-damage = 999.0
+damage = 1.0
 weight = 4.785
 size = 7.97

@@ -1,17 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwmeqwbmbva0a"]
+[gd_scene load_steps=9 format=3 uid="uid://dwmeqwbmbva0a"]
 
 [ext_resource type="PackedScene" uid="uid://b6amsuswt311e" path="res://Looting/Ball loot/Basic Ball.tscn" id="1_jy153"]
-[ext_resource type="Script" uid="uid://pdj6ay08j6qe" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/split_modes/Shotgun.gd" id="2_vf3dt"]
+[ext_resource type="Script" uid="uid://d33cw4ow4a6pr" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/physics_modes/Default_mode.gd" id="2_mxb66"]
 [ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="2_xythd"]
 [ext_resource type="SpriteFrames" uid="uid://dmlp11hajj0ik" path="res://Resources/Ball/animations/Debug_ball_ani.tres" id="3_6hxkt"]
+[ext_resource type="Script" uid="uid://bsimgfnyiq71n" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/split_modes/no_split.gd" id="3_s51da"]
+[ext_resource type="Resource" uid="uid://bnwdxjj8agx7r" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SPM_Bleeding.tres" id="4_j54o0"]
 
-[sub_resource type="Resource" id="Resource_j54o0"]
-script = ExtResource("2_vf3dt")
-metadata/_custom_type_script = "uid://pdj6ay08j6qe"
+[sub_resource type="Resource" id="Resource_s51da"]
+script = ExtResource("2_mxb66")
+metadata/_custom_type_script = "uid://d33cw4ow4a6pr"
+
+[sub_resource type="Resource" id="Resource_mtm5c"]
+script = ExtResource("3_s51da")
+metadata/_custom_type_script = "uid://bsimgfnyiq71n"
 
 [node name="Debug  Ball" instance=ExtResource("1_jy153")]
-split_mode = SubResource("Resource_j54o0")
-special_modes = Array[ExtResource("2_xythd")]([])
+linear_damp = 0.3
+angular_damp = 0.5
+physics_mode = SubResource("Resource_s51da")
+split_mode = SubResource("Resource_mtm5c")
+special_modes = Array[ExtResource("2_xythd")]([ExtResource("4_j54o0")])
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("3_6hxkt")
