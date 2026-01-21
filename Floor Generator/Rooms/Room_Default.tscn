@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://spiv057rtyni"]
-
-[ext_resource type="PackedScene" uid="uid://s8jg07gnon5g" path="res://UI/Battle UI.tscn" id="1_a20mn"]
+[gd_scene load_steps=2 format=3 uid="uid://spiv057rtyni"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
 vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
@@ -50,6 +48,3 @@ polygon = PackedVector2Array(0, 1080, 1920, 1080, 1920, 1106, 0, 1106)
 
 [node name="NavMesh2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_g6fcb")
-
-[node name="BattleUi" parent="." instance=ExtResource("1_a20mn")]
-top_level = true
