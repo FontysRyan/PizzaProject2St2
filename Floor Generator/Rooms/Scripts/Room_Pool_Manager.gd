@@ -4,6 +4,8 @@ class_name RoomPoolManager
 var room_pools: Dictionary[String, RoomPool]
 var ordered_pools: Array[RoomPool] = []
 
+var special_room_count: int = 0
+
 func _init(pools_json_location: String) -> void:
 	var json: JSON = JSON.new()
 	var pools_json: String = FileAccess.open(pools_json_location, FileAccess.READ).get_as_text()
@@ -11,6 +13,8 @@ func _init(pools_json_location: String) -> void:
 
 	for pool in pools.room_pools:
 		var new_pool := RoomPool.new(pool.id, pool.conditions, pool.priority, pool.rooms)
+		if pool.conditions.has("guaranteed_roll_chance"):
+			special_room_count += 1
 		room_pools[new_pool.id] = new_pool
 		ordered_pools.append(new_pool)
 
@@ -47,8 +51,7 @@ func check_condition(key: String, value, ctx: Dictionary, pool_id: String) -> bo
 
 		"guaranteed_roll_chance":
 			var exp: float = 5.0 # How far back do we push the special rooms
-			var special_rooms: int = 2
-			var treshold: float = pow((float(current_rooms) + special_rooms)/ctx.total_rooms, exp) * 100
+			var treshold: float = pow((float(current_rooms) + special_room_count)/ctx.total_rooms, exp) * 100
 			print(pool_id + " chance: " + str(treshold))
 			return ctx.random_roll <= treshold
 
