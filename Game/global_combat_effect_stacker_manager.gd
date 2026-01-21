@@ -87,10 +87,16 @@ func apply_tick(instance):
 	
 	var stacks = instance.stacks
 	var power = stacks * e.base_stack_power
+	
+	var hp
 
 	# Damage
 	if e.flat_damage > 0 or e.percent_max_hp_damage > 0:
-		var damage = e.flat_damage * power + t.health * e.percent_max_hp_damage * power
+		if t.is_in_group("Player"):
+			hp = t.stats.current_health
+		elif t.is_in_group("Enemy"):
+			hp = t.health
+		var damage = e.flat_damage * power + hp * e.percent_max_hp_damage * power
 		DamageNumberManager.show_damage(damage, t.global_position + Vector2(0, -90))
 		t.take_damage(damage)
 		print(t.name, "has taken", damage, "damage from", e.name)

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyWeights" load_steps=3 format=3 uid="uid://b3vctdui1bttg"]
+
+[ext_resource type="Script" uid="uid://26tjxrqvqyal" path="res://Characters/Enemy/scripts/EnemyWeights.gd" id="1_mx8go"]
+[ext_resource type="PackedScene" uid="uid://dgnudicqky5hs" path="res://Characters/Enemy/Berserker.tscn" id="1_yjfb1"]
+
+[resource]
+script = ExtResource("1_mx8go")
+scene = ExtResource("1_yjfb1")
+metadata/_custom_type_script = "uid://26tjxrqvqyal"

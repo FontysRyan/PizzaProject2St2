@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bedu7lho21qu4" path="res://Characters/Player/scripts/playercontroller.gd" id="1_6fff4"]
 [ext_resource type="Resource" uid="uid://xd7clwsrw2l5" path="res://Characters/Player/resource/Playerstats.tres" id="2_2xv0b"]
 [ext_resource type="Texture2D" uid="uid://boe4glq0sweis" path="res://Assets/fallen angel models/Fallen_Angels_1/PNG/Vector Parts/Head.png" id="2_6h4vt"]
-[ext_resource type="PackedScene" uid="uid://c25x2820c8blr" path="res://Looting/Ball loot/Basic Ball.tscn" id="2_7jpmk"]
+[ext_resource type="PackedScene" uid="uid://b6amsuswt311e" path="res://Looting/Ball loot/Basic Ball.tscn" id="2_7jpmk"]
 [ext_resource type="Texture2D" uid="uid://ctn8f1q44n482" path="res://Assets/fallen angel models/Fallen_Angels_3/PNG/Vector Parts/Body.png" id="3_wraqo"]
 [ext_resource type="Texture2D" uid="uid://b6nknrb2ay6sb" path="res://Assets/fallen angel models/Fallen_Angels_1/PNG/Vector Parts/Left Arm.png" id="4_0ij6m"]
 [ext_resource type="Texture2D" uid="uid://dfqbdclf43bu6" path="res://Assets/fallen angel models/Fallen_Angels_1/PNG/Vector Parts/Left Hand.png" id="5_2xv0b"]
@@ -12,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://cwjhu7rexehla" path="res://Assets/fallen angel models/Fallen_Angels_3/PNG/Vector Parts/Left Leg.png" id="8_k8aph"]
 [ext_resource type="Texture2D" uid="uid://kbhlx1sxkgnd" path="res://Assets/fallen angel models/Fallen_Angels_3/PNG/Vector Parts/Right Leg.png" id="9_74fb0"]
 [ext_resource type="Texture2D" uid="uid://cnnhpo5merk6f" path="res://Assets/fallen angel models/Fallen_Angels_2/PNG/Vector Parts/Face 01.png" id="10_870kv"]
-[ext_resource type="Texture2D" uid="uid://dgtcji56tcpm3" path="res://Assets/Weapons (golfsticks)/PNG/Staves_6/1.png" id="11_u61tb"]
-[ext_resource type="PackedScene" path="res://Characters/Player/aim indicator.tscn" id="12_6h4vt"]
-[ext_resource type="PackedScene" path="res://Characters/Player/TrajectoryLine.tscn" id="13_wraqo"]
-[ext_resource type="PackedScene" path="res://Characters/chargebar.tscn" id="14_0ij6m"]
+[ext_resource type="PackedScene" uid="uid://brfr8vyc5xrjj" path="res://Characters/Player/aim indicator.tscn" id="12_6h4vt"]
+[ext_resource type="Texture2D" uid="uid://cyx1kastgqfft" path="res://Assets/Weapons (golfsticks)/PNG/Staves_1/1.png" id="13_7jpmk"]
+[ext_resource type="PackedScene" uid="uid://o1tj2m71s2fd" path="res://Characters/Player/TrajectoryLine.tscn" id="13_wraqo"]
+[ext_resource type="PackedScene" uid="uid://cykj0rcui1jrh" path="res://Characters/chargebar.tscn" id="14_0ij6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j2ni"]
 size = Vector2(395, 561.5)
@@ -3600,7 +3600,7 @@ z_index = -1
 z_as_relative = false
 position = Vector2(11.487465, 2)
 scale = Vector2(0.072248206, 1)
-texture = ExtResource("11_u61tb")
+texture = ExtResource("13_7jpmk")
 
 [node name="ShoveArea" type="Area2D" parent="PivotPoint/Skeleton2D/Torso/LeftArm/LeftHand/Weapon"]
 position = Vector2(-273, -197)
