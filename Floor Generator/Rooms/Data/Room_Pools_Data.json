@@ -51,10 +51,10 @@
 	},
 	{
 	  "id": "loot",
-	  "priority": 95,
+	  "priority": 105,
 	  "conditions": {
-		"door_count_lte": 1,
-		"roll_chance": 50
+		"max_instances": 2,
+		"guaranteed_roll_chance": true,
 	  },
 	  "rooms": [
         "res://Floor Generator/Rooms/Presets/Loot Rooms/Room_Loot.tscn"
