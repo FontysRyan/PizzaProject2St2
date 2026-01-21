@@ -184,7 +184,7 @@ func clear_run_data():
 	stick_slot1 = "res://Looting/Stick loot/Basic Stick.tscn"
 	stick_slot2 = ""
 	stick_slot3 = ""
-	ball_slot1 = "res://Looting/Ball loot/Debug Ball.tscn"
+	ball_slot1 = "res://Looting/Ball loot/Basic Ball.tscn"
 	ball_slot2 = ""
 	ball_slot3 = ""
 	Stats.clear_all()
