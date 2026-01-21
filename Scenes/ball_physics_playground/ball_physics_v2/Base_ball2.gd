@@ -12,7 +12,7 @@ class_name BaseBall
 @export var original_radius: float = 20.0
 @export var knockback_power: float = 200.0
 var base_knockback: float = 1
-
+var player
 @export var pickup_delay: float = 0.2
 var can_be_picked_up: bool = true
 @onready var enable_mask_timer := get_tree().create_timer(2.0)
@@ -30,6 +30,9 @@ func _ready():
 		print(physics_mode.mode_name)  # prints "HeavyMode"
 	if split_mode:
 		split_mode.on_added(self)
+	var players = get_tree().get_nodes_in_group("Player")
+	if players.size() > 0:
+		player = players[0]
 	#for mode in special_modes:
 		#mode.on_added(self)
 	knockback_power *= base_knockback
@@ -83,7 +86,10 @@ func trigger_enemy_hit(target):
 	print("Hit accepted (0.1s passed)")
 	
 	if special_modes.size() > 0:
-		CombatEffectStackerManager.add_effect(special_modes[0], target, self)
+		if(special_modes[0].tags[0] == "vampire"):
+			CombatEffectStackerManager.add_effect(special_modes[0],player, target)
+			return
+		CombatEffectStackerManager.add_effect(special_modes[0], target, player)
 	if target.has_method("take_damage"):
 		target.take_damage(stats.damage)
 		DamageNumberManager.show_damage(stats.damage, target.global_position)

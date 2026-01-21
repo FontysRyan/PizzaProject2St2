@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpecialMode" load_steps=2 format=3 uid="uid://bs67te4xgyu7k"]
+
+[ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="1_a72ef"]
+
+[resource]
+script = ExtResource("1_a72ef")
+id = "bleeding"
+name = "bleeding"
+description = "Causes the target to bleed."
+tags = Array[String](["bleeding"])
+duration = 20.0
+tick_interval = 1.0
+max_stacks = 0
+flat_damage = 6.0

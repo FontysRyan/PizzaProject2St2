@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://1ld5xlaornyg"]
+
+[ext_resource type="Texture2D" uid="uid://bjvdfseu2xlbt" path="res://Scenes/ball_physics_playground/test_assets/Golf ball/HeavyBall.png" id="1_4qvu1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x75kq"]
+atlas = ExtResource("1_4qvu1")
+region = Rect2(0, 0, 640, 640)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x75kq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
