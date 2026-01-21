@@ -12,8 +12,8 @@ class_name BaseBall
 @export var original_radius: float = 20.0
 @export var knockback_power: float = 200.0
 var base_knockback: float = 1
-
-@export var pickup_delay: float = 0.5
+var player
+@export var pickup_delay: float = 0.2
 var can_be_picked_up: bool = true
 @onready var enable_mask_timer := get_tree().create_timer(2.0)
 
@@ -30,8 +30,12 @@ func _ready():
 		print(physics_mode.mode_name)  # prints "HeavyMode"
 	if split_mode:
 		split_mode.on_added(self)
+	var players = get_tree().get_nodes_in_group("Player")
+	if players.size() > 0:
+		player = players[0]
 	#for mode in special_modes:
 		#mode.on_added(self)
+	knockback_power *= base_knockback
 	await enable_mask_timer.timeout
 	set_collision_mask_value(1, true)
 
@@ -72,8 +76,6 @@ func on_hit(target):
 		if now - last_enemy_hit_time >= 0.1:
 			last_enemy_hit_time = now
 			trigger_enemy_hit(target)
-			if special_modes.count(SpecialMode) > 0:
-				CombatEffectStackerManager.add_effect(special_modes[0], target, target)
 
 	# Fake balls vanish on any collision
 	if not is_real:
@@ -82,11 +84,17 @@ func on_hit(target):
 
 func trigger_enemy_hit(target):
 	print("Hit accepted (0.1s passed)")
+	
+	if special_modes.size() > 0:
+		if(special_modes[0].tags[0] == "vampire"):
+			CombatEffectStackerManager.add_effect(special_modes[0],player, target)
+			return
+		CombatEffectStackerManager.add_effect(special_modes[0], target, player)
 	if target.has_method("take_damage"):
-			target.take_damage(stats.damage)
-			DamageNumberManager.show_damage(stats.damage, target.global_position)
+		target.take_damage(stats.damage)
+		DamageNumberManager.show_damage(stats.damage, target.global_position)
 	if target.has_method("take_knockback"):
-			target.take_knockback(knockback_power, self.global_position, base_enemy.knockback_source.BALL)
+		target.take_knockback(knockback_power, self.global_position, base_enemy.knockback_source.BALL)
 
 
 

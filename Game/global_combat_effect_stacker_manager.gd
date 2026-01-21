@@ -55,7 +55,15 @@ func add_effect(effect: SpecialMode, target, caster = null):
 		}
 		active_effects.append(instance)
 		print(target.name, "gained effect", effect.name)
-
+		# ADD THIS: If this is vampirism, try to apply bleeding to the caster (enemy)
+# Check vampirism AFTER adding/stacking - 25% chance to apply bleeding
+	if "vampire" in effect.tags and effect.secondary_effect:
+		if randf() < effect.secondary_chance:  # 25% chance
+			if is_instance_valid(caster) and caster.is_in_group("Enemy"):
+				print("Vampirism applied bleeding to ", caster.name)
+				add_effect(effect.secondary_effect, caster, target)
+		else:
+			print("Vampirism bleeding chance failed (25%)")
 
 # Called internally by timer
 func process(delta):
@@ -99,8 +107,25 @@ func apply_tick(instance):
 		var damage = e.flat_damage * power + hp * e.percent_max_hp_damage * power
 		DamageNumberManager.show_damage(damage, t.global_position + Vector2(0, -90))
 		t.take_damage(damage)
-		print(t.name, "has taken", damage, "damage from", e.name)
-
+		print(t.name, " has taken ", damage, " damage from ", e.name)
+		
+		# ADD THIS: If this is bleeding, check if player has vampirism
+		if "bleeding" in e.tags:
+			var player = get_tree().get_first_node_in_group("Player")
+			if is_instance_valid(player):
+				# Check if player has vampirism
+				for vamp_inst in active_effects:
+					if vamp_inst.target == player and "vampire" in vamp_inst.effect.tags:
+						var vamp = vamp_inst.effect
+						# Heal player with flat healing
+						if vamp.percent_max_hp_heal > 0:
+							var heal_amount = player.stats.max_health * vamp.percent_max_hp_heal
+							player.stats.current_health = min(player.stats.current_health + heal_amount, player.stats.max_health)
+							DamageNumberManager.show_damage(heal_amount, player.global_position + Vector2(0, -90))
+							print(player.name, " healed for ", heal_amount, " (", vamp.percent_max_hp_heal * 100, "% of max HP) from vampirism")
+							Stats.current_health = player.stats.current_health
+							print(player.stats.current_health)
+						break
 	# Healing
 	if e.flat_heal > 0 or e.percent_max_hp_heal > 0:
 		var heal_target = t
@@ -118,9 +143,10 @@ func apply_tick(instance):
 		print(t.name, "is slowed by multiplier", pow(e.slow_multiplier, power), "from", e.name)
 
 	# Secondary effect
+	print("Secondary chance: ", e.secondary_chance * power)
 	if e.secondary_effect and randf() < e.secondary_chance * power:
 		add_effect(e.secondary_effect, t, instance.caster)
-		print(t.name, "has triggered secondary effect", e.secondary_effect.name)
+		print(t.name, " has triggered secondary effect ", e.secondary_effect.name)
 
 
 # Remove effect instance
