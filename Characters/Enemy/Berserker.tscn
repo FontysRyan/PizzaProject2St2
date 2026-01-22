@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dgnudicqky5hs"]
 
-[ext_resource type="Script" uid="uid://cvg5uoht6ogi2" path="res://Characters/Enemy/scripts/berserker.gd" id="1_ucoit"]
+[ext_resource type="Script" uid="uid://cvg5uoht6ogi2" path="res://Characters/Enemy/scripts/enemy/berserker.gd" id="1_ucoit"]
 [ext_resource type="Resource" uid="uid://daojdxg6t6q3v" path="res://Resources/Enemy/Berserker.tres" id="2_ucoit"]
 [ext_resource type="Texture2D" uid="uid://dkntow20v6lw0" path="res://Assets/green guys/Ogre/PNG/Vector Parts/Left Hand.png" id="3_ucoit"]
 [ext_resource type="Texture2D" uid="uid://dovfqpfn68bh4" path="res://Assets/green guys/Ogre/PNG/Vector Parts/Left Arm.png" id="4_8murc"]
@@ -1045,7 +1045,6 @@ scale = Vector2(13.841174, 1)
 rest = Transform2D(13.841174, 0, 0, 1, 21, 68)
 
 [node name="Sword" type="Sprite2D" parent="PivotPoint/Skeleton2D/Torso/LeftArm/LeftHand"]
-z_index = -1
 position = Vector2(11.487, 2)
 scale = Vector2(0.072248206, 1)
 texture = ExtResource("11_6644m")
@@ -1081,6 +1080,8 @@ skew = 0.15064538
 texture = ExtResource("12_q4ksi")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+avoidance_mask = 3
 debug_use_custom = true
 debug_path_custom_color = Color(0, 0.9411765, 1, 1)
 

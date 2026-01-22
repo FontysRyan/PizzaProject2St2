@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Ball" load_steps=3 format=3 uid="uid://cim07iokw53ww"]
+
+[ext_resource type="SpriteFrames" uid="uid://cy8rmjpwq0too" path="res://Resources/Ball/animations/Vampire_ball_ani.tres" id="2_5bnd5"]
+[ext_resource type="Script" uid="uid://3b7a0gouwves" path="res://Resources/Ball/Ball_Resource.gd" id="2_ixntd"]
+
+[resource]
+script = ExtResource("2_ixntd")
+sprite_frames = ExtResource("2_5bnd5")
+item_name = "Vampire_ball"
+damage = 6.0
+weight = 4.0
+metadata/_custom_type_script = "uid://3b7a0gouwves"

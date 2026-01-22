@@ -1,7 +1,7 @@
 extends Resource
 class_name RoomObject
 
-var default_room_path: String = "res://Floor Generator/Rooms/Presets/Room_Default.tscn"
+var default_room_path: String = "res://Floor Generator/Rooms/Presets/Default Rooms/Room_Default.tscn"
 
 func _init(_data: Room_Data, _room_scene_path: String = default_room_path, screen_size: Vector2 = Vector2(1920,1080)) -> void:
 	# TEMP...?
