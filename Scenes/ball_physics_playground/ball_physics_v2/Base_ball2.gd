@@ -16,6 +16,7 @@ var player
 @export var pickup_delay: float = 0.2
 var can_be_picked_up: bool = true
 @onready var enable_mask_timer := get_tree().create_timer(2.0)
+@export var max_speed: float = 2450.0
 
 var _saved_collision_layer: int
 var _saved_collision_mask: int
@@ -42,6 +43,12 @@ func _ready():
 	await enable_mask_timer.timeout
 	set_collision_mask_value(1, true)
 
+func _physics_process(_delta: float) -> void:
+	var speed := linear_velocity.length()
+	if speed > max_speed:
+		linear_velocity = linear_velocity.normalized() * max_speed
+
+
 func disable_collisions_briefly() -> void:
 	_saved_collision_layer = collision_layer
 	_saved_collision_mask = collision_mask
@@ -67,9 +74,16 @@ func _on_body_entered(body):
 
 var last_enemy_hit_time: float = 0.0
 
-func on_hit(target):
+func _cap_speed() -> void:
 	var speed := linear_velocity.length()
-	print("Impact speed:", speed)
+	if speed > max_speed:
+		linear_velocity = linear_velocity.normalized() * max_speed
+
+
+func on_hit(target):
+
+	#var speed := linear_velocity.length()
+	#print("Impact speed:", speed)
 	# Physics modes always apply
 	if physics_mode:
 		physics_mode.on_hit(self, target)
@@ -96,7 +110,7 @@ func on_hit(target):
 		if now - last_enemy_hit_time >= 0.1:
 			last_enemy_hit_time = now
 			trigger_enemy_hit(target)
-
+	_cap_speed()
 	# Fake balls vanish on any collision
 	if not is_real:
 		vanish_now()
