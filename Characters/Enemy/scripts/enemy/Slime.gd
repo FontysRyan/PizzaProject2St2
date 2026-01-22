@@ -34,33 +34,35 @@ func use_ability():
 		if slime.has_method("retarget"):
 			slime.retarget()
 
-func take_damage(amount: float, _damage_source: Base_Ball = null):
-	if not _damage_source:
-		return
-	
-	damage_absorbed += amount
-	
-	stored_balls.append(_damage_source)
-	_damage_source.set_collision_mask_value(6, false)
-	_damage_source.global_position = global_position
-	_damage_source.velocity = 0
+# uncomment if you feel like making this shit work. currently absorbing does not work and we wont fix it
 
-func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_source):
-	if _type == knockback_source.BALL:
-		return
-	elif _type == knockback_source.STICK:
-		super.take_knockback(force, location_of_origin, _type)
-		if stored_balls.size() > 0:
-			for i in range(stored_balls.size()):
-				var angle := TAU * i / stored_balls.size()
-				var ball = stored_balls[i]
-				ball.global_position = global_position + Vector2(
-					cos(angle),
-					sin(angle)
-				) * spawn_radius
-				ball.velocity = angle * 500
-			stored_balls.clear()
-			super.take_damage(damage_absorbed)
+#func take_damage(amount: float, _damage_source: Base_Ball = null):
+	#if not _damage_source:
+		#return
+	#
+	#damage_absorbed += amount
+	#
+	#stored_balls.append(_damage_source)
+	#_damage_source.set_collision_mask_value(6, false)
+	#_damage_source.global_position = global_position
+	#_damage_source.velocity = 0
+
+#func take_knockback(force: float, location_of_origin: Vector2, _type: knockback_source):
+	#if _type == knockback_source.BALL:
+		#return
+	#elif _type == knockback_source.STICK:
+		#super.take_knockback(force, location_of_origin, _type)
+		#if stored_balls.size() > 0:
+			#for i in range(stored_balls.size()):
+				#var angle := TAU * i / stored_balls.size()
+				#var ball = stored_balls[i]
+				#ball.global_position = global_position + Vector2(
+					#cos(angle),
+					#sin(angle)
+				#) * spawn_radius
+				#ball.velocity = angle * 500
+			#stored_balls.clear()
+			#super.take_damage(damage_absorbed)
 
 func attack(target: CharacterBody2D):
 	if not target:
