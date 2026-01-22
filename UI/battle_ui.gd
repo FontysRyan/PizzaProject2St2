@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 	elif GameController.has_ball:
 		$MainUi/Center/HotBar/BallPanel/TextureRect.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	pass
+	$MainUi/Center/FloorLabel.text = "Floor: " + str(Stats.current_floor)
 
 
 

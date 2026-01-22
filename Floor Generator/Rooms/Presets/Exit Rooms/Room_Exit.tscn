@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://x0475x0iwr2q"]
+[gd_scene load_steps=6 format=4 uid="uid://x0475x0iwr2q"]
 
 [ext_resource type="Texture2D" uid="uid://cgyre2dsa6gud" path="res://Assets/kenney_sokoban-pack/Tilesheet/sokoban_tilesheet.png" id="1_0yrys"]
-[ext_resource type="Texture2D" uid="uid://cchf6psyq1as7" path="res://Floor Generator/Assets/hole/task_01keh4rdtwey3rtca6xj72smf8_1767954535_img_0.webp" id="1_cgq65"]
+[ext_resource type="PackedScene" uid="uid://dbq6gim60btvp" path="res://Floor Generator/Rooms/Exits/Exit.tscn" id="2_0yrys"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjb24"]
 texture = ExtResource("1_0yrys")
@@ -120,9 +120,6 @@ vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(24, 26, 1896, 26, 1896, 1080, 24, 1080)])
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xcvfv"]
-radius = 35.471233
-
 [node name="ExitRoom" type="Node2D"]
 metadata/DoorPositions = {
 Vector2i(-1, 0): Vector2i(0, 540),
@@ -184,16 +181,5 @@ polygon = PackedVector2Array(-75, 1080, 1995, 1080, 1995, 1180, -75, 1180)
 [node name="NavMesh2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_g6fcb")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(1336, 413)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(151.77, 127.87)
-shape = SubResource("CircleShape2D_xcvfv")
-debug_color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
-offset_right = 1536.0
-offset_bottom = 1024.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_cgq65")
+[node name="Exit" parent="." instance=ExtResource("2_0yrys")]
+position = Vector2(1403, 458)

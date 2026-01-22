@@ -73,7 +73,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="MainUi/Center"]
+[node name="FloorLabel" type="Label" parent="MainUi/Center"]
 layout_mode = 2
 size_flags_vertical = 2
 text = "Floor 1"

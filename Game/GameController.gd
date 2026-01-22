@@ -27,6 +27,7 @@ var ball_slot2 : String = ""
 var ball_slot3 : String = ""
 var equipped_ball_index : int = 0
 var has_ball : bool = true
+var boss_killed : bool = false
 
 func _ready() -> void:
 	stick_slot1 = "res://Looting/Stick loot/Basic Stick.tscn"
@@ -193,7 +194,7 @@ func clear_run_data():
 	stick_slot1 = "res://Looting/Stick loot/Basic Stick.tscn"
 	stick_slot2 = ""
 	stick_slot3 = ""
-	ball_slot1 = "res://Looting/Ball loot/Basic Ball.tscn"
+	ball_slot1 = "res://Looting/Debug Ball.tscn"
 	ball_slot2 = ""
 	ball_slot3 = ""
 	Stats.clear_all()
