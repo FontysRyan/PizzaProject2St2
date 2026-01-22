@@ -15,3 +15,11 @@ func _spawn_enemies(_player: Node2D) -> void:
 	add_child(enemy)
 	enemies_alive = 1
 	enemy.connect("tree_exited", _on_enemy_removed)
+
+func _on_enemy_removed() -> void:
+	Stats.bosses_killed += 1
+	enemies_alive -= 1
+	if enemies_alive <= 0:
+		cleared = true
+		active = false
+		unlock_doors.emit()
