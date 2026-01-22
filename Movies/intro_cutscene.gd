@@ -5,7 +5,6 @@ extends Node2D
 @export var dungeonFloor: Node2D
 @export var tilemapLayer: TileMapLayer
 @export var playerModel: Node2D
-@export var spawnRoom: PackedScene
 @export var skipButton: Button
 
 var skipped := false
@@ -14,7 +13,6 @@ var skipped := false
 func _ready() -> void:
 	assert(animationPlayer)
 	assert(tilemapLayer)
-	assert(spawnRoom)
 
 	# Initial state
 	dungeonFloor.visible = false
@@ -66,4 +64,4 @@ func _finish_intro() -> void:
 	tilemapLayer.visible = false
 
 	# Transition
-	get_tree().change_scene_to_packed(spawnRoom)
+	GameController.set_phase(GameController.GamePhase.NEW_GAME)
