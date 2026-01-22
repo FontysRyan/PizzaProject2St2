@@ -141,6 +141,7 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(amount: float, _damage_source: Base_Ball = null):
 	health -= amount
+	Stats.damage_dealt += amount
 	if health <= 0:
 		Stats.enemies_killed += 1
 		queue_free()
