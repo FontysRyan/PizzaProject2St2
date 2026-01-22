@@ -931,7 +931,7 @@ _data = {
 
 [node name="Ogre" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 32
-collision_mask = 31
+collision_mask = 28
 script = ExtResource("1_il0oa")
 special_modes = Array[ExtResource("2_tcphy")]([ExtResource("3_kl43e")])
 stats = ExtResource("2_1o7pu")
