@@ -68,8 +68,9 @@ func _on_body_entered(body):
 var last_enemy_hit_time: float = 0.0
 
 func on_hit(target):
+	var speed := linear_velocity.length()
+	print("Impact speed:", speed)
 	# Physics modes always apply
-	disable_collisions_briefly()
 	if physics_mode:
 		physics_mode.on_hit(self, target)
 
@@ -128,6 +129,7 @@ func vanish_now():
 
 
 func hit_ball(direction: Vector2, power: float) -> void:
+	
 	gravity_scale = 0
 	set_sleeping(false)
 
@@ -140,6 +142,7 @@ func hit_ball(direction: Vector2, power: float) -> void:
 	power = clamp(power, 0.0, 1.0)
 
 	var impulse = direction.normalized() * (power * total_push_power)
+	disable_collisions_briefly()
 	apply_central_impulse(impulse)
 
 
@@ -165,6 +168,7 @@ func Set_size(radius: float, new_mass: float):
 func spawn_split_child(velocity: Vector2, is_real_child := false) -> BaseBall:
 	var child := duplicate() as BaseBall
 	#child.Set_size(10,mass)
+	child.disable_collisions_briefly()
 	child.is_real = is_real_child
 	child.linear_velocity = velocity
 	child.global_position = global_position
