@@ -9,11 +9,12 @@ enum GamePhase {
 	TRAVEL,
 	COMBAT,
 	TREASURE,
-	DEATH
+	DEATH,
+	CUTSCENE
 }
 var Main_scene: String = "res://Scenes/Main menu.tscn"
-var Death_scene: String = ""
-var Dungeon_scene: String = "res://Movies/intro_cutscene.tscn"
+var Dungeon_scene: String = "res://Floor Generator/Map.tscn"
+var Intro_scene: String = "res://Movies/intro_cutscene.tscn"
 var current_phase: GamePhase = GamePhase.MAIN
 
 #inventory
@@ -53,6 +54,11 @@ func set_phase(new_phase: GamePhase):
 			set_game_speed(1)
 			clear_run_data()
 			get_tree().change_scene_to_file(Dungeon_scene)
+			get_tree().paused = false
+		GamePhase.CUTSCENE:
+			set_game_speed(1)
+			clear_run_data()
+			get_tree().change_scene_to_file(Intro_scene)
 			get_tree().paused = false
 		GamePhase.LOAD_GAME:
 			set_game_speed(1)
