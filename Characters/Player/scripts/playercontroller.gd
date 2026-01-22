@@ -162,7 +162,10 @@ func _process(_delta):
 			if environment.has_method("touch_chest"):
 				environment.touch_chest()
 			elif environment.has_method("next_floor"):
-				environment.next_floor()
+				if GameController.boss_killed:
+					stats.current_health = stats.max_health
+					Stats.current_health = stats.current_health
+					environment.next_floor()
 	golf_ball_asset = GameController._get_ball(GameController.equipped_ball_index)
 
 func _physics_process(_delta):
