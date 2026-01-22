@@ -1,13 +1,12 @@
 [gd_resource type="Resource" script_class="Ball" load_steps=3 format=3 uid="uid://c2jilbae4aykv"]
 
 [ext_resource type="Script" uid="uid://3b7a0gouwves" path="res://Resources/Ball/Ball_Resource.gd" id="1_eqb8n"]
-[ext_resource type="SpriteFrames" uid="uid://dmlp11hajj0ik" path="res://Resources/Ball/animations/Debug_ball_ani.tres" id="2_ny3fu"]
+[ext_resource type="SpriteFrames" path="res://Resources/Ball/animations/Debug_ball_ani.tres" id="2_ny3fu"]
 
 [resource]
 script = ExtResource("1_eqb8n")
 sprite_frames = ExtResource("2_ny3fu")
 item_name = "Debug"
-bounciness = 0.665
-damage = 1.0
-weight = 4.785
-size = 7.97
+damage = 10000.0
+weight = 0.1
+size = 8.0

@@ -138,19 +138,26 @@ tile_set = SubResource("TileSet_2aosc")
 [node name="Wall_Container" type="Node2D" parent="."]
 
 [node name="Wall_Top" type="Polygon2D" parent="Wall_Container"]
+position = Vector2(0.00011440425, -125)
+scale = Vector2(1.0760416, 5.8076925)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 1920, 0, 1920, 26, 0, 26)
 
 [node name="Wall_Bottom" type="Polygon2D" parent="Wall_Container"]
+position = Vector2(-132.99828, -6646.1533)
+scale = Vector2(1.06927, 7.1538463)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0016174316, 1080.0367, 1919.9999, 1080, 1919.9999, 1106, -0.00011444092, 1106)
 
 [node name="Wall_Left" type="Polygon2D" parent="Wall_Container"]
+position = Vector2(-132.99017, -123.02752)
+scale = Vector2(6.5363173, 1.1112365)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
 
 [node name="Wall_Right" type="Polygon2D" parent="Wall_Container"]
-position = Vector2(1896, 0)
+position = Vector2(1896.0093, -0.0035375394)
+scale = Vector2(7.159893, 1.1428602)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
 

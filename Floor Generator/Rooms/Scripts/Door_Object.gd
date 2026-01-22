@@ -45,6 +45,9 @@ func unlock_door():
 		
 func move_player_to_room(_door: DoorObject, player):
 	if is_open:
+		var balls = get_tree().get_nodes_in_group("Golf_Balls")
+		for i in balls:
+			i.on_hit(player)
 		var player_buffer: Vector2 = Vector2(100, 100)
 		player.position = self.global_position + ((room_spacing + player_buffer) * orientation)
 		get_tree().get_nodes_in_group("Camera")[0].position = (get_viewport_rect().size + room_spacing) * (room_grid_position + orientation) + get_viewport_rect().size/2
