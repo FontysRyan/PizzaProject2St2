@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://b8me65m6sjfqu"]
 
 [ext_resource type="Script" uid="uid://05lmeteqfdow" path="res://Characters/Enemy/scripts/CombatManager.gd" id="1_6keeb"]
-[ext_resource type="Script" path="res://Characters/Enemy/scripts/EnemyWeights.gd" id="2_tcdv0"]
+[ext_resource type="Script" uid="uid://26tjxrqvqyal" path="res://Characters/Enemy/scripts/EnemyWeights.gd" id="2_tcdv0"]
 [ext_resource type="PackedScene" uid="uid://c2oixgv23yhvi" path="res://Characters/Enemy/Enemy.tscn" id="2_yl4fa"]
 [ext_resource type="PackedScene" uid="uid://d2l6wdti0ii02" path="res://Characters/Enemy/RangedEnemy.tscn" id="3_ncoac"]
 [ext_resource type="PackedScene" uid="uid://dgnudicqky5hs" path="res://Characters/Enemy/Berserker.tscn" id="5_ncoac"]
@@ -191,7 +191,7 @@ polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 
 
 [node name="Colliders" type="StaticBody2D" parent="Wall_Container"]
 collision_layer = 4
-collision_mask = 35
+collision_mask = 33
 
 [node name="Collision_Left" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
 polygon = PackedVector2Array(-75, 1180, -75, -75, 25, -75, 25, 1180)
@@ -212,7 +212,7 @@ navigation_polygon = SubResource("NavigationPolygon_g6fcb")
 position = Vector2(300, 300)
 scale = Vector2(1.25, 1.25)
 collision_layer = 4
-collision_mask = 35
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NavMesh2D/Obstacle"]
 shape = SubResource("RectangleShape2D_6keeb")
@@ -224,7 +224,7 @@ polygon = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
 position = Vector2(1620, 300)
 scale = Vector2(1.25, 1.25)
 collision_layer = 4
-collision_mask = 35
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NavMesh2D/Obstacle2"]
 shape = SubResource("RectangleShape2D_6keeb")
@@ -236,7 +236,7 @@ polygon = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
 position = Vector2(1620, 780)
 scale = Vector2(1.25, 1.25)
 collision_layer = 4
-collision_mask = 35
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NavMesh2D/Obstacle3"]
 shape = SubResource("RectangleShape2D_6keeb")
@@ -248,7 +248,7 @@ polygon = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
 position = Vector2(300, 780)
 scale = Vector2(1.25, 1.25)
 collision_layer = 4
-collision_mask = 35
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NavMesh2D/Obstacle4"]
 shape = SubResource("RectangleShape2D_6keeb")
@@ -260,7 +260,7 @@ polygon = PackedVector2Array(-75, -75, 75, -75, 75, 75, -75, 75)
 position = Vector2(960, 540)
 scale = Vector2(1.25, 1.25)
 collision_layer = 4
-collision_mask = 35
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NavMesh2D/Obstacle5"]
 shape = SubResource("RectangleShape2D_6keeb")

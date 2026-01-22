@@ -19,7 +19,7 @@ metadata/_custom_type_script = "uid://d33cw4ow4a6pr"
 script = ExtResource("4_wrimo")
 metadata/_custom_type_script = "uid://pdj6ay08j6qe"
 
-[node name="Debug  Ball" instance=ExtResource("1_jy153")]
+[node name="Debug  Ball" instance=ExtResource("1_duv4y")]
 linear_damp = 0.3
 angular_damp = 0.5
 stats = ExtResource("2_ibn1s")
@@ -28,4 +28,4 @@ split_mode = SubResource("Resource_65t88")
 special_modes = Array[ExtResource("2_xythd")]([ExtResource("5_mxb66"), ExtResource("7_othdb"), ExtResource("8_65u10"), ExtResource("9_o68b6")])
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-sprite_frames = ExtResource("3_6hxkt")
+sprite_frames = ExtResource("6_2ttlb")

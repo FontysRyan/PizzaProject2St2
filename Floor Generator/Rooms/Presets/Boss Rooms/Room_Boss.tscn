@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://bte0i20clrjw5"]
 
 [ext_resource type="Script" uid="uid://bcr2vtlkd6rq8" path="res://Characters/Enemy/scripts/BossManager.gd" id="1_3vvy7"]
-[ext_resource type="Script" path="res://Characters/Enemy/scripts/EnemyWeights.gd" id="2_l40i7"]
+[ext_resource type="Script" uid="uid://26tjxrqvqyal" path="res://Characters/Enemy/scripts/EnemyWeights.gd" id="2_l40i7"]
 [ext_resource type="Texture2D" uid="uid://cgyre2dsa6gud" path="res://Assets/kenney_sokoban-pack/Tilesheet/sokoban_tilesheet.png" id="4_f04es"]
 [ext_resource type="Resource" uid="uid://cv7l7vdtoc4ns" path="res://Characters/Enemy/scripts/Weights/OgreWeights.tres" id="4_y10tc"]
 
@@ -172,7 +172,7 @@ polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 
 
 [node name="Colliders" type="StaticBody2D" parent="Wall_Container"]
 collision_layer = 4
-collision_mask = 35
+collision_mask = 33
 
 [node name="Collision_Left" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
 polygon = PackedVector2Array(-75, 1180, -75, -75, 25, -75, 25, 1180)
