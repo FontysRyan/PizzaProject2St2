@@ -1,6 +1,15 @@
-[gd_scene load_steps=6 format=4 uid="uid://b6muc6ey0dodm"]
+[gd_scene load_steps=15 format=4 uid="uid://b6muc6ey0dodm"]
 
 [ext_resource type="Texture2D" uid="uid://cgyre2dsa6gud" path="res://Assets/kenney_sokoban-pack/Tilesheet/sokoban_tilesheet.png" id="1_y0qfk"]
+[ext_resource type="Texture2D" uid="uid://rl2ccqa8dhni" path="res://Assets/kenney_input-prompts_1.4.1/Keyboard & Mouse/Default/keyboard_a_outline.png" id="2_iyjry"]
+[ext_resource type="Texture2D" uid="uid://caqxscg1vosgp" path="res://Assets/kenney_input-prompts_1.4.1/Keyboard & Mouse/Default/keyboard_d_outline.png" id="3_0s7ne"]
+[ext_resource type="Texture2D" uid="uid://bca7hyjhjwuf2" path="res://Assets/kenney_input-prompts_1.4.1/Keyboard & Mouse/Default/keyboard_s_outline.png" id="4_jpbam"]
+[ext_resource type="Texture2D" uid="uid://c04bgvxx50em" path="res://Assets/kenney_input-prompts_1.4.1/Keyboard & Mouse/Default/keyboard_w_outline.png" id="5_anis7"]
+[ext_resource type="Texture2D" uid="uid://cy44fvp08xqun" path="res://Assets/kenney_input-prompts_1.4.1/Keyboard & Mouse/Default/keyboard_e_outline.png" id="6_ipo6v"]
+[ext_resource type="Texture2D" uid="uid://bu87k4t5v6ebl" path="res://Assets/kenney_input-prompts_1.4.1/Keyboard & Mouse/Default/keyboard_r_outline.png" id="7_b7hy2"]
+[ext_resource type="Texture2D" uid="uid://bu022ew66o08t" path="res://Assets/kenney_input-prompts_1.4.1/Keyboard & Mouse/Default/mouse_right_outline.png" id="8_mt522"]
+[ext_resource type="Texture2D" uid="uid://dlw5cum7yc2hr" path="res://Assets/kenney_input-prompts_1.4.1/Keyboard & Mouse/Default/mouse_left_outline.png" id="9_4u84d"]
+[ext_resource type="Texture2D" uid="uid://csfp2tjwa6taw" path="res://Assets/kenney_input-prompts_1.4.1/Keyboard & Mouse/Default/mouse_move.png" id="10_8sixr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0qfk"]
 texture = ExtResource("1_y0qfk")
@@ -117,10 +126,8 @@ sources/2 = SubResource("TileSetAtlasSource_y0qfk")
 [sub_resource type="TileSet" id="TileSet_y0qfk"]
 tile_size = Vector2i(64, 64)
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_g6fcb"]
-vertices = PackedVector2Array(1886, 1070, 34, 1070, 34, 36, 1886, 36)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(24, 26, 1896, 26, 1896, 1080, 24, 1080)])
+[sub_resource type="LabelSettings" id="LabelSettings_iyjry"]
+font_size = 36
 
 [node name="SpawnRoom" type="Node2D"]
 metadata/DoorPositions = {
@@ -141,6 +148,114 @@ tile_set = SubResource("TileSet_k6ix7")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Floor"]
 tile_set = SubResource("TileSet_y0qfk")
+
+[node name="KeyboardAOutline" type="Sprite2D" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(79, 260)
+texture = ExtResource("2_iyjry")
+
+[node name="KeyboardDOutline" type="Sprite2D" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(189, 260)
+texture = ExtResource("3_0s7ne")
+
+[node name="KeyboardSOutline" type="Sprite2D" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(135, 260)
+texture = ExtResource("4_jpbam")
+
+[node name="KeyboardWOutline" type="Sprite2D" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(135, 203)
+texture = ExtResource("5_anis7")
+
+[node name="KeyboardEOutline" type="Sprite2D" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(320, 135)
+texture = ExtResource("6_ipo6v")
+
+[node name="KeyboardROutline" type="Sprite2D" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(320, 260)
+texture = ExtResource("7_b7hy2")
+
+[node name="MouseRightOutline" type="Sprite2D" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(740, 260)
+texture = ExtResource("8_mt522")
+
+[node name="MouseLeftOutline" type="Sprite2D" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(535, 260)
+texture = ExtResource("9_4u84d")
+
+[node name="Label" type="Label" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+offset_left = 612.0
+offset_top = 50.0
+offset_right = 703.0
+offset_bottom = 73.0
+text = "Move = Aim"
+
+[node name="MouseMove" type="Sprite2D" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(653, 135)
+texture = ExtResource("10_8sixr")
+
+[node name="Label2" type="Label" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+offset_left = 686.0
+offset_top = 185.0
+offset_right = 792.0
+offset_bottom = 208.0
+text = "Press = Shove"
+
+[node name="Label3" type="Label" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+offset_left = 476.0
+offset_top = 185.0
+offset_right = 598.0
+offset_bottom = 234.0
+text = "Hold = Charge
+Release = Shoot"
+
+[node name="Label4" type="Label" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+offset_left = 261.0
+offset_top = 185.0
+offset_right = 381.0
+offset_bottom = 208.0
+text = "Press = Interact"
+
+[node name="Label5" type="Label" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+offset_left = 247.0
+offset_top = 50.0
+offset_right = 381.0
+offset_bottom = 73.0
+text = "Press = Inventory"
+
+[node name="Label6" type="Label" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+offset_left = 55.0
+offset_top = 50.0
+offset_right = 171.0
+offset_bottom = 151.0
+text = "W = Move up
+A = Move left
+S = Move down
+D = Move right"
+
+[node name="Label7" type="Label" parent="Floor"]
+self_modulate = Color(1, 1, 1, 0.49019608)
+offset_left = 1253.0
+offset_top = 69.0
+offset_right = 1848.0
+offset_bottom = 225.0
+text = "Open treasure to unlock new balls
+Find the exit to escape the floor
+Kill the boss to unlock the exit"
+label_settings = SubResource("LabelSettings_iyjry")
 
 [node name="Wall_Container" type="Node2D" parent="."]
 
@@ -183,7 +298,3 @@ polygon = PackedVector2Array(-75, -75, 1995, -75, 1995, 26, -75, 25)
 
 [node name="Collision_Bottom" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
 polygon = PackedVector2Array(-75, 1080, 1995, 1080, 1995, 1180, -75, 1180)
-
-[node name="NavMesh2D" type="NavigationRegion2D" parent="."]
-z_index = -5
-navigation_polygon = SubResource("NavigationPolygon_g6fcb")
