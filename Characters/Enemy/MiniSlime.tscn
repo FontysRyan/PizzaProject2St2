@@ -9,7 +9,7 @@ size = Vector2(963, 663)
 
 [node name="MiniSlime" type="CharacterBody2D"]
 collision_layer = 32
-collision_mask = 63
+collision_mask = 60
 script = ExtResource("1_qauov")
 stats = ExtResource("2_mnmf7")
 
