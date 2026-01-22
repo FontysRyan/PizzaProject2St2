@@ -1441,7 +1441,7 @@ sources/2 = SubResource("TileSetAtlasSource_ntctl")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8o4jp"]
 size = Vector2(395, 561.5)
 
-[node name="IntroCutscene" type="Node2D" node_paths=PackedStringArray("blackOverlay", "animationPlayer", "dungeonFloor", "tilemapLayer", "playerModel")]
+[node name="IntroCutscene" type="Node2D" node_paths=PackedStringArray("blackOverlay", "animationPlayer", "dungeonFloor", "tilemapLayer", "playerModel", "skipButton")]
 script = ExtResource("1_1gu3r")
 blackOverlay = NodePath("BlackOverlay")
 animationPlayer = NodePath("AnimationPlayer")
@@ -1449,6 +1449,7 @@ dungeonFloor = NodePath("DungeonFloor")
 tilemapLayer = NodePath("DungeonFloor/TileMapLayer")
 playerModel = NodePath("PlayerModel")
 spawnRoom = ExtResource("2_1gu3r")
+skipButton = NodePath("CanvasLayer/SkipButton")
 
 [node name="SpotlightLayer" type="CanvasLayer" parent="."]
 layer = 10
@@ -1628,7 +1629,7 @@ rest = Transform2D(1, -0.00019209491, 0.00019209491, 1, -86, -37)
 
 [node name="RightHand" type="Bone2D" parent="PlayerModel/PivotPoint/Skeleton2D/Torso/RightArm"]
 position = Vector2(-18, 67)
-rotation = -0.28515804
+rotation = -0.285158
 scale = Vector2(0.99999994, 0.99999994)
 rest = Transform2D(0.95961714, -0.28130904, 0.28130904, 0.95961714, -18, 67)
 
@@ -1664,3 +1665,19 @@ rest = Transform2D(1.9372531, 0.15428934, -0.0793919, 0.9968428, 39, 71)
 rotation = -1.5339451
 scale = Vector2(1.8471311, -8.137755)
 rest = Transform2D(0.06805365, -1.8458767, -8.132225, -0.29981834, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SkipButton" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 70)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -70.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Skip"
