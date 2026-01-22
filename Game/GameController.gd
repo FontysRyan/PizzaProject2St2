@@ -12,7 +12,8 @@ enum GamePhase {
 	DEATH
 }
 var Main_scene: String = "res://Scenes/Main menu.tscn"
-var Dungeon_scene: String = "res://Floor Generator/Map.tscn"
+var Death_scene: String = ""
+var Dungeon_scene: String = "res://Movies/intro_cutscene.tscn"
 var current_phase: GamePhase = GamePhase.MAIN
 
 #inventory
@@ -44,19 +45,16 @@ func set_phase(new_phase: GamePhase):
 	# Handle scene change here
 	match new_phase:
 		GamePhase.MAIN:
-			boss_killed = false
 			has_ball = true
 			set_game_speed(1)
 			get_tree().change_scene_to_file(Main_scene)
 			get_tree().paused = false
 		GamePhase.NEW_GAME:
-			boss_killed = false
 			set_game_speed(1)
 			clear_run_data()
 			get_tree().change_scene_to_file(Dungeon_scene)
 			get_tree().paused = false
 		GamePhase.LOAD_GAME:
-			boss_killed = false
 			set_game_speed(1)
 			get_tree().change_scene_to_file(Dungeon_scene)
 			get_tree().paused = false
