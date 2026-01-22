@@ -17,6 +17,9 @@ var player
 var can_be_picked_up: bool = true
 @onready var enable_mask_timer := get_tree().create_timer(2.0)
 
+var _saved_collision_layer: int
+var _saved_collision_mask: int
+
 func _ready():
 
 	add_to_group("Golf_Balls")
@@ -39,6 +42,21 @@ func _ready():
 	await enable_mask_timer.timeout
 	set_collision_mask_value(1, true)
 
+func disable_collisions_briefly() -> void:
+	_saved_collision_layer = collision_layer
+	_saved_collision_mask = collision_mask
+
+	# Disable ALL collisions
+	collision_layer = 0
+	collision_mask = 0
+
+	# Wait exactly one physics tick (minimum reliable duration)
+	await get_tree().physics_frame
+
+	# Restore exactly what the ball had before
+	collision_layer = _saved_collision_layer
+	collision_mask = _saved_collision_mask
+
 func _on_body_entered(body):
 
 	#if body is CharacterBody2D:
@@ -51,6 +69,7 @@ var last_enemy_hit_time: float = 0.0
 
 func on_hit(target):
 	# Physics modes always apply
+	disable_collisions_briefly()
 	if physics_mode:
 		physics_mode.on_hit(self, target)
 

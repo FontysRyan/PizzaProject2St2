@@ -139,32 +139,32 @@ tile_set = SubResource("TileSet_e73ku")
 [node name="Wall_Container" type="Node2D" parent="."]
 
 [node name="Wall_Top" type="Polygon2D" parent="Wall_Container"]
-position = Vector2(0.00011205347, -140)
-scale = Vector2(1.0744791, 6.3846154)
+position = Vector2(7.992649e-05, -111.99999)
+scale = Vector2(1.053125, 5.3076925)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 1920, 0, 1920, 26, 0, 26)
 
 [node name="Wall_Bottom" type="Polygon2D" parent="Wall_Container"]
-position = Vector2(-141.99825, -6396.923)
-scale = Vector2(1.0739574, 6.923077)
+position = Vector2(-108.9983, -5342.8794)
+scale = Vector2(1.0567701, 5.923037)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0016174316, 1080.0367, 1919.9999, 1080, 1919.9999, 1106, -0.00011444092, 1106)
 
 [node name="Wall_Left" type="Polygon2D" parent="Wall_Container"]
-position = Vector2(-141.98961, -138.02783)
-scale = Vector2(6.9109597, 1.1247991)
+position = Vector2(-108.99167, -111.027245)
+scale = Vector2(5.537271, 1.1003864)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
 
 [node name="Wall_Right" type="Polygon2D" parent="Wall_Container"]
-position = Vector2(1896.009, -0.0034927595)
-scale = Vector2(6.9933853, 1.1410519)
+position = Vector2(1896.0065, -0.002261339)
+scale = Vector2(5.2450533, 1.0913221)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
 
 [node name="Colliders" type="StaticBody2D" parent="Wall_Container"]
 collision_layer = 4
-collision_mask = 35
+collision_mask = 33
 
 [node name="Collision_Left" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
 polygon = PackedVector2Array(-75, 1180, -75, -75, 25, -75, 25, 1180)

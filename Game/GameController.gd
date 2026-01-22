@@ -17,12 +17,12 @@ var Dungeon_scene: String = "res://Movies/intro_cutscene.tscn"
 var current_phase: GamePhase = GamePhase.MAIN
 
 #inventory
-var stick_slot1 : String = "res://Looting/Stick loot/Basic Stick.tscn"
+var stick_slot1 : String = "res://Looting/Basic/Basic Stick.tscn"
 var stick_slot2 : String = ""
 var stick_slot3 : String = ""
 var equipped_stick_index : int = 0
 
-var ball_slot1 : String = "res://Looting/Ball loot/Basic Ball.tscn"
+var ball_slot1 : String = "res://Looting/Basic/Basic Ball.tscn"
 var ball_slot2 : String = ""
 var ball_slot3 : String = ""
 var equipped_ball_index : int = 0
@@ -30,8 +30,8 @@ var has_ball : bool = true
 var boss_killed : bool = false
 
 func _ready() -> void:
-	stick_slot1 = "res://Looting/Stick loot/Basic Stick.tscn"
-	ball_slot1 = "res://Looting/Ball loot/Basic Ball.tscn"
+	stick_slot1 = "res://Looting/Basic/Basic Stick.tscn"
+	ball_slot1 = "res://Looting/Basic/Basic Ball.tscn"
 	
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,6 +45,7 @@ func set_phase(new_phase: GamePhase):
 	# Handle scene change here
 	match new_phase:
 		GamePhase.MAIN:
+			has_ball = true
 			set_game_speed(1)
 			get_tree().change_scene_to_file(Main_scene)
 			get_tree().paused = false
@@ -192,10 +193,10 @@ func _get_ball_texture(index : int) -> Texture2D:
 
 
 func clear_run_data():
-	stick_slot1 = "res://Looting/Stick loot/Basic Stick.tscn"
+	stick_slot1 = "res://Looting/Basic/Basic Stick.tscn"
 	stick_slot2 = ""
 	stick_slot3 = ""
-	ball_slot1 = "res://Looting/Debug Ball.tscn"
+	ball_slot1 = "res://Looting/Basic/Basic Ball.tscn"
 	ball_slot2 = ""
 	ball_slot3 = ""
 	Stats.clear_all()

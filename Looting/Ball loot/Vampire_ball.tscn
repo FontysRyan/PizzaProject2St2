@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cfy8mmkfe1m0i" path="res://Scenes/ball_physics_playground/ball_scenes/golf_ball.tscn" id="1_wuyt5"]
 [ext_resource type="Script" uid="uid://c1t004dj6a7mw" path="res://Scenes/ball_physics_playground/ball_physics_v2/Base_ball2.gd" id="2_52m2l"]
-[ext_resource type="Resource" uid="uid://bcgj0180cpn0k" path="res://Resources/Ball/ToxicOrb.tres" id="3_chtsg"]
+[ext_resource type="Resource" uid="uid://cim07iokw53ww" path="res://Resources/Ball/Vampire_ball.tres" id="3_wuyt5"]
 [ext_resource type="Script" uid="uid://d33cw4ow4a6pr" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/physics_modes/Default_mode.gd" id="4_wd6yl"]
 [ext_resource type="Script" uid="uid://bsimgfnyiq71n" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/split_modes/no_split.gd" id="5_uqs27"]
 [ext_resource type="Script" uid="uid://sokaixvgjdq" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SpecialMode.gd" id="6_j2nhx"]
-[ext_resource type="Resource" uid="uid://c63p3ttn6uoyv" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SPM_Poison.tres" id="7_fwkqq"]
+[ext_resource type="Resource" uid="uid://vbevx0tv6fv2" path="res://Scenes/ball_physics_playground/ball_physics_v2/Modes/Special_modes/SPM_Vampire.tres" id="7_52m2l"]
 [ext_resource type="SpriteFrames" uid="uid://cy8rmjpwq0too" path="res://Resources/Ball/animations/Vampire_ball_ani.tres" id="8_wuyt5"]
 
 [sub_resource type="Resource" id="Resource_mr13q"]
@@ -17,12 +17,12 @@ metadata/_custom_type_script = "uid://d33cw4ow4a6pr"
 script = ExtResource("5_uqs27")
 metadata/_custom_type_script = "uid://bsimgfnyiq71n"
 
-[node name="ToxicOrb" groups=["Golf_Balls"] instance=ExtResource("1_wuyt5")]
+[node name="Vampire_ball" groups=["Golf_Balls"] instance=ExtResource("1_wuyt5")]
 script = ExtResource("2_52m2l")
-stats = ExtResource("3_chtsg")
+stats = ExtResource("3_wuyt5")
 physics_mode = SubResource("Resource_mr13q")
 split_mode = SubResource("Resource_efyh2")
-special_modes = Array[ExtResource("6_j2nhx")]([ExtResource("7_fwkqq")])
+special_modes = Array[ExtResource("6_j2nhx")]([ExtResource("7_52m2l")])
 total_push_power = 2500.0
 is_real = true
 Can_Damage = true
