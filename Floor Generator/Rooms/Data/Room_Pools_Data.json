@@ -10,7 +10,7 @@
 		]
 	  },
 	  "rooms": [
-        "res://Floor Generator/Rooms/Presets/Room_Spawn.tscn"
+        "res://Floor Generator/Rooms/Presets/Spawn Rooms/Room_Spawn.tscn"
 	  ]
 	},
 	{
@@ -22,7 +22,7 @@
 		"guaranteed_roll_chance": true
 	  },
 	  "rooms": [
-        "res://Floor Generator/Rooms/Presets/Room_Exit.tscn"
+        "res://Floor Generator/Rooms/Presets/Exit Rooms/Room_Exit.tscn"
 	  ]	
 	},
 	{
@@ -31,11 +31,10 @@
 	  "conditions": {
 		"min_instances": 1,
 		"max_instances": 1,
-		"roll_chance": 100,
-		"guaranteed_roll_chance": true
+		"guaranteed_roll_chance": true,
 	  },
 	  "rooms": [
-        "res://Floor Generator/Rooms/Presets/Room_Boss.tscn"
+        "res://Floor Generator/Rooms/Presets/Boss Rooms/Room_Boss.tscn"
 	  ]	
 	},
 	{
@@ -43,21 +42,22 @@
 	  "priority": 100,
 	  "conditions": {
 		"door_count_gte": 2,
-		"roll_chance": 50
+		"roll_chance": 75
 	  },
 	  "rooms": [
-        "res://Floor Generator/Rooms/Presets/Room_Combat.tscn"
+		"res://Floor Generator/Rooms/Presets/Combat Rooms/Room_Combat.tscn",
+		"res://Floor Generator/Rooms/Presets/Combat Rooms/Room_Combat_2.tscn"
 	  ]	
 	},
 	{
 	  "id": "loot",
-	  "priority": 95,
+	  "priority": 105,
 	  "conditions": {
-		"door_count_lte": 1,
-		"roll_chance": 50
+		"max_instances": 2,
+		"guaranteed_roll_chance": true,
 	  },
 	  "rooms": [
-        "res://Floor Generator/Rooms/Presets/Room_Loot.tscn"
+        "res://Floor Generator/Rooms/Presets/Loot Rooms/Room_Loot.tscn"
 	  ]	
 	},
 	{
@@ -65,7 +65,8 @@
 	  "priority": -1,
 	  "conditions": {},
 	  "rooms": [
-        "res://Floor Generator/Rooms/Presets/Room_Default.tscn"
+		"res://Floor Generator/Rooms/Presets/Default Rooms/Room_Default.tscn",
+		"res://Floor Generator/Rooms/Presets/Default Rooms/Room_Default_2.tscn"
 	  ]
 	}
   ]

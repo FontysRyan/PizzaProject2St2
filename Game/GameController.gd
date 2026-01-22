@@ -60,8 +60,8 @@ func set_phase(new_phase: GamePhase):
 func _unhandled_input(event):
 	if event.is_action_pressed("Speedy"):
 		if Engine.time_scale == clamp(1.0, 0.0, 10.0):
-			set_game_speed(5)
-		elif Engine.time_scale == clamp(5.0, 0.0, 10.0):
+			set_game_speed(50)
+		elif Engine.time_scale == clamp(50.0, 0.0, 10.0):
 			set_game_speed(1)
 
 func set_game_speed(scale: float) -> void:
