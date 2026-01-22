@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbq6gim60btvp"]
+
+[ext_resource type="Script" uid="uid://wqmhdrte4h5w" path="res://Floor Generator/Rooms/Exits/exit.gd" id="1_teiv3"]
+[ext_resource type="Texture2D" uid="uid://cchf6psyq1as7" path="res://Floor Generator/Assets/hole/task_01keh4rdtwey3rtca6xj72smf8_1767954535_img_0.webp" id="1_wh5n4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xcvfv"]
+radius = 35.471233
+
+[node name="Exit" type="Node2D"]
+script = ExtResource("1_teiv3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(151.77, 127.87)
+shape = SubResource("CircleShape2D_xcvfv")
+debug_color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1536.0
+offset_bottom = 1024.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_wh5n4")

@@ -1,0 +1,214 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbgvee7832rhp"]
+
+[ext_resource type="Script" uid="uid://chobvr6uspmis" path="res://UI/death_ui.gd" id="1_q81iq"]
+[ext_resource type="LabelSettings" uid="uid://b2yjervgxosiy" path="res://UI/Fonts/font1.tres" id="2_mj8mt"]
+[ext_resource type="StyleBox" uid="uid://bysfbmofv3hkc" path="res://UI/styles/Death Ui.tres" id="3_vsxij"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_inii6"]
+font_size = 200
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjoq8"]
+bg_color = Color(0.6627451, 0.21960784, 0.19215687, 0.22745098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mu8u8"]
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsxij"]
+bg_color = Color(0, 0, 0, 0.39215687)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="Death UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("1_q81iq")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "You died"
+label_settings = SubResource("LabelSettings_inii6")
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="Panel"]
+custom_minimum_size = Vector2(512, 1080)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -540.0
+offset_bottom = 540.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cjoq8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Stats"
+label_settings = SubResource("LabelSettings_mu8u8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="StatsContainer" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+text = "Damage dealt:"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="Label2" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+text = "Damage taken:"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="Label3" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+text = "Damage healed:"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="Label4" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+text = "Hits dealt:"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="Label5" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+text = "Hits taken:"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="Label6" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+text = "Bosses killed:"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="Label7" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+text = "Enemies killed:"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="EStatsContainer" type="VBoxContainer" parent="Panel/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="damage_dealt" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+text = "<value>"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="damage_taken" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+text = "<value>"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="damage_healed" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+text = "<value>"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="hits_dealt" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+text = "<value>"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="hits_taken" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+text = "<value>"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="bosses_killed" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+text = "<value>"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="enemies_killed" type="Label" parent="Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+text = "<value>"
+label_settings = ExtResource("2_mj8mt")
+
+[node name="MenuButton" type="Button" parent="Panel/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(256, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_vsxij")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vsxij")
+theme_override_styles/hover = ExtResource("3_vsxij")
+text = "Back to main menu"
+
+[connection signal="pressed" from="Panel/Panel/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

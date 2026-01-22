@@ -157,9 +157,12 @@ func _process(_delta):
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-		var chest = collider.get_parent()
-		if chest.has_method("touch_chest"):
-			chest.touch_chest()
+		if collider != null:
+			var environment = collider.get_parent()
+			if environment.has_method("touch_chest"):
+				environment.touch_chest()
+			elif environment.has_method("next_floor"):
+				environment.next_floor()
 	golf_ball_asset = GameController._get_ball(GameController.equipped_ball_index)
 
 func _physics_process(_delta):
@@ -270,6 +273,7 @@ func take_damage(amount: float) -> void:
 	stats.current_health = clamp(stats.current_health, 0, stats.max_health)
 	Stats.current_health = stats.current_health
 	if stats.current_health <= 0:
+		GameController.set_phase(GameController.GamePhase.DEATH)
 		queue_free()
 
 func pickup_golf_ball(amount: int = 1):

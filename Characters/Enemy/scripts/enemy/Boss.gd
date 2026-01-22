@@ -23,6 +23,8 @@ func take_damage(amount: float, _damage_source: Base_Ball = null):
 		on_death()
 
 func on_death():
+	GameController.boss_killed = true
+	Stats.bosses_killed += 1
 	var room = get_parent()
 	var chest = Chest.new()
 	chest.set_type(Chest.ChestType.STICK)
