@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://4u8itrg8vpdy"]
+[gd_scene load_steps=6 format=4 uid="uid://4u8itrg8vpdy"]
 
 [ext_resource type="PackedScene" uid="uid://ca3y4gs1ty28r" path="res://Floor Generator/Rooms/Chests/Chest.tscn" id="1_kdvc1"]
 [ext_resource type="Texture2D" uid="uid://cgyre2dsa6gud" path="res://Assets/kenney_sokoban-pack/Tilesheet/sokoban_tilesheet.png" id="1_wo732"]
-[ext_resource type="Texture2D" uid="uid://c03oxok7di1kd" path="res://Assets/kenney_sokoban-pack/PNG/Default size/Blocks/block_02.png" id="2_k0sbr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dvi1y"]
 texture = ExtResource("1_wo732")
@@ -140,20 +139,26 @@ tile_set = SubResource("TileSet_1ue66")
 [node name="Wall_Container" type="Node2D" parent="."]
 
 [node name="Wall_Top" type="Polygon2D" parent="Wall_Container"]
+position = Vector2(8.854561e-05, -144)
+scale = Vector2(1.0588541, 6.5384617)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
-texture = ExtResource("2_k0sbr")
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 1920, 0, 1920, 26, 0, 26)
 
 [node name="Wall_Bottom" type="Polygon2D" parent="Wall_Container"]
+position = Vector2(-112.99829, -4361.538)
+scale = Vector2(1.0588533, 5.0384617)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0016174316, 1080.0367, 1919.9999, 1080, 1919.9999, 1106, -0.00011444092, 1106)
 
 [node name="Wall_Left" type="Polygon2D" parent="Wall_Container"]
+position = Vector2(-118.99104, -146.02803)
+scale = Vector2(5.9535403, 1.1320326)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
 
 [node name="Wall_Right" type="Polygon2D" parent="Wall_Container"]
-position = Vector2(1896, 0)
+position = Vector2(1896.0073, -0.0024180636)
+scale = Vector2(5.869458, 1.0976512)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
 

@@ -27,6 +27,7 @@ var ball_slot2 : String = ""
 var ball_slot3 : String = ""
 var equipped_ball_index : int = 0
 var has_ball : bool = true
+var boss_killed : bool = false
 
 func _ready() -> void:
 	stick_slot1 = "res://Looting/Basic/Basic Stick.tscn"
@@ -53,8 +54,18 @@ func set_phase(new_phase: GamePhase):
 			get_tree().change_scene_to_file(Dungeon_scene)
 			get_tree().paused = false
 		GamePhase.LOAD_GAME:
+			set_game_speed(1)
 			get_tree().change_scene_to_file(Dungeon_scene)
 			get_tree().paused = false
+		GamePhase.DEATH:
+			var parent = get_tree().get_root().get_node("Map/Slight_Zoom_Camera_Temp")
+			var old_ui = parent.get_node("BattleUi")
+			parent.remove_child(old_ui)
+			old_ui.queue_free()
+			var new_ui = load("res://UI/Death Ui.tscn")
+			var instance_new_ui = new_ui.instantiate()
+			parent.add_child(instance_new_ui)
+			set_game_speed(0)
 		
 
 func _unhandled_input(event):
