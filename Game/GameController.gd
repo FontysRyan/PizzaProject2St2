@@ -31,7 +31,7 @@ var boss_killed : bool = false
 
 func _ready() -> void:
 	stick_slot1 = "res://Looting/Basic/Basic Stick.tscn"
-	ball_slot1 = "res://Looting/Ball loot/MultiCore.tscn"
+	ball_slot1 = "res://Looting/Basic/Basic Ball.tscn"
 	
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -196,7 +196,7 @@ func clear_run_data():
 	stick_slot1 = "res://Looting/Basic/Basic Stick.tscn"
 	stick_slot2 = ""
 	stick_slot3 = ""
-	ball_slot1 = "res://Looting/Ball loot/MultiCore.tscn"
+	ball_slot1 = "res://Looting/Basic/Basic Ball.tscn"
 	ball_slot2 = ""
 	ball_slot3 = ""
 	Stats.clear_all()
