@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cvubu6cgpnwlq"]
+[gd_scene load_steps=20 format=3 uid="uid://cvubu6cgpnwlq"]
 
 [ext_resource type="Texture2D" uid="uid://boe4glq0sweis" path="res://Assets/fallen angel models/Fallen_Angels_1/PNG/Vector Parts/Head.png" id="1_52weu"]
 [ext_resource type="Texture2D" uid="uid://ctn8f1q44n482" path="res://Assets/fallen angel models/Fallen_Angels_3/PNG/Vector Parts/Body.png" id="2_8iacy"]
@@ -3438,9 +3438,6 @@ _data = {
 &"WALK": SubResource("Animation_0j2ni")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsmjh"]
-size = Vector2(571.69775, 669.00024)
-
 [node name="Player" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -3590,16 +3587,6 @@ z_as_relative = false
 position = Vector2(11.487465, 2)
 scale = Vector2(0.072248206, 1)
 texture = ExtResource("10_hqblf")
-
-[node name="ShoveArea" type="Area2D" parent="PivotPoint/Skeleton2D/Torso/LeftArm/LeftHand/Weapon"]
-position = Vector2(-273, -197)
-collision_layer = 0
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PivotPoint/Skeleton2D/Torso/LeftArm/LeftHand/Weapon/ShoveArea"]
-position = Vector2(236.20029, 440.49994)
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_lsmjh")
 
 [node name="RightLeg" type="Bone2D" parent="PivotPoint/Skeleton2D/Torso"]
 position = Vector2(-42, 73)

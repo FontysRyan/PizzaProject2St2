@@ -13,7 +13,7 @@ enum GamePhase {
 }
 var Main_scene: String = "res://Scenes/Main menu.tscn"
 var Death_scene: String = ""
-var Dungeon_scene: String = "res://Floor Generator/Map.tscn"
+var Dungeon_scene: String = "res://Movies/intro_cutscene.tscn"
 var current_phase: GamePhase = GamePhase.MAIN
 
 #inventory
