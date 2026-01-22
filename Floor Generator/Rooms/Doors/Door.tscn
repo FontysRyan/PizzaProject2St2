@@ -42,7 +42,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsiuw"]
-radius = 228.2192
+radius = 175.0
 
 [node name="RoomDoor" type="Node2D"]
 scale = Vector2(0.5, 0.5)

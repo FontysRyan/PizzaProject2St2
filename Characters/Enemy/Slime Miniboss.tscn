@@ -10,7 +10,7 @@ size = Vector2(963, 663)
 
 [node name="SlimeMiniboss" type="CharacterBody2D"]
 collision_layer = 32
-collision_mask = 31
+collision_mask = 60
 script = ExtResource("1_71gdq")
 mini_slime = ExtResource("2_velyp")
 stats = ExtResource("2_mpm8y")

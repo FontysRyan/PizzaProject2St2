@@ -15,3 +15,12 @@ func _spawn_enemies(_player: Node2D) -> void:
 	add_child(enemy)
 	enemies_alive = 1
 	enemy.connect("tree_exited", _on_enemy_removed)
+
+func _on_enemy_removed() -> void:
+	enemies_alive -= 1
+	if enemies_alive <= 0:
+		for enemy in get_tree().get_nodes_in_group("Mini_Slime"):
+			enemy.queue_free()
+		cleared = true
+		active = false
+		unlock_doors.emit()

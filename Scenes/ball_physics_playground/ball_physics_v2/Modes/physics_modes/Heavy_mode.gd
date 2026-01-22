@@ -3,8 +3,8 @@ extends PhysicsMode
 class_name HeavyMode
 
 @export var mode_name := "Heavy_mode"
-@export var radius := 50.0
-@export var mass_multiplier := 5.0
+@export var radius := 10.0
+@export var mass_multiplier := 2.0
 
 func on_added(ball):
 	if not ball.is_real:
