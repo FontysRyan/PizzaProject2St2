@@ -61,6 +61,7 @@ func set_phase(new_phase: GamePhase):
 			var parent = get_tree().get_root().get_node("Map/Slight_Zoom_Camera_Temp")
 			var old_ui = parent.get_node("BattleUi")
 			parent.remove_child(old_ui)
+			old_ui.queue_free()
 			var new_ui = load("res://UI/Death Ui.tscn")
 			var instance_new_ui = new_ui.instantiate()
 			parent.add_child(instance_new_ui)
