@@ -11,10 +11,10 @@ var damage_absorbed : float
 func _ready() -> void:
 	scale = Vector2(0.5, 0.5)
 	super._ready()
-	add_to_group("Slime Boss")
+	add_to_group("Slime_Boss")
 
 func use_ability():
-	var current := get_tree().get_nodes_in_group("mini_slimes").size()
+	var current := get_tree().get_nodes_in_group("Mini_Slime").size()
 	var allowed := max_mini_slimes - current
 	if allowed <= 0:
 		return

@@ -72,7 +72,6 @@ func _get_valid_nav_position(nav_map : RID, player : Node2D) -> Vector2:
 	return global_position
 
 func _on_enemy_removed() -> void:
-	Stats.enemies_killed += 1
 	enemies_alive -= 1
 	if enemies_alive <= 0:
 		cleared = true
