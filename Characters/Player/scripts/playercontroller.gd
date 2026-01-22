@@ -270,6 +270,7 @@ func take_damage(amount: float) -> void:
 	stats.current_health = clamp(stats.current_health, 0, stats.max_health)
 	Stats.current_health = stats.current_health
 	if stats.current_health <= 0:
+		GameController.set_phase(GameController.GamePhase.DEATH)
 		queue_free()
 
 func pickup_golf_ball(amount: int = 1):
