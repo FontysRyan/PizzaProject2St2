@@ -929,7 +929,7 @@ _data = {
 
 [node name="MeleeEnemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 32
-collision_mask = 31
+collision_mask = 28
 script = ExtResource("1_jy732")
 stats = ExtResource("2_34t7e")
 
