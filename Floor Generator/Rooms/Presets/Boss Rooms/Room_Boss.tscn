@@ -147,26 +147,26 @@ tile_set = SubResource("TileSet_0n8wm")
 [node name="Wall_Container" type="Node2D" parent="."]
 
 [node name="Wall_Top" type="Polygon2D" parent="Wall_Container"]
-position = Vector2(7.6791854e-05, -140)
-scale = Vector2(1.0510416, 6.3846154)
+position = Vector2(7.992649e-05, -111.99999)
+scale = Vector2(1.053125, 5.3076925)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 1920, 0, 1920, 26, 0, 26)
 
 [node name="Wall_Bottom" type="Polygon2D" parent="Wall_Container"]
-position = Vector2(-80.998314, -4179.8457)
-scale = Vector2(1.0421866, 4.8461537)
+position = Vector2(-108.9983, -5342.8794)
+scale = Vector2(1.0567701, 5.923037)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0016174316, 1080.0367, 1919.9999, 1080, 1919.9999, 1106, -0.00011444092, 1106)
 
 [node name="Wall_Left" type="Polygon2D" parent="Wall_Container"]
-position = Vector2(-80.99342, -140.02788)
-scale = Vector2(4.3717175, 1.1266075)
+position = Vector2(-108.99167, -111.027245)
+scale = Vector2(5.537271, 1.1003864)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
 
 [node name="Wall_Right" type="Polygon2D" parent="Wall_Container"]
-position = Vector2(1896.006, -0.0016120449)
-scale = Vector2(4.9536657, 1.0651009)
+position = Vector2(1896.0065, -0.002261339)
+scale = Vector2(5.2450533, 1.0913221)
 color = Color(0.80049086, 0.80049074, 0.80049074, 1)
 polygon = PackedVector2Array(-0.0015044947, 0.03675685, 24.021412, 0.024762243, 24, 1106, 0, 1106)
 
@@ -175,10 +175,10 @@ collision_layer = 4
 collision_mask = 33
 
 [node name="Collision_Left" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
-polygon = PackedVector2Array(-75, 1180, -75, -75, 25, -75, 25, 1180)
+polygon = PackedVector2Array(-74, 1154, -75, -75, 25, -75, 24, 1154)
 
 [node name="Collision_Right" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
-polygon = PackedVector2Array(1995, -75, 1896, -75, 1896, 1180, 1995, 1180)
+polygon = PackedVector2Array(1995, -75, 1896, -75, 1896, 1152, 1994, 1154)
 
 [node name="Collision_Top" type="CollisionPolygon2D" parent="Wall_Container/Colliders"]
 polygon = PackedVector2Array(-75, -75, 1995, -75, 1995, 26, -75, 25)

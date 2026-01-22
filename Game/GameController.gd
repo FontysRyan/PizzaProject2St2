@@ -45,6 +45,7 @@ func set_phase(new_phase: GamePhase):
 	# Handle scene change here
 	match new_phase:
 		GamePhase.MAIN:
+			has_ball = true
 			set_game_speed(1)
 			get_tree().change_scene_to_file(Main_scene)
 			get_tree().paused = false
