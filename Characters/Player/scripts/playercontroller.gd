@@ -38,6 +38,8 @@ var is_shoving: bool = false
 
 @export var shove_area: Area2D
 
+@onready var enable_ball_timer := get_tree().create_timer(5.0)
+
 # ---------------------------------------------------
 
 func _ready():
@@ -270,6 +272,14 @@ func _on_charge_released(force: float):
 # ---------------------------------------------------
 # DAMAGE / PICKUPS
 # ---------------------------------------------------
+func _unhandled_input(event):
+	
+	if event.is_action_pressed("GetBall"):
+		if enable_ball_timer.time_left == 0:
+			var balls = get_tree().get_nodes_in_group("Golf_Balls")
+			for i in balls:
+				i.on_hit(self)
+				enable_ball_timer = get_tree().create_timer(30.0)
 
 func take_damage(amount: float) -> void:
 	stats.current_health -= amount
