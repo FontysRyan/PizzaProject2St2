@@ -21,9 +21,7 @@ func _on_new_button_pressed() -> void:
 
 
 func _on_credits_button_pressed() -> void:
-	var stick = StickGacha.get_stick()
-	var path = stick.get_path()
-	print(path)
+	pass
 
 
 func _on_continue_button_pressed() -> void:

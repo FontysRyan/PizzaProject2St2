@@ -41,13 +41,14 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(160, 0)
+custom_minimum_size = Vector2(330, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Quit
