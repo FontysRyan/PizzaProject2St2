@@ -9,7 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if GameController.ball_slot1 != "res://Looting/Basic/Basic Ball.tscn" || GameController.ball_slot2 != "" || GameController.ball_slot3 != "" || GameController.stick_slot1 != "res://Looting/Basic/Basic Stick.tscn" || GameController.stick_slot2 != "" || GameController.stick_slot3 != "":
-		$MarginContainer/VBoxContainer/ContinueButton.disabled = false
+		$VBoxContainer/ContinueButton.disabled = false
 
 
 func _on_quit_button_pressed() -> void:
