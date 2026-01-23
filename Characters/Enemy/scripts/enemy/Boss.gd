@@ -27,7 +27,7 @@ func on_death():
 	Stats.bosses_killed += 1
 	var room = get_parent()
 	var chest = Chest.new()
-	chest.set_type(Chest.ChestType.STICK)
+	chest.set_type(Chest.ChestType.BALL)
 	chest.position = self.position
 	room.add_child(chest)
 	self.queue_free()
