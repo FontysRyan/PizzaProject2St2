@@ -1085,6 +1085,7 @@ texture = ExtResource("12_shwid")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
+radius = 100.0
 avoidance_layers = 5
 avoidance_mask = 3
 debug_use_custom = true
