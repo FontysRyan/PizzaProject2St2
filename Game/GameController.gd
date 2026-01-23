@@ -205,4 +205,6 @@ func clear_run_data():
 	ball_slot1 = "res://Looting/Basic/Basic Ball.tscn"
 	ball_slot2 = ""
 	ball_slot3 = ""
+	equipped_ball_index = 0
+	equipped_stick_index = 0
 	Stats.clear_all()

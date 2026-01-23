@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 func next_floor():
 	Stats.current_floor += 1
 	GameController.has_ball = true
+	GameController.boss_killed = false
 	GameController.set_phase(GameController.GamePhase.LOAD_GAME)

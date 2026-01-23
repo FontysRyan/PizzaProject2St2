@@ -5,7 +5,7 @@ extends Control
 func _ready() -> void:
 	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/floors_cleared.text = str(Stats.current_floor)
 	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/damage_dealt.text = str(Stats.damage_dealt)
-	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/damage_taken.text = str(Stats.damage_taken)
+	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/damage_taken.text = str(floor(Stats.damage_taken))
 	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/damage_healed.text = str(Stats.damage_healed)
 	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/hits_dealt.text = str(Stats.hits_dealt)
 	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/hits_taken.text = str(Stats.hits_taken)
