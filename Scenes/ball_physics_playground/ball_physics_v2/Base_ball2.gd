@@ -15,7 +15,7 @@ var base_knockback: float = 1
 var player
 @export var pickup_delay: float = 0.2
 var can_be_picked_up: bool = true
-@onready var enable_mask_timer := get_tree().create_timer(2.0)
+@onready var enable_mask_timer := get_tree().create_timer(0.2)
 
 var _saved_collision_layer: int
 var _saved_collision_mask: int
