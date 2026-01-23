@@ -124,6 +124,7 @@ func apply_tick(instance):
 							DamageNumberManager.show_damage(heal_amount, player.global_position + Vector2(0, -90))
 							print(player.name, " healed for ", heal_amount, " (", vamp.percent_max_hp_heal * 100, "% of max HP) from vampirism")
 							Stats.current_health = player.stats.current_health
+							Stats.damage_healed += heal_amount
 							print(player.stats.current_health)
 						break
 	# Healing
@@ -134,6 +135,7 @@ func apply_tick(instance):
 		if not is_instance_valid(heal_target):
 			return
 		var heal_amount = e.flat_heal * power + heal_target.max_hp * e.percent_max_hp_heal * power
+		Stats.damage_healed += heal_amount
 		print(heal_target.name, "has been healed for", heal_amount, "by", e.name)
 
 	# Stun / Slow

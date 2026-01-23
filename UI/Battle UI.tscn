@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://s8jg07gnon5g"]
+[gd_scene load_steps=12 format=3 uid="uid://s8jg07gnon5g"]
 
 [ext_resource type="Script" uid="uid://yaocpo1x1yp5" path="res://UI/battle_ui.gd" id="1_63iuo"]
 [ext_resource type="Script" uid="uid://bn8pkvjy0qrvu" path="res://UI/progress_bar.gd" id="1_qe2yl"]
@@ -7,6 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://dbo0wiu55skh2" path="res://UI/panels/BallPanel.tscn" id="4_bcbqt"]
 [ext_resource type="PackedScene" uid="uid://dud757an0lbk7" path="res://UI/panels/AbilityPanel.tscn" id="5_iaxgc"]
 [ext_resource type="PackedScene" uid="uid://d4c5a3i35xm83" path="res://UI/loot_slot_button.tscn" id="7_bcbqt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcbqt"]
+bg_color = Color(0.5137255, 0, 0, 0.39215687)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iaxgc"]
+bg_color = Color(0, 0.5882353, 0, 0.5882353)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_63iuo"]
 font_size = 100
@@ -38,6 +52,8 @@ custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_bcbqt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iaxgc")
 max_value = 200.0
 show_percentage = false
 script = ExtResource("1_qe2yl")
@@ -89,12 +105,15 @@ size_flags_vertical = 10
 alignment = 1
 
 [node name="StickPanel" parent="MainUi/Center/HotBar" instance=ExtResource("3_eeboc")]
+self_modulate = Color(1, 1, 1, 0.5882353)
 layout_mode = 2
 
 [node name="BallPanel" parent="MainUi/Center/HotBar" instance=ExtResource("4_bcbqt")]
+self_modulate = Color(1, 1, 1, 0.5882353)
 layout_mode = 2
 
 [node name="AbilityPanel" parent="MainUi/Center/HotBar" instance=ExtResource("5_iaxgc")]
+self_modulate = Color(1, 1, 1, 0.5882353)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MainUi"]

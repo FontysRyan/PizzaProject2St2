@@ -1473,6 +1473,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
+zoom = Vector2(1.11, 1.11)
 
 [node name="Node2D" parent="." instance=ExtResource("3_t53if")]
 z_index = 5
@@ -1627,8 +1628,8 @@ rest = Transform2D(1, -0.00019209491, 0.00019209491, 1, -86, -37)
 
 [node name="RightHand" type="Bone2D" parent="PlayerModel/PivotPoint/Skeleton2D/Torso/RightArm"]
 position = Vector2(-18, 67)
-rotation = -0.28515798
-scale = Vector2(0.9999999, 0.9999999)
+rotation = -0.285158
+scale = Vector2(0.9999998, 0.9999998)
 rest = Transform2D(0.95961714, -0.28130904, 0.28130904, 0.95961714, -18, 67)
 
 [node name="LeftArm" type="Bone2D" parent="PlayerModel/PivotPoint/Skeleton2D/Torso"]

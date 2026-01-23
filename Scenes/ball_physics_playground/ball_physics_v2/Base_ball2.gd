@@ -15,7 +15,7 @@ var base_knockback: float = 1
 var player
 @export var pickup_delay: float = 0.2
 var can_be_picked_up: bool = true
-@onready var enable_mask_timer := get_tree().create_timer(2.0)
+@onready var enable_mask_timer := get_tree().create_timer(0.2)
 
 var _saved_collision_layer: int
 var _saved_collision_mask: int
@@ -91,6 +91,7 @@ func on_hit(target):
 
 	# Enemy hit → damage (real or fake)
 	if target.is_in_group("Enemy") || target.is_in_group("Boss"):
+		Stats.hits_dealt += 1
 		var now = Time.get_ticks_msec() / 1000.0
 		if now - last_enemy_hit_time >= 0.1:
 			last_enemy_hit_time = now
