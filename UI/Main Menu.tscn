@@ -1,55 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsulweevuuynq"]
+[gd_scene load_steps=3 format=3 uid="uid://bsulweevuuynq"]
 
 [ext_resource type="Script" uid="uid://trqcuqae6tpr" path="res://UI/main_menu.gd" id="1_6iuai"]
+[ext_resource type="Texture2D" uid="uid://d0oen6pb6i1av" path="res://Assets/Poster/20260123_0914_Image Generation_remix_01kfmyncj9eq4sqh7jrszcyc5m.png" id="2_kybp0"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_6iuai")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="202601230914ImageGenerationRemix01Kfmyncj9Eq4Sqh7Jrszcyc5m" type="Sprite2D" parent="."]
+position = Vector2(960.00006, 606)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_kybp0")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1375.0
+offset_top = 850.0
+offset_right = 1705.0
+offset_bottom = 1017.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="NewButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "Dungeon Golfers"
-horizontal_alignment = 1
-
-[node name="NewButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "New Game"
 
-[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 disabled = true
 text = "Continue Game"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 20.0
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(320, 0)
+[node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(320, 0)
+[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Quit
 "
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
