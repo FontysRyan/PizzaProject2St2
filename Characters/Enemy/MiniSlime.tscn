@@ -22,6 +22,7 @@ shape = SubResource("RectangleShape2D_ecc28")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
+radius = 100.0
 avoidance_layers = 5
 avoidance_mask = 7
 debug_enabled = true

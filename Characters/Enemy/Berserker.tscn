@@ -1081,6 +1081,7 @@ texture = ExtResource("12_q4ksi")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
+radius = 100.0
 avoidance_mask = 3
 debug_use_custom = true
 debug_path_custom_color = Color(0, 0.9411765, 1, 1)
