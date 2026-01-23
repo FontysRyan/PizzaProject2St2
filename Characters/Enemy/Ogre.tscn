@@ -1048,7 +1048,6 @@ scale = Vector2(13.841174, 1)
 rest = Transform2D(13.841174, 0, 0, 1, 21, 68)
 
 [node name="Sword" type="Sprite2D" parent="PivotPoint/Skeleton2D/Torso/LeftArm/LeftHand"]
-z_index = -1
 position = Vector2(11.487, 2)
 scale = Vector2(0.072248206, 1)
 texture = ExtResource("11_v08v4")

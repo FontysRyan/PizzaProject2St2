@@ -31,7 +31,7 @@
 	  "conditions": {
 		"min_instances": 1,
 		"max_instances": 1,
-		"guaranteed_roll_chance": true,
+		"roll_chance": 100
 	  },
 	  "rooms": [
         "res://Floor Generator/Rooms/Presets/Boss Rooms/Room_Boss.tscn"
