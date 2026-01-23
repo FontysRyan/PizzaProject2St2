@@ -113,6 +113,7 @@ self_modulate = Color(1, 1, 1, 0.5882353)
 layout_mode = 2
 
 [node name="AbilityPanel" parent="MainUi/Center/HotBar" instance=ExtResource("5_iaxgc")]
+visible = false
 self_modulate = Color(1, 1, 1, 0.5882353)
 layout_mode = 2
 
