@@ -32,7 +32,7 @@ func _spawn_enemies(player : Node2D) -> void:
 		var pos : Vector2 = _get_valid_nav_position(nav_map.get_navigation_map(), player)
 		enemy.global_position = pos
 		
-		add_child(enemy)
+		get_parent().add_child(enemy)
 		enemies_alive += 1
 		enemy.connect("tree_exited", _on_enemy_removed)
 
@@ -51,7 +51,8 @@ func pick_weighted_enemy() -> PackedScene:
 
 func _get_valid_nav_position(nav_map : RID, player : Node2D) -> Vector2:
 	for i in range(20):
-		var candidate : Vector2 =  get_viewport_rect().size/2 + Vector2(
+		var camera : Camera2D = get_tree().get_root().get_node("Map/Slight_Zoom_Camera_Temp")
+		var candidate : Vector2 =  camera.get_screen_center_position() + Vector2(
 			randf_range(-200, 200),
 			randf_range(-200, 200)
 		)
