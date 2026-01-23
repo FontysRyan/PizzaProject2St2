@@ -33,7 +33,7 @@ func use_ability():
 	anim_player.speed_scale = 0.6
 	await anim_player.animation_finished
 	anim_player.speed_scale = 1
-	if global_position.distance_to(player.global_position) <= ability_range*10:
+	if global_position.distance_to(player.global_position) <= ability_range:
 		player.take_damage(damage/2)
 		DamageNumberManager.show_damage(damage, player.global_position, "crit")
 		CombatEffectStackerManager.add_effect(special_modes[0], player, self)
