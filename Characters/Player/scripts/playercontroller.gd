@@ -275,6 +275,8 @@ func take_damage(amount: float) -> void:
 	stats.current_health -= amount
 	stats.current_health = clamp(stats.current_health, 0, stats.max_health)
 	Stats.current_health = stats.current_health
+	Stats.damage_taken += amount
+	Stats.hits_taken += 1
 	if stats.current_health <= 0:
 		GameController.set_phase(GameController.GamePhase.DEATH)
 		queue_free()

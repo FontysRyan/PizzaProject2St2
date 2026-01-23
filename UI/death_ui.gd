@@ -3,6 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/floors_cleared.text = str(Stats.current_floor)
 	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/damage_dealt.text = str(Stats.damage_dealt)
 	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/damage_taken.text = str(Stats.damage_taken)
 	$Panel/Panel/VBoxContainer/HBoxContainer/EStatsContainer/damage_healed.text = str(Stats.damage_healed)

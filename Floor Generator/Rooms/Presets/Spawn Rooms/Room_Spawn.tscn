@@ -150,47 +150,47 @@ tile_set = SubResource("TileSet_k6ix7")
 tile_set = SubResource("TileSet_y0qfk")
 
 [node name="KeyboardAOutline" type="Sprite2D" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 position = Vector2(79, 260)
 texture = ExtResource("2_iyjry")
 
 [node name="KeyboardDOutline" type="Sprite2D" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 position = Vector2(189, 260)
 texture = ExtResource("3_0s7ne")
 
 [node name="KeyboardSOutline" type="Sprite2D" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 position = Vector2(135, 260)
 texture = ExtResource("4_jpbam")
 
 [node name="KeyboardWOutline" type="Sprite2D" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 position = Vector2(135, 203)
 texture = ExtResource("5_anis7")
 
 [node name="KeyboardEOutline" type="Sprite2D" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 position = Vector2(320, 135)
 texture = ExtResource("6_ipo6v")
 
 [node name="KeyboardROutline" type="Sprite2D" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 position = Vector2(320, 260)
 texture = ExtResource("7_b7hy2")
 
 [node name="MouseRightOutline" type="Sprite2D" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 position = Vector2(740, 260)
 texture = ExtResource("8_mt522")
 
 [node name="MouseLeftOutline" type="Sprite2D" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 position = Vector2(535, 260)
 texture = ExtResource("9_4u84d")
 
 [node name="Label" type="Label" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 offset_left = 612.0
 offset_top = 50.0
 offset_right = 703.0
@@ -198,12 +198,12 @@ offset_bottom = 73.0
 text = "Move = Aim"
 
 [node name="MouseMove" type="Sprite2D" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 position = Vector2(653, 135)
 texture = ExtResource("10_8sixr")
 
 [node name="Label2" type="Label" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 offset_left = 686.0
 offset_top = 185.0
 offset_right = 792.0
@@ -211,7 +211,7 @@ offset_bottom = 208.0
 text = "Press = Shove"
 
 [node name="Label3" type="Label" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 offset_left = 476.0
 offset_top = 185.0
 offset_right = 598.0
@@ -220,7 +220,7 @@ text = "Hold = Charge
 Release = Shoot"
 
 [node name="Label4" type="Label" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 offset_left = 261.0
 offset_top = 185.0
 offset_right = 381.0
@@ -228,7 +228,7 @@ offset_bottom = 208.0
 text = "Press = Interact"
 
 [node name="Label5" type="Label" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 offset_left = 247.0
 offset_top = 50.0
 offset_right = 381.0
@@ -236,7 +236,7 @@ offset_bottom = 73.0
 text = "Press = Inventory"
 
 [node name="Label6" type="Label" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 offset_left = 55.0
 offset_top = 50.0
 offset_right = 171.0
@@ -247,7 +247,7 @@ S = Move down
 D = Move right"
 
 [node name="Label7" type="Label" parent="Floor"]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(0, 0, 0, 0.49019608)
 offset_left = 1253.0
 offset_top = 69.0
 offset_right = 1848.0
